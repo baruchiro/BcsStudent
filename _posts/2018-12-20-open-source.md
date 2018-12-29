@@ -209,11 +209,3 @@ post_date: 2018-12-20 17:34:55
 <!-- /wp:list -->
 
 <!-- wp:wpforms/form-selector {"formId":"1031","displayTitle":true,"displayDesc":true} /-->
-
-<!-- wp:shortcode -->
-[wpghs target='view' type='link' text='Here is my post on GitHub']
-<!-- /wp:shortcode -->
-
-<!-- wp:shortcode -->
-wpghs target='view' type='link' text='Here is my post on GitHub'
-<!-- /wp:shortcode -->
