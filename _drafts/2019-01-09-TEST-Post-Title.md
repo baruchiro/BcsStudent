@@ -13,8 +13,6 @@ published: false
 
 <!-- wp:paragraph -->
 <p>Test</p>
+<h2>cshev</h2>
 <!-- /wp:paragraph -->
-
-<!-- wp:heading -->
 <h2>מושגים</h2>
-<!-- /wp:heading -->
