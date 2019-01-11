@@ -28,8 +28,9 @@ def get_md_in_folder(folder: str)->List[str]:
     return glob.glob(f"{folder}/*.md")
 
 
-def get_new_terms_as_li(content)->List[Tag]:
-    def create_li(soup: BeautifulSoup, a)->Tag:
+def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
+
+    def create_li(soup: BeautifulSoup, a, id)->Tag:
         term_name = a["href"].replace(NEW_TERM_MARK, '')
         terms = db.search(Terms.name == term_name)
         if len(terms) == 0:
@@ -43,13 +44,15 @@ def get_new_terms_as_li(content)->List[Tag]:
 
         li = soup.new_tag('li')
         li['term'] = term_name
-        li.append(f'<strong>{title}</strong>{description}')
+        li['id'] = f'{id}_{term_name}'
+        li.append(BeautifulSoup(
+            f'<strong>{title}</strong>{description}', features="html.parser"))
 
         return li
 
-    soup = BeautifulSoup(content, features="html.parser")
+    soup = BeautifulSoup(post.content, features="html.parser")
     all_a = soup.select(f'a[href^={NEW_TERM_MARK}]')
-    return [create_li(soup, a) for a in all_a]
+    return [create_li(soup, a, post['ID']) for a in all_a]
 
 
 def insert_li_to_list(content, li_list: List[Tag]):
@@ -71,13 +74,29 @@ def insert_li_to_list(content, li_list: List[Tag]):
     return soup
 
 
+def replace_all_terms_links(post: frontmatter.Post, terms: List[str]):
+    for a in post.content.select(f'a[href^={NEW_TERM_MARK}]'):
+        a['href'] = a['href'].replace(
+            NEW_TERM_MARK, '#' + str(post['ID']) + "_")
+
+    return post.content
+
+
+def get_all_listed_terms(soup: BeautifulSoup):
+    return [l['term'] for l in soup.find_all('li', term=True)]
+
+
 def rewrite_post(path: str, post: frontmatter.Post):
     frontmatter.dump(post, path)
 
 
-posts = {p: get_post(p) for p in get_md_in_folder("_posts")}
+if __name__ == "__main__":
 
-for path, post in posts.items():
-    new_terms_li = get_new_terms_as_li(post.content)
-    post.content = insert_li_to_list(post.content, new_terms_li)
-    rewrite_post(path, post)
+    posts = {p: get_post(p) for p in get_md_in_folder("_drafts")}
+
+    for path, post in posts.items():
+        new_terms_li = get_new_terms_as_li(post)
+        post.content = insert_li_to_list(post.content, new_terms_li)
+        all_terms_in_list = get_all_listed_terms(post.content)
+        post.content = replace_all_terms_links(post, all_terms_in_list)
+        rewrite_post(path, post)
