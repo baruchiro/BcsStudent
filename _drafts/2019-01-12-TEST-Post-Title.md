@@ -12,7 +12,13 @@ published: false
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Test</p>
-<h2>cshev</h2>
+<p><p>Test</p> בדיקה<h2>cshev</h2></p>
 <!-- /wp:paragraph -->
+
+<!-- wp:heading -->
 <h2>מושגים</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul><li><strong>מושג:</strong> פירוט מושג.</li></ul>
+<!-- /wp:list -->
