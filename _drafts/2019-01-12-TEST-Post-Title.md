@@ -12,8 +12,7 @@ published: false
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p><p>Test</p>
-<h2>cshev</h2></p>
+<p><p>Test</p> בדיקה<h2>cshev</h2></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
