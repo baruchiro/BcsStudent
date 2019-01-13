@@ -4,8 +4,9 @@ post_title: מושגים
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: page
-permalink: https://www.bcsstudent.com/?page_id=1111
-published: false
+permalink: https://www.bcsstudent.com/terms/
+published: true
+post_date: 2019-01-13 14:31:49
 ---
 <!-- wp:paragraph -->
 <p>מושגים שמופיעים בכל הפוסטים מרוכזים כאן.</p>
