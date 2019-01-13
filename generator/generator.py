@@ -46,7 +46,7 @@ def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
         li['term'] = term_name
         li['id'] = f'{id}_{term_name}'
         li.append(BeautifulSoup(
-            f'<strong>{title}</strong>- {description}', features="html.parser"))
+            f'<strong>{title}</strong>- {description}.', features="html.parser"))
 
         return li
 
