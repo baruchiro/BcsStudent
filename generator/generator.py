@@ -102,6 +102,24 @@ def rewrite_post(path: str, post: frontmatter.Post):
     frontmatter.dump(post, path)
 
 
+def regenerate_terms_page():
+    post = get_post('_pages/terms.md')
+    post.content = BeautifulSoup(open('generator/terms_page.html',
+                                      'r', encoding='utf-8').read(),  features="html.parser")
+    id = post['ID']
+    ul = post.content.find('ul', class_='terms_list')
+    for term in sorted(db.all(), key=lambda t: t['title']):
+        li = post.content.new_tag('li')
+        li['term'] = term["name"]
+        li['id'] = f'{id}_{term["name"]}'
+        li.append(BeautifulSoup(
+            f'<strong>{term["title"]}</strong>- {term["description"]}.', features="html.parser"))
+
+        ul.append(li)
+
+    rewrite_post('_pages/terms.md', post)
+
+
 if __name__ == "__main__":
 
     posts = {p: get_post(p) for p in get_md_in_folder("_posts")}
@@ -114,3 +132,5 @@ if __name__ == "__main__":
 
         post.content = update_terms_list(post)
         rewrite_post(path, post)
+
+    regenerate_terms_page()
