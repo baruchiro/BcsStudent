@@ -10,14 +10,15 @@ from tinydb import TinyDB, Query
 
 
 os.chdir(path.dirname(path.dirname(__file__)))
-TERMS_LIST_TEMPLATE = open('generator/terms_list.html', 'r').read()
+TERMS_LIST_TEMPLATE = open('generator/terms_list.html',
+                           'r', encoding='utf-8').read()
 NEW_TERM_MARK = '###'
 DEFAULT_DESCRIPTION = "עדיין אין פירוט למושג הזה"
 
-db = TinyDB('generator/db.json').table('Terms')
+db = TinyDB('generator/db.json', encoding='utf-8').table('Terms')
 Terms = Query()
 
-print(TERMS_LIST_TEMPLATE)
+# print(TERMS_LIST_TEMPLATE)
 
 
 def get_post(path: str)->frontmatter.Post:
@@ -31,7 +32,7 @@ def get_md_in_folder(folder: str)->List[str]:
 def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
 
     def create_li(soup: BeautifulSoup, a, id)->Tag:
-        term_name = a["href"].replace(NEW_TERM_MARK, '')
+        term_name = a["href"].replace(NEW_TERM_MARK, '').lower()
         terms = db.search(Terms.name == term_name)
         if len(terms) == 0:
             description = DEFAULT_DESCRIPTION
@@ -74,10 +75,11 @@ def insert_li_to_list(content, li_list: List[Tag]):
     return soup
 
 
-def replace_all_terms_links(post: frontmatter.Post, terms: List[str]):
+def replace_all_terms_links(post: frontmatter.Post):
     for a in post.content.select(f'a[href^={NEW_TERM_MARK}]'):
-        a['href'] = a['href'].replace(
-            NEW_TERM_MARK, '#' + str(post['ID']) + "_")
+        term = a['href'].replace(NEW_TERM_MARK, '')
+        a['href'] = f'#{post["ID"]}_{term}'
+        a['term'] = term
 
     return post.content
 
@@ -98,5 +100,5 @@ if __name__ == "__main__":
         new_terms_li = get_new_terms_as_li(post)
         post.content = insert_li_to_list(post.content, new_terms_li)
         all_terms_in_list = get_all_listed_terms(post.content)
-        post.content = replace_all_terms_links(post, all_terms_in_list)
+        post.content = replace_all_terms_links(post)
         rewrite_post(path, post)
