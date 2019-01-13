@@ -18,7 +18,20 @@ DEFAULT_DESCRIPTION = "עדיין אין פירוט למושג הזה"
 db = TinyDB('generator/db.json', encoding='utf-8').table('Terms')
 Terms = Query()
 
-# print(TERMS_LIST_TEMPLATE)
+
+def get_term_by_name(name: str):
+    name = name.lower()
+    terms = db.search(Terms.name == name)
+
+    if len(terms) == 0:
+        return {
+            "name": name,
+            "description": DEFAULT_DESCRIPTION,
+            "title": name
+        }
+    if len(terms) > 1:
+        print(f'{term_name} appear in {len(terms)} times')
+    return terms[0]
 
 
 def get_post(path: str)->frontmatter.Post:
@@ -32,22 +45,14 @@ def get_md_in_folder(folder: str)->List[str]:
 def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
 
     def create_li(soup: BeautifulSoup, a, id)->Tag:
-        term_name = a["href"].replace(NEW_TERM_MARK, '').lower()
-        terms = db.search(Terms.name == term_name)
-        if len(terms) == 0:
-            description = DEFAULT_DESCRIPTION
-            title = term_name
-        else:
-            description = terms[0]['description']
-            title = terms[0]['title']
-            if len(terms) > 1:
-                print(f'{term_name} appear in {len(terms)} times')
+        term_name = a["href"].replace(NEW_TERM_MARK, '')
+        term = get_term_by_name(term_name)
 
         li = soup.new_tag('li')
-        li['term'] = term_name
-        li['id'] = f'{id}_{term_name}'
+        li['term'] = term["name"]
+        li['id'] = f'{id}_{term["name"]}'
         li.append(BeautifulSoup(
-            f'<strong>{title}</strong>- {description}.', features="html.parser"))
+            f'<strong>{term["title"]}</strong>- {term["description"]}.', features="html.parser"))
 
         return li
 
@@ -77,15 +82,20 @@ def insert_li_to_list(content, li_list: List[Tag]):
 
 def replace_all_terms_links(post: frontmatter.Post):
     for a in post.content.select(f'a[href^={NEW_TERM_MARK}]'):
-        term = a['href'].replace(NEW_TERM_MARK, '')
+        term = a['href'].replace(NEW_TERM_MARK, '').lower()
         a['href'] = f'#{post["ID"]}_{term}'
         a['term'] = term
 
     return post.content
 
 
-def get_all_listed_terms(soup: BeautifulSoup):
-    return [l['term'] for l in soup.find_all('li', term=True)]
+def update_terms_list(post: frontmatter.Post):
+    for l in post.content.find_all('li', term=True):
+        term = get_term_by_name(l['term'])
+        l.contents = BeautifulSoup(
+            f'<strong>{term["title"]}</strong>- {term["description"]}.', features="html.parser")
+
+    return post.content
 
 
 def rewrite_post(path: str, post: frontmatter.Post):
@@ -99,6 +109,7 @@ if __name__ == "__main__":
     for path, post in posts.items():
         new_terms_li = get_new_terms_as_li(post)
         post.content = insert_li_to_list(post.content, new_terms_li)
-        all_terms_in_list = get_all_listed_terms(post.content)
+        # all_terms_in_list = get_all_listed_terms(post.content)
+        post.content = update_terms_list(post)
         post.content = replace_all_terms_links(post)
         rewrite_post(path, post)
