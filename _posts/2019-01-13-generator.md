@@ -6,8 +6,9 @@ post_title: >
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: https://www.bcsstudent.com/?p=1117
-published: false
+permalink: https://www.bcsstudent.com/generator/
+published: true
+post_date: 2019-01-13 15:47:44
 ---
 <!-- wp:paragraph -->
 <p>היי.</p>
