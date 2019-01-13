@@ -10,8 +10,8 @@ from tinydb import TinyDB, Query
 
 
 os.chdir(path.dirname(path.dirname(__file__)))
-TERMS_LIST_TEMPLATE = open('generator/terms_list.html',
-                           'r', encoding='utf-8').read()
+TERMS_LIST_TEMPLATE = BeautifulSoup(open('generator/terms_list.html',
+                                         'r', encoding='utf-8').read(),  features="html.parser")
 NEW_TERM_MARK = '###'
 DEFAULT_DESCRIPTION = "עדיין אין פירוט למושג הזה"
 
@@ -35,7 +35,9 @@ def get_term_by_name(name: str):
 
 
 def get_post(path: str)->frontmatter.Post:
-    return frontmatter.load(path)
+    post = frontmatter.load(path)
+    post.content = BeautifulSoup(post.content, features="html.parser")
+    return post
 
 
 def get_md_in_folder(folder: str)->List[str]:
@@ -56,17 +58,15 @@ def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
 
         return li
 
-    soup = BeautifulSoup(post.content, features="html.parser")
-    all_a = soup.select(f'a[href^={NEW_TERM_MARK}]')
-    return [create_li(soup, a, post['ID']) for a in all_a]
+    all_a = post.content.select(f'a[href^={NEW_TERM_MARK}]')
+    return [create_li(post.content, a, post['ID']) for a in all_a]
 
 
-def insert_li_to_list(content, li_list: List[Tag]):
+def insert_li_to_list(content: BeautifulSoup, li_list: List[Tag])->BeautifulSoup:
     if 'terms_div' not in content:
-        content = content + TERMS_LIST_TEMPLATE
+        content.insert_after(TERMS_LIST_TEMPLATE)
 
-    soup = BeautifulSoup(content, features="html.parser")
-    ul = soup.find_all('ul', class_='terms_list')
+    ul = content.find_all('ul', class_='terms_list')
     if len(ul) == 0:
         raise "Error adding list"
     if len(ul) > 1:
@@ -77,7 +77,7 @@ def insert_li_to_list(content, li_list: List[Tag]):
     for l in li_list:
         ul.append(l)
 
-    return soup
+    return content
 
 
 def replace_all_terms_links(post: frontmatter.Post):
@@ -108,8 +108,9 @@ if __name__ == "__main__":
 
     for path, post in posts.items():
         new_terms_li = get_new_terms_as_li(post)
-        post.content = insert_li_to_list(post.content, new_terms_li)
-        # all_terms_in_list = get_all_listed_terms(post.content)
+        if len(new_terms_li) > 0:
+            post.content = insert_li_to_list(post.content, new_terms_li)
+            post.content = replace_all_terms_links(post)
+
         post.content = update_terms_list(post)
-        post.content = replace_all_terms_links(post)
         rewrite_post(path, post)
