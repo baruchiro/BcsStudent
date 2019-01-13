@@ -64,7 +64,7 @@ def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
 
 def insert_li_to_list(content: BeautifulSoup, li_list: List[Tag])->BeautifulSoup:
     if 'terms_div' not in content:
-        content.insert_after(TERMS_LIST_TEMPLATE)
+        content = BeautifulSoup(str(content) + str(TERMS_LIST_TEMPLATE), features="html.parser")
 
     ul = content.find_all('ul', class_='terms_list')
     if len(ul) == 0:
