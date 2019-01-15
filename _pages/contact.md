@@ -1,7 +1,7 @@
 ---
 ID: 130
 post_title: צור קשר
-author: בטחה רוטקוף
+author: Baruch Rothkoff
 post_excerpt: ""
 layout: page
 permalink: https://www.bcsstudent.com/contact/
