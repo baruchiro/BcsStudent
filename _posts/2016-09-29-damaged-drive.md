@@ -6,7 +6,8 @@ post_title: >
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%98%d7%99%d7%a4%d7%95%d7%9c-%d7%91%d7%9e%d7%97%d7%a9%d7%91-%d7%a2%d7%9d-%d7%9b%d7%95%d7%a0%d7%9f-%d7%a4%d7%92%d7%95%d7%a2/'
+permalink: >
+  https://www.bcsstudent.com/damaged-drive/
 published: true
 post_date: 2016-09-29 16:09:43
 ---
