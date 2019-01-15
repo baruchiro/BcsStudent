@@ -4,7 +4,8 @@ post_title: שלבים ליצירת RecycleView
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%a9%d7%9c%d7%91%d7%99%d7%9d-%d7%9c%d7%99%d7%a6%d7%99%d7%a8%d7%aa-recycleview/'
+permalink: >
+  https://www.bcsstudent.com/android-recycleview/
 published: true
 post_date: 2016-08-31 16:02:29
 ---
