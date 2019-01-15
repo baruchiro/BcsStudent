@@ -4,7 +4,7 @@ post_title: צור קשר
 author: בטחה רוטקוף
 post_excerpt: ""
 layout: page
-permalink: 'https://www.bcsstudent.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/'
+permalink: https://www.bcsstudent.com/contact/
 published: true
 post_date: 2018-11-24 18:49:01
 ---
