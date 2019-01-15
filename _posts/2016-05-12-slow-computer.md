@@ -6,7 +6,8 @@ post_excerpt: >
   כמה טיפים למקרה
   שהמחשב איטי מידי.
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%9e%d7%94-%d7%a2%d7%95%d7%a9%d7%99%d7%9d-%d7%9b%d7%a9%d7%94%d7%9e%d7%97%d7%a9%d7%91-%d7%90%d7%99%d7%98%d7%99/'
+permalink: >
+  https://www.bcsstudent.com/slow-computer/
 published: true
 post_date: 2016-05-12 04:56:19
 ---
