@@ -4,7 +4,8 @@ post_title: 'גיבוי וניהול תמונות- Google Photos'
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%92%d7%99%d7%91%d7%95%d7%99-%d7%95%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%aa%d7%9e%d7%95%d7%a0%d7%95%d7%aa-google-photos/'
+permalink: >
+  https://www.bcsstudent.com/google-photos/
 published: true
 post_date: 2016-07-27 14:09:35
 ---
