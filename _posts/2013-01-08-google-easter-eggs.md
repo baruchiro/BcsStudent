@@ -4,7 +4,8 @@ post_title: טריקים מעניינים בגוגל
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%98%d7%a8%d7%99%d7%a7%d7%99%d7%9d-%d7%9e%d7%a2%d7%a0%d7%99%d7%99%d7%a0%d7%99%d7%9d-%d7%91%d7%92%d7%95%d7%92%d7%9c/'
+permalink: >
+  https://www.bcsstudent.com/google-easter-eggs/
 published: true
 post_date: 2013-01-08 14:20:00
 ---
