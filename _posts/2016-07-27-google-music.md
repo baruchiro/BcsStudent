@@ -4,7 +4,7 @@ post_title: 'סנכרון מוזיקה- Google Music'
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%a1%d7%a0%d7%9b%d7%a8%d7%95%d7%9f-%d7%9e%d7%95%d7%96%d7%99%d7%a7%d7%94-google-music/'
+permalink: https://www.bcsstudent.com/google-music/
 published: true
 post_date: 2016-07-27 14:59:32
 ---
