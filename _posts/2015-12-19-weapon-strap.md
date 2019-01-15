@@ -7,7 +7,7 @@ post_excerpt: >
   רצועה לנשק, בתוספת
   תמונות.
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%90%d7%99%d7%9a-%d7%aa%d7%95%d7%a4%d7%a8%d7%99%d7%9d-%d7%a8%d7%a6%d7%95%d7%a2%d7%94-%d7%9c%d7%a0%d7%a9%d7%a7/'
+permalink: https://www.bcsstudent.com/weapon-strap/
 published: true
 post_date: 2015-12-19 19:00:02
 ---
