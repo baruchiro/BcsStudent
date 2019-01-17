@@ -6,7 +6,8 @@ post_title: >
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%90%d7%99%d7%9a-%d7%9e%d7%aa%d7%97%d7%99%d7%9c%d7%99%d7%9d-%d7%9c%d7%9b%d7%aa%d7%95%d7%91-%d7%91%d7%9c%d7%95%d7%92/'
+permalink: >
+  https://www.bcsstudent.com/how-to-start-blog/
 published: true
 post_date: 2013-01-14 13:43:00
 ---

@@ -6,7 +6,8 @@ post_title: >
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%a4%d7%a2%d7%95%d7%9c%d7%95%d7%aa-%d7%9e%d7%95%d7%9e%d7%9c%d7%a6%d7%95%d7%aa-%d7%9c%d7%a4%d7%99%d7%a0%d7%95%d7%99-%d7%9e%d7%a7%d7%95%d7%9d-%d7%91%d7%9e%d7%97%d7%a9%d7%91/'
+permalink: >
+  https://www.bcsstudent.com/free-up-space/
 published: true
 post_date: 2016-07-27 15:00:40
 ---

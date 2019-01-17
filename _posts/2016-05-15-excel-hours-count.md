@@ -8,7 +8,8 @@ post_excerpt: >
   חישוב כמות שעות בין
   תאריכים באקסל
 layout: post
-permalink: 'https://www.bcsstudent.com/%d7%97%d7%99%d7%a9%d7%95%d7%91-%d7%9b%d7%9e%d7%95%d7%aa-%d7%a9%d7%a2%d7%95%d7%aa-%d7%91%d7%99%d7%9f-%d7%aa%d7%90%d7%a8%d7%99%d7%9b%d7%99%d7%9d-%d7%91%d7%90%d7%a7%d7%a1/'
+permalink: >
+  https://www.bcsstudent.com/excel-hours-count/
 published: true
 post_date: 2016-05-15 07:56:26
 ---
