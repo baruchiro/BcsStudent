@@ -5,7 +5,7 @@ layout: post
 permalink: https://www.bcsstudent.com/excel-hours-count/
 post_date: 2016-05-15 07:56:26
 post_excerpt: חישוב כמות שעות בין תאריכים באקסל
-post_title: 'חישוב כמות שעות בין תאריכים באקסל
+post_title: חישוב כמות שעות בין תאריכים באקסל
 published: true
 ---
 
