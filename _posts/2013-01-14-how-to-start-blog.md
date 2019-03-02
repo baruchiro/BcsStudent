@@ -5,7 +5,7 @@ layout: post
 permalink: https://www.bcsstudent.com/how-to-start-blog/
 post_date: 2013-01-14 13:43:00
 post_excerpt: ''
-post_title: 'איך מתחילים לכתוב בלוג?
+post_title: איך מתחילים לכתוב בלוג?
 published: true
 ---
 
