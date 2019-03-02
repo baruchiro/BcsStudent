@@ -6,8 +6,6 @@ permalink: https://www.bcsstudent.com/generator/
 post_date: 2019-01-13 15:47:44
 post_excerpt: ''
 post_title: אוטומציה וקוד פתוח לבלוג
-
-'
 published: true
 ---
 
