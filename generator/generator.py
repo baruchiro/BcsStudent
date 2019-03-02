@@ -58,13 +58,14 @@ def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
 
         return li
 
-    all_a = post.content.select(f'a[href^={NEW_TERM_MARK}]')
+    all_a = post.content.select(f'a[href^="{NEW_TERM_MARK}"]')
     return [create_li(post.content, a, post['ID']) for a in all_a]
 
 
 def insert_li_to_list(content: BeautifulSoup, li_list: List[Tag])->BeautifulSoup:
     if 'terms_div' not in content:
-        content = BeautifulSoup(str(content) + str(TERMS_LIST_TEMPLATE), features="html.parser")
+        content = BeautifulSoup(
+            str(content) + str(TERMS_LIST_TEMPLATE), features="html.parser")
 
     ul = content.find_all('ul', class_='terms_list')
     if len(ul) == 0:
@@ -81,7 +82,7 @@ def insert_li_to_list(content: BeautifulSoup, li_list: List[Tag])->BeautifulSoup
 
 
 def replace_all_terms_links(post: frontmatter.Post):
-    for a in post.content.select(f'a[href^={NEW_TERM_MARK}]'):
+    for a in post.content.select(f'a[href^="{NEW_TERM_MARK}"]'):
         term = a['href'].replace(NEW_TERM_MARK, '').lower()
         a['href'] = f'#{post["ID"]}_{term}'
         a['term'] = term
