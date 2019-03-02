@@ -1,16 +1,14 @@
 ---
 ID: 205
-post_title: >
-  פעולות מומלצות לפינוי
-  מקום במחשב
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
-permalink: >
-  https://www.bcsstudent.com/free-up-space/
-published: true
+permalink: https://www.bcsstudent.com/free-up-space/
 post_date: 2016-07-27 15:00:40
+post_excerpt: ''
+post_title: פעולות מומלצות לפינוי מקום במחשב
+published: true
 ---
+
 הגעתי למחשב נייח שהיה צריך להספיק לעדכן את Windows לפני ה29 ביולי, ולא היה מספיק מקום פנוי כדי לקבל את העדכון.
 <p style="text-align:justify;"><b><a href="https://baruchiro.wordpress.com/2016/05/12/%d7%9e%d7%94-%d7%a2%d7%95%d7%a9%d7%99%d7%9d-%d7%9b%d7%a9%d7%94%d7%9e%d7%97%d7%a9%d7%91-%d7%90%d7%99%d7%98%d7%99/">ניקוי הדיסק:</a></b></p>
 [gallery ids="96,93,92,91" columns="4"]
@@ -34,6 +32,5 @@ post_date: 2016-07-27 15:00:40
 <p style="text-align:justify;">את כל שאר הנתונים שמאוחסנים בגוגל, ניתן להוריד בעזרת <a href="https://takeout.google.com/settings/takeout">כלי הארכיונים</a>.</p>
 <p style="text-align:justify;"><strong>העלאת תמונות:</strong> <a href="https://baruchiro.wordpress.com/2016/07/27/%d7%92%d7%99%d7%91%d7%95%d7%99-%d7%95%d7%a0%d7%99%d7%94%d7%95%d7%9c-%d7%aa%d7%9e%d7%95%d7%a0%d7%95%d7%aa-google-photos/" target="_blank">פורסם בפוסט נפרד</a>.</p>
 <p style="text-align:justify;"><strong>גיבוי וסנכרון מוזיקה:</strong> <a href="https://baruchiro.wordpress.com/2016/07/27/%d7%a1%d7%a0%d7%9b%d7%a8%d7%95%d7%9f-%d7%9e%d7%95%d7%96%d7%99%d7%a7%d7%94-google-music/" target="_blank">פורסם בפוסט נפרד</a>.</p>
-
 <h2 style="text-align:center;"><strong>צור קשר</strong></h2>
-[contact-form subject="יצירת קשר לפוסט: פינוי מקום במחשב"][contact-field label="שם" type="name" required="1" /][contact-field label="כתובת דואר אלקטרוני" type="email" required="1" /][contact-field label="פירוט הפנייה" type="textarea" required="1" /][/contact-form]
+[contact-form subject="יצירת קשר לפוסט: פינוי מקום במחשב"][contact-field label="שם" type="name" required="1" /][contact-field label="כתובת דואר אלקטרוני" type="email" required="1" /][contact-field label="פירוט הפנייה" type="textarea" required="1" /][/contact-form]</p>
