@@ -1,18 +1,15 @@
 ---
 ID: 155
-post_title: מה עושים כשהמחשב איטי?
 author: Baruch Rothkoff
-post_excerpt: >
-  כמה טיפים למקרה
-  שהמחשב איטי מידי.
 layout: post
-permalink: >
-  https://www.bcsstudent.com/slow-computer/
-published: true
+permalink: https://www.bcsstudent.com/slow-computer/
 post_date: 2016-05-12 04:56:19
+post_excerpt: כמה טיפים למקרה שהמחשב איטי מידי.
+post_title: מה עושים כשהמחשב איטי?
+published: true
 ---
-<p style="text-align:justify;">כמה אנשים ביקשו ממני בתור "המבין במחשבים" לבדוק למה המחשב הנייד שלהם איטי. האמת, שבדרך כלל זה לא משהו שדורש בדיקה, ואפשר להמליץ מראש על דרך פעולה. אבל אני אפרט כאן כמה דברים שניתן לעשות, ושבכללי כדאי לדעת ולבצע מידי פעם.</p>
 
+<p style="text-align:justify;">כמה אנשים ביקשו ממני בתור "המבין במחשבים" לבדוק למה המחשב הנייד שלהם איטי. האמת, שבדרך כלל זה לא משהו שדורש בדיקה, ואפשר להמליץ מראש על דרך פעולה. אבל אני אפרט כאן כמה דברים שניתן לעשות, ושבכללי כדאי לדעת ולבצע מידי פעם.</p>
 <h3 style="text-align:justify;">מושגים:</h3>
 אני אחלק את הפעולות לשני נושאים: תחזוקה וניטור.
 <h2 style="text-align:justify;">תחזוקה:</h2>
@@ -26,9 +23,9 @@ post_date: 2016-05-12 04:56:19
 <p style="text-align:justify;">כדאי לעשות ניקוי לכל הכוננים שיש.</p>
 <p style="text-align:justify;"><strong>איחוי הדיסק:</strong></p>
 <p style="text-align:justify;">הסבר: נניח שהדיסק שלנו מלא, ומחקנו שלושה קבצים שכל אחד מהם בגודל 1GB. שלושת הקבצים נמצאים במקומות שונים בדיסק (הפיזי, ללא קשר לאיזה תיקייה הם נמצאים אצלנו). עכשיו הכנסנו לדיסק קובץ בגודל 3GB, הדיסק יכניס אותו בשלושת המקומות שהתפנו, מה שאומר שהקובץ מפוצל. שוב, אנחנו לא רואים את זה, אבל זה אומר שבשביל לקרוא את הקובץ המחשב יצטרך לדלג בין מקומות בדיסק הקשיח. לכן כדאי מידי פעם להגיד למחשב לארגן מחדש את כל הקבצים כדי שיהיו ביחד.</p>
-<p style="text-align:justify;">לכתוב בחיפוש של Windows "איחוי" ולבחור את&nbsp;<strong>איחוי ומיטוב כוננים</strong>.</p>
+<p style="text-align:justify;">לכתוב בחיפוש של Windows "איחוי" ולבחור את <strong>איחוי ומיטוב כוננים</strong>.</p>
 <p style="text-align:justify;">לבצע מיטוב על כל כונן, ולוודא שהתדירות שלו שבועית. אם לא- ניתן לשנות זאת בהגדרות.</p>
-<p style="text-align:justify;"><img class="alignnone size-full wp-image-165" src="https://baruchiro.files.wordpress.com/2016/05/d79cd79bd799d793d794.png" alt="לכידה" width="701" height="506"></p>
+<p style="text-align:justify;"><img alt="לכידה" class="alignnone size-full wp-image-165" height="506" src="https://baruchiro.files.wordpress.com/2016/05/d79cd79bd799d793d794.png" width="701"/></p>
 <p style="text-align:justify;"><b>הסרת תוכניות:</b></p>
 <p style="text-align:justify;">עם הזמן אנחנו צוברים במחשב תוכנות שאנחנו לא צריכים, או שהותקנו בלי ששמנו לב. גם זאת פעולת תחזוקה מומלצת שכדאי לבצע מידי פעם כדי לשמור על המחשב רענן. כמו כן, גם פעולה זאת מכינה אותנו להמשך.</p>
 <p style="text-align:justify;">בתיבת חיפוש של Windows, ב"התחל" או בסמל החיפוש, יש לכתוב "הוסף או הסר תכניות"/"Add or remove programs".</p>
@@ -41,7 +38,7 @@ post_date: 2016-05-12 04:56:19
 <p style="text-align:justify;">כדי לבדוק אלו תוכנות עולות עם הפעלת המחשב, ולבטל אותם, נכנס למנהל המשימות- לחיצה על Ctrl+Shift+Esc או לכתוב בחיפוש "מנהל המשימות".</p>
 
 
-[caption id="attachment_107" align="alignnone" width="683"]<img class="alignnone size-full wp-image-107" src="https://baruchiro.files.wordpress.com/2016/05/d790d7aad797d795d79c.png" alt="אתחול" width="683" height="549"> אתחול[/caption]
+[caption id="attachment_107" align="alignnone" width="683"]<img alt="אתחול" class="alignnone size-full wp-image-107" height="549" src="https://baruchiro.files.wordpress.com/2016/05/d790d7aad797d795d79c.png" width="683"/> אתחול[/caption]
 <p style="text-align:justify;">בלשונית "אתחול" אפשר לראות את הפירוט ולבטל את ההפעלה. גם תוכנה שהשפעת האתחול שלה נמוכה, אבל היא לא נצרכת, לא צריכה להיות מופעלת עם הדלקת המחשב.</p>
 <p style="text-align:justify;"><strong>העברה מHDD לSSD:</strong></p>
 <p style="text-align:justify;"><a href="https://he.wikipedia.org/wiki/%D7%93%D7%99%D7%A1%D7%A7_%D7%A7%D7%A9%D7%99%D7%97" target="_blank">כונן HDD</a>: דיסק קשיח הפועל על עקרון של דיסק מסתובב.
@@ -49,9 +46,8 @@ post_date: 2016-05-12 04:56:19
 
 <p style="text-align:justify;">הנקודה העיקרית לענייננו היא שבכונן HDD מהירות הקריאה והכתיבה היא איטית הרבה יותר מאשר בכונן SSD. ניתן לראות טבלת השוואה <a href="http://www.a-c.co.il/page/%D7%9E%D7%94-%D7%A2%D7%93%D7%99%D7%A3-%D7%9B%D7%95%D7%A0%D7%9F-ssd-%D7%90%D7%95-%D7%93%D7%99%D7%A1%D7%A7-%D7%A7%D7%A9%D7%99%D7%97" target="_blank">כאן</a>. אם אנחנו מגיעים למצב שבו אנחנו מפעילים המון תוכנות כבדות, שבעצם קוראות וכותבות לדיסק- הקבצים שבהם התוכנות משתמשות ומשנות נמצאים בדיסק, נוצר פקק בגלל כל התוכנות שמנסות לקרוא ולכתוב לקבצים שלהם. (מי ששואל מה עם הRAM- סביר להניח שכמות הזכרון שלו לא מספיקה, גם אם נגדיל אותו).</p>
 <p style="text-align:justify;">יש עוד המון מה לדבר על היתרונות והחסרונות של הכוננים, ואפשר לקרוא בקישור או בגוגל כמובן. מה שחשוב לדעת הוא שבמקרה של מחשב איטי, לדעתי, הבעיה הרבה פעמים בכונן. ההתקנה היא מאוד קלה.</p>
-<p style="text-align:justify;">ניתן לבדוק בעזרת התוכנה <a href="http://download.piriform.com/spsetup119.exe" target="_blank">הזאת</a>&nbsp;איזה כונן יש לנו, כי המחשבים החדשים מגיעים כבר עם SSD.&nbsp;<a href="http://www.crucial.com/" target="_blank">באתר הזה</a>&nbsp;אפשר לחפש את הדגם של המחשב ולראות האם הוא תומך בSATA 3. אם הוא תומך ב2/1, זה אומר שהחיבור איטי, וגם אם הכונן מהיר, זה פחות יעיל.</p>
-
-<h2 style="text-align:justify;">&nbsp;ניטור:</h2>
+<p style="text-align:justify;">ניתן לבדוק בעזרת התוכנה <a href="http://download.piriform.com/spsetup119.exe" target="_blank">הזאת</a> איזה כונן יש לנו, כי המחשבים החדשים מגיעים כבר עם SSD. <a href="http://www.crucial.com/" target="_blank">באתר הזה</a> אפשר לחפש את הדגם של המחשב ולראות האם הוא תומך בSATA 3. אם הוא תומך ב2/1, זה אומר שהחיבור איטי, וגם אם הכונן מהיר, זה פחות יעיל.</p>
+<h2 style="text-align:justify;"> ניטור:</h2>
 האמת שבתחום הזה פחות מצאתי מה בדיוק לעשות, אז אם מישהו מכיר עוד דרכים טובות יותר, הוא מוזמן לשתף אותי ונוסיף פה.
 
 <strong>ביצועים במנהל המשימות:</strong>
@@ -61,4 +57,4 @@ post_date: 2016-05-12 04:56:19
 <p style="text-align:justify;"></p>
 <p style="text-align:justify;"></p>
 <p style="text-align:justify;"></p>
-<p style="text-align:justify;">זהו. מבחינתי זה לא הכל, אבל קודם כל אני בטוח שגם מה שיש פה יכול לעזור לאנשים (ולמחשבים שלהם, כמובן. אני מרחם על כל אותם מחשבים עם 10 סמלים לא מזוהים בצד שמאל למטה..). אם אתם יודעים על עוד פעולות שאפשר לבצע- שתפו אותי!</p>
+<p style="text-align:justify;">זהו. מבחינתי זה לא הכל, אבל קודם כל אני בטוח שגם מה שיש פה יכול לעזור לאנשים (ולמחשבים שלהם, כמובן. אני מרחם על כל אותם מחשבים עם 10 סמלים לא מזוהים בצד שמאל למטה..). אם אתם יודעים על עוד פעולות שאפשר לבצע- שתפו אותי!</p></p>
