@@ -12,8 +12,10 @@ post_excerpt: >
   הכלים שאתם משתמשים
   בהם!
 layout: post
-permalink: https://www.bcsstudent.com/?p=1247
-published: false
+permalink: >
+  https://www.bcsstudent.com/free-dev-tools/
+published: true
+post_date: 2019-03-13 07:53:52
 ---
 <!-- wp:paragraph -->
 <p>בהרבה כלים, מוצרים ושירותים שעולים כסף, יש גם גרסה חינמית לסטודנטים. המטרה ברורה- סטודנטים שישתמשו עכשיו בחינם בכלי, יתרגלו אליו וירכשו אותו בהמשך.</p>
