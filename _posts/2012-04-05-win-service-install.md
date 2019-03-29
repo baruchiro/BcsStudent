@@ -1,14 +1,14 @@
 ---
 ID: 151
+post_title: 'מדריך Windows Service בעברית- התקנה'
 author: Baruch Rothkoff
+post_excerpt: ""
 layout: post
-permalink: https://www.bcsstudent.com/win-service-install/
-post_date: 2012-04-05 12:24:00
-post_excerpt: ''
-post_title: מדריך Windows Service בעברית- התקנה
+permalink: >
+  https://www.bcsstudent.com/win-service-install/
 published: true
+post_date: 2012-04-05 12:24:00
 ---
-
 <div dir="rtl" style="text-align:right;">
 <div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;height:auto;margin-right:23px;text-align:right;vertical-align:baseline;width:auto;word-wrap:normal !important;padding:0;"><span class="TextRun Underlined SCX124670610" style="font-size:14pt;font-weight:bold;text-decoration:underline;word-wrap:normal !important;margin:0;padding:0;" xml:lang="HE-IL">התקנה:  </span><span class="EOP SCX124670610" style="font-size:14pt;word-wrap:normal !important;margin:0;padding:0;"> </span></div>
@@ -40,7 +40,7 @@ published: true
 <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;"></div>
 </div>
 <div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;"><span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" xml:lang="HE-IL">עכשיו פתח את Visual Studio Command Prompt (אני הייתי צריך "לפתוח כמנהל", אחרת זה לא עבד..) הקלד שם "installutil -i" ואז את מיקום היישום- קובץ exe שבתיקייה "bin\Debug". </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span></div>
+<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;"><span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" xml:lang="HE-IL">עכשיו פתח את Visual Studio Command Prompt (אני הייתי צריך "לפתוח כמנהל", אחרת זה לא עבד..) הקלד שם "installutil -i" ואז את מיקום היישום- קובץ exe שבתיקייה "binDebug". </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span></div>
 </div>
 <div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 <div class="WACImageContainer Selected SCX124670610" style="margin:0;padding:0;"><img alt="" class="WACImage SCX124670610" height="640" src="https://word-edit.officeapps.live.com/we/GetImage.ashx?Fi=SDEC96D5B09D87A2E9!362&amp;C=1__BL2-SKY-WAC-WSHI&amp;ak=t%3d0%26s%3d0%26v%3d!ADDjYhbvrchTdE8&amp;ObjectDataBlobId={5abe51f7-52ea-5fb9-968a-d6a4b8f68308}{1}&amp;Word=1" width="596"/></div>
@@ -105,6 +105,7 @@ published: true
 <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;"><span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" xml:lang="HE-IL">ברוך רוטקוף- baruchiro@gmail.com</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span></div>
 </div>
 </div>
+
 <div class="blogger-post-footer">אני תמיד שמח לתגובות!
 (גם אם זה אחרי שנה, שנתיים, עשר..)
 
