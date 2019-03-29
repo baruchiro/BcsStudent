@@ -1,14 +1,14 @@
 ---
 ID: 148
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/google-easter-eggs/
-post_date: 2013-01-08 14:20:00
-post_excerpt: ''
 post_title: טריקים מעניינים בגוגל
+author: Baruch Rothkoff
+post_excerpt: ""
+layout: post
+permalink: >
+  https://www.bcsstudent.com/google-easter-eggs/
 published: true
+post_date: 2013-01-08 14:20:00
 ---
-
 <!-- wp:heading -->
 <h2>ביצי פסחא- Easter Eggs</h2>
 <!-- /wp:heading -->
@@ -57,7 +57,7 @@ published: true
 <div style="text-align: justify;">
 <p dir="rtl" style="margin-bottom: 0; margin-top: 0; text-align: right;"><span style="vertical-align: baseline; white-space: pre-wrap;"><span style="color: #660000;">number of horns on a unicorn</span></span></p>
 <div dir="rtl" style="margin-bottom: 0; margin-top: 0; text-align: right;"><span style="vertical-align: baseline; white-space: pre-wrap;"><span style="color: #660000;">once in a blue moon</span></span></div>
-<div dir="rtl" style="font-size: medium; font-weight: normal; margin-bottom: 0; margin-top: 0; text-align: right;">ועוד <a href="http://he.wikipedia.org/wiki/%D7%AA%D7%A8%D7%99%D7%A1%D7%A8_%D7%A9%D7%9C_%D7%90%D7%95%D7%A4%D7%99%D7%9D" rel="noopener" target="_blank">מושג</a> שקשור למחשבון-<b id="internal-source-marker_0.7037481132429093" style="font-weight: normal; text-align: start;"></b></div>
+<div dir="rtl" style="font-size: medium; font-weight: normal; margin-bottom: 0; margin-top: 0; text-align: right;">ועוד <a href="http://he.wikipedia.org/wiki/%D7%AA%D7%A8%D7%99%D7%A1%D7%A8_%D7%A9%D7%9C_%D7%90%D7%95%D7%A4%D7%99%D7%9D" rel="noopener noreferrer" target="_blank">מושג</a> שקשור למחשבון-<b id="internal-source-marker_0.7037481132429093" style="font-weight: normal; text-align: start;"></b></div>
 <div style="display: inline !important;">
 <div style="display: inline !important;">
 <div style="display: inline !important;">
@@ -75,17 +75,17 @@ published: true
 <!-- /wp:html -->
 <!-- wp:html -->
 <div style="text-align: justify;">
-<p><span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">רוצים לבקש מגוגל להשתפר? כנסו <a href="http://support.google.com/mail/bin/static.py?hl=en&amp;page=suggestions.cs" rel="noopener" target="_blank"><b><span style="color: #660000;">לכאן</span></b></a> ותוכלו לבחור במה אתם רוצים שהם ישתפרו. השיפור האחרון הוא רעיון יפה.</span></p>
+<p><span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">רוצים לבקש מגוגל להשתפר? כנסו <a href="http://support.google.com/mail/bin/static.py?hl=en&amp;page=suggestions.cs" rel="noopener noreferrer" target="_blank"><b><span style="color: #660000;">לכאן</span></b></a> ותוכלו לבחור במה אתם רוצים שהם ישתפרו. השיפור האחרון הוא רעיון יפה.</span></p>
 </div>
 <!-- /wp:html -->
 <!-- wp:html -->
 <div style="text-align: justify;">
-<p> <span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><a href="http://www.google.com/heart/" rel="noopener" target="_blank"><b><span style="color: #660000;">פה</span></b></a> נמצא הלב של גוגל.</span></p>
+<p> <span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><a href="http://www.google.com/heart/" rel="noopener noreferrer" target="_blank"><b><span style="color: #660000;">פה</span></b></a> נמצא הלב של גוגל.</span></p>
 </div>
 <!-- /wp:html -->
 <!-- wp:html -->
 <div style="text-align: justify;">
-<p> <span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">מי שמשתמש ב<a href="https://www.google.com/reader/" rel="noopener" target="_blank">קורא הRSS של גוגל</a>, אפשר ללחוץ על All items, ואז ללחוץ על המקלדת בסדר הבא-</span></p>
+<p> <span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">מי שמשתמש ב<a href="https://www.google.com/reader/" rel="noopener noreferrer" target="_blank">קורא הRSS של גוגל</a>, אפשר ללחוץ על All items, ואז ללחוץ על המקלדת בסדר הבא-</span></p>
 </div>
 <!-- /wp:html -->
 <!-- wp:html -->

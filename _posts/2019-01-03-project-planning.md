@@ -1,14 +1,14 @@
 ---
 ID: 1071
+post_title: 'פרויקט גמר &#8211; תכנון'
 author: Baruch Rothkoff
+post_excerpt: ""
 layout: post
-permalink: https://www.bcsstudent.com/project-planning/
-post_date: 2019-01-03 07:25:28
-post_excerpt: ''
-post_title: פרויקט גמר - תכנון
+permalink: >
+  https://www.bcsstudent.com/project-planning/
 published: true
+post_date: 2019-01-03 07:25:28
 ---
-
 <!-- wp:block {"ref":1075} /-->
 <!-- wp:paragraph -->
 <p>אחרי ה<a href="https://www.bcsstudent.com/ihis-computers/">פוסט</a> בו תיארתי את המודל העסקי של הפרויקט, הגיע הזמן להתחיל לעבוד.</p>
