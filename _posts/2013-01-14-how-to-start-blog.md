@@ -1,14 +1,16 @@
 ---
 ID: 147
+post_title: >
+  איך מתחילים לכתוב
+  בלוג?
 author: Baruch Rothkoff
+post_excerpt: ""
 layout: post
-permalink: https://www.bcsstudent.com/how-to-start-blog/
-post_date: 2013-01-14 13:43:00
-post_excerpt: ''
-post_title: איך מתחילים לכתוב בלוג?
+permalink: >
+  https://www.bcsstudent.com/how-to-start-blog/
 published: true
+post_date: 2013-01-14 13:43:00
 ---
-
 <div dir="rtl" style="text-align:right;"><span style="font-family:Arial, Helvetica, sans-serif;">
 </span><span style="font-family:Arial, Helvetica, sans-serif;"><b>קודם כל, מה זה בלוג?</b></span>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">המילה בלוג היא שילוב של המילים Web-Log, יומן רשת, והוא אכן משמש מעין יומן של הכותב, שמתפרסם באופן ציבורי. יש בלוגים שנראים ממש כמו יומן, ומטרתם לשתף את הקורא בחיים המעניינים של הכותב, בחוויות, בלימודים ובמסקנות שלו. ויש בלוגים שהם היומן של הכותב, בנושא ממוקד יותר, כמו למשל בלוג על בישול, שבו הכותב משתף את הציבור בחוויות, לימודים, מסקנות וכו'- מעולם הבישול.</span></div>
@@ -20,8 +22,8 @@ published: true
 </span></div>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;"><b>איך פותחים בלוג?</b></span></div>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">בעיקרון,אנחנו צריכים לבנות אתר שיציג את מה שיש לבלוגר לומר. מכיוון שבלוג זה בעצם אתר פשוט מאוד, וכל בלוג בנוי אותו דבר, ישנם מערכות מוכנות לבלוגים.</span></div>
-<div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">אני חושב שהמערכת הכי נפוצה וטובה היא כנראה <a href="http://he.wordpress.com/" target="_blank">WordPress</a>. המערכת מאפשרת לבנות בלוג, אם אפשרויות עיצוב יפות וממשק ניהול נוח, ובמקרה הצורך מאפשרת ליצא את הבלוג לשרת פרטי (לא נצרך).</span></div>
-<div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">המערכת השנייה היא המערכת שאתם נמצאים בה כרגע, <a href="http://www.blogger.com/" target="_blank">Blogger</a>. "בלוגר" זה עוד שירות של גוגל, ולכן באופן טבעי בחרתי בו, למרות שאני לא אומר שהוא עדיף על וורדפרס (WordPress), ואולי להיפך.</span></div>
+<div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">אני חושב שהמערכת הכי נפוצה וטובה היא כנראה <a href="http://he.wordpress.com/" target="_blank" rel="noopener noreferrer">WordPress</a>. המערכת מאפשרת לבנות בלוג, אם אפשרויות עיצוב יפות וממשק ניהול נוח, ובמקרה הצורך מאפשרת ליצא את הבלוג לשרת פרטי (לא נצרך).</span></div>
+<div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">המערכת השנייה היא המערכת שאתם נמצאים בה כרגע, <a href="http://www.blogger.com/" target="_blank" rel="noopener noreferrer">Blogger</a>. "בלוגר" זה עוד שירות של גוגל, ולכן באופן טבעי בחרתי בו, למרות שאני לא אומר שהוא עדיף על וורדפרס (WordPress), ואולי להיפך.</span></div>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">
 </span></div>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">המערכות כוללות בתוכם אפשרות למעקב אחרי כמות הכניסות לכל פוסט, לבלוג, לפי חודש ושבוע וכו', בצורה מאוד נוחה למעקב, כדי שיהיה אפשר לדעת על התקדמות הבלוג.</span></div>
@@ -41,6 +43,7 @@ published: true
 </span></div>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">בהצלחה! ואני מחכה...</span></div>
 </div>
+
 <div class="blogger-post-footer">אני תמיד שמח לתגובות!
 (גם אם זה אחרי שנה, שנתיים, עשר..)
 

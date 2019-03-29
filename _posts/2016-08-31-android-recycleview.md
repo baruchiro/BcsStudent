@@ -1,14 +1,14 @@
 ---
 ID: 458
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/android-recycleview/
-post_date: 2016-08-31 16:02:29
-post_excerpt: ''
 post_title: שלבים ליצירת RecycleView
+author: Baruch Rothkoff
+post_excerpt: ""
+layout: post
+permalink: >
+  https://www.bcsstudent.com/android-recycleview/
 published: true
+post_date: 2016-08-31 16:02:29
 ---
-
 <ol>
 <ol>
 <li>יצירת קובץ Resource שמייצג שורה ברשימה, בשם item_photo.</li>
@@ -31,12 +31,13 @@ published: true
 <li>הכרזה על הRecycleView שלנו (או יצירת הפנייה אליו במידה והוא כבר קיים בResource של הActivity).
 <ol>
 <li>הגדרת setHasFixedSize רק אם אנחנו לא מתכננים שהגודל שלו ישתנה.</li>
-<li>יצירת אובייקט LayoutManager בהתאם לצורה שבה אנחנו רוצים שהנתונים יוצגו (LinearLayoutManager- Horisontal\Vartical, GridLayoutManager etc') והוספה שלו ע"י myRecycleView.setLayoutManager</li>
+<li>יצירת אובייקט LayoutManager בהתאם לצורה שבה אנחנו רוצים שהנתונים יוצגו (LinearLayoutManager- HorisontalVartical, GridLayoutManager etc') והוספה שלו ע"י myRecycleView.setLayoutManager</li>
 <li>יצירת אובייקט של PhotoAdapter ולתת לו את הנתונים. הוספת האובייקט בעזרת myRecycleView.setAdapter</li>
 </ol>
 </li>
 </ol>
 </ol>
+
  
 
  

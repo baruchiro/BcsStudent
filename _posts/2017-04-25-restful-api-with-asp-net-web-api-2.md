@@ -1,14 +1,14 @@
 ---
 ID: 549
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/restful-api-with-asp-net-web-api-2/
-post_date: 2017-04-25 18:55:49
-post_excerpt: ''
 post_title: RESTful API with ASP.NET Web API 2
+author: Baruch Rothkoff
+post_excerpt: ""
+layout: post
+permalink: >
+  https://www.bcsstudent.com/restful-api-with-asp-net-web-api-2/
 published: true
+post_date: 2017-04-25 18:55:49
 ---
-
 <!-- wp:paragraph -->
 <p>סיכום על כתיבת Controller שמגיב לבקשות HTTP.</p>
 <!-- /wp:paragraph -->
