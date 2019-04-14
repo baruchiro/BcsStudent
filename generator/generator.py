@@ -9,8 +9,8 @@ from bs4 import BeautifulSoup, Tag
 from tinydb import TinyDB, Query
 
 
-os.chdir(path.dirname(path.dirname(__file__)))
-TERMS_LIST_TEMPLATE = BeautifulSoup(open('generator/terms_list.html',
+# os.chdir(path.dirname(path.dirname(__file__)))
+TERMS_LIST_TEMPLATE = BeautifulSoup(open('generator/templates/terms_list.html',
                                          'r', encoding='utf-8').read(),  features="html.parser")
 NEW_TERM_MARK = '###'
 DEFAULT_DESCRIPTION = "עדיין אין פירוט למושג הזה"
@@ -34,19 +34,19 @@ def get_term_by_name(name: str):
     return terms[0]
 
 
-def get_post(path: str)->frontmatter.Post:
+def get_post(path: str) -> frontmatter.Post:
     post = frontmatter.load(path)
     post.content = BeautifulSoup(post.content, features="html.parser")
     return post
 
 
-def get_md_in_folder(folder: str)->List[str]:
+def get_md_in_folder(folder: str) -> List[str]:
     return glob.glob(f"{folder}/*.md")
 
 
-def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
+def get_new_terms_as_li(post: frontmatter.Post) -> List[Tag]:
 
-    def create_li(soup: BeautifulSoup, a, id)->Tag:
+    def create_li(soup: BeautifulSoup, a, id) -> Tag:
         term_name = a["href"].replace(NEW_TERM_MARK, '')
         term = get_term_by_name(term_name)
 
@@ -62,7 +62,7 @@ def get_new_terms_as_li(post: frontmatter.Post)->List[Tag]:
     return [create_li(post.content, a, post['ID']) for a in all_a]
 
 
-def insert_li_to_list(content: BeautifulSoup, li_list: List[Tag])->BeautifulSoup:
+def insert_li_to_list(content: BeautifulSoup, li_list: List[Tag]) -> BeautifulSoup:
     if 'terms_div' not in content:
         content = BeautifulSoup(
             str(content) + str(TERMS_LIST_TEMPLATE), features="html.parser")
@@ -105,7 +105,7 @@ def rewrite_post(path: str, post: frontmatter.Post):
 
 def regenerate_terms_page():
     post = get_post('_pages/terms.md')
-    post.content = BeautifulSoup(open('generator/terms_page.html',
+    post.content = BeautifulSoup(open('generator/templates/terms_page.html',
                                       'r', encoding='utf-8').read(),  features="html.parser")
     id = post['ID']
     ul = post.content.find('ul', class_='terms_list')
