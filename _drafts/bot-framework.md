@@ -1,5 +1,5 @@
 ---
-title: Bot Framework .NET design decisions
+title: How to structure your Bot Framework project in ASP.NET Core
 published: false
 description: Decisions I made while building a bot with Microsoft Bot Framework.
 tags: bot-framework,.NET Core,ASP.NET
@@ -8,7 +8,7 @@ tags: bot-framework,.NET Core,ASP.NET
 ## Prerequisites
 
  - Knowledge of *ASP.NET Core* project structure.
- - Knowledge of developing with *Bot Framework* in *C#*.
+ - Basic knowledge of configuring and developing a *Bot Framework* in *C#*.
 
 ## Intro
 
@@ -17,10 +17,6 @@ In my final project at the college, I write a bot with Microsoft Bot Framework o
 I think Microsoft has a lot of good things and lots of pretty things that are open source. The Bot Framework is a very good idea, but something is not baked there.
 
 In order to write a well-designed code, and avoid from duplicated code, I had to make some decisions that seemed not to have been included in the original documentation.
-
-## apology
-
-This post can seem obvious to you. The problem is that it's been a while since I touched the code, and by the time I remember the more serious things, I had to start from somewhere.
 
 ## Plug & Play
 
