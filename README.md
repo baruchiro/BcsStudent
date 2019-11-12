@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+# Gridsome Blog Starter
 
-You can use the [editor on GitHub](https://github.com/baruchiro/BcsStudent/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+> A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Features
+- Beautiful and simple design.
+- Markdown for content.
+- Tags support.
+- Dark / Light toggle.
+- CSS variables, SCSS & BEM for styling.
+- 100, 100, 100, 100 score on Google Lighthouse.
+- Uses same front-matter fields as Dev.to.
 
-### Markdown
+## Demo URL
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+https://gridsome-starter-blog.netlify.com
 
-```markdown
-Syntax highlighted code block
+## Install
 
-# Header 1
-## Header 2
-### Header 3
+### 1. Install Gridsome CLI tool if you don't have
 
-- Bulleted
-- List
+`npm install --global @gridsome/cli`
 
-1. Numbered
-2. List
+### 2. Install this starter
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/baruchiro/BcsStudent/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. `gridsome create my-gridsome-site https://github.com/gridsome/gridsome-starter-blog.git`
+2. `cd my-gridsome-site` to open folder
+3. `gridsome develop` to start local dev server at `http://localhost:8080`
+4. Happy coding 🎉🙌
