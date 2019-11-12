@@ -1,6 +1,6 @@
 ---
 ID: 511
-post_title: >
+title: >
   טיפול במחשב עם כונן
   פגוע
 author: Baruch Rothkoff
@@ -9,7 +9,7 @@ layout: post
 permalink: >
   https://www.bcsstudent.com/damaged-drive/
 published: true
-post_date: 2016-09-29 16:09:43
+date: 2016-09-29 16:09:43
 ---
 <p style="text-align:justify;">קיבלתי מחשב נייד שעובד <strong>מאוד</strong> לאט. הכוונה ב"מאוד" היא שאני מדליק אותו ביום שישי, כדי שעד מוצ"ש הוא יצליח לעלות ואני אוכל לבצע בו כמה פעולות.</p>
 

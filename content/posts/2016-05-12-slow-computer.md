@@ -1,6 +1,6 @@
 ---
 ID: 155
-post_title: מה עושים כשהמחשב איטי?
+title: מה עושים כשהמחשב איטי?
 author: Baruch Rothkoff
 post_excerpt: >
   כמה טיפים למקרה
@@ -9,7 +9,7 @@ layout: post
 permalink: >
   https://www.bcsstudent.com/slow-computer/
 published: true
-post_date: 2016-05-12 04:56:19
+date: 2016-05-12 04:56:19
 ---
 <p style="text-align:justify;">כמה אנשים ביקשו ממני בתור "המבין במחשבים" לבדוק למה המחשב הנייד שלהם איטי. האמת, שבדרך כלל זה לא משהו שדורש בדיקה, ואפשר להמליץ מראש על דרך פעולה. אבל אני אפרט כאן כמה דברים שניתן לעשות, ושבכללי כדאי לדעת ולבצע מידי פעם.</p>
 

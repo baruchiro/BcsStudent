@@ -1,6 +1,6 @@
 ---
 ID: 144
-post_title: איך תופרים רצועה לנשק
+title: איך תופרים רצועה לנשק
 author: Baruch Rothkoff
 post_excerpt: >
   הוראות מפורטות לתפירת
@@ -9,7 +9,7 @@ post_excerpt: >
 layout: post
 permalink: https://www.bcsstudent.com/weapon-strap/
 published: true
-post_date: 2015-12-19 19:00:02
+date: 2015-12-19 19:00:02
 ---
 <h2>חומרים:</h2>
 

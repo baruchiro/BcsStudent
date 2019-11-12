@@ -1,13 +1,13 @@
 ---
 ID: 153
-post_title: 'מדריך Windows Service בעברית- הקדמה'
+title: 'מדריך Windows Service בעברית- הקדמה'
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/win-service-introduction/
 published: true
-post_date: 2012-04-05 12:09:00
+date: 2012-04-05 12:09:00
 ---
 <div dir="rtl" style="text-align:right;">
 <div class="OutlineElement Rtl SCX192270846" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">

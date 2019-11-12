@@ -1,6 +1,6 @@
 ---
 ID: 1247
-post_title: כלים בחינם לסטודנטים
+title: כלים בחינם לסטודנטים
 author: Baruch Rothkoff
 post_excerpt: >
   בהרבה כלים, מוצרים
@@ -15,7 +15,7 @@ layout: post
 permalink: >
   https://www.bcsstudent.com/free-dev-tools/
 published: true
-post_date: 2019-03-13 07:53:52
+date: 2019-03-13 07:53:52
 ---
 <!-- wp:paragraph -->
 <p>בהרבה כלים, מוצרים ושירותים שעולים כסף, יש גם גרסה חינמית לסטודנטים. המטרה ברורה- סטודנטים שישתמשו עכשיו בחינם בכלי, יתרגלו אליו וירכשו אותו בהמשך.</p>

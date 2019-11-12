@@ -1,13 +1,13 @@
 ---
 ID: 458
-post_title: שלבים ליצירת RecycleView
+title: שלבים ליצירת RecycleView
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/android-recycleview/
 published: true
-post_date: 2016-08-31 16:02:29
+date: 2016-08-31 16:02:29
 ---
 <ol>
 <ol>

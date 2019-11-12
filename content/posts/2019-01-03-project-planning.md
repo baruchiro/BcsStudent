@@ -1,13 +1,13 @@
 ---
 ID: 1071
-post_title: 'פרויקט גמר &#8211; תכנון'
+title: 'פרויקט גמר &#8211; תכנון'
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/project-planning/
 published: true
-post_date: 2019-01-03 07:25:28
+date: 2019-01-03 07:25:28
 ---
 <!-- wp:block {"ref":1075} /-->
 <!-- wp:paragraph -->

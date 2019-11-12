@@ -1,6 +1,6 @@
 ---
 ID: 1117
-post_title: >
+title: >
   אוטומציה וקוד פתוח
   לבלוג
 author: Baruch Rothkoff
@@ -8,7 +8,7 @@ post_excerpt: ""
 layout: post
 permalink: https://www.bcsstudent.com/generator/
 published: true
-post_date: 2019-01-13 15:47:44
+date: 2019-01-13 15:47:44
 ---
 <!-- wp:paragraph -->
 <p>היי.</p>

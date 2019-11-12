@@ -1,6 +1,6 @@
 ---
 ID: 147
-post_title: >
+title: >
   איך מתחילים לכתוב
   בלוג?
 author: Baruch Rothkoff
@@ -9,7 +9,7 @@ layout: post
 permalink: >
   https://www.bcsstudent.com/how-to-start-blog/
 published: true
-post_date: 2013-01-14 13:43:00
+date: 2013-01-14 13:43:00
 ---
 <div dir="rtl" style="text-align:right;"><span style="font-family:Arial, Helvetica, sans-serif;">
 </span><span style="font-family:Arial, Helvetica, sans-serif;"><b>קודם כל, מה זה בלוג?</b></span>

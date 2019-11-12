@@ -1,12 +1,12 @@
 ---
 ID: 347
-post_title: 'סנכרון מוזיקה- Google Music'
+title: 'סנכרון מוזיקה- Google Music'
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
 permalink: https://www.bcsstudent.com/google-music/
 published: true
-post_date: 2016-07-27 14:59:32
+date: 2016-07-27 14:59:32
 ---
 <p style="text-align:justify;">כדי לגבות את המוזיקה מהמחשב ולגשת אליה מכל המכשירים שלנו, נשתמש ב<a href="http://music.google.com" target="_blank" rel="noopener noreferrer">גוגל מוזיקה</a>.</p>
 

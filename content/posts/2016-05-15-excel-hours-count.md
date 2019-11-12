@@ -1,6 +1,6 @@
 ---
 ID: 156
-post_title: >
+title: >
   חישוב כמות שעות בין
   תאריכים באקסל
 author: Baruch Rothkoff
@@ -11,7 +11,7 @@ layout: post
 permalink: >
   https://www.bcsstudent.com/excel-hours-count/
 published: true
-post_date: 2016-05-15 07:56:26
+date: 2016-05-15 07:56:26
 ---
 <!-- wp:paragraph -->
 <p>כדי לחשב את כמות השעות בין שני שדות של תאריכים באקסל, נשתמש בפונקצייה הבאה:</p>

@@ -1,12 +1,12 @@
 ---
 ID: 723
-post_title: ארכיון
+title: ארכיון
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: page
 permalink: https://www.bcsstudent.com/archive/
 published: true
-post_date: 2018-11-24 20:03:32
+date: 2018-11-24 20:03:32
 ---
 <h3>
 	הארכיון<br>

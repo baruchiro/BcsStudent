@@ -1,12 +1,12 @@
 ---
 ID: 2
-post_title: אודות
+title: אודות
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: page
 permalink: https://www.bcsstudent.com/info/
 published: true
-post_date: 2018-11-19 19:45:51
+date: 2018-11-19 19:45:51
 ---
 <!-- wp:heading -->
 <h2>הבלוג</h2>

@@ -1,6 +1,6 @@
 ---
 ID: 205
-post_title: >
+title: >
   פעולות מומלצות לפינוי
   מקום במחשב
 author: Baruch Rothkoff
@@ -9,7 +9,7 @@ layout: post
 permalink: >
   https://www.bcsstudent.com/free-up-space/
 published: true
-post_date: 2016-07-27 15:00:40
+date: 2016-07-27 15:00:40
 ---
 הגעתי למחשב נייח שהיה צריך להספיק לעדכן את Windows לפני ה29 ביולי, ולא היה מספיק מקום פנוי כדי לקבל את העדכון.
 

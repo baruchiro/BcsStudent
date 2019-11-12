@@ -1,13 +1,13 @@
 ---
 ID: 148
-post_title: טריקים מעניינים בגוגל
+title: טריקים מעניינים בגוגל
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/google-easter-eggs/
 published: true
-post_date: 2013-01-08 14:20:00
+date: 2013-01-08 14:20:00
 ---
 <!-- wp:heading -->
 <h2>ביצי פסחא- Easter Eggs</h2>

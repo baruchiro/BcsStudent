@@ -1,13 +1,13 @@
 ---
 ID: 934
-post_title: 'יש לי רעיון לסטארטאפ- התאמת מחשב'
+title: 'יש לי רעיון לסטארטאפ- התאמת מחשב'
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/ihis-computers/
 published: true
-post_date: 2018-12-13 08:20:04
+date: 2018-12-13 08:20:04
 ---
 אז- יש לי רעיון לסטארטאפ!
 
