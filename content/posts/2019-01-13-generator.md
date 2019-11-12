@@ -1,8 +1,6 @@
 ---
 ID: 1117
-title: >
-  אוטומציה וקוד פתוח
-  לבלוג
+title: אוטומציה וקוד פתוח לבלוג
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

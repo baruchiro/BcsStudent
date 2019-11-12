@@ -1,6 +1,6 @@
 ---
 ID: 934
-title: 'יש לי רעיון לסטארטאפ- התאמת מחשב'
+title: יש לי רעיון לסטארטאפ- התאמת מחשב
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

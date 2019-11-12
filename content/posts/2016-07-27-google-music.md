@@ -1,6 +1,6 @@
 ---
 ID: 347
-title: 'סנכרון מוזיקה- Google Music'
+title: סנכרון מוזיקה- Google Music
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

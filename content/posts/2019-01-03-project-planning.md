@@ -1,6 +1,6 @@
 ---
 ID: 1071
-title: 'פרויקט גמר &#8211; תכנון'
+title: פרויקט גמר - תכנון
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

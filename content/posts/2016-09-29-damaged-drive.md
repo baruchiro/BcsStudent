@@ -1,8 +1,6 @@
 ---
 ID: 511
-title: >
-  טיפול במחשב עם כונן
-  פגוע
+title: טיפול במחשב עם כונן פגוע
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

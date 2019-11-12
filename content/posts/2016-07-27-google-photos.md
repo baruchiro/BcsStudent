@@ -1,6 +1,6 @@
 ---
 ID: 274
-title: 'גיבוי וניהול תמונות- Google Photos'
+title: גיבוי וניהול תמונות- Google Photos
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

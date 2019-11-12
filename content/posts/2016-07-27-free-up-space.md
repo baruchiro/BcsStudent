@@ -1,8 +1,6 @@
 ---
 ID: 205
-title: >
-  פעולות מומלצות לפינוי
-  מקום במחשב
+title: פעולות מומלצות לפינוי מקום במחשב
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post

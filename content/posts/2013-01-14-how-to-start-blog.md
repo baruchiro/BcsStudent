@@ -1,8 +1,6 @@
 ---
 ID: 147
-title: >
-  איך מתחילים לכתוב
-  בלוג?
+title: איך מתחילים לכתוב בלוג?
 author: Baruch Rothkoff
 post_excerpt: ""
 layout: post
