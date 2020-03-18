@@ -8,12 +8,12 @@
 		</h1>
 
 		<p class="author__intro">
-			A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.
+			אמנם כבר לא סטודנט, אבל אוהב ללמוד דברים חדשים
 		</p>
 
 		<p class="author__links">
-			<a href="//twitter.com/gridsome">Follow on Twitter</a>
-			<a href="//github.com/gridsome/gridsome-starter-blog">GitHub</a>
+			<a href="mailto:baruchiro@gmail.com">Email</a>
+			<a href="//github.com/baruchiro/BcsStudent">GitHub</a>
 		</p>
 
 	</div>
