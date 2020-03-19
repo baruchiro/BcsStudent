@@ -22,7 +22,7 @@
     </div>
 
     <div class="post-comments">
-      <!-- Add comment widgets here -->
+      <vue-disqus shortname="bcsstudent" :identifier="$page.post.title" />
     </div>
 
     <Author class="post-author" />
