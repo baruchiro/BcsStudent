@@ -16,7 +16,7 @@ export default function (Vue, { router, head, isClient }) {
     Vue.use(
       VueGtag,
       {
-        config: { id: process.env.GTAG }
+        config: { id: process.env.GOOGLE_ANALYTICS_TRACKING_ID }
       },
       router
     )
