@@ -41,9 +41,11 @@ export default {
     Author,
     PostCard
   },
-  metaInfo: {
-    title: 'Hello, world!'
-  }
+  metaInfo() {
+    return {
+      title: `# ${this.$page.tag.title}`,
+    };
+  },
 }
 </script>
 
