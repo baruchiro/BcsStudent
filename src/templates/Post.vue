@@ -22,7 +22,7 @@
     </div>
 
     <div class="post-comments">
-      <!-- Add comment widgets here -->
+      <vue-disqus shortname="bcsstudent" :identifier="$page.post.title" />
     </div>
 
     <Author class="post-author" />
@@ -83,7 +83,7 @@ query Post ($id: ID!) {
 
   &__header {
     width: calc(100% + var(--space) * 2);
-    margin-left: calc(var(--space) * -1);
+    margin-right: calc(var(--space) * -1);
     margin-top: calc(var(--space) * -1);
     margin-bottom: calc(var(--space) / 2);
     overflow: hidden;
