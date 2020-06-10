@@ -20,7 +20,7 @@
   "devDependencies": {
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
-    "snyk": "^1.316.1"
+    "snyk": "^1.337.0"
   },
   "snyk": true
 }
