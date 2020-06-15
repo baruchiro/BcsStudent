@@ -10592,10 +10592,10 @@ vue-analytics@^5.16.1:
   resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.22.1.tgz#9d6b32da56daee1b9dfb23a267b50349a03f710f"
   integrity sha512-HPKQMN7gfcUqS5SxoO0VxqLRRSPkG1H1FqglsHccz6BatBatNtm/Vyy8brApktZxNCfnAkrSVDpxg3/FNDeOgQ==
 
-vue-disqus@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/vue-disqus/-/vue-disqus-3.0.5.tgz#8d0dd5cabdba7c47f82d129d2907a64366842fa8"
-  integrity sha512-T3Y68lXf5W2lYt6j4Y3kZ4opLPH0EAzqriy11MS4D4Q2+UN0tFuUXeYP1MxfvdyaCEboXSM6CUswxsULuNV70Q==
+vue-disqus@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/vue-disqus/-/vue-disqus-4.0.0.tgz#f57ff81e25cae997c6e06890c387a6289fb726f6"
+  integrity sha512-HMLVPBAPXQC7Ggpn1YuyzrC7RpdnV2V4gkjwwL/VDul2GEm2MCMaDgf27HJGrhigYhvIPhxRnqcOdMVeSUn5OQ==
 
 vue-gtag@^1.6.2:
   version "1.6.2"
