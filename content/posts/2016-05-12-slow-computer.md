@@ -65,7 +65,7 @@ date: 2016-05-12 04:56:19
 
 <p style="text-align:justify;">כדי לבדוק אלו תוכנות עולות עם הפעלת המחשב, ולבטל אותם, נכנס למנהל המשימות- לחיצה על Ctrl+Shift+Esc או לכתוב בחיפוש "מנהל המשימות".</p>
 
-[caption id="attachment_107" align="alignnone" width="683"]<img alt="אתחול" class="alignnone size-full wp-image-107" height="549" src="https://baruchiro.files.wordpress.com/2016/05/d790d7aad797d795d79c.png" width="683"/> אתחול[/caption]
+<img alt="אתחול" class="alignnone size-full wp-image-107" height="549" src="https://baruchiro.files.wordpress.com/2016/05/d790d7aad797d795d79c.png" width="683"/> אתחול[/caption]
 
 <p style="text-align:justify;">בלשונית "אתחול" אפשר לראות את הפירוט ולבטל את ההפעלה. גם תוכנה שהשפעת האתחול שלה נמוכה, אבל היא לא נצרכת, לא צריכה להיות מופעלת עם הדלקת המחשב.</p>
 
