@@ -1,5 +1,9 @@
 <template>
   <Layout :show-logo="false">
+    <template v-slot:sidebar>
+Hi
+    </template>
+
     <!-- Author intro -->
     <Author :show-title="true" />
 
@@ -30,6 +34,9 @@ query {
         }
       }
     }
+  },
+  meta: metadata {
+    siteName
   }
 }
 </page-query>
@@ -43,8 +50,8 @@ export default {
     Author,
     PostCard
   },
-  metaInfo: {
-    title: 'בלוג'
+  metaInfo() {
+    title: this.$page.meta.siteName
   }
 }
 </script>
