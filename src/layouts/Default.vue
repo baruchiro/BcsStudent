@@ -11,6 +11,12 @@
       </div>
     </header>
 
+    <aside v-if="isSidebar" class="sidebar">
+      <div>
+      <slot name="sidebar" />
+      </div>
+    </aside>
+
     <main class="main">
       <slot/>
     </main>
@@ -29,11 +35,17 @@ import ToggleTheme from '~/components/ToggleTheme.vue'
 
 export default {
   props: {
-    showLogo: { default: true }
+    showLogo: { default: true },
+    showSidebar: { default: true }
   },
   components: {
     Logo,
     ToggleTheme
+  },
+  computed: {
+    isSidebar() {
+      return this.showSidebar && !!this.$slots.sidebar
+    }
   }
 }
 </script>
@@ -59,6 +71,18 @@ export default {
     position: sticky;
     width: 100%;
   }
+}
+
+.sidebar {
+  display: flex;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: auto;
+  padding-bottom: auto;
 }
 
 .main {
