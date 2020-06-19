@@ -33,7 +33,7 @@ date: 2018-12-13 08:20:04
 
 <h2>Lean Canvas</h2>
 
-[caption id="" align="aligncenter" width="1108"]<a href="http://www.businessmodel.co.il/aid/"><img alt="Lean Canvas מהאתר http://www.businessmodel.co.il" class="size-medium" height="770" src="http://www.businessmodel.co.il/wp-content/uploads/2012/05/Lean-Canvas.jpg" width="1108"/></a> Lean Canvas מהאתר http://www.businessmodel.co.il[/caption]
+<a href="https://www.businessmodel.co.il/aid/"><img alt="Lean Canvas מהאתר https://www.businessmodel.co.il" class="size-medium" height="770" src="https://www.businessmodel.co.il/wp-content/uploads/2012/05/Lean-Canvas.jpg" width="1108"/></a> Lean Canvas מהאתר https://www.businessmodel.co.il[/caption]
 
 כל התוכנית העסקית נמצאת בלוח שלמעלה.
 
