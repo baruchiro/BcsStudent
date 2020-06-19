@@ -12,9 +12,7 @@
     </header>
 
     <aside v-if="isSidebar" class="sidebar">
-      <div>
-      <slot name="sidebar" />
-      </div>
+        <slot name="sidebar" />
     </aside>
 
     <main class="main">
@@ -75,14 +73,13 @@ export default {
 
 .sidebar {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
   width: 160px;
   position: fixed;
   z-index: 1;
-  top: 0;
-  background-color: #111;
   overflow-x: hidden;
-  padding-top: auto;
-  padding-bottom: auto;
 }
 
 .main {
