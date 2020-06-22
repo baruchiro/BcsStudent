@@ -9,7 +9,7 @@
 
     </div>
 
-    <div class="post content-box">
+    <div class="post content-box__main">
       <div class="post__header">
         <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
       </div>

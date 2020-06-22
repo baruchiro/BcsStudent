@@ -1,7 +1,7 @@
 <template>
   <Layout :show-logo="false">
     <template v-slot:sidebar>
-Hi
+      <PostTitles title="טיוטות" :posts="drafts" />
     </template>
 
     <!-- Author intro -->
@@ -9,9 +9,8 @@ Hi
 
     <!-- List posts -->
     <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
     </div>
-
   </Layout>
 </template>
 
@@ -37,21 +36,37 @@ query {
   },
   meta: metadata {
     siteName
-  }
+  },
+  drafts: allPost(filter: { published: { eq: false }}) {
+    edges {
+      node {
+        id
+        title
+        path
+      }
+    }
+  },
 }
 </page-query>
 
 <script>
-import Author from '~/components/Author.vue'
-import PostCard from '~/components/PostCard.vue'
+import Author from "~/components/Author.vue";
+import PostCard from "~/components/PostCard.vue";
+import PostTitles from "~/components/PostsTitles.vue";
 
 export default {
   components: {
     Author,
-    PostCard
+    PostCard,
+    PostTitles
   },
   metaInfo() {
-    title: this.$page.meta.siteName
+    title: this.$page.meta.siteName;
+  },
+  computed: {
+    drafts() {
+      return this.$page.drafts.edges.map(e => e.node);
+    }
   }
-}
+};
 </script>
