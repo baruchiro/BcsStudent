@@ -11,7 +11,7 @@ module.exports = {
   templates: {
     Post: [
       {
-        path: (node) => `/${node.title.split(' ').join('-')}`
+        path: (node) => `/${node.title.split(' ').join('-').replace('?', '')}`
       },
       {
         name: 'date',
