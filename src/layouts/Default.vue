@@ -1,35 +1,36 @@
 <template>
   <div id="app">
-
     <header class="header">
       <div class="header__left">
-        <Logo v-if="showLogo" /> 
+        <Logo v-if="showLogo" />
       </div>
-      
-      <div class="header__right">        
+
+      <div class="header__right">
         <ToggleTheme />
       </div>
     </header>
 
     <aside v-if="isSidebar" class="sidebar">
-        <slot name="sidebar" />
+      <slot name="sidebar" />
     </aside>
 
     <main class="main">
-      <slot/>
+      <slot />
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}. </span>
-      <span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span>
+      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}.</span>
+      <span class="footer__links">
+        Powered by
+        <a href="//gridsome.org">Gridsome</a>
+      </span>
     </footer>
-
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import ToggleTheme from '~/components/ToggleTheme.vue'
+import Logo from "~/components/Logo.vue";
+import ToggleTheme from "~/components/ToggleTheme.vue";
 
 export default {
   props: {
@@ -42,10 +43,10 @@ export default {
   },
   computed: {
     isSidebar() {
-      return this.showSidebar && !!this.$slots.sidebar
+      return this.showSidebar && !!this.$slots.sidebar;
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -55,7 +56,7 @@ export default {
   align-items: center;
   min-height: var(--header-height);
   padding: 0 calc(var(--space) / 2);
-  top:0;
+  top: 0;
   z-index: 10;
 
   &__left,
@@ -76,10 +77,11 @@ export default {
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  width: 160px;
+  width: calc((100% - var(--content-width)) / 2);
   position: fixed;
   z-index: 1;
   overflow-x: hidden;
+  padding: 0 .5em;
 }
 
 .main {
@@ -93,10 +95,10 @@ export default {
   justify-content: center;
   padding: calc(var(--space) / 2);
   text-align: center;
-  font-size: .8em;
+  font-size: 0.8em;
 
   > span {
-    margin: 0 .35em;
+    margin: 0 0.35em;
   }
 
   a {
