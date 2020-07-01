@@ -10590,10 +10590,10 @@ vue-disqus@^4.0.0:
   resolved "https://registry.yarnpkg.com/vue-disqus/-/vue-disqus-4.0.0.tgz#f57ff81e25cae997c6e06890c387a6289fb726f6"
   integrity sha512-HMLVPBAPXQC7Ggpn1YuyzrC7RpdnV2V4gkjwwL/VDul2GEm2MCMaDgf27HJGrhigYhvIPhxRnqcOdMVeSUn5OQ==
 
-vue-gtag@^1.6.2:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/vue-gtag/-/vue-gtag-1.6.3.tgz#9ae2a0b88e57fa7f89fb21d48f042cc03029a66b"
-  integrity sha512-gFn09/j7kl6FxrhiASFO06YLKzTLPJkj6wpE2vg9OASFRhYr+BFM7dvvKMY0Qg76Ske/Ebv/hgXzyPSMKkd/WA==
+vue-gtag@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/vue-gtag/-/vue-gtag-1.7.0.tgz#1a375d68c3b8a0338d2ebb1d1312f05803b6bca1"
+  integrity sha512-W3bBlgzrCC1FAmhBxDhhIiaNKVoqO/VDB6ZuYGcEg0Smg88A92FUKvNgpUv1Mkn+d61pUZXBWDFKyQMkyoFU7w==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
