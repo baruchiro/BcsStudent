@@ -10,10 +10,6 @@
       </div>
     </header>
 
-    <aside v-if="isSidebar" class="sidebar">
-      <slot name="sidebar" />
-    </aside>
-
     <main class="main">
       <slot />
     </main>
@@ -41,11 +37,6 @@ export default {
     Logo,
     ToggleTheme
   },
-  computed: {
-    isSidebar() {
-      return this.showSidebar && !!this.$slots.sidebar;
-    }
-  }
 };
 </script>
 
@@ -70,18 +61,6 @@ export default {
     position: sticky;
     width: 100%;
   }
-}
-
-.sidebar {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 100%;
-  width: calc((100% - var(--content-width)) / 2);
-  position: fixed;
-  z-index: 1;
-  overflow-x: hidden;
-  padding: 0 .5em;
 }
 
 .main {

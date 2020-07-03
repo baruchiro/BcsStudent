@@ -1,11 +1,12 @@
 <template>
   <Layout :show-logo="false">
-    <template v-slot:sidebar>
-      <PostTitles title="טיוטות" :posts="drafts" />
-    </template>
 
     <!-- Author intro -->
     <Author :show-title="true" />
+
+    <Sidebar>
+      <PostTitles title="טיוטות" :posts="drafts" />
+    </Sidebar>
 
     <!-- List posts -->
     <div class="posts">
@@ -53,12 +54,14 @@ query {
 import Author from "~/components/Author.vue";
 import PostCard from "~/components/PostCard.vue";
 import PostTitles from "~/components/PostsTitles.vue";
+import Sidebar from "~/components/Sidebar.vue";
 
 export default {
   components: {
     Author,
     PostCard,
-    PostTitles
+    PostTitles,
+    Sidebar,
   },
   metaInfo() {
     title: this.$page.meta.siteName;
