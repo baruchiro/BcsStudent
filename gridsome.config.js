@@ -11,6 +11,10 @@ module.exports = {
   templates: {
     Post: [
       {
+        path: (node) => `/${node.fileInfo.name}`
+      },
+      {
+        name: 'title',
         path: (node) => `/${node.title.split(' ').join('-').replace('?', '')}`
       },
       {
