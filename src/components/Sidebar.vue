@@ -13,10 +13,14 @@ export default {};
   // Relative
   display: flex;
   justify-content: center;
-  flex-direction: column;
   overflow-x: hidden;
   padding: 0 0.5em;
   align-items: center;
+  margin-bottom: 1vh;
+
+  > div {
+    margin: 0 1vw;
+  }
 
   @media screen and (min-width: 1300px) {
     // Fixed Sidebar
@@ -27,6 +31,11 @@ export default {};
     height: 100%;
     width: calc((100% - var(--content-width)) / 2);
     align-items: stretch;
+    flex-direction: column;
+
+    > div {
+      margin: 1vh 0;
+    }
   }
 }
 </style>
