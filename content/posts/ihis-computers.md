@@ -8,6 +8,7 @@ permalink: >
   https://www.bcsstudent.com/ihis-computers/
 published: true
 date: 2018-12-13 08:20:04
+tags: ['Idea']
 ---
 אז- יש לי רעיון לסטארטאפ!
 
