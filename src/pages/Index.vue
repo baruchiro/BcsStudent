@@ -1,11 +1,11 @@
 <template>
   <Layout :show-logo="false">
-
     <!-- Author intro -->
     <Author :show-title="true" />
 
     <Sidebar>
       <PostTitles title="טיוטות" :posts="drafts" />
+      <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" />
     </Sidebar>
 
     <!-- List posts -->
@@ -47,6 +47,20 @@ query {
       }
     }
   },
+  ideas: tag (id: "Idea") {
+    belongsTo {
+      edges {
+        node {
+          ...on Post {
+            id
+            title
+            path,
+            published
+          }
+        }
+      }
+    }
+  }
 }
 </page-query>
 
@@ -61,7 +75,7 @@ export default {
     Author,
     PostCard,
     PostTitles,
-    Sidebar,
+    Sidebar
   },
   metaInfo() {
     title: this.$page.meta.siteName;
@@ -69,6 +83,11 @@ export default {
   computed: {
     drafts() {
       return this.$page.drafts.edges.map(e => e.node);
+    },
+    ideas() {
+      return this.$page.ideas
+        ? this.$page.ideas.belongsTo.edges.map(e => e.node).filter(p => p.published)
+        : [];
     }
   }
 };
