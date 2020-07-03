@@ -9,7 +9,19 @@ module.exports = {
   siteDescription: 'Be a Computer Science student',
 
   templates: {
-    Post: '/:date',
+    Post: [
+      {
+        path: (node) => `/${node.fileInfo.name}`
+      },
+      {
+        name: 'title',
+        path: (node) => `/${node.title.split(' ').join('-').replace('?', '')}`
+      },
+      {
+        name: 'date',
+        path: '/:date'
+      }
+    ],
     Tag: '/tag/:id'
   },
 

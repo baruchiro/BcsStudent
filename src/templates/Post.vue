@@ -9,7 +9,7 @@
 
     </div>
 
-    <div class="post content-box">
+    <div class="post content-box__main">
       <div class="post__header">
         <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
       </div>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="post-comments">
-      <vue-disqus shortname="bcsstudent" :identifier="$page.post.title" />
+      <Disqus :identifier="$page.post.title" />
     </div>
 
     <Author class="post-author" />
