@@ -15,12 +15,12 @@
     "@gridsome/transformer-remark": "^0.6.0",
     "gridsome": "^0.7.18",
     "vue-disqus": "^4.0.0",
-    "vue-gtag": "^1.7.0"
+    "vue-gtag": "^1.7.0",
+    "snyk": "^1.359.1"
   },
   "devDependencies": {
     "node-sass": "^4.13.1",
-    "sass-loader": "^8.0.2",
-    "snyk": "^1.355.0"
+    "sass-loader": "^8.0.2"
   },
   "snyk": true
 }
