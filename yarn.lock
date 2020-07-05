@@ -8851,6 +8851,13 @@ relateurl@0.2.x:
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
 
+remark-align@^1.2.13:
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/remark-align/-/remark-align-1.2.13.tgz#bc948ee8d755d0e46824c6a0203869dca2445d3a"
+  integrity sha512-G/U3eNzMcLIy0zFCQJDsCugE+/LaQ5m58Hgg6Q64OnAhPSb74wA3VikkBSfbdFfT+HgBg6KdkeGpauYqRn2pCg==
+  dependencies:
+    space-separated-tokens "^1.1.5"
+
 remark-autolink-headings@^5.0.0:
   version "5.2.2"
   resolved "https://registry.yarnpkg.com/remark-autolink-headings/-/remark-autolink-headings-5.2.2.tgz#6ff4682b43a1614c8ba343627abe3d9805173677"
@@ -9920,7 +9927,7 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-space-separated-tokens@^1.0.0, space-separated-tokens@^1.1.2:
+space-separated-tokens@^1.0.0, space-separated-tokens@^1.1.2, space-separated-tokens@^1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/space-separated-tokens/-/space-separated-tokens-1.1.5.tgz#85f32c3d10d9682007e917414ddc5c26d1aa6899"
   integrity sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==
