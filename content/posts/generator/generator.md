@@ -2,6 +2,7 @@
 title: אוטומציה וקוד פתוח לבלוג
 published: true
 date: 2019-01-13 15:47:44
+cover_image: ./generator.png
 ---
 <!-- wp:paragraph -->
 <p>היי.</p>
