@@ -2,7 +2,6 @@
 ID: 151
 title: מדריך Windows Service בעברית- התקנה
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/win-service-install/

@@ -2,7 +2,6 @@
 ID: 347
 title: סנכרון מוזיקה- Google Music
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: https://www.bcsstudent.com/google-music/
 published: true

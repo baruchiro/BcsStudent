@@ -2,7 +2,6 @@
 ID: 764
 title: Hyper-V- מכונה וירטואלית בWindows
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: https://www.bcsstudent.com/hyper-v/
 published: true

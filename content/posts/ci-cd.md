@@ -2,7 +2,6 @@
 ID: 770
 title: מה כדאי לסטודנט לדעת- CI/CD
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: https://www.bcsstudent.com/ci-cd/
 published: true

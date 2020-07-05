@@ -2,7 +2,6 @@
 ID: 549
 title: RESTful API with ASP.NET Web API 2
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/restful-api-with-asp-net-web-api-2/
