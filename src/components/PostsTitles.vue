@@ -6,7 +6,7 @@
     </div>
 
     <g-link
-      class="post-titles__link"
+      class="post-titles__item"
       v-for="post in posts"
       :key="post.id"
       :to="post.path"
@@ -52,6 +52,10 @@ export default {
     a {
       color: inherit;
     }
+  }
+
+  &__item {
+    display: block;
   }
 }
 </style>
