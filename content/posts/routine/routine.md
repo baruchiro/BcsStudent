@@ -9,6 +9,7 @@ description: >
   שאנחנו פוגשים ביום
   יום הוא דווקא השגרה.
 published: true
+cover_image: ./routine.png
 date: 2019-03-01 14:17:59
 ---
 <!-- wp:paragraph -->
