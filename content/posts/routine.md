@@ -2,7 +2,7 @@
 ID: 1152
 title: השגרה - האתגר שכולנו שוכחים
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   כולנו חושבים על
   הטכנולוגיות החדשות
   שנפגוש, או על עבודה עד

@@ -2,7 +2,7 @@
 ID: 1247
 title: כלים בחינם לסטודנטים
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   בהרבה כלים, מוצרים
   ושירותים שעולים כסף,
   יש גם גרסה חינמית

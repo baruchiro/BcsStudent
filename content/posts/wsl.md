@@ -2,7 +2,7 @@
 ID: 700
 title: לינוקס במקביל לווינדוס
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   הגדרת Linux תחת Windows עד
   להצגת חלונות
 layout: post

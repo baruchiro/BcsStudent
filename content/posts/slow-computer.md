@@ -2,7 +2,7 @@
 ID: 155
 title: מה עושים כשהמחשב איטי?
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   כמה טיפים למקרה
   שהמחשב איטי מידי.
 layout: post
