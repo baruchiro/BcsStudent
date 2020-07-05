@@ -1,7 +1,5 @@
 ---
-ID: 1152
 title: השגרה - האתגר שכולנו שוכחים
-author: Baruch Rothkoff
 description: >
   כולנו חושבים על
   הטכנולוגיות החדשות
@@ -10,8 +8,6 @@ description: >
   אבל האתגר העיקרי
   שאנחנו פוגשים ביום
   יום הוא דווקא השגרה.
-layout: post
-permalink: https://www.bcsstudent.com/routine/
 published: true
 date: 2019-03-01 14:17:59
 ---

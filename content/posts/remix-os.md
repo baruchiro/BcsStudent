@@ -1,9 +1,5 @@
 ---
-ID: 383
 title: Remix OS- אנדרואיד לכל מחשב
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/remix-os/
 published: true
 date: 2016-07-28 20:15:40
 ---

@@ -4,7 +4,6 @@ date: 2020-07-03
 published: false
 tags: ['home-server', 'home-assistant']
 series: true
-canonical_url: true
 description: "בדיקה והתנסות במערכת ניהול הבית החכם Home Assistant"
 ---
 

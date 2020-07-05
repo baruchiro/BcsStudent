@@ -1,13 +1,9 @@
 ---
-ID: 144
 title: איך תופרים רצועה לנשק
-author: Baruch Rothkoff
 description: >
   הוראות מפורטות לתפירת
   רצועה לנשק, בתוספת
   תמונות.
-layout: post
-permalink: https://www.bcsstudent.com/weapon-strap/
 published: true
 date: 2015-12-19 19:00:02
 ---

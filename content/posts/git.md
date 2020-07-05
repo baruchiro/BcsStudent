@@ -1,9 +1,5 @@
 ---
-ID: 738
 title: מה כדאי לסטודנט לדעת - Git
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/git/
 published: true
 date: 2018-11-28 18:41:51
 ---

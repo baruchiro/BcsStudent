@@ -1,13 +1,8 @@
 ---
-ID: 156
 title: חישוב כמות שעות בין תאריכים באקסל
-author: Baruch Rothkoff
 description: >
   חישוב כמות שעות בין
   תאריכים באקסל
-layout: post
-permalink: >
-  https://www.bcsstudent.com/excel-hours-count/
 published: true
 date: 2016-05-15 07:56:26
 ---

@@ -1,13 +1,8 @@
 ---
-ID: 155
 title: מה עושים כשהמחשב איטי?
-author: Baruch Rothkoff
 description: >
   כמה טיפים למקרה
   שהמחשב איטי מידי.
-layout: post
-permalink: >
-  https://www.bcsstudent.com/slow-computer/
 published: true
 date: 2016-05-12 04:56:19
 ---

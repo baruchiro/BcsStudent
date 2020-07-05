@@ -1,7 +1,5 @@
 ---
-ID: 1271
 title: פודקאסטים
-author: Baruch Rothkoff
 description: >
   לא תמיד אנחנו מרוכזים
   בהתפתחות מקצועית, או
@@ -14,8 +12,6 @@ description: >
   מקצועית ולהכיר את
   התעשייה שאנחנו נכנסים
   אליה.
-layout: post
-permalink: https://www.bcsstudent.com/podcasts/
 published: true
 date: 2019-03-24 12:32:18
 ---

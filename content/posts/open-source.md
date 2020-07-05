@@ -1,9 +1,5 @@
 ---
-ID: 958
 title: מה כדאי לסטודנט לדעת- קוד פתוח
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/open-source/
 published: true
 date: 2018-12-20 17:34:55
 ---

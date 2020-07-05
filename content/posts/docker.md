@@ -1,7 +1,5 @@
 ---
-ID: 1219
 title: מה כדאי לסטודנט לדעת - Docker
-author: Baruch Rothkoff
 description: >
   תחום התשתיות הוא תחום
   שגם כן פחות נוגעים בו
@@ -9,8 +7,6 @@ description: >
   זה עוזר לנו לבטל את
   התלות במצב של מערכת
   ההפעלה?
-layout: post
-permalink: https://www.bcsstudent.com/docker/
 published: true
 date: 2019-03-06 07:09:14
 ---
