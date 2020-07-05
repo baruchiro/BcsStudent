@@ -1,10 +1,6 @@
 ---
-ID: 21
 title: מה כדאי לסטודנט לדעת- טסטים
-author: Baruch Rothkoff
 description: "כתיבת טסטים היא חלק חשוב ועיקרי בעולם האג'ייל, וחשוב לדעת את זה מהשלב ההתחלתי שבו אנחנו נמצאים, על מנת להגיע טובים יותר לעבודה הראשונה שלנו."
-layout: post
-permalink: https://www.bcsstudent.com/tests/
 published: true
 date: 2018-11-22 17:29:57
 ---

@@ -1,10 +1,5 @@
 ---
-ID: 511
 title: טיפול במחשב עם כונן פגוע
-author: Baruch Rothkoff
-layout: post
-permalink: >
-  https://www.bcsstudent.com/damaged-drive/
 published: true
 date: 2016-09-29 16:09:43
 ---

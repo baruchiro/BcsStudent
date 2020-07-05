@@ -1,12 +1,8 @@
 ---
-ID: 700
 title: לינוקס במקביל לווינדוס
-author: Baruch Rothkoff
 description: >
   הגדרת Linux תחת Windows עד
   להצגת חלונות
-layout: post
-permalink: https://www.bcsstudent.com/wsl/
 published: true
 date: 2018-02-26 12:57:52
 ---

@@ -1,9 +1,5 @@
 ---
-ID: 1117
 title: אוטומציה וקוד פתוח לבלוג
-author: Baruch Rothkoff
-layout: post
-permalink: https://www.bcsstudent.com/generator/
 published: true
 date: 2019-01-13 15:47:44
 ---

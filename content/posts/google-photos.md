@@ -1,10 +1,5 @@
 ---
-ID: 274
 title: גיבוי וניהול תמונות- Google Photos
-author: Baruch Rothkoff
-layout: post
-permalink: >
-  https://www.bcsstudent.com/google-photos/
 published: true
 date: 2016-07-27 14:09:35
 ---

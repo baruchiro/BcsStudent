@@ -1,10 +1,5 @@
 ---
-ID: 152
 title: מדריך Windows Service בעברית- כתיבה
-author: Baruch Rothkoff
-layout: post
-permalink: >
-  https://www.bcsstudent.com/win-service-writing/
 published: true
 date: 2012-04-05 12:18:00
 ---

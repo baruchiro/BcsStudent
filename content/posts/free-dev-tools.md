@@ -1,7 +1,5 @@
 ---
-ID: 1247
 title: כלים בחינם לסטודנטים
-author: Baruch Rothkoff
 description: >
   בהרבה כלים, מוצרים
   ושירותים שעולים כסף,
@@ -11,9 +9,6 @@ description: >
   חינמיים, שתפו איתנו את
   הכלים שאתם משתמשים
   בהם!
-layout: post
-permalink: >
-  https://www.bcsstudent.com/free-dev-tools/
 published: true
 date: 2019-03-13 07:53:52
 ---
