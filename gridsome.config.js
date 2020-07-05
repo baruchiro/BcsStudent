@@ -50,7 +50,12 @@ module.exports = {
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
       anchorClassName: 'icon icon-link',
       plugins: [
-        '@gridsome/remark-prismjs'
+        '@gridsome/remark-prismjs',
+        ['remark-align', {
+          left: 'align-start',
+          center: 'align-center',
+          right: 'align-end',
+        }]
       ]
     }
   }
