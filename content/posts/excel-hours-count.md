@@ -2,7 +2,7 @@
 ID: 156
 title: חישוב כמות שעות בין תאריכים באקסל
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   חישוב כמות שעות בין
   תאריכים באקסל
 layout: post

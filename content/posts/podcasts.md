@@ -2,7 +2,7 @@
 ID: 1271
 title: פודקאסטים
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   לא תמיד אנחנו מרוכזים
   בהתפתחות מקצועית, או
   יש לנו כוח לקרוא איזה

@@ -2,7 +2,7 @@
 ID: 144
 title: איך תופרים רצועה לנשק
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   הוראות מפורטות לתפירת
   רצועה לנשק, בתוספת
   תמונות.

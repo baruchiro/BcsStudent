@@ -2,7 +2,7 @@
 ID: 1219
 title: מה כדאי לסטודנט לדעת - Docker
 author: Baruch Rothkoff
-post_excerpt: >
+description: >
   תחום התשתיות הוא תחום
   שגם כן פחות נוגעים בו
   בתואר. מה זה Docker ולמה
