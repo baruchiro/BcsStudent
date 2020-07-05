@@ -1,6 +1,9 @@
 <template>
   <div class="post-titles content-box">
-    <div class="post-titles__title">{{title}}</div>
+    <div class="post-titles__title">
+      <g-link v-if="tag" :to="`/tag/${tag}/`">{{title}}</g-link>
+      <span v-else>{{title}}</span>
+    </div>
 
     <g-link
       class="post-titles__link"
@@ -23,6 +26,11 @@ export default {
     posts: {
       type: Array,
       required: true
+    },
+    tag: {
+      type: String,
+      required: false,
+      default: null
     }
   }
 };
@@ -33,13 +41,17 @@ export default {
   font-size: 0.8em;
   padding: 1vh 1vw;
 
+  a {
+    text-decoration: none;
+  }
+
   &__title {
     text-align: center;
     font-weight: bold;
-  }
-
-  &__link {
-    text-decoration: none;
+    
+    a {
+      color: inherit;
+    }
   }
 }
 </style>

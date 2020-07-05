@@ -5,7 +5,7 @@
 
     <Sidebar>
       <PostTitles title="טיוטות" :posts="drafts" />
-      <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" />
+      <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" tag="Idea" />
     </Sidebar>
 
     <!-- List posts -->
