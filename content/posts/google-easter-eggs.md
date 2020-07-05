@@ -2,7 +2,6 @@
 ID: 148
 title: טריקים מעניינים בגוגל
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/google-easter-eggs/

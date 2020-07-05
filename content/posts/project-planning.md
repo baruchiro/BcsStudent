@@ -2,7 +2,6 @@
 ID: 1071
 title: פרויקט גמר - תכנון
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/project-planning/

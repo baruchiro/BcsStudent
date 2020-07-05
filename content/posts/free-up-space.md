@@ -2,7 +2,6 @@
 ID: 205
 title: פעולות מומלצות לפינוי מקום במחשב
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/free-up-space/

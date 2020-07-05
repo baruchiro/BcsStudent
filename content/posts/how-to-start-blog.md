@@ -2,7 +2,6 @@
 ID: 147
 title: איך מתחילים לכתוב בלוג?
 author: Baruch Rothkoff
-post_excerpt: ""
 layout: post
 permalink: >
   https://www.bcsstudent.com/how-to-start-blog/
