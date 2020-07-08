@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="post-comments">
+    <div class="content-box__main">
       <Disqus :identifier="$page.post.title" />
     </div>
 
@@ -114,14 +114,6 @@ query Post ($id: ID!) {
       display: block;
       max-width: none;
     }
-  }
-}
-
-.post-comments {
-  padding: calc(var(--space) / 2);
-
-  &:empty {
-    display: none;
   }
 }
 
