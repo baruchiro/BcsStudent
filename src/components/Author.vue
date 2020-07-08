@@ -12,8 +12,9 @@
 		</p>
 
 		<p class="author__links">
-			<a href="mailto:baruchiro@gmail.com">Email</a>
-			<a href="//github.com/baruchiro/BcsStudent">GitHub</a>
+			<a href="mailto:baruchiro@gmail.com">המייל שלי</a>
+			<a href="//github.com/baruchiro/BcsStudent">הבלוג בGithub</a>
+			<a href="https://www.facebook.com/BcsStudentBlog/">דף הפייסבוק של הבלוג</a>
 		</p>
 
 	</div>
