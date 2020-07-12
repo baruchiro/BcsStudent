@@ -5,7 +5,7 @@
     </div>
     <div class="post-card__content">
       <h2 class="post-card__title" v-html="post.title" />
-      <p class="post-card__description" v-html="post.description" />
+      <p class="post-card__description" v-html="description" />
 
       <PostMeta class="post-card__meta" :post="post" />
       <PostTags class="post-card__tags" :post="post" />
@@ -25,6 +25,11 @@ export default {
     PostTags
   },
   props: ['post'],
+  computed: {
+    description() {
+      return this.post.description.replace(/\r?\n/g, '<br/>')
+    }
+  }
 }
 </script>
 
