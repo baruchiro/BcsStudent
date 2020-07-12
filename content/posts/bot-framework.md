@@ -3,7 +3,7 @@ title: How to structure your Bot Framework project in ASP.NET Core
 published: true
 date: 2019-05-06 18:00:47
 description: |
-    Decisions I made while building a bot with Microsoft Bot Framework.<br />
+    Decisions I made while building a bot with Microsoft Bot Framework.
     Read with LTR in <a href="https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1">Dev.to</a>
 tags: ['bot-framework', '.NET Core', 'ASP.NET']
 ---
