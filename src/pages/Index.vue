@@ -81,7 +81,7 @@ export default {
   metaInfo() {
     return {
       title: this.$page.meta.siteName,
-      meta: getMeta(this.$page.meta.siteName, this.$page.meta.siteDescription, 'logo/LOGO.png', 1743, 353)
+      meta: getMeta(this.$page.meta.siteName, this.$page.meta.siteDescription, '/logo/LOGO.png')
     }
   },
   computed: {
