@@ -36,7 +36,7 @@ query {
     }
   },
   meta: metadata {
-    siteName
+    siteName, siteDescription
   },
   drafts: allPost(filter: { published: { eq: false }}) {
     edges {
@@ -69,6 +69,7 @@ import Author from "~/components/Author.vue";
 import PostCard from "~/components/PostCard.vue";
 import PostTitles from "~/components/PostsTitles.vue";
 import Sidebar from "~/components/Sidebar.vue";
+import getMeta from '~/meta';
 
 export default {
   components: {
@@ -78,7 +79,10 @@ export default {
     Sidebar
   },
   metaInfo() {
-    title: this.$page.meta.siteName;
+    return {
+      title: this.$page.meta.siteName,
+      meta: getMeta(this.$page.meta.siteName, this.$page.meta.siteDescription, 'logo/LOGO.png', 1743, 353)
+    }
   },
   computed: {
     drafts() {
