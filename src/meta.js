@@ -2,7 +2,6 @@ const prefixes = ['', 'og:', 'twitter:']
 
 const createMetaTags = (tagName, value) => prefixes.map((prefix) => ({
     property: prefix + tagName,
-    // name: prefix + tagName,
     content: value
 }))
 
@@ -19,7 +18,7 @@ export default (title, description, image, imageWidth, imageHeight) => {
 
     meta.push({
         property: 'twitter:card',
-        content: image? 'summary_large_image' : 'summary'
+        content: image ? 'summary_large_image' : 'summary'
     })
 
     return meta
