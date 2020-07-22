@@ -33,7 +33,6 @@
 import PostMeta from '~/components/PostMeta'
 import PostTags from '~/components/PostTags'
 import Author from '~/components/Author.vue'
-import getMeta from '~/meta'
 
 export default {
   components: {
@@ -44,7 +43,12 @@ export default {
   metaInfo () {
     return {
       title: this.$page.post.title,
-      meta: getMeta($page.post.title, $page.post.description, $page.post.cover_image)
+      meta: [
+        {
+          name: 'description',
+          content: this.$page.post.description
+        }
+      ]
     }
   }
 }
