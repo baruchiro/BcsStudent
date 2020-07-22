@@ -2,6 +2,7 @@ const prefixes = ['', 'og:', 'twitter:']
 
 const createMetaTags = (tagName, value) => prefixes.map((prefix) => ({
     property: prefix + tagName,
+    name: prefix + tagName,
     content: value
 }))
 
