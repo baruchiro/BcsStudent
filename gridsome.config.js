@@ -7,6 +7,7 @@
 module.exports = {
   siteName: 'ברוך אודם - B.Cs Student',
   siteDescription: 'Be a Computer Science student',
+  siteUrl: process.env.URL || 'http://localhost:8080',
 
   templates: {
     Post: [
