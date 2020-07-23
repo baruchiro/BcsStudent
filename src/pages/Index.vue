@@ -36,7 +36,7 @@ query {
     }
   },
   meta: metadata {
-    siteName, siteDescription
+    siteName, siteDescription, siteUrl
   },
   drafts: allPost(filter: { published: { eq: false }}) {
     edges {
@@ -81,7 +81,12 @@ export default {
   metaInfo() {
     return {
       title: this.$page.meta.siteName,
-      meta: getMeta(this.$page.meta.siteName, this.$page.meta.siteDescription, '/logo/LOGO.png')
+      meta: getMeta(
+        this.$page.meta.siteUrl,
+        this.$page.meta.siteName,
+        this.$page.meta.siteDescription,
+        this.$page.meta.siteUrl + '/logo/LOGO.png'
+      )
     }
   },
   computed: {
