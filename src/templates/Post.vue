@@ -11,7 +11,7 @@
 
     <div class="post content-box__main">
       <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+        <g-image ref="coverImage" alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
       </div>
 
       <div class="post__content" v-html="$page.post.content" />
@@ -48,7 +48,7 @@ export default {
         this.$page.meta.siteUrl + this.$page.post.path,
         this.$page.post.title,
         this.$page.post.description,
-        this.$page.post.cover_image || this.$page.meta.siteUrl + '/logo/LOGO.png',
+        this.$refs.coverImage? this.$refs.coverImage.src : (this.$page.meta.siteUrl + '/logo/LOGO.png'),
         860
       )
     }
