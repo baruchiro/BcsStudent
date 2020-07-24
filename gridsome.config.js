@@ -38,6 +38,10 @@ module.exports = {
           tags: {
             typeName: 'Tag',
             create: true
+          },
+          author: {
+            typeName: 'Author',
+            create: true
           }
         }
       }
