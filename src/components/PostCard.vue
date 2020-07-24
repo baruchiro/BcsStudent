@@ -7,6 +7,9 @@
       <h2 class="post-card__title" v-html="post.title" />
       <p class="post-card__description" v-html="description" />
 
+      <p v-if="post.author" class="post-card__author">
+        פוסט מאת <span>{{ post.author.title }}</span>
+      </p>
       <PostMeta class="post-card__meta" :post="post" />
       <PostTags class="post-card__tags" :post="post" />
 
@@ -79,6 +82,15 @@ export default {
     overflow: hidden;
     text-indent: -9999px;
     z-index: 0;
+  }
+
+  &__author {
+    font-size: 0.8em;
+    opacity: 0.8;
+
+    span {
+      font-weight: bold;
+    }
   }
 }
 </style>

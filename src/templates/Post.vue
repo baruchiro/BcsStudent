@@ -5,6 +5,9 @@
         {{ $page.post.title }}
       </h1>
 
+      <p v-if="$page.post.author" class="post-title__author">
+        פוסט מאת <span>{{ $page.post.author.title }}</span>
+      </p>
       <PostMeta :post="$page.post" />
 
     </div>
@@ -63,6 +66,7 @@ query Post ($id: ID!) {
     path
     date (format: "D. MMMM YYYY")
     timeToRead
+    author { title }
     tags {
       id
       title
@@ -82,6 +86,15 @@ query Post ($id: ID!) {
 .post-title {
   padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
   text-align: center;
+
+  &__author {
+    font-size: 0.8em;
+    opacity: 0.8;
+
+    span {
+      font-weight: bold;
+    }
+  }
 }
 
 .post {
