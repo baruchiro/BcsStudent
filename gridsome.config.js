@@ -64,10 +64,10 @@ module.exports = {
           link: siteUrl,
           language: 'he',
           image: `${siteUrl}/logo/LOGO.png`,
-          feedLinks: {
-            json: "https://example.com/json",
-            atom: "https://example.com/atom"
-          },
+          // feedLinks: {
+          //   json: "https://example.com/json",
+          //   atom: "https://example.com/atom"
+          // },
           author: {
             name: "ברוך אודם",
             email: "baruchiro@gmail.com",
@@ -109,7 +109,7 @@ module.exports = {
           description: node.description,
           content: node.content,
           date: node.date,
-          image: node.cover_image
+          // image: node.cover_image
         })
       }
     }
