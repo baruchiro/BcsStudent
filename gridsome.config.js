@@ -103,7 +103,12 @@ module.exports = {
         // See https://www.npmjs.com/package/feed#example for available properties
         // NOTE: `date` field MUST be a Javascript `Date` object
         nodeToFeedItem: (node) => ({
-          ...node,
+          title: node.title,
+          id: node.path,
+          link: node.path,
+          description: node.description,
+          content: node.content,
+          date: node.date,
           image: node.cover_image
         })
       }
