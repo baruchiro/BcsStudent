@@ -22,70 +22,98 @@ date: 2019-04-11 18:46:00
 
 ## בלוגים מומלצים בעברית
 
+אשמח אם תוסיפו בלוגים חדשים בתגובות, ואני אוסיף אותם לרשימה.
+
+הצעות לחלוקת קטגוריות שונה יתקבלו בברכה!
+
 ### חיפוש עבודה
 
-- [הג'וניור המצוי](https://www.hajunior.com): אודות - קורות חיים הייטק, מדריך מקוצר ([rss](https://www.hajunior.com/feed/)).
+- [הג'וניור המצוי](https://www.hajunior.com): אודות - קורות חיים הייטק, מדריך מקוצר ([Feed](https://www.hajunior.com/feed/))
 
 ### תשתיות
 
-- [הבלוג של חץ ביז](http://linvirtstor.net): – טיפים ומידע על טכנולוגיות שונות ([rss](http://linvirtstor.net/feed/)).
-- [Eli Shlomo Blog](http://blogs.microsoft.co.il/eshlomo9): ([rss](http://blogs.microsoft.co.il/eshlomo9/feed/)).
+- [כמה מילים ברשותכם V2.0](https://benhamo.org): כמה מילים ברשותכם V2.0 – בלוג על טכנולוגיה ועוד כמה נושאים ([Feed](http://benhamo.org/feed/))
+- [הבלוג של חץ ביז](https://linvirtstor.net): הבלוג של חץ ביז – טיפים ומידע על טכנולוגיות שונות ([Feed](http://linvirtstor.net/feed/))
+- [DockerIL « פיד‏](https://www.dockeril.net): DockerIL - מדברים על דוקר ([Feed](https://www.dockeril.net/feed/))
 
-### Windows
+### בדיקות ואוטומציה
 
-- [מאמרים במחשבים / בלוג מחשבים](https://smartech.co.il): קהילת משתמשי ווינדוס בישראל – SmarTech PCs ([rss](http://smartech.co.il/?feed=rss2)).
-
-### לינוקס
-
-- [האתר של שביט אילן](https://ilsh.duckdns.org): – בלוג על לינוקס ותוכנה חופשית ([rss](https://ilsh.duckdns.org/?feed=rss2)).
+- [טסטינג](https://testthing.net): טסטינג - עולם הבדיקות | חדשנות | רכב ([Feed](https://testthing.net/feed/))
+- [אוטומטית](https://www.tehila.co.il): אוטומטית - אוטומציה להמונים - תהילה גבאי דויטש - אוטומטית ([Feed](https://www.tehila.co.il/feed/))
+- [בלוג – עתיד האוטומציה](https://atidcollege.co.il): קורס אוטומציה, קורס qa אוטומציה - שדרג את השכר שלך | יוני פלנר ([Feed](http://atidcollege.co.il/category/blog/feed/))
 
 ### תכנות
 
-- [שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏](https://grauman.co.il): שחר גראומן- קורסים והדרכות לחברות הייטק ([rss](https://grauman.co.il/feed/)).
-- [BugLess « פיד‏](https://destinywall.org/redirect?type=11&): ([rss](http://bugless.co/feed/)).
-- [tocode פשוט לתכנת טוב יותר](https://www.tocode.co.il): tocode | קורסים מקוונים בתכנות ([rss](https://www.tocode.co.il/feed.atom)).
-- [אינטרנט ישראל](https://internet-israel.com): : רן בר-זיק על פיתוח אינטרנט מתקדם ([rss](http://www.internet-israel.com/feed/)).
-- [Software Archiblog -- בלוג ארכיטקטורת תוכנה](http://www.softwarearchiblog.com/): ([rss](http://www.softwarearchiblog.com/feeds/posts/default)).
+- [אנדרואידוס - בלוג על אנדרואיד בעברית](https://androidoss.now.sh/): אנדרואידוס - בלוג על אנדרואיד בעברית ([Feed](https://androidoss.now.sh/index.xml))
+- [שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏](https://grauman.co.il): שחר גראומן- מומחה הדרכות לקורסים בחברות הייטק ([Feed](https://grauman.co.il/feed/))
+- [בלוג בינה מלאכותית](https://www.ai-blog.co.il): בלוג בינה מלאכותית – למידה עמוקה ([Feed](https://ai-blog.co.il/feed/))
+- [DSW Tutorial](https://dswtutorial.com): DSW Tutorial » מדריכים מאת מהנדס תוכנה ([Feed](https://dswtutorial.com/feed/))
+
+- [tocode פשוט לתכנת טוב יותר](https://www.tocode.co.il): tocode | קורסים מקוונים בתכנות ([Feed](https://www.tocode.co.il/feed.atom))
+- [אינטרנט ישראל](https://internet-israel.com): אינטרנט ישראל: רן בר-זיק על פיתוח אינטרנט מתקדם ([Feed](http://www.internet-israel.com/feed/))
+- [ריאקט ישראל- ריאקט וריאקט נייטיב](https://www.react-israel.co.il): ריאקט ישראל- ריאקט וריאקט נייטיב – tech blog ([Feed](https://www.react-israel.co.il/feed/))
+- [אלון אברג'ל](https://alonabargel.com): אלון אברג'ל – מדריכים לפיתוח תוכנה – מתכנת ומרצה Full-Stack – מדריכי תכנות WEB ([Feed](https://alonabargel.com/feed/))
+- [Software Archiblog -- בלוג ארכיטקטורת תוכנה](http://www.softwarearchiblog.com/): Software Archiblog -- בלוג ארכיטקטורת תוכנה ([Feed](http://www.softwarearchiblog.com/feeds/posts/default))
+
+### לא פעילים (על פי Feedly)
+
+- [לפני האיתחול](https://tech.b48.club/): דף הבית  - לפני האיתחול ([Feed](https://tech.b48.club/feed.xml))
+- [מדעןתונים](https://madantunim.wordpress.com): מדעןתונים ([Feed](https://madantunim.wordpress.com/feed/))
+- [Code Junkie Blog](http://codejunkie.blog): Code Junkie Blog - ([Feed](http://codejunkie.blog/feed/))
+- [תוכנה חופשית בעברית](https://kaplanopensource.wordpress.com): תוכנה חופשית בעברית | מיומנו של חבר בקהילת התוכנה החופשית בישראל ([Feed](http://kaplanopensource.wordpress.com/feed/))
+- [מאמרים במחשבים / בלוג מחשבים](https://smartech.co.il): קהילת משתמשי ווינדוס בישראל – SmarTech PCs ([Feed](http://smartech.co.il/?feed=rss2))
+- [המקום לפיתוח תוכנה ואוטומציה](http://www.automatzia.com/): המקום לפיתוח תוכנה ואוטומציה ([Feed](http://www.automatzia.com/feeds/posts/default))
+- [אלכס קוביצה](https://alexkubica.com): Alex Kubica - Mostly dev talks 📷 📖 🏋️ 💻 🦻 🇮🇱 ([Feed](https://alexkubica.com/he/feed/))
+- [הבלוג של גו-קוד](https://blog.gocode.co.il): GoCode Blog - גו-קוד בלוג - קוד, קוד ועוד קצת קוד - הבלוג של גו-קוד ([Feed](https://blog.gocode.co.il/rss.xml))
+- [home-assistant](https://www.home-assistant.co.il/articles): בית חכם | מדריכים וכתבות ([Feed](https://www.home-assistant.co.il/feed.xml))
+- [בלוג מחשבות על קידוד ופיתוח](https://blog.castnet.club/): Haim Kastner - Software Developer ([Feed](https://blog.castnet.club/feed))
+- [דורזקי](https://www.dorzki.co.il): מומחה וורדפרס - מתכנת וורדפרס עם 15+ שנות נסיון | דורזקי ([Feed](https://www.dorzki.co.il/feed/))
+- [Startupiko](http://he-tech.startupiko.com): Startupiko | Everything About Startup Culture ([Feed](http://he-tech.startupiko.com/feed/))
+- [האתר של שביט אילן](https://ilsh.duckdns.org): האתר של שביט אילן – בלוג על לינוקס ותוכנה חופשית ([Feed](https://ilsh.duckdns.org/?feed=rss2))
 
 ### תוכנה
 
-- [פינת הקפה](https://pinatkafe.com): – חוויות של מנהל קטן בחברת הייטק גדולה ([rss](https://pinatkafe.com/feed/)).
-- [עברית בלינוקס](http://cucomania.mooo.com): | משתמש לינוקס ממוצע, בערך ([rss](http://cucomania.mooo.com/he/feed)).
-- [MY RTFM](http://myrtfm.blogspot.com/): ([rss](http://myrtfm.blogspot.com/feeds/posts/default)).
-- [לראות שונה](https://idkn.wordpress.com): | מבט שונה בעיקר על (פיתוח) תוכנה, עסקים והקוד הפתוח ([rss](http://idkn.wordpress.com/feed/)).
-- [פונקציה אנונימית](https://blog.hagarsh.com): – הבלוג של הגר שילה | הסבה לפיתוח, נשים בהייטק, למידה עצמאית ([rss](http://blog.hagarsh.com/?feed=rss2)).
-- [StartIsrael - פורטל היזמות הישראלי - כתבות](http://www.startisrael.co.il/): עמוד הבית - StartIsrael - פורטל היזמות הישראלי ([rss](http://www.startisrael.co.il/rss/article)).
-- [camelCase](https://camelcase.blog): - בלוג פיתוח תוכנה מאת אמיתי שטרן ודוד וינברג ([rss](https://camelcase.blog/feed/)).
+- [Tech Blog](https://techblog.co.il): Tech Blog - הבלוג שלך בנושאים טכניים, פיתוח ותשתיות ([Feed](https://techblog.co.il/feed/))
+- [פינת הקפה](https://pinatkafe.com): פינת הקפה – חוויות של מנהל קטן בחברת הייטק גדולה ([Feed](https://pinatkafe.com/feed/))
+- [עברית בלינוקס](http://cucomania.mooo.com): עברית בלינוקס | משתמש לינוקס ממוצע, בערך ([Feed](http://cucomania.mooo.com/he/feed))
+- [MY RTFM](http://myrtfm.blogspot.com/): MY RTFM ([Feed](http://myrtfm.blogspot.com/feeds/posts/default))
+- [לראות שונה](https://idkn.wordpress.com): לראות שונה | מבט שונה בעיקר על (פיתוח) תוכנה, עסקים והקוד הפתוח ([Feed](http://idkn.wordpress.com/feed/))
+- [פונקציה אנונימית](https://blog.hagarsh.com): פונקציה אנונימית | הבלוג של הגר שילה | הסבה לפיתוח, נשים בהייטק, למידה עצמאית ([Feed](http://blog.hagarsh.com/?feed=rss2))
+- [StartIsrael - פורטל היזמות הישראלי - כתבות](http://www.startisrael.co.il/): עמוד הבית - StartIsrael - פורטל היזמות הישראלי ([Feed](http://www.startisrael.co.il/rss/article))
+- [מאיה כותבת אלגוריתמים](https://algoritmim.co.il): Home-tiles - מאיה כותבת אלגוריתמים ([Feed](https://mayareadsblog.wordpress.com/feed/))
+- [camelCase](https://camelcase.blog): camelCase - בלוג פיתוח תוכנה מאת אמיתי שטרן ודוד וינברג ([Feed](https://camelcase.blog/feed/))
+- [Startupiko](http://he.startupiko.com): Startupiko - Everything About Startup CultureStartupiko | Everything About Startup Culture ([Feed](http://startupiko.com/feed/))
 
-### מתמטיקה
+### לא זמינים (על פי Feedly)
 
-- [לא מדויק](https://gadial.net): – "There's no sense in being precise when you don't even know what you're talking about" ([rss](http://www.gadial.net/?feed=rss2)).
 
-### האקינג
+- [לא מדויק](https://gadial.net): לא מדויק | בלוג על מתמטיקה ומדעי המחשבלא מדויק ([Feed](http://www.gadial.net/?feed=rss2))
 
-- [לפני האיתחול](https://tech.b48.club/): דף הבית - לפני האיתחול ([rss](https://tech.b48.club/feed.xml)).
-- [Digital Whisper - גיליונות](http://www.digitalwhisper.co.il/): Digital Whisper :: Digital Whisper :: מגזין אבטחת מידע וטכנולוגיה, בלוג אבטחת מידע. ([rss](http://feeds.feedburner.com/DigitalWhisper)).
+
+- [בייט חכם](https://smartbyte.blog): בייט חכם - בלוג בית חכם ([Feed](https://smartbyte.blog/feed/))
+
+### פודקאסטים
+
+- [עושים היסטוריה עם רן לוי Making History with Ran Levi](https://www.spreaker.com/show/osim-historia-with-ran-levi): עושים היסטוריה ([Feed](http://www.ranlevi.com/feed/podcast/))
+
+### סייבר
+
+- [Digital Whisper - גיליונות](http://www.digitalwhisper.co.il/): Digital Whisper :: Digital Whisper :: מגזין אבטחת מידע וטכנולוגיה, בלוג אבטחת מידע. ([Feed](http://feeds.feedburner.com/DigitalWhisper))
+- [CyberSpace](https://cyber-space.co.il): CyberSpace – קהילת הסייבר החברתית של ישראל ([Feed](https://cyber-space.co.il/feed/))
 
 ### Wordpress
 
-- [דורזקי](https://www.dorzki.co.il): מומחה וורדפרס - מתכנת וורדפרס עם 15+ שנות נסיון | דורזקי ([rss](https://www.dorzki.co.il/feed/)).
-- [וורדפרס בעברית](https://he.wordpress.org): — WordPress ([rss](https://he.wordpress.org/feed/)).
-- [סאבי בלוג](https://he.savvy.co.il/blog): מדברים וורדפרס - מדריכים, מאמרים וטיפים על וורדפרס | סאבי בלוג ([rss](http://he.savvy.co.il/blog/feed/)).
-
-### מדע
-
-- [מדעןתונים](https://madantunim.wordpress.com): ([rss](https://madantunim.wordpress.com/feed/)).
-- [חדשות המדע](http://madanews.co.il): אתר חדשות המדע-כל חדשות המדע במקום אחד ([rss](http://madanews.co.il/feed/)).
-- [ynet - מדע](http://www.ynet.co.il): ynet - חדשות, כלכלה, ספורט, בריאות ([rss](http://www.ynet.co.il/Integration/StoryRss2142.xml)).
+- [וורדפרס בעברית](https://he.wordpress.org): Blog Tool, Publishing Platform, and CMS | WordPress.org וורדפרס בעברית ([Feed](https://he.wordpress.org/feed/))
+- [סאבי בלוג](https://savvy.co.il): מפתח אתרי וורדפרס ותבניות על בסיס עיצוב, ישראל | סאבי ([Feed](http://he.savvy.co.il/blog/feed/))
 
 ### קוד פתוח
 
-- [המקור](https://www.hamakor.org.il): - עמותה ישראלית לקוד מקור פתוח ותוכנה חופשית ([rss](https://www.hamakor.org.il/feed/)).
-- [תוכנה חופשית בעברית](https://kaplanopensource.wordpress.com): | מיומנו של חבר בקהילת התוכנה החופשית בישראל ([rss](http://kaplanopensource.wordpress.com/feed/)).
+- [המקור](https://www.hamakor.org.il): המקור - עמותה ישראלית לקוד מקור פתוח ותוכנה חופשית ([Feed](https://www.hamakor.org.il/feed/))
 
 ### חדשות טכנולוגיה
 
-- [TGspot](https://www.tgspot.co.il): דף הבית | TGspot ([rss](http://feeds.feedburner.com/TheGadgetSpot)).
-- [כלכליסט - טכנולוגי](https://www.calcalist.co.il/internet/home/0,7340,L-4,00.html): חדשות מחשבים, אינטרנט, סלולר וטכנולוגיה - כלכליסט טכנולוגי ([rss](http://www.calcalist.co.il/GeneralRSS/0,16335,L-4,00.xml)).
-- [Geektime גיקטיים](https://www.geektime.co.il): גיקטיים | חדשות, עדכונים וכתבות על טכנולוגיה, אינטרנט וסטארטאפים. ([rss](http://feeds.feedburner.com/newsgeekfeed)).
-- [HWzone](https://hwzone.co.il): • מדברים טכנולוגיה • הכל על מחשבים, אינטרנט והעולם הדגיטלי ([rss](http://feeds.feedburner.com/hwzone)).
+- [TGspot](https://www.tgspot.co.il): מגזין טכנולוגיה ישראלי - TGspot ([Feed](http://feeds.feedburner.com/TheGadgetSpot))
+- [כלכליסט - טכנולוגי](https://www.calcalist.co.il/internet/home/0,7340,L-4,00.html): טכנולוגיה: חדשות מחשבים, אינטרנט ומכשירי סלולר | כלכליסט ([Feed](http://www.calcalist.co.il/GeneralRSS/0,16335,L-4,00.xml))
+- [Geektime גיקטיים](https://www.geektime.co.il): גיקטיים | חדשות, עדכונים וכתבות על טכנולוגיה, אינטרנט וסטארטאפים. ([Feed](http://feeds.feedburner.com/newsgeekfeed))
+
+
