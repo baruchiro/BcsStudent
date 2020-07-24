@@ -4,10 +4,13 @@
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const siteName = 'ברוך אודם - B.Cs Student'
+const siteUrl = process.env.URL || 'http://localhost:8080'
+
 module.exports = {
-  siteName: 'ברוך אודם - B.Cs Student',
+  siteName,
   siteDescription: 'Be a Computer Science student',
-  siteUrl: process.env.URL || 'http://localhost:8080',
+  siteUrl,
 
   templates: {
     Post: [
@@ -43,6 +46,27 @@ module.exports = {
             typeName: 'Author',
             create: true
           }
+        }
+      }
+    },
+    {
+      use: 'gridsome-plugin-rss',
+      options: {
+        contentTypeName: 'Post',
+        feedOptions: {
+          title: siteName,
+          feed_url: `${siteUrl}/rss.xml`,
+          site_url: siteUrl
+        },
+        feedItemOptions: node => ({
+          title: node.title,
+          description: node.description,
+          url: `${siteUrl}/${node.fileInfo.name}`,
+          author: node.author || 'ברוך אודם'
+        }),
+        output: {
+          dir: './static',
+          name: 'rss.xml'
         }
       }
     }
