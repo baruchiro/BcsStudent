@@ -78,15 +78,15 @@ module.exports = {
         // Optional; opt into which feeds you wish to generate, and set their output path
         rss: {
           enabled: true,
-          output: 'static/feed.xml'
+          output: '/feed.xml'
         },
         atom: {
           enabled: false,
-          output: 'static/feed.atom'
+          output: '/feed.atom'
         },
         json: {
           enabled: false,
-          output: 'static/feed.json'
+          output: '/feed.json'
         },
         // Optional: the maximum number of items to include in your feed
         maxItems: 25,
@@ -102,11 +102,10 @@ module.exports = {
         // Optional: a method that accepts a node and returns an object for `Feed.addItem()`
         // See https://www.npmjs.com/package/feed#example for available properties
         // NOTE: `date` field MUST be a Javascript `Date` object
-        // nodeToFeedItem: ({ title, date, description}) => ({
-        //   title: node.title,
-        //   date: node.date,
-        //   content: node.content
-        // })
+        nodeToFeedItem: (node) => ({
+          ...node,
+          image: node.cover_image
+        })
       }
     }
   ],
