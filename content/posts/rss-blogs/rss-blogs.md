@@ -47,7 +47,9 @@ date: 2019-04-11 18:46:00
 - [אנדרואידוס - בלוג על אנדרואיד בעברית](https://androidoss.now.sh/): אנדרואידוס - בלוג על אנדרואיד בעברית ([Feed](https://androidoss.now.sh/index.xml))
 - [שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏](https://grauman.co.il): שחר גראומן- מומחה הדרכות לקורסים בחברות הייטק ([Feed](https://grauman.co.il/feed/))
 - [בלוג בינה מלאכותית](https://www.ai-blog.co.il): בלוג בינה מלאכותית – למידה עמוקה ([Feed](https://ai-blog.co.il/feed/))
+- [Oz Gonen](http://www.ozgonen.co.il/): Oz Gonen ([Feed](http://www.ozgonen.co.il/feed.xml))
 - [DSW Tutorial](https://dswtutorial.com): DSW Tutorial » מדריכים מאת מהנדס תוכנה ([Feed](https://dswtutorial.com/feed/))
+- [ברוך אודם - B.Cs Student](https://bscstudent.netlify.app): ברוך אודם - B.Cs Student - ברוך אודם - B.Cs Student ([Feed](https://bscstudent.netlify.app/feed.xml))
 
 - [tocode פשוט לתכנת טוב יותר](https://www.tocode.co.il): tocode | קורסים מקוונים בתכנות ([Feed](https://www.tocode.co.il/feed.atom))
 - [אינטרנט ישראל](https://internet-israel.com): אינטרנט ישראל: רן בר-זיק על פיתוח אינטרנט מתקדם ([Feed](http://www.internet-israel.com/feed/))
@@ -80,7 +82,7 @@ date: 2019-04-11 18:46:00
 - [לראות שונה](https://idkn.wordpress.com): לראות שונה | מבט שונה בעיקר על (פיתוח) תוכנה, עסקים והקוד הפתוח ([Feed](http://idkn.wordpress.com/feed/))
 - [פונקציה אנונימית](https://blog.hagarsh.com): פונקציה אנונימית | הבלוג של הגר שילה | הסבה לפיתוח, נשים בהייטק, למידה עצמאית ([Feed](http://blog.hagarsh.com/?feed=rss2))
 - [StartIsrael - פורטל היזמות הישראלי - כתבות](http://www.startisrael.co.il/): עמוד הבית - StartIsrael - פורטל היזמות הישראלי ([Feed](http://www.startisrael.co.il/rss/article))
-- [מאיה כותבת אלגוריתמים](https://algoritmim.co.il): Home-tiles - מאיה כותבת אלגוריתמים ([Feed](https://mayareadsblog.wordpress.com/feed/))
+- [מאיה כותבת אלגוריתמים](https://algoritmim.co.il): דף הבית - מאיה כותבת אלגוריתמים ([Feed](https://mayareadsblog.wordpress.com/feed/))
 - [camelCase](https://camelcase.blog): camelCase - בלוג פיתוח תוכנה מאת אמיתי שטרן ודוד וינברג ([Feed](https://camelcase.blog/feed/))
 - [Startupiko](http://he.startupiko.com): Startupiko - Everything About Startup CultureStartupiko | Everything About Startup Culture ([Feed](http://startupiko.com/feed/))
 
@@ -94,7 +96,12 @@ date: 2019-04-11 18:46:00
 
 ### פודקאסטים
 
+- [רברס עם פלטפורמה](https://www.reversim.com/): רברס עם פלטפורמה ([Feed](http://feeds.feedburner.com/reversim))
 - [עושים היסטוריה עם רן לוי Making History with Ran Levi](https://www.spreaker.com/show/osim-historia-with-ran-levi): עושים היסטוריה ([Feed](http://www.ranlevi.com/feed/podcast/))
+- [עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna](https://www.spreaker.com/show/osim-tochna): עושים תוכנה ([Feed](https://www.ranlevi.com/feed/osim_software_feed/))
+- [Extend](http://extend.libsyn.com/podcast): Extend ([Feed](http://extend.libsyn.com/rss))
+- [מפתחים חסרי תרבות](http://notarbut.co/): מפתחים חסרי תרבות – פודקאסט בעברית על חיי היומיום של צוותי פיתוח ([Feed](http://notarbut.co/feed/podcast))
+- [סייברסייבר](https://podcasti.co/minisites/cyber/): סייברסייבר ([Feed](https://podcasti.co/minisites/cyber/feed.xml))
 
 ### סייבר
 

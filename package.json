@@ -5,7 +5,8 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "rss": "node scripts/opml/opml.js"
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.0",

@@ -24,7 +24,9 @@
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס - בלוג על אנדרואיד בעברית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס - בלוג על אנדרואיד בעברית&lt;/div&gt;" xmlUrl="https://androidoss.now.sh/index.xml" htmlUrl="https://androidoss.now.sh/"/>
             <outline type="rss" text="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" title="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" xmlUrl="https://grauman.co.il/feed/" htmlUrl="https://grauman.co.il"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;בלוג בינה מלאכותית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;בלוג בינה מלאכותית&lt;/div&gt;" xmlUrl="https://ai-blog.co.il/feed/" htmlUrl="https://www.ai-blog.co.il"/>
+            <outline type="rss" text="Oz Gonen" title="Oz Gonen" xmlUrl="http://www.ozgonen.co.il/feed.xml" htmlUrl="http://www.ozgonen.co.il/"/>
             <outline type="rss" text="DSW Tutorial" title="DSW Tutorial" xmlUrl="https://dswtutorial.com/feed/" htmlUrl="https://dswtutorial.com"/>
+            <outline type="rss" text=" ברוך אודם - B.Cs Student " title=" ברוך אודם - B.Cs Student " xmlUrl="https://bscstudent.netlify.app/feed.xml" htmlUrl="https://bscstudent.netlify.app"/>
             <outline type="rss" text="CodeBrain" title="CodeBrain" xmlUrl="https://www.codebrain.co.il/feed/" htmlUrl="https://www.codebrain.co.il"/>
             <outline type="rss" text="tocode פשוט לתכנת טוב יותר" title="tocode פשוט לתכנת טוב יותר" xmlUrl="https://www.tocode.co.il/feed.atom" htmlUrl="https://www.tocode.co.il"/>
             <outline type="rss" text=" אינטרנט ישראל " title=" אינטרנט ישראל " xmlUrl="http://www.internet-israel.com/feed/" htmlUrl="https://internet-israel.com"/>
@@ -67,7 +69,12 @@
             <outline type="rss" text=" בייט חכם " title=" בייט חכם " xmlUrl="https://smartbyte.blog/feed/" htmlUrl="https://smartbyte.blog"/>
         </outline>
         <outline text="פודקאסטים" title="פודקאסטים">
+            <outline type="rss" text="רברס עם פלטפורמה" title="רברס עם פלטפורמה" xmlUrl="http://feeds.feedburner.com/reversim" htmlUrl="https://www.reversim.com/"/>
             <outline type="rss" text=" עושים היסטוריה עם רן לוי Making History with Ran Levi " title=" עושים היסטוריה עם רן לוי Making History with Ran Levi " xmlUrl="http://www.ranlevi.com/feed/podcast/" htmlUrl="https://www.spreaker.com/show/osim-historia-with-ran-levi"/>
+            <outline type="rss" text=" עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna " title=" עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna " xmlUrl="https://www.ranlevi.com/feed/osim_software_feed/" htmlUrl="https://www.spreaker.com/show/osim-tochna"/>
+            <outline type="rss" text="Extend" title="Extend" xmlUrl="http://extend.libsyn.com/rss" htmlUrl="http://extend.libsyn.com/podcast"/>
+            <outline type="rss" text=" מפתחים חסרי תרבות " title=" מפתחים חסרי תרבות " xmlUrl="http://notarbut.co/feed/podcast" htmlUrl="http://notarbut.co/"/>
+            <outline type="rss" text=" סייברסייבר " title=" סייברסייבר " xmlUrl="https://podcasti.co/minisites/cyber/feed.xml" htmlUrl="https://podcasti.co/minisites/cyber/"/>
         </outline>
         <outline text="מיקרוסופט" title="מיקרוסופט">
             <outline type="rss" text="Microsoft Garage" title="Microsoft Garage" xmlUrl="https://www.microsoft.com/en-us/garage/feed/" htmlUrl="https://www.microsoft.com/en-us/garage"/>
