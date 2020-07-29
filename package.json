@@ -13,7 +13,7 @@
     "@gridsome/remark-prismjs": "^0.3.0",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.0",
-    "gridsome": "^0.7.18",
+    "gridsome": "^0.7.19",
     "gridsome-plugin-feed": "^1.0.2",
     "remark-align": "^1.2.13",
     "vue-disqus": "^4.0.0",
