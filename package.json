@@ -24,7 +24,7 @@
     "cheerio": "^1.0.0-rc.3",
     "node-sass": "^4.13.1",
     "sass-loader": "^9.0.2",
-    "snyk": "^1.369.0",
+    "snyk": "^1.369.2",
     "xml2js": "^0.4.23"
   },
   "snyk": true
