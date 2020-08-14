@@ -6,6 +6,10 @@
     <Sidebar>
       <PostTitles title="טיוטות" :posts="drafts" />
       <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" tag="Idea" />
+      <div class="blog-links">
+        <div class="blog-links-title">עקבו אחרי הבלוג</div>
+        <social class="blog-links-icon" v-for="link in socialLinks" :key="link" :link="link" />
+      </div>
     </Sidebar>
 
     <!-- List posts -->
@@ -61,6 +65,13 @@ query {
         }
       }
     }
+  },
+  socialLinks: allSocial(filter: { blog: { eq: true } }) {
+    edges {
+      node {
+        link
+      }
+    }
   }
 }
 </page-query>
@@ -70,14 +81,16 @@ import Author from "~/components/Author.vue";
 import PostCard from "~/components/PostCard.vue";
 import PostTitles from "~/components/PostsTitles.vue";
 import Sidebar from "~/components/Sidebar.vue";
-import getMeta from '~/meta';
+import getMeta from "~/meta";
+import Social from "~/components/Social";
 
 export default {
   components: {
     Author,
     PostCard,
     PostTitles,
-    Sidebar
+    Sidebar,
+    Social,
   },
   metaInfo() {
     return {
@@ -86,19 +99,39 @@ export default {
         this.$page.meta.siteUrl,
         this.$page.meta.siteName,
         this.$page.meta.siteDescription,
-        this.$page.meta.siteUrl + '/logo/LOGO.png'
-      )
-    }
+        this.$page.meta.siteUrl + "/logo/LOGO.png"
+      ),
+    };
   },
   computed: {
     drafts() {
-      return this.$page.drafts.edges.map(e => e.node);
+      return this.$page.drafts.edges.map((e) => e.node);
+    },
+    socialLinks() {
+      return this.$page.socialLinks.edges.map(({ node }) => node.link);
     },
     ideas() {
       return this.$page.ideas
-        ? this.$page.ideas.belongsTo.edges.map(e => e.node).filter(p => p.published)
+        ? this.$page.ideas.belongsTo.edges
+            .map((e) => e.node)
+            .filter((p) => p.published)
         : [];
-    }
-  }
+    },
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.blog-links {
+  text-align: center;
+
+  &-title {
+    font-size: medium;
+    margin-bottom: 0.5em;
+  }
+
+  &-icon {
+    margin: 0 0.5em;
+  }
+}
+</style>
