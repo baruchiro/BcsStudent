@@ -124,6 +124,7 @@ export default {
 <style lang="scss" scoped>
 .blog-links {
   text-align: center;
+  width: 100%;
 
   &-title {
     font-size: medium;

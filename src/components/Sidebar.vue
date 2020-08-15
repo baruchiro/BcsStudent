@@ -17,9 +17,10 @@ export default {};
   padding: 0 0.5em;
   align-items: center;
   margin-bottom: 1vh;
+  flex-wrap: wrap;
 
   > div {
-    margin: 0 1vw;
+    margin: 1vw;
   }
 
   @media screen and (min-width: 1300px) {

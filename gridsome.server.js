@@ -20,8 +20,14 @@ const blogSocialLinks = [
   '/feed.xml'
 ]
 
+const tagDescriptions = {
+  Idea: `רעיונות שעולים לי בראש, אבל אין לי זמן לפתח אותם.
+אני חושב שבמקום לפתח עוד מחשבון כשלומדים שפת תכנות, אפשר לקחת כפרויקט את אחד מהרעיונות האלה.
+אני אעזור בשמחה למי שמעוניין לבצע את אחד הרעיונות.`
+}
+
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
+  api.loadSource(({ addCollection, addSchemaResolvers }) => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/
 
     const socialCollection = addCollection('Social')
@@ -38,6 +44,17 @@ module.exports = function (api) {
         link,
         blog: true
       })
+    })
+
+    addSchemaResolvers({
+      Tag: {
+        description: {
+          type: 'String',
+          resolve: ({ id }) => {
+            return tagDescriptions[id]
+          }
+        }
+      }
     })
   })
 }
