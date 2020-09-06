@@ -45,16 +45,18 @@ date: 2019-04-11 18:46:00
 ### תכנות
 
 - [אנדרואידוס - בלוג על אנדרואיד בעברית](https://androidoss.now.sh/): אנדרואידוס - בלוג על אנדרואיד בעברית ([Feed](https://androidoss.now.sh/index.xml))
-- [שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏](https://grauman.co.il): שחר גראומן- מומחה הדרכות לקורסים בחברות הייטק ([Feed](https://grauman.co.il/feed/))
 - [בלוג בינה מלאכותית](https://www.ai-blog.co.il): בלוג בינה מלאכותית – למידה עמוקה ([Feed](https://ai-blog.co.il/feed/))
-- [Oz Gonen](http://www.ozgonen.co.il/): Oz Gonen ([Feed](http://www.ozgonen.co.il/feed.xml))
-- [DSW Tutorial](https://dswtutorial.com): DSW Tutorial » מדריכים מאת מהנדס תוכנה ([Feed](https://dswtutorial.com/feed/))
-- [ברוך אודם - B.Cs Student](https://bscstudent.netlify.app): ברוך אודם - B.Cs Student - ברוך אודם - B.Cs Student ([Feed](https://bscstudent.netlify.app/feed.xml))
+
 
 - [tocode פשוט לתכנת טוב יותר](https://www.tocode.co.il): tocode | קורסים מקוונים בתכנות ([Feed](https://www.tocode.co.il/feed.atom))
 - [אינטרנט ישראל](https://internet-israel.com): אינטרנט ישראל: רן בר-זיק על פיתוח אינטרנט מתקדם ([Feed](http://www.internet-israel.com/feed/))
 - [ריאקט ישראל- ריאקט וריאקט נייטיב](https://www.react-israel.co.il): ריאקט ישראל- ריאקט וריאקט נייטיב – tech blog ([Feed](https://www.react-israel.co.il/feed/))
 - [אלון אברג'ל](https://alonabargel.com): אלון אברג'ל – מדריכים לפיתוח תוכנה – מתכנת ומרצה Full-Stack – מדריכי תכנות WEB ([Feed](https://alonabargel.com/feed/))
+- [שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏](https://grauman.co.il): שחר גראומן- מומחה הדרכות לקורסים בחברות הייטק ([Feed](https://grauman.co.il/feed/))
+- [רשת-טק](http://reshetech.co.il): רשתטק תכנות אתרי אינטרנט ([Feed](https://reshetech.co.il/rss/))
+- [Oz Gonen](http://www.ozgonen.co.il/): Oz Gonen ([Feed](http://www.ozgonen.co.il/feed.xml))
+
+- [ברוך אודם - B.Cs Student](https://bscstudent.netlify.app): ברוך אודם - B.Cs Student - ברוך אודם - B.Cs Student ([Feed](https://bscstudent.netlify.app/feed.xml))
 - [Software Archiblog -- בלוג ארכיטקטורת תוכנה](http://www.softwarearchiblog.com/): Software Archiblog -- בלוג ארכיטקטורת תוכנה ([Feed](http://www.softwarearchiblog.com/feeds/posts/default))
 
 ### לא פעילים (על פי Feedly)
@@ -86,6 +88,10 @@ date: 2019-04-11 18:46:00
 - [camelCase](https://camelcase.blog): camelCase - בלוג פיתוח תוכנה מאת אמיתי שטרן ודוד וינברג ([Feed](https://camelcase.blog/feed/))
 - [Startupiko](http://he.startupiko.com): Startupiko - Everything About Startup CultureStartupiko | Everything About Startup Culture ([Feed](http://startupiko.com/feed/))
 
+### UI/UX
+
+- [mouseux.co.il](https://www.mouseux.co.il): Mouse Ux| אפיון ופיתוח מערכות UI UX מורכבות ([Feed](https://www.mouseux.co.il/feed/))
+
 ### לא זמינים (על פי Feedly)
 
 
@@ -99,7 +105,7 @@ date: 2019-04-11 18:46:00
 - [רברס עם פלטפורמה](https://www.reversim.com/): רברס עם פלטפורמה ([Feed](http://feeds.feedburner.com/reversim))
 - [עושים היסטוריה עם רן לוי Making History with Ran Levi](https://www.spreaker.com/show/osim-historia-with-ran-levi): עושים היסטוריה ([Feed](http://www.ranlevi.com/feed/podcast/))
 - [עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna](https://www.spreaker.com/show/osim-tochna): עושים תוכנה ([Feed](https://www.ranlevi.com/feed/osim_software_feed/))
-- [Extend](http://extend.libsyn.com/podcast): Extend ([Feed](http://extend.libsyn.com/rss))
+
 - [מפתחים חסרי תרבות](http://notarbut.co/): מפתחים חסרי תרבות – פודקאסט בעברית על חיי היומיום של צוותי פיתוח ([Feed](http://notarbut.co/feed/podcast))
 - [סייברסייבר](https://podcasti.co/minisites/cyber/): סייברסייבר ([Feed](https://podcasti.co/minisites/cyber/feed.xml))
 
@@ -122,5 +128,5 @@ date: 2019-04-11 18:46:00
 - [TGspot](https://www.tgspot.co.il): מגזין טכנולוגיה ישראלי - TGspot ([Feed](http://feeds.feedburner.com/TheGadgetSpot))
 - [כלכליסט - טכנולוגי](https://www.calcalist.co.il/internet/home/0,7340,L-4,00.html): טכנולוגיה: חדשות מחשבים, אינטרנט ומכשירי סלולר | כלכליסט ([Feed](http://www.calcalist.co.il/GeneralRSS/0,16335,L-4,00.xml))
 - [Geektime גיקטיים](https://www.geektime.co.il): גיקטיים | חדשות, עדכונים וכתבות על טכנולוגיה, אינטרנט וסטארטאפים. ([Feed](http://feeds.feedburner.com/newsgeekfeed))
-
+- [HWzone](https://hwzone.co.il): מדברים טכנולוגיה • HWzone ([Feed](http://feeds.feedburner.com/hwzone))
 

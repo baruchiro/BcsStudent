@@ -22,16 +22,18 @@
         <outline text="לינוקס" title="לינוקס"/>
         <outline text="תכנות" title="תכנות">
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס - בלוג על אנדרואיד בעברית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס - בלוג על אנדרואיד בעברית&lt;/div&gt;" xmlUrl="https://androidoss.now.sh/index.xml" htmlUrl="https://androidoss.now.sh/"/>
-            <outline type="rss" text="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" title="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" xmlUrl="https://grauman.co.il/feed/" htmlUrl="https://grauman.co.il"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;בלוג בינה מלאכותית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;בלוג בינה מלאכותית&lt;/div&gt;" xmlUrl="https://ai-blog.co.il/feed/" htmlUrl="https://www.ai-blog.co.il"/>
-            <outline type="rss" text="Oz Gonen" title="Oz Gonen" xmlUrl="http://www.ozgonen.co.il/feed.xml" htmlUrl="http://www.ozgonen.co.il/"/>
-            <outline type="rss" text="DSW Tutorial" title="DSW Tutorial" xmlUrl="https://dswtutorial.com/feed/" htmlUrl="https://dswtutorial.com"/>
-            <outline type="rss" text=" ברוך אודם - B.Cs Student " title=" ברוך אודם - B.Cs Student " xmlUrl="https://bscstudent.netlify.app/feed.xml" htmlUrl="https://bscstudent.netlify.app"/>
             <outline type="rss" text="CodeBrain" title="CodeBrain" xmlUrl="https://www.codebrain.co.il/feed/" htmlUrl="https://www.codebrain.co.il"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ליקוטי שיבולים&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ליקוטי שיבולים&lt;/div&gt;" xmlUrl="http://feeds.feedburner.com/leketshibolim" htmlUrl="https://leketshibolim.ort.org.il"/>
             <outline type="rss" text="tocode פשוט לתכנת טוב יותר" title="tocode פשוט לתכנת טוב יותר" xmlUrl="https://www.tocode.co.il/feed.atom" htmlUrl="https://www.tocode.co.il"/>
             <outline type="rss" text=" אינטרנט ישראל " title=" אינטרנט ישראל " xmlUrl="http://www.internet-israel.com/feed/" htmlUrl="https://internet-israel.com"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ריאקט ישראל- ריאקט וריאקט נייטיב&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ריאקט ישראל- ריאקט וריאקט נייטיב&lt;/div&gt;" xmlUrl="https://www.react-israel.co.il/feed/" htmlUrl="https://www.react-israel.co.il"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אלון אברג'ל&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אלון אברג'ל&lt;/div&gt;" xmlUrl="https://alonabargel.com/feed/" htmlUrl="https://alonabargel.com"/>
+            <outline type="rss" text="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" title="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" xmlUrl="https://grauman.co.il/feed/" htmlUrl="https://grauman.co.il"/>
+            <outline type="rss" text=" רשת-טק " title=" רשת-טק " xmlUrl="https://reshetech.co.il/rss/" htmlUrl="http://reshetech.co.il"/>
+            <outline type="rss" text="Oz Gonen" title="Oz Gonen" xmlUrl="http://www.ozgonen.co.il/feed.xml" htmlUrl="http://www.ozgonen.co.il/"/>
+            <outline type="rss" text="DSW Tutorial" title="DSW Tutorial" xmlUrl="https://dswtutorial.com/feed/" htmlUrl="https://dswtutorial.com"/>
+            <outline type="rss" text=" ברוך אודם - B.Cs Student " title=" ברוך אודם - B.Cs Student " xmlUrl="https://bscstudent.netlify.app/feed.xml" htmlUrl="https://bscstudent.netlify.app"/>
             <outline type="rss" text="Software Archiblog -- בלוג ארכיטקטורת תוכנה" title="Software Archiblog -- בלוג ארכיטקטורת תוכנה" xmlUrl="http://www.softwarearchiblog.com/feeds/posts/default" htmlUrl="http://www.softwarearchiblog.com/"/>
         </outline>
         <outline text="לא פעילים (על פי Feedly)" title="לא פעילים (על פי Feedly)">
@@ -60,6 +62,9 @@
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;מאיה כותבת אלגוריתמים&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;מאיה כותבת אלגוריתמים&lt;/div&gt;" xmlUrl="https://mayareadsblog.wordpress.com/feed/" htmlUrl="https://algoritmim.co.il"/>
             <outline type="rss" text="camelCase" title="camelCase" xmlUrl="https://camelcase.blog/feed/" htmlUrl="https://camelcase.blog"/>
             <outline type="rss" text="Startupiko" title="Startupiko" xmlUrl="http://startupiko.com/feed/" htmlUrl="http://he.startupiko.com"/>
+        </outline>
+        <outline text="UI/UX" title="UI/UX">
+            <outline type="rss" text="mouseux.co.il" title="mouseux.co.il" xmlUrl="https://www.mouseux.co.il/feed/" htmlUrl="https://www.mouseux.co.il"/>
         </outline>
         <outline text="לא זמינים (על פי Feedly)" title="לא זמינים (על פי Feedly)">
             <outline type="rss" text="Eli Shlomo Blog" title="Eli Shlomo Blog" xmlUrl="http://blogs.microsoft.co.il/eshlomo9/feed/" htmlUrl="http://blogs.microsoft.co.il/eshlomo9"/>
