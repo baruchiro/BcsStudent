@@ -17,3 +17,7 @@
 .space-bottom {
 	margin-bottom: var(--space);
 }
+
+.lrt * {
+	direction: ltr;
+}
