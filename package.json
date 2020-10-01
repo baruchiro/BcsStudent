@@ -21,7 +21,7 @@
     "gridsome-plugin-feed": "^1.0.2",
     "remark-align": "^1.2.13",
     "vue-disqus": "^4.0.0",
-    "vue-gtag": "^1.8.0"
+    "vue-gtag": "^1.9.1"
   },
   "devDependencies": {
     "axios": "^0.19.2",
