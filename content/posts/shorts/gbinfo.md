@@ -1,7 +1,7 @@
 ---
 title: הפחתת השימוש בעכבר והצגת טקסט על רקע שולחן העבודה
 date: 2020-10-18
-published: false
+published: true
 tags: ['Shorts', 'Not-Technical']
 cover_image: ./gbinfo/cover.png
 description: איך להדביק טקסט שאתם רוצים שתמיד יהיה זמין לכם, על שולחן העבודה
