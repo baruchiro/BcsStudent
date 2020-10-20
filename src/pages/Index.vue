@@ -4,8 +4,8 @@
     <Author :show-title="true" />
 
     <Sidebar>
-      <PostTitles title="טיוטות" :posts="drafts" />
       <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" tag="Idea" />
+      <PostTitles title="טיוטות" :posts="drafts" />
       <div class="blog-links">
         <div class="blog-links-title">עקבו אחרי הבלוג</div>
         <social class="blog-links-icon" v-for="link in socialLinks" :key="link" :link="link" />
