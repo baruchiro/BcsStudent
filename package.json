@@ -29,7 +29,7 @@
     "cheerio": "^1.0.0-rc.3",
     "node-sass": "^4.13.1",
     "sass-loader": "^10.0.4",
-    "snyk": "^1.421.1",
+    "snyk": "^1.437.1",
     "xml2js": "^0.4.23"
   },
   "snyk": true
