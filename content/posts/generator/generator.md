@@ -20,7 +20,7 @@ cover_image: ./generator.png
 <p>הבלוג הזה נבנה על מערכת <a href="#1117_wordpress" term="wordpress">Wordpress</a>. השתמשתי <a aria-label="בתוסף (opens in a new tab)" href="https://github.com/mAAdhaTTah/wordpress-github-sync" rel="noreferrer noopener" target="_blank">בתוסף</a> שמסנכרן את הפוסטים עם <a href="#1117_github" term="github">Github</a>, לשני הכיוונים. כלומר, כשמעדכנים פוסט באתר, הוא מתעדכן אוטומטית בGithub, וכשמעדכנים פוסט בGithub הוא מעדכן מיד את הבלוג.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
-<p>לכן מעכשיו נגמרו התירוצים. כל הבלוג זמין פה- <a aria-label="https://github.com/baruchiro/BcsStuden (opens in a new tab)" href="https://github.com/baruchiro/BcsStudent" rel="noreferrer noopener" target="_blank">https://github.com/baruchiro/BcsStuden</a><a href="https://github.com/baruchiro/BcsStudent"></a>t.</p>
+<p>לכן מעכשיו נגמרו התירוצים. כל הבלוג זמין פה- <a aria-label="https://github.com/baruchiro/BcsStuden (opens in a new tab)" href="https://github.com/baruchiro/BcsStudent" rel="noreferrer noopener" target="_blank">https://github.com/baruchiro/BcsStudent</a>.</p>
 <!-- /wp:paragraph -->
 <!-- wp:paragraph -->
 <p>בנוסף, בכל פוסט יש קישור לעריכת הפוסט. בכך שהעתקתי את כל הפוסטים לGithub, אנחנו יכולים יותר בקלות, במקום הנוח המוכר, לעבוד עליהם ביחד. (אם Github הוא לא מקום נוח ומוכר לכם, כדאי לכם להכיר אותו. יש פוסטים- <a aria-label="git (opens in a new tab)" href="https://www.bcsstudent.com/git/" rel="noreferrer noopener" target="_blank">git</a> ו<a aria-label="קוד פתוח (opens in a new tab)" href="https://www.bcsstudent.com/open-source/" rel="noreferrer noopener" target="_blank">קוד פתוח</a>, ואני פה כדי לעזור.)</p>

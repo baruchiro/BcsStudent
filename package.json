@@ -1,6 +1,7 @@
 {
   "name": "BscStudent",
   "private": true,
+  "repository": "baruchiro/BcsStudent",
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
