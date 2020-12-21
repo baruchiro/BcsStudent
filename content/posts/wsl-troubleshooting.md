@@ -28,17 +28,18 @@ Try each command by their order to better find the correct problem.
   **Source:** [[WSL2] Checkpoint VPN breaks network connectivity (comment)](https://github.com/microsoft/WSL/issues/4246#issuecomment-691561185) 
 
 2. `ping google.com`  
-  If it failed it means that you have a **problem with the DNS**.
+  If it failed it means that you have a **problem with the DNS**.  
+  You need to update the `/etc/resolve.conf` with your DNS addresses.  
+  Run this command in PowerShell: `Get-DnsClientServerAddress -AddressFamily IPv4 | Select-Object -ExpandPropert ServerAddresses`  
+  Then take the addresses from that command, clear the `resolve.conf` file and set the first line `search {your domain}` and then the next line will be `nameserver {ip}`.  
+  **Source:** you can use [this script](https://gist.github.com/matthiassb/9c8162d2564777a70e3ae3cbee7d2e95) (from [Networking issues while using VPN (comment)](https://github.com/microsoft/WSL/issues/416#issuecomment-407075002)) to auto-update the `resolve.conf`.
 
 3. `ping {internalIP}`  
   If it failed it means that you have a **problem with the VPN**.
 
 4. `ping {internal hostname}`  
   If it failed it means that you have a **problem with the internal DNS**.  
-  You need to update the `/etc/resolve.conf` with your DNS addresses.  
-  Run this command in PowerShell: `Get-DnsClientServerAddress -AddressFamily IPv4 | Select-Object -ExpandPropert ServerAddresses`  
-  Then take the addresses from that command, clear the `resolve.conf` file and set the first line `search {your domain}` and then the next line will be `nameserver {ip}`.  
-  **Source:** you can use [this script](https://gist.github.com/matthiassb/9c8162d2564777a70e3ae3cbee7d2e95) (from [Networking issues while using VPN (comment)](https://github.com/microsoft/WSL/issues/416#issuecomment-407075002)) to auto-update the `resolve.conf`.
+  Make sure you configured the DNS by the instructions in 2.
 
 ## Other connection issues
 
