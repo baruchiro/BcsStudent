@@ -22,22 +22,34 @@ This document is written in our company in order to solve the issues with WSL2, 
 ## Network and DNS Troubleshooting
 Try each command by their order to better find the correct problem.
 
-1. `ping 8.8.8.8`  
-  If it failed it means that **you don’t have an internet connection** at all.  
-  See [this video](https://www.youtube.com/watch?v=yR2NsssY7z8) to solve this issue.  
-  **Source:** [[WSL2] Checkpoint VPN breaks network connectivity (comment)](https://github.com/microsoft/WSL/issues/4246#issuecomment-691561185) 
+### Try `ping 8.8.8.8`
 
-2. `ping google.com`  
-  If it failed it means that you have a **problem with the DNS**.  
-  You need to update the `/etc/resolve.conf` with your DNS addresses.  
-  Run this command in PowerShell: `Get-DnsClientServerAddress -AddressFamily IPv4 | Select-Object -ExpandPropert ServerAddresses`  
-  Then take the addresses from that command, clear the `resolve.conf` file and set the first line `search {your domain}` and then the next line will be `nameserver {ip}`.  
-  **Source:** you can use [this script](https://gist.github.com/matthiassb/9c8162d2564777a70e3ae3cbee7d2e95) (from [Networking issues while using VPN (comment)](https://github.com/microsoft/WSL/issues/416#issuecomment-407075002)) to auto-update the `resolve.conf`.
+If it failed it means that **you don’t have an internet connection** at all.  
 
-3. `ping {internalIP}`  
+See [this video](https://www.youtube.com/watch?v=yR2NsssY7z8) and/or [[WSL2] Checkpoint VPN breaks network connectivity (comment)](https://github.com/microsoft/WSL/issues/4246#issuecomment-691561185) to solve this issue.
+
+Probably the base thing is to connect to the *VPN* before *WSL2 Network Adapter*.
+
+1. Open your WSL Terminal.
+2. Disconnect from the VPN (if connected)
+3. Disable the *WSL2 Network Adapter* by `netsh interface set interface "vEthernet (WSL)" disable` or by `Get-NetAdapter -Name "vEthernet (WSL)" | Disable-NetAdapter`
+4. Please make sure it disabled by `$(Get-NetAdapter -Name "vEthernet (WSL)").Status` is `Disabled`
+5. Connect to the VPN
+6. Enable the *WSL2 Network Adapter* by `netsh interface set interface "vEthernet (WSL)" enable` or `Get-NetAdapter -Name "vEthernet (WSL)" | Enable-NetAdapter`
+7. Validate the ping 8.8.8.8 in WSL again.
+
+### Try `ping google.com`
+
+If it failed it means that you have a **problem with the DNS**. You need to update the `/etc/resolve.conf` with your DNS addresses.
+
+Run this command in PowerShell: `Get-DnsClientServerAddress -AddressFamily IPv4 | Select-Object -ExpandPropert ServerAddresses`, then take the addresses from that command, clear the `resolve.conf` file and set the first line `search {your domain}` and then the next line will be `nameserver {ip}`.
+
+**Source:** you can use [this script](https://gist.github.com/matthiassb/9c8162d2564777a70e3ae3cbee7d2e95) (from [Networking issues while using VPN (comment)](https://github.com/microsoft/WSL/issues/416#issuecomment-407075002)) to auto-update the `resolve.conf`.
+
+### Try `ping {internalIP}`  
   If it failed it means that you have a **problem with the VPN**.
 
-4. `ping {internal hostname}`  
+### Try `ping {internal hostname}`  
   If it failed it means that you have a **problem with the internal DNS**.  
   Make sure you configured the DNS by the instructions in 2.
 
@@ -74,5 +86,5 @@ npm ERR! network timeout at: https://registry.npmjs.org/@babel/plugin-proposal-o
 You can try this:
 
 - run `Get-NetIPInterface` on windows to find `MTU` value for VPN network adapter (mine was 1350)
- - run `sudo ifconfig eth0 mtu 1350` or `sudo ip link set dev eth0 mtu 1350` inside WSL to match eth0 `MTU` value with vpn network adapter value
+- run `sudo ifconfig eth0 mtu 1350` or `sudo ip link set dev eth0 mtu 1350` inside WSL to match eth0 `MTU` value with vpn network adapter value
 
