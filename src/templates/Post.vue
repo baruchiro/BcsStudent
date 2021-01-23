@@ -51,8 +51,7 @@ export default {
         this.$page.meta.siteUrl + this.$page.post.path,
         this.$page.post.title,
         this.$page.post.description,
-        this.$page.post.cover_image?.src || (this.$page.meta.siteUrl + '/logo/LOGO.png'),
-        860
+        this.$page.post.cover_image?.src || (this.$page.meta.siteUrl + '/logo/LOGO.png')
       )
     }
   }
@@ -74,7 +73,7 @@ query Post ($id: ID!) {
     }
     description
     content
-    cover_image (width: 860, blur: 10)
+    cover_image (width: 1200, blur: 10)
   },
   meta: metadata {
     siteUrl
