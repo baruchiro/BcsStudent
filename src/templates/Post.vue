@@ -45,9 +45,9 @@ export default {
     PostTags
   },
   metaInfo () {
-    const { path, title, description, cover_image, twitter_cover_image } = this.$page.post.path
+    const { path, title, description, cover_image, twitter_cover_image } = this.$page.post
     return {
-      title: this.$page.post.title,
+      title,
       meta: getMeta(this.$page.meta.siteUrl, {
           path,
           title,
