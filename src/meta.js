@@ -60,7 +60,7 @@ export default (baseUrl, {
         meta.push(
             {
                 name: 'twitter:image',
-                content: twitterImage
+                content: baseUrl + twitterImage
             }
         )
 
