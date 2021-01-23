@@ -60,7 +60,7 @@ export default (baseUrl, {
         meta.push(
             {
                 name: 'twitter:image',
-                content: baseUrl.replace('https://', 'http://') + twitterImage
+                content: twitterImage
             }
         )
 
