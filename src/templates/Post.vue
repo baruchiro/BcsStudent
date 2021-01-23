@@ -51,7 +51,7 @@ export default {
         this.$page.meta.siteUrl + this.$page.post.path,
         this.$page.post.title,
         this.$page.post.description,
-        this.$refs.coverImage? this.$refs.coverImage.src : (this.$page.meta.siteUrl + '/logo/LOGO.png'),
+        this.$page.post.cover_image?.src || (this.$page.meta.siteUrl + '/logo/LOGO.png'),
         860
       )
     }
