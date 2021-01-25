@@ -76,5 +76,10 @@ export default (baseUrl, {
         content: '@baruchiro'
     })
 
+    meta.push({
+        name: 'author',
+        content: 'Baruch Odem'
+    })
+
     return meta
 }

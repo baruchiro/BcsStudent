@@ -53,10 +53,10 @@ export default {
           title,
           description,
           image: {
-            path: cover_image?.src || '/logo/LOGO.png',
+            path: cover_image?.src || '/logo/og-image.png',
             width: 860
           },
-          twitterImage: twitter_cover_image?.src || '/logo/LOGO.png'
+          twitterImage: twitter_cover_image?.src || '/logo/og-image.png'
       })
     }
   }

@@ -101,7 +101,7 @@ export default {
         title: siteName,
         description: siteDescription,
         image: {
-          path: "/logo/LOGO.png"
+          path: "/logo/og-image.png"
         }
       }),
     };
