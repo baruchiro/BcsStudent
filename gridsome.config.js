@@ -6,7 +6,12 @@
 
 const siteName = 'ברוך אודם - B.Cs Student'
 const siteDescription = 'Be a Computer Science student'
-const siteUrl = process.env.URL || 'http://localhost:8080'
+const getSiteUrl = () => {
+  if (process.env.NETLIFY)
+    return process.env.CONTEXT === 'deploy-preview' ? process.env.DEPLOY_URL : process.env.URL
+  return 'http://localhost:8080'
+}
+const siteUrl = getSiteUrl()
 
 module.exports = {
   siteName,
