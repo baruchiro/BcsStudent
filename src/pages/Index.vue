@@ -94,14 +94,16 @@ export default {
     Social,
   },
   metaInfo() {
+    const {siteName, siteUrl, siteDescription} = this.$page.meta
     return {
-      title: this.$page.meta.siteName,
-      meta: getMeta(
-        this.$page.meta.siteUrl,
-        this.$page.meta.siteName,
-        this.$page.meta.siteDescription,
-        this.$page.meta.siteUrl + "/logo/LOGO.png"
-      ),
+      title: siteName,
+      meta: getMeta(siteUrl, {
+        title: siteName,
+        description: siteDescription,
+        image: {
+          path: "/logo/LOGO.png"
+        }
+      }),
     };
   },
   computed: {

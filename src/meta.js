@@ -7,11 +7,10 @@ export default (baseUrl, {
 }) => {
     const meta = []
 
-    if (path)
-        meta.push({
-            property: 'og:url',
-            content: baseUrl + path
-        })
+    meta.push({
+        property: 'og:url',
+        content: baseUrl + (path || '')
+    })
 
     if (title)
         meta.push(
