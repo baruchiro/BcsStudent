@@ -1,12 +1,16 @@
-export default (url, title, description, image, imageWidth, imageHeight) => {
-
+export default (baseUrl, {
+    path,
+    title,
+    description,
+    image,
+    twitterImage
+}) => {
     const meta = []
 
-    if (url)
-        meta.push({
-            property: 'og:url',
-            content: url
-        })
+    meta.push({
+        property: 'og:url',
+        content: baseUrl + (path || '')
+    })
 
     if (title)
         meta.push(
@@ -32,30 +36,43 @@ export default (url, title, description, image, imageWidth, imageHeight) => {
             }
         )
 
-    if (image)
-        meta.push(
-            {
-                property: 'og:image',
-                content: image
-            }
-        )
-
-    if (imageWidth)
+    if (image) {
         meta.push({
-            property: 'og:image:width',
-            content: imageWidth
+            property: 'og:image',
+            content: image.path
         })
 
-    if (imageHeight)
         meta.push({
-            property: 'og:image:height',
-            content: imageHeight
+            name: 'twitter:image',
+            content: baseUrl + image.path
         })
 
+        meta.push({
+            name: 'twitter:card',
+            content: 'summary_large_image'
+        })
+
+        if (image.width)
+            meta.push({
+                property: 'og:image:width',
+                content: image.width
+            })
+
+        if (image.height)
+            meta.push({
+                property: 'og:image:height',
+                content: image.height
+            })
+    }
 
     meta.push({
-        name: 'twitter:card',
-        content: image ? 'summary_large_image' : 'summary'
+        name: 'twitter:creator',
+        content: '@baruchiro'
+    })
+
+    meta.push({
+        name: 'author',
+        content: 'Baruch Odem'
     })
 
     return meta
