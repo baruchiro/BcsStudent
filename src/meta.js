@@ -44,7 +44,7 @@ export default (baseUrl, {
 
         meta.push({
             name: 'twitter:image',
-            content: /*baseUrl + */image.path// + "?" + Math.random().toString(36).substr(2, 5)
+            content: baseUrl + image.path
         })
 
         meta.push({
