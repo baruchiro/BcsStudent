@@ -44,7 +44,7 @@ export default (baseUrl, {
 
         meta.push({
             name: 'twitter:image',
-            content: baseUrl.replace('https', 'https') + twitterImage
+            content: baseUrl + twitterImage + "?" + Math.random().toString(36).substr(2, 5)
         })
 
         meta.push({
