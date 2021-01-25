@@ -101,7 +101,9 @@ export default {
         title: siteName,
         description: siteDescription,
         image: {
-          path: "/logo/og-image.png"
+          path: "/logo/og-image.png",
+          width: 1200,
+          height: 630
         }
       }),
     };

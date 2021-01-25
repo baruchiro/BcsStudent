@@ -45,7 +45,7 @@ export default {
     PostTags
   },
   metaInfo () {
-    const { path, title, description, cover_image, twitter_cover_image } = this.$page.post
+    const { path, title, description, og_cover_image } = this.$page.post
     return {
       title,
       meta: getMeta(this.$page.meta.siteUrl, {
@@ -53,10 +53,10 @@ export default {
           title,
           description,
           image: {
-            path: cover_image?.src || '/logo/og-image.png',
-            width: 860
+            path: og_cover_image?.src || '/logo/og-image.png',
+            width: 1200,
+            height: 630
           },
-          twitterImage: twitter_cover_image?.src || '/logo/og-image.png'
       })
     }
   }
@@ -79,7 +79,7 @@ query Post ($id: ID!) {
     description
     content
     cover_image (width: 860, blur: 10)
-    twitter_cover_image: cover_image (width: 1200, height: 630)
+    og_cover_image: cover_image (width: 1200, height: 630)
   },
   meta: metadata {
     siteUrl

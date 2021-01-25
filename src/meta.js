@@ -42,6 +42,16 @@ export default (baseUrl, {
             content: image.path
         })
 
+        meta.push({
+            name: 'twitter:image',
+            content: baseUrl + twitterImage
+        })
+
+        meta.push({
+            name: 'twitter:card',
+            content: 'summary_large_image'
+        })
+
         if (image.width)
             meta.push({
                 property: 'og:image:width',
@@ -53,22 +63,6 @@ export default (baseUrl, {
                 property: 'og:image:height',
                 content: image.height
             })
-    }
-
-    if (twitterImage) {
-        meta.push(
-            {
-                name: 'twitter:image',
-                content: baseUrl + twitterImage
-            }
-        )
-
-        meta.push({
-            name: 'twitter:card',
-            content: 'summary_large_image'
-        })
-
-
     }
 
     meta.push({
