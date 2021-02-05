@@ -2,6 +2,7 @@
 title: מה כדאי לסטודנט לדעת- CI/CD
 published: true
 date: 2018-12-09 09:04:48
+tags: ['מה כדאי לסטודנט לדעת', 'CI/CD']
 ---
 <!-- wp:block {"ref":835} /-->
 <!-- wp:paragraph -->

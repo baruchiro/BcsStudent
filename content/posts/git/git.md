@@ -2,6 +2,7 @@
 title: מה כדאי לסטודנט לדעת - Git
 published: true
 date: 2018-11-28 18:41:51
+tags: ['מה כדאי לסטודנט לדעת', 'git']
 ---
 <!-- wp:block {"ref":835} /-->
 <!-- wp:list {"className":"before-post-comments"} -->

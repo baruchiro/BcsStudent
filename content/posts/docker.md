@@ -9,6 +9,7 @@ description: >
   ההפעלה?
 published: true
 date: 2019-03-06 07:09:14
+tags: ['מה כדאי לסטודנט לדעת', 'Docker']
 ---
 <!-- wp:block {"ref":835} /-->
 
