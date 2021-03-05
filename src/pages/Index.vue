@@ -4,8 +4,8 @@
     <Author :show-title="true" />
 
     <Sidebar>
-      <PostTitles title="טיוטות" :posts="drafts" />
       <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" tag="Idea" />
+      <PostTitles title="טיוטות" :posts="drafts" />
       <div class="blog-links">
         <div class="blog-links-title">עקבו אחרי הבלוג</div>
         <social class="blog-links-icon" v-for="link in socialLinks" :key="link" :link="link" />
@@ -37,6 +37,7 @@ query {
           title
           path
         }
+        language
       }
     }
   },
@@ -93,14 +94,18 @@ export default {
     Social,
   },
   metaInfo() {
+    const {siteName, siteUrl, siteDescription} = this.$page.meta
     return {
-      title: this.$page.meta.siteName,
-      meta: getMeta(
-        this.$page.meta.siteUrl,
-        this.$page.meta.siteName,
-        this.$page.meta.siteDescription,
-        this.$page.meta.siteUrl + "/logo/LOGO.png"
-      ),
+      title: siteName,
+      meta: getMeta(siteUrl, {
+        title: siteName,
+        description: siteDescription,
+        image: {
+          path: "/logo/og-image.png",
+          width: 1200,
+          height: 630
+        }
+      }),
     };
   },
   computed: {

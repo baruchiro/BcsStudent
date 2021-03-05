@@ -14,7 +14,7 @@
 
     <div class="post content-box__main">
       <div class="post__header">
-        <g-image ref="coverImage" alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
       </div>
 
       <div class="post__content" v-html="$page.post.content" />
@@ -45,15 +45,19 @@ export default {
     PostTags
   },
   metaInfo () {
+    const { path, title, description, og_cover_image } = this.$page.post
     return {
-      title: this.$page.post.title,
-      meta: getMeta(
-        this.$page.meta.siteUrl + this.$page.post.path,
-        this.$page.post.title,
-        this.$page.post.description,
-        this.$refs.coverImage? this.$refs.coverImage.src : (this.$page.meta.siteUrl + '/logo/LOGO.png'),
-        860
-      )
+      title,
+      meta: getMeta(this.$page.meta.siteUrl, {
+          path,
+          title,
+          description,
+          image: {
+            path: og_cover_image?.src || '/logo/og-image.png',
+            width: 1200,
+            height: 630
+          },
+      })
     }
   }
 }
@@ -75,6 +79,7 @@ query Post ($id: ID!) {
     description
     content
     cover_image (width: 860, blur: 10)
+    og_cover_image: cover_image (width: 1200, height: 630)
   },
   meta: metadata {
     siteUrl
