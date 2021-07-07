@@ -13,6 +13,9 @@ export default function (Vue, { router, head, isClient }) {
 
   FontAwesome(Vue)
 
+  head.htmlAttrs = { lang: 'he' }
+  head.bodyAttrs = { dir: 'rtl' }
+
   Vue.use(VueDisqus, {
     shortname: 'bcsstudent'
   })
