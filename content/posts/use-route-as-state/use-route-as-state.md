@@ -1,7 +1,7 @@
 ---
 title: How to sync component state with React Router
-published: false
-date: 2020-09-08
+published: true
+date: 2021-07-07
 description: |
     Decisions I made while building a bot with Microsoft Bot Framework.
     Read with LTR in <a href="https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1">Dev.to</a>
