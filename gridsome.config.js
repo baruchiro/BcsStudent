@@ -128,11 +128,14 @@ module.exports = {
       anchorClassName: 'icon icon-link',
       plugins: [
         '@gridsome/remark-prismjs',
-        ['remark-align', {
-          left: 'align-start',
-          center: 'align-center',
-          right: 'align-end',
-        }]
+        [
+          'remark-align',
+          {
+            left: 'align-start',
+            center: 'align-center',
+            right: 'align-end',
+          }
+        ]
       ]
     }
   }
