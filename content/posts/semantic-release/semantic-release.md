@@ -53,25 +53,25 @@ If you never published a release before (and **release** means **git tag**), `se
 
 <details>
  <summary><code>configured to only publish from master</code></summary>
- 
+
  The whole line:  
-   
+
  > `This test run was triggered on the branch foo, while semantic-release is configured to only publish from master, therefore a new version won’t be published.`
- 
+
  We will see the `semantic-release` is triggering a version when pushing to specific branches. If you're not in the `master` branch, the `semantic-release` will not process your git history for creating a version.
 </details>
 
 <details>
  <summary><code>There are no relevant changes, so no new version is released.</code></summary>
- 
+
  Maybe you see messages about `Analyzing commit` because you committed some changes since your last version, but eventually, the `semantic-release` didn't find a commit message in a pattern to create a new release.
- 
+
  We will touch on the commit messages pattern later.
 </details>
 
 <details>
  <summary><code>Published release 1.1.0 on default channel</code></summary>
- 
+
  OK, but it did nothing because, with *dry-run mode*, all the actions were skipped, this is just a completion message.
 </details>
 
@@ -306,11 +306,11 @@ plugins: [
 ];
 ```
 
-# Summary
+## Summary
 
 > Finally, all my configuration files:
 
-<script src="https://gist.github.com/baruchiro/3a52a9897556a880b32f74f03caca299.js"></script>
+https://gist.github.com/baruchiro/3a52a9897556a880b32f74f03caca299.js
 
 ---
 
