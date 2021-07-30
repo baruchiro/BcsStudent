@@ -5,13 +5,16 @@ date: 2021-07-27
 cover_image: ./semantic-release.jpeg
 tags: ["Git", "SemVer"]
 language: en
+publications:
+  - https://medium.com/@baruchiro/how-to-setup-auto-semantic-release-184483d2198e
+  - https://dev.to/baruchiro/how-to-setup-auto-semantic-release-4fd8
 description: |
   Setup auto-increment, release, and changelog with semantic-release, in Github repo with Github Actions.
 ---
 
 ## Semantic Versioning
 
-_Semantic Versioning_ (AKA _SemVer_) is a convention for package versions. Since it is the most used convention (AFAIK, I don't know about others...), it is well documented and hardly used around the open-source, so I'm not going to describe it. You can read more [here](https://semver.org/)
+_Semantic Versioning_ (AKA _SemVer_) is a convention for package versions. Since it is the most used convention (AFAIK, I don't know about others...), it is well documented and widely used around the open-source, so I'm not going to describe it. You can read more [here](https://semver.org/).
 
 ## Semantic Release
 
@@ -20,7 +23,7 @@ _Semantic Release_ is a tool to implement _SemVer_ automatically in a project.
 > Fully automated version management and package publishing
 > _from [Semantic Release](https://semantic-release.gitbook.io/) docs._
 
-In this post, I want to share with you the process to add and configure the `semantic-release` tool, because I needed to collect the information from multiple sources, even from the source code of the tool.
+In this post, I want to share with you the process of adding and configuring the `semantic-release` tool, because I had to collect the information from multiple sources, even from the source code of the tool.
 
 Let's start.
 
@@ -37,7 +40,7 @@ In this post, I assume you have
 
 The `semantic-release` feels like a great tool, and it does a lot of things by default, and does them right.
 
-The first thing you want to do is just run the tool, just like that. Don't worry, it will identify that you're not in a CI environment, and it will automatically run on _dry_ mode.
+The first thing you want to do is to run the tool, just like that. Don't worry, it will identify that you're not in a CI environment, and it will automatically run on _dry_ mode.
 
 In your project folder, run `npx semantic-release`, it will print some beautifully organized output. Read that output.
 
@@ -58,7 +61,7 @@ If you never published a release before (and **release** means **git tag**), `se
 
  > `This test run was triggered on the branch foo, while semantic-release is configured to only publish from master, therefore a new version won’t be published.`
 
- We will see the `semantic-release` is triggering a version when pushing to specific branches. If you're not in the `master` branch, the `semantic-release` will not process your git history for creating a version.
+ We will see the `semantic-release` is triggering a version when pushing to specific branches. If you're not in the `master` branch, the `semantic-release` will not process your git history to create a version.
 </details>
 
 <details>
@@ -85,7 +88,7 @@ Try to commit with the message `perf(pencil): remove graphiteWidth option` and s
 
 ### Configuration
 
-I sew the [default commit format (Angular Conventions)](https://semantic-release.gitbook.io/semantic-release/#commit-message-format) and I felt it will add overhead and will be less readable, and it is not worth the time I'm saving with automatic releasing. I wanted to change the commit format.
+I saw the [default commit format (Angular Conventions)](https://semantic-release.gitbook.io/semantic-release/#commit-message-format) and I felt it will add overhead and will be less readable, and it is not worth the time I'm saving with automatic releasing. I wanted to change the commit format.
 
 To do that, we need to [configure](https://semantic-release.gitbook.io/semantic-release/usage/configuration) the `semantic-release`, and since any configuration section will override the default configuration we used so far, I think the best idea is first to configure the default configuration explicitly, and then start to adjust it.
 
@@ -194,7 +197,7 @@ plugins: [
 ];
 ```
 
-**Note** that I needed to update the `@semantic-release/release-notes-generator` settings since it also analyzing the commits for generating the release notes.
+**Note** that I had to update the `@semantic-release/release-notes-generator` settings since it is also analyzing the commits to generate the release notes.
 
 And finally, I documented the default tags in my repo, just to easily find them if I forgot.
 
@@ -208,13 +211,13 @@ In my repos, I'm using two conventions, side by side:
 
 ### Merge Commit
 
-If the Pull Request is contains more than one change (and of course, in multiple commits), although it is not best practice, you know, it is a small repo without contributors... Anyway, in that case, I'm looking at the commits to see if there are _conventional commits_ there, and if so, I'm **merging** the PR, and the commits will be in the `master` branch and will trigger the release.
+If the Pull Request contains more than one change (and of course, in multiple commits), although it is not best practice, you know, a small repo without contributors... Anyway, in that case, I'm looking at the commits to see if there are _conventional commits_ there, and if so, I'm **merging** the PR, and the commits will be in the `master` branch and will trigger the release.
 
 ### Squash Commits
 
 If the PR is only about one change, we don't have the commits to be conventional. Instead, we can change the **pull request title** to be conventional, and **squash** the pull request to be only one commit in `master`. In _Github_, by default, the **pull request title becomes to be the commit message in squash merge**.
 
-To help me to remember that, I create a _Github Actions workflow_ to validate the pull request title and comment on the PR if the title does not match my convention.
+To help me to remember that, I created a _Github Actions workflow_ to validate the pull request title and comment on the PR if the title does not match my convention.
 
 ```yaml
 name: PR Title
@@ -315,3 +318,5 @@ https://gist.github.com/baruchiro/3a52a9897556a880b32f74f03caca299.js
 ---
 
 Update: while writing this post to document my process, I finally found [another blog post that already documented it](https://svdoscience.com/2020-10-31/versioning-with-semantic-release), you are welcome to use both :-).
+
+Thanks to my teammate [Leonid Weinberg](https://www.linkedin.com/in/leonid-weinberg-a45964143/) who review the article to correct language errors.
