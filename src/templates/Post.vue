@@ -10,6 +10,11 @@
           פוסט מאת <span>{{ $page.post.author.title }}</span>
         </p>
         <PostMeta :post="$page.post" />
+        <PostPublications
+          v-if="$page.post.publications && $page.post.publications.length"
+          :publications="$page.post.publications"
+          :lang="$page.post.language"
+        />
       </div>
 
       <div class="post content-box__main">
@@ -40,6 +45,7 @@
 <script>
 import PostMeta from "~/components/PostMeta";
 import PostTags from "~/components/PostTags";
+import PostPublications from "~/components/PostPublications";
 import Author from "~/components/Author.vue";
 import getMeta from "~/meta";
 
@@ -48,6 +54,7 @@ export default {
     Author,
     PostMeta,
     PostTags,
+    PostPublications,
   },
   computed: {
     dir() {
@@ -93,7 +100,8 @@ query Post ($id: ID!) {
     content
     cover_image (width: 860, blur: 10)
     og_cover_image: cover_image (width: 1200, height: 630),
-    language
+    language,
+    publications
   },
   meta: metadata {
     siteUrl

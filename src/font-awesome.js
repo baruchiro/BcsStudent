@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { config, library } from '@fortawesome/fontawesome-svg-core'
 import {
     faGithub, faTwitter, faLinkedin,
-    faFacebook, faStackOverflow
+    faFacebook, faStackOverflow, faDev, faMedium
 } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faRss } from '@fortawesome/free-solid-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
@@ -11,7 +11,7 @@ config.autoAddCss = false;
 library.add(
     faGithub, faTwitter, faLinkedin,
     faFacebook, faStackOverflow, faEnvelope,
-    faRss
+    faRss, faDev, faMedium
 )
 
 export default function (Vue) {

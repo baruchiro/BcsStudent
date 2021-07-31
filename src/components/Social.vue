@@ -13,6 +13,8 @@ const linkToIcon = {
   stackoverflow: ["fab", "stack-overflow"],
   mailto: ["fas", "envelope"],
   feed: ["fas", "rss"],
+  medium: ["fab", "medium"],
+  'dev.to': ["fab", "dev"],
 };
 
 export default {

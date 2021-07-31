@@ -1,5 +1,5 @@
 <template>
-  <div class="post-meta" :dir="dir">
+  <div class="post-meta">
     {{ date }}.
     <template v-if="post.timeToRead">
       <strong>{{ minRead }}</strong>
@@ -11,9 +11,6 @@
 export default {
   props: ["post"],
   computed: {
-    dir() {
-      return this.post.language === "en" ? "ltr" : "rtl";
-    },
     date() {
       return this.post.language === "en"
         ? "Posted " + this.post.date

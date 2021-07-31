@@ -2,10 +2,12 @@
 title: How to sync component state with React Router
 published: true
 date: 2021-07-07
+cover_image: ./use-route-as-state.gif
 description: |
-    Decisions I made while building a bot with Microsoft Bot Framework.
-    Read with LTR in <a href="https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1">Dev.to</a>
+    Custom hooks with the useState interface to use the React Router state as the component state.
 tags: ['react', 'npm']
+publications:
+  - https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1
 language: en
 ---
 
