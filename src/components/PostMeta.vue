@@ -1,15 +1,30 @@
 <template>
-  <div class="post-meta">
-    Posted {{ post.date }}.
+  <div class="post-meta" :dir="dir">
+    {{ date }}.
     <template v-if="post.timeToRead">
-      <strong>{{ post.timeToRead }} min read.</strong>
+      <strong>{{ minRead }}</strong>
     </template>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["post"]
+  props: ["post"],
+  computed: {
+    dir() {
+      return this.post.language === "en" ? "ltr" : "rtl";
+    },
+    date() {
+      return this.post.language === "en"
+        ? "Posted " + this.post.date
+        : "פורסם בתאריך " + this.post.date;
+    },
+    minRead() {
+      return this.post.language === "en"
+        ? this.post.timeToRead + " min read."
+        : this.post.timeToRead + " דקות לקריאה.";
+    },
+  },
 };
 </script>
 
@@ -17,6 +32,5 @@ export default {
 .post-meta {
   font-size: 0.8em;
   opacity: 0.8;
-  direction: ltr;
 }
 </style>
