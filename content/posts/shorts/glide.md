@@ -2,7 +2,7 @@
 title: גלייד - Glide
 date: 2020-07-07
 published: true
-tags: ['Shorts', 'No-Code']
+tags: ['shorts', 'no-code']
 description: כלי לבניית אפליקצייה מבוססת Google Sheets, ללא קוד
 ---
 

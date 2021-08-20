@@ -26,10 +26,6 @@ module.exports = {
       {
         name: 'title',
         path: (node) => `/${node.title.split(' ').join('-').replace('?', '')}`
-      },
-      {
-        name: 'date',
-        path: '/:date'
       }
     ],
     Tag: '/tag/:id'
@@ -128,11 +124,14 @@ module.exports = {
       anchorClassName: 'icon icon-link',
       plugins: [
         '@gridsome/remark-prismjs',
-        ['remark-align', {
-          left: 'align-start',
-          center: 'align-center',
-          right: 'align-end',
-        }]
+        [
+          'remark-align',
+          {
+            left: 'align-start',
+            center: 'align-center',
+            right: 'align-end',
+          }
+        ]
       ]
     }
   }

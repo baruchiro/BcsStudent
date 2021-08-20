@@ -7,7 +7,7 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
  */
 
 pre {
-  padding: calc(var(--space) / 2);
+  padding: calc(var(--space) / 3);
   font-size: .85em;
   background-color: var(--bg-code);
   margin-bottom: 2em;
@@ -15,11 +15,14 @@ pre {
   border-radius: var(--radius);
 }
 
-code {
+/* Inline code */
+:not(pre) > code {
   background-color: var(--bg-code);
   border: 1px solid var(--border-color);
   font-size: .85em;
-  padding: .2em .5em;
+  padding: .1em .3em;
+  border-radius: var(--radius);
+  white-space: normal;
 }
 
 code[class*="language-"],
@@ -54,12 +57,6 @@ pre[class*="language-"] {
 /* Code blocks */
 pre[class*="language-"] {
 	overflow: auto;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-	border-radius: var(--radius);
-	white-space: normal;
 }
 
 .token.comment,

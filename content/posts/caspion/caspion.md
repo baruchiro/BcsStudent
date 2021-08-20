@@ -1,5 +1,5 @@
 ---
-title: "כספיון: לנהל מעקב אחרי ההוצאות וההכנסות שלנו"
+title: "כספיון: תוכנה חברתית לניהול מעקב אחרי ההוצאות וההכנסות שלנו"
 published: true
 date: 2021-07-05
 cover_image: ./main-screenshot.png
@@ -101,4 +101,6 @@ tags: ['Hiuvi', 'Google Data Studio', 'OpenSource', 'ניהול כספים']
 
 - הפרויקט שלנו מבוסס על [פרויקט ישראלי אחר](https://github.com/eshaham/israeli-bank-scrapers) שאחראי על ייצוא המידע מהבנקים.
 - יש [פרויקט ישראלי נוסף](https://github.com/raziele/creditCardAnalysis) שמנתח קבצי נתונים מהבנקים, ומציג גרפים בתוך הגליון. אני מקווה שהוא [יתמוך בנו בקרוב](https://github.com/raziele/creditCardAnalysis/issues/10).
-- דיוני אבטחת מידע אפשר למצוא [כאן](https://github.com/brafdlog/caspion/issues?q=is%3Aopen+is%3Aissue+label%3Asecurity) ו[כאן](https://github.com/eshaham/israeli-bank-scrapers/issues/588)
+- דיוני אבטחת מידע אפשר למצוא [כאן](https://github.com/brafdlog/caspion/issues?q=is%3Aopen+is%3Aissue+label%3Asecurity) ו[כאן](https://github.com/eshaham/israeli-bank-scrapers/issues/588).
+- לגבי קטגוריות לנתונים: כרגע התמיכה מאוד בסיסית, ואנחנו עוד צריכים לעבוד על זה. בינתיים אני עשיתי מיפוי ידני בGoogle Sheets משם העסק לקטגוריה שלו.
+- השימוש בGoogle Data Studio עדיף על שימוש פשוט בGoogle Sheets, כי ברגע שאתה מנסה לפעול על מאגר של נתונים, ולא רק על שורה אחת, אתה מתחיל להסתבך עם שאילתת Query שאתה צריך לערוך אותה בתוך תא ודברים כאלה.
