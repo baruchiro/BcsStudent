@@ -10,13 +10,16 @@ const privateSocialLinks = [
   'https://github.com/baruchiro',
   'https://www.linkedin.com/in/baruch-rothkoff/',
   'https://twitter.com/baruchiro',
-  'https://stackoverflow.com/users/839513/baruchiro'
+  'https://stackoverflow.com/users/839513/baruchiro',
+  'https://dev.to/baruchiro',
+  'https://medium.com/@baruchiro',
 ]
 
 const blogSocialLinks = [
   'https://www.facebook.com/BcsStudentBlog',
   'https://twitter.com/BcsStudent1',
   'https://github.com/baruchiro/BcsStudent',
+  'https://t.me/BcsStudent',
   '/feed.xml'
 ]
 

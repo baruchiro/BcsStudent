@@ -15,6 +15,7 @@ const linkToIcon = {
   feed: ["fas", "rss"],
   medium: ["fab", "medium"],
   'dev.to': ["fab", "dev"],
+  't.me': ["fab", "telegram"],
 };
 
 export default {
