@@ -26,10 +26,6 @@ module.exports = {
       {
         name: 'title',
         path: (node) => `/${node.title.split(' ').join('-').replace('?', '')}`
-      },
-      {
-        name: 'date',
-        path: '/:date'
       }
     ],
     Tag: '/tag/:id'
