@@ -10,9 +10,9 @@
     "rss": "node scripts/opml/opml.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.30",
-    "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@gridsome/remark-prismjs": "^0.5.0",
@@ -25,11 +25,11 @@
     "vue-gtag": "^1.10.0"
   },
   "devDependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.4",
     "cheerio": "^1.0.0-rc.10",
     "node-sass": "^4.13.1",
     "sass-loader": "^10.0.4",
-    "snyk": "^1.421.1",
+    "snyk": "^1.720.0",
     "xml2js": "^0.4.23"
   },
   "snyk": true
