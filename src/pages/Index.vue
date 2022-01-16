@@ -4,17 +4,27 @@
     <Author :show-title="true" />
 
     <Sidebar>
+      <PostTitles title="מדברים על כסף" :posts="money" tag="כסף" />
       <PostTitles title="רעיונות שצריך לפתח" :posts="ideas" tag="Idea" />
       <PostTitles title="טיוטות" :posts="drafts" />
       <div class="blog-links">
         <div class="blog-links-title">עקבו אחרי הבלוג</div>
-        <social class="blog-links-icon" v-for="link in socialLinks" :key="link" :link="link" />
+        <social
+          class="blog-links-icon"
+          v-for="link in socialLinks"
+          :key="link"
+          :link="link"
+        />
       </div>
     </Sidebar>
 
     <!-- List posts -->
     <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+      <PostCard
+        v-for="edge in $page.posts.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      />
     </div>
   </Layout>
 </template>
@@ -67,6 +77,20 @@ query {
       }
     }
   },
+  money: tag (id: "כסף") {
+    belongsTo {
+      edges {
+        node {
+          ...on Post {
+            id
+            title
+            path,
+            published
+          }
+        }
+      }
+    }
+  },
   socialLinks: allSocial(filter: { blog: { eq: true } }) {
     edges {
       node {
@@ -94,7 +118,7 @@ export default {
     Social,
   },
   metaInfo() {
-    const {siteName, siteUrl, siteDescription} = this.$page.meta
+    const { siteName, siteUrl, siteDescription } = this.$page.meta;
     return {
       title: siteName,
       meta: getMeta(siteUrl, {
@@ -103,8 +127,8 @@ export default {
         image: {
           path: "/logo/og-image.png",
           width: 1200,
-          height: 630
-        }
+          height: 630,
+        },
       }),
     };
   },
@@ -118,6 +142,13 @@ export default {
     ideas() {
       return this.$page.ideas
         ? this.$page.ideas.belongsTo.edges
+            .map((e) => e.node)
+            .filter((p) => p.published)
+        : [];
+    },
+    money() {
+      return this.$page.money
+        ? this.$page.money.belongsTo.edges
             .map((e) => e.node)
             .filter((p) => p.published)
         : [];
