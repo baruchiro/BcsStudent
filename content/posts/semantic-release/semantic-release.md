@@ -311,9 +311,7 @@ plugins: [
 
 ## Summary
 
-> Finally, all my configuration files:
-
-https://gist.github.com/baruchiro/3a52a9897556a880b32f74f03caca299.js
+> [Finally, all my configuration files](https://gist.github.com/baruchiro/3a52a9897556a880b32f74f03caca299.js).
 
 ---
 

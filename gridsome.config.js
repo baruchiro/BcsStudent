@@ -131,6 +131,14 @@ module.exports = {
             center: 'align-center',
             right: 'align-end',
           }
+        ],
+        [
+          '@noxify/gridsome-plugin-remark-embed', {
+            enabledProviders: ['Gist'],
+            Gist: {
+              omitStylesheet: false,
+            },
+          }
         ]
       ]
     }
