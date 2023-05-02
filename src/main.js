@@ -1,6 +1,5 @@
-import VueDisqus from 'vue-disqus'
-import VueGtag from 'vue-gtag'
-import FontAwesome from './font-awesome'
+import VueDisqus from "vue-disqus";
+import FontAwesome from "./font-awesome";
 
 // Import main css
 import '~/assets/style/index.scss'
@@ -21,13 +20,7 @@ export default function (Vue, { router, head, isClient }) {
   })
 
   if (isClient) {
-    Vue.use(
-      VueGtag,
-      {
-        config: { id: 'UA-29494162-4' }
-      },
-      router
-    )
+    Vue.use(router);
   }
 
   // Set default layout as a global component
