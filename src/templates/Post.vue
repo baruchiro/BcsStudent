@@ -43,10 +43,11 @@
 </template>
 
 <script>
-import PostMeta from "~/components/PostMeta";
-import PostTags from "~/components/PostTags";
-import PostPublications from "~/components/PostPublications";
+import mixpanel from 'mixpanel-browser';
 import Author from "~/components/Author.vue";
+import PostMeta from "~/components/PostMeta";
+import PostPublications from "~/components/PostPublications";
+import PostTags from "~/components/PostTags";
 import getMeta from "~/meta";
 
 export default {
@@ -55,6 +56,11 @@ export default {
     PostMeta,
     PostTags,
     PostPublications,
+  },
+  created() {
+    mixpanel.track('Post View', {
+      title: this.$page.post.title,
+    })
   },
   computed: {
     dir() {
