@@ -1,14 +1,19 @@
 ---
 title: צ'קליסט CI לפרויקט
 description: |
-  כלים והגדרות שאני מוסיף לכל פרויקט שאני עובד עליו.
+  בכל פעם שאני מתחיל פרויקט חדש, אישי או של העבודה, אני צריך להיזכר מחדש איזה בדיקות וכלים אני נוהג להוסיף, תלוי בשפה של הפרויקט, בצרכים שלו והאם הוא אישי או ארגוני.
+
+  אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
 date: 2023-06-11T14:53:45.583Z
 published: true
 tags: [צ'קליסט, CI/CD, Github Actions]
-categories: []
 ---
 
-TODO: Add links to running tools in my projects
+בכל פעם שאני מתחיל פרויקט חדש, אישי או של העבודה, אני צריך להיזכר מחדש איזה בדיקות וכלים אני נוהג להוסיף, תלוי בשפה של הפרויקט, בצרכים שלו והאם הוא אישי או ארגוני.
+
+אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
+
+> תשלחו לי כלים שאתם משתמשים בהם ואני אגיד לכם מה דעתי.
 
 ## Git Hooks
 
@@ -40,14 +45,19 @@ TODO: Add links to running tools in my projects
 npx lint-staged
 ```
 
+_[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/master/package.json#L64-L67)_
+
 ## Pull Request Validation
 
 כאן לא מדובר בכלים ספציפיים, אלא בפעולות שכדאי להוסיף עוד בשלב הPull Request כדי לחסוך הערות מיותרות בסקירה, וגם כדי לזהות בהקדם בעיות שעלולות לצוץ בענף הראשי:
 
-- [ ] Linting ([golangci-lint](https://github.com/golangci/golangci-lint), [ESLint](https://eslint.org/))
+- [ ] Linting ([golangci-lint](https://github.com/golangci/golangci-lint), [ESLint](https://eslint.org/), [`go mod tidy`](https://github.com/Checkmarx/2ms/blob/cf3f46a51041a8e8fe934775e295fe2ea9dc810e/.github/workflows/pr-validation.yml#L25C6-L28))
 - [ ] Type Checking
 - [ ] Unit Tests
 - [ ] Build (bundle, compile, Docker)
+
+_[דוגמא מפרויקט כספיון](https://github.com/brafdlog/caspion/blob/master/.github/workflows/ci.yml)_ (_TypeScript_)  
+_[דוגמא מפרויקט 2ms](https://github.com/Checkmarx/2ms/blob/master/.github/workflows/pr-validation.yml)_ (_Go_)
 
 ### [lockfile-lint](https://github.com/lirantal/lockfile-lint)
 
@@ -55,11 +65,15 @@ _[JavaScript/TypeScript]_
 
 בפרויקטים של JS, החבילות מותקנות על פי מה שכתוב בקובץ lock (`package-lock.json`/`yarn.lock`), ולכן חשוב לוודא שהקובץ הזה תקין ולא נערך בצורה לא צפויה, מכיוון שתוקף יכול לשנות את הרישום של אחת החבילות בקובץ, ואנחנו לא נשים לב, כי מי מסתכל על הקובץ הזה בכלל?
 
+_[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/master/package.json#L24)_
+
 ### [new-dependencies-advisor](https://github.com/lirantal/github-action-new-dependencies-advisor)
 
 _[JavaScript/TypeScript]_
 
 כלי שמתריע על תלות חדשה שנוספת לפרויקט בקוד הנוכחי, ומציג את הציון והפידבק של [Snyk Advisor](https://snyk.io/advisor/) על החבילה החדשה.
+
+_[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcdf44f27e8c24542f1f0ca8f2b39be0e5b97d1b/.github/workflows/pr-validation.yml#L15-L19)_
 
 ### [gosec](https://github.com/securego/gosec)
 
@@ -69,9 +83,13 @@ _[Go]_
 
 כלי אבטחה אני מריץ בכמה הזדמנויות. קודם כל בשלב ה*Pull Request* כמובן, כדי לוודא שלא מכניסים בעיות אבטחה חדשות. אבל מכיוון שכלי אבטחה חייבים להתעדכן עם הזמן, אני מריץ אותם באופן קבוע (אחת ליום או לשבוע) גם על הענף הראשי, כדי לוודא שלא צצו בעיות אבטחה חדשות.
 
+_[דוגמא מפרויקט 2ms](https://github.com/Checkmarx/2ms/blob/master/.github/workflows/gosec.yml)_
+
 ### [Kics](https://github.com/marketplace/actions/kics-github-action)
 
 Kics הוא מנוע לזיהוי חולשות אבטחה בInfrastructure as Code. כמעט בכל פרויקט יש לפחות קובץ Dockerfile, וKics סורק אותו למציאת בעיות פוטנציאליות.
+
+_[דוגמא מפרויקט 2ms](https://github.com/Checkmarx/2ms/blob/cf3f46a51041a8e8fe934775e295fe2ea9dc810e/.github/workflows/pr-validation.yml#L55-L71)_
 
 ### PR title
 
@@ -102,9 +120,13 @@ jobs:
 
 ![Squash Pull Request Title](./pr-title-config.png)
 
+_[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/master/.github/workflows/pr-title.yml)_
+
 ## CI
 
 אז מעבר לפעולות הברורות מאליהן של העלאת חבילה לnpm, עדכון האתר או Dockerhub, יש כמה פעולות נוספות שאני מבצע.
+
+> בעקרון רציתי לנצל את ההזדמנות לבדוק את פרויקט [allero](https://github.com/allero-io/allero) שעושה ולידציה על הCI, אבל ראיתי שהוא לא מתוחזק אז ויתרתי.
 
 ### [Semantic Release](../semantic-release/)
 
@@ -113,6 +135,8 @@ jobs:
 מצד אחד מדובר בכלי מדהים, הוא יודע כמעט בלי הגדרות מיוחדות ליצור Github Release, להעלות לnpmjs.org, ליצור changelog ולכתוב בתגובה לIssues/Pull Requests שהם נכללו בגרסה האחרונה.
 
 הבעיה שלי אם הכלי הזה היא שברגע שאני רוצה להתאים אותו לצרכים שלי, אם אני רוצה לשנות את הפורמט של התיאור של הגרסה, או להיעזר בו ליצירת גרסה זמנית שאני מעלה אליה קבצים, אני תמיד מסתבך ומבזבז על זה הרבה זמן.
+
+_[דוגמא מפרויקט כספיון](https://github.com/brafdlog/caspion/blob/f847d6420ca6d97f0d96832523a66a626a0cc0a4/.github/workflows/semantic-release.yml#L27-L31)_
 
 ## ניהול פרויקט ואינטגרציות
 
@@ -177,6 +201,8 @@ comment-on-possible-stale-issues:
         message: "Due to a long period of inactivity, this task was unassigned automatically."
 ```
 
+_[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/master/.github/workflows/project-management.yaml)_
+
 ### Community tag
 
 ב[פרק 19 של הפודקאסט "קוד פתוח"](https://myishay.podbean.com/e/פרק-19-הסודותשל-אלסטיקעם-ל/), ליזה כץ אומרת שבמבט לאחור, באלסטיק היו צריכים לסמן איזה קוד הגיע מתורמים חיצוניים, מכיוון שבגיטאהב אין את המידע הזה.
@@ -197,6 +223,8 @@ comment-on-possible-stale-issues:
       })
 ```
 
+_[דוגמא מפרויקט 2ms](https://github.com/Checkmarx/2ms/blob/master/.github/workflows/pr-labels.yml)_
+
 ### Notify Discord
 
 בימים שעוד היה API פתוח לטוויטר, הייתי שולח לשם, אבל בימינו שטוויטר מתחיל להיסגר, ודיסקורד מתחיל לעלות, אני מעוניין לשלוח עדכונים מסוימים לערוצים מסוימים.
@@ -215,3 +243,9 @@ comment-on-possible-stale-issues:
   env:
     msg: 'Yay! 🎉 \n Version ${{ steps.semantic_release_info.outputs.version }} was released! \n Check it out in: ${{ steps.upload_artifacts.outputs.url }}'
 ```
+
+_[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcdf44f27e8c24542f1f0ca8f2b39be0e5b97d1b/.github/workflows/project-management.yaml#L66-L77)_ (הודעה על `good first issue`)
+
+## Badges
+
+עוד אין לי רשימה, זה בטח גם תלוי בכלים שאני משתמש בהם.
