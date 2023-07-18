@@ -2,8 +2,9 @@
 title: מה כדאי לסטודנט לדעת - Git
 published: true
 date: 2018-11-28 18:41:51
-tags: ['מה כדאי לסטודנט לדעת', 'git']
+tags: ["מה כדאי לסטודנט לדעת", "git"]
 ---
+
 <!-- wp:block {"ref":835} /-->
 <!-- wp:list {"className":"before-post-comments"} -->
 <ul class="before-post-comments"><li><strong>דבר ראשון</strong>- <a href="#738_git">Git</a> הוא לא <a href="#738_github">Github</a>. תזכרו את זה כשאתם קוראים את הפוסט.</li><li><strong>דבר שני</strong>- מדריכים לשימוש בגיט יש מספיק, המטרה שלי בפוסט היא לבצע היכרות בינינו הסטודנטים, לבין גיט.</li></ul>

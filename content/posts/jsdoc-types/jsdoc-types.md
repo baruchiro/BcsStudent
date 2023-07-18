@@ -3,9 +3,9 @@ title: לקבל Types בJavaScript בלי לעבור לTypeScript
 published: true
 date: 2021-08-20
 cover_image: ./carbon.png
-tags: ['code', 'JavaScript', 'TypeScript']
+tags: ["code", "JavaScript", "TypeScript"]
 description: |
-    ללא ספק, TypeScript נהיה נפוץ יותר ויותר. אם אתם מהמתנגדים, או שפשוט המעבר יעלה לכם הרבה, הנה הדרך שבה אתם יכולים להתחיל להיעזר בTypes בלי לגעת באף הגדרה של הפרויקט שלכם!
+  ללא ספק, TypeScript נהיה נפוץ יותר ויותר. אם אתם מהמתנגדים, או שפשוט המעבר יעלה לכם הרבה, הנה הדרך שבה אתם יכולים להתחיל להיעזר בTypes בלי לגעת באף הגדרה של הפרויקט שלכם!
 ---
 
 ## למה צריך Types בכלל?
@@ -38,12 +38,12 @@ description: |
 
 ```javascript
 /**
-* @param {number} a
-* @param {number} b
-* @returns {number}
-*/
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ */
 function add(a, b) {
-    return a + b
+  return a + b;
 }
 ```
 
@@ -65,8 +65,8 @@ function add(a, b) {
 
 ```javascript
 /**
-* @typedef {{name: string, password: number}} User
-*/
+ * @typedef {{name: string, password: number}} User
+ */
 ```
 
 ה`typedef` משמש אותנו להגדרה של Type חדש, והוא לא חייב להיות צמוד לפונקציה או לקוד אחד. אחרי שהגדרנו אותו, נוכל להשתמש בו בהמשך כדי להצהיר על מערך של Users בקלות, למשל.
@@ -75,9 +75,9 @@ function add(a, b) {
 
 ```javascript
 /**
-* @type User
-*/
-let user
+ * @type User
+ */
+let user;
 ```
 
 השימוש ב`type` הוא כדי לתת הגדרה למשתנה ספציפי, ללא פונקציה.
@@ -92,12 +92,12 @@ let user
 
 ```javascript
 /**
-* @param {number} a
-* @param {number} b
-* @returns {number}
-*/
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ */
 function add(a, b) {
-    return a + b
+  return a + b;
 }
 ```
 
@@ -113,8 +113,8 @@ function add(a, b) {
 
 ```javascript
 /**
-* @typedef {import('./types').User} User
-*/
+ * @typedef {import('./types').User} User
+ */
 ```
 
 אני ממליץ לייבא ולהצהיר עליו מחדש, כמו בדוגמא, כדי לחסוך את הכתיבה של ה`import` בכל פעם.

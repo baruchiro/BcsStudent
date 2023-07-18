@@ -52,30 +52,34 @@ It will not create a version (dry run), and you expect one of the next messages:
 <summary><code>There is no previous release, the next release version is 1.0.0</code></summary>
 
 If you never published a release before (and **release** means **git tag**), `semantic-release` will create a default version `1.0.0` in any way.
+
 </details>
 
 <details>
  <summary><code>configured to only publish from master</code></summary>
 
- The whole line:  
+The whole line:
 
- > `This test run was triggered on the branch foo, while semantic-release is configured to only publish from master, therefore a new version won’t be published.`
+> `This test run was triggered on the branch foo, while semantic-release is configured to only publish from master, therefore a new version won’t be published.`
 
- We will see the `semantic-release` is triggering a version when pushing to specific branches. If you're not in the `master` branch, the `semantic-release` will not process your git history to create a version.
+We will see the `semantic-release` is triggering a version when pushing to specific branches. If you're not in the `master` branch, the `semantic-release` will not process your git history to create a version.
+
 </details>
 
 <details>
  <summary><code>There are no relevant changes, so no new version is released.</code></summary>
 
- Maybe you see messages about `Analyzing commit` because you committed some changes since your last version, but eventually, the `semantic-release` didn't find a commit message in a pattern to create a new release.
+Maybe you see messages about `Analyzing commit` because you committed some changes since your last version, but eventually, the `semantic-release` didn't find a commit message in a pattern to create a new release.
 
- We will touch on the commit messages pattern later.
+We will touch on the commit messages pattern later.
+
 </details>
 
 <details>
  <summary><code>Published release 1.1.0 on default channel</code></summary>
 
- OK, but it did nothing because, with *dry-run mode*, all the actions were skipped, this is just a completion message.
+OK, but it did nothing because, with _dry-run mode_, all the actions were skipped, this is just a completion message.
+
 </details>
 
 ### Commit Format

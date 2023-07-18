@@ -1,77 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html ${htmlAttrs}>
+  <head>
+    ${head}
+  </head>
 
-<head>
-  ${head}
-</head>
+  <body ${bodyAttrs}>
+    <script>
+      // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
+      (function () {
+        window.__onThemeChange = function () {};
+        function setTheme(newTheme) {
+          window.__theme = newTheme;
+          preferredTheme = newTheme;
+          document.body.setAttribute("data-theme", newTheme);
+          window.__onThemeChange(newTheme);
+        }
 
-<body ${bodyAttrs}>
-  <script>
-    // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
-    (function () {
-      window.__onThemeChange = function () { };
-      function setTheme(newTheme) {
-        window.__theme = newTheme;
-        preferredTheme = newTheme;
-        document.body.setAttribute('data-theme', newTheme);
-        window.__onThemeChange(newTheme);
-      }
-
-      var preferredTheme;
-      try {
-        preferredTheme = localStorage.getItem('theme');
-      } catch (err) { }
-
-      window.__setPreferredTheme = function (newTheme) {
-        setTheme(newTheme);
+        var preferredTheme;
         try {
-          localStorage.setItem('theme', newTheme);
-        } catch (err) { }
-      }
+          preferredTheme = localStorage.getItem("theme");
+        } catch (err) {}
 
-      var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      darkQuery.addListener(function (e) {
-        window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+        window.__setPreferredTheme = function (newTheme) {
+          setTheme(newTheme);
+          try {
+            localStorage.setItem("theme", newTheme);
+          } catch (err) {}
+        };
+
+        var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        darkQuery.addListener(function (e) {
+          window.__setPreferredTheme(e.matches ? "dark" : "light");
+        });
+
+        setTheme(preferredTheme || (darkQuery.matches ? "dark" : "light"));
+      })();
+    </script>
+
+    ${app} ${scripts}
+
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          xfbml: true,
+          version: "v10.0",
+        });
+      };
+
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/he_IL/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+
+    <!-- Your Chat Plugin code -->
+    <div
+      class="fb-customerchat"
+      attribution="setup_tool"
+      page_id="1137929663059944"
+    ></div>
+
+    <!-- Cal floating-popup embed code begins -->
+    <script type="text/javascript">
+      (function (C, A, L) {
+        let p = function (a, ar) {
+          a.q.push(ar);
+        };
+        let d = C.document;
+        C.Cal =
+          C.Cal ||
+          function () {
+            let cal = C.Cal;
+            let ar = arguments;
+            if (!cal.loaded) {
+              cal.ns = {};
+              cal.q = cal.q || [];
+              d.head.appendChild(d.createElement("script")).src = A;
+              cal.loaded = true;
+            }
+            if (ar[0] === L) {
+              const api = function () {
+                p(api, arguments);
+              };
+              const namespace = ar[1];
+              api.q = api.q || [];
+              typeof namespace === "string"
+                ? (cal.ns[namespace] = api) && p(api, ar)
+                : p(cal, ar);
+              return;
+            }
+            p(cal, ar);
+          };
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", { origin: "https://app.cal.com" });
+
+      Cal("floatingButton", {
+        calLink: "baruchiro/30m",
+        hideButtonIcon: true,
+        buttonPosition: "bottom-right",
+        buttonText: "לקבוע איתי פגישה",
+        theme: __theme,
       });
-
-      setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
-    })();
-  </script>
-
-  ${app}
-  ${scripts}
-
-  <!-- Load Facebook SDK for JavaScript -->
-  <div id="fb-root"></div>
-  <script>
-    window.fbAsyncInit = function () {
-      FB.init({
-        xfbml: true,
-        version: 'v10.0'
+      Cal("ui", {
+        styles: { branding: { brandColor: "#000000" } },
+        hideEventTypeDetails: false,
       });
-    };
-
-    (function (d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/he_IL/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-  <!-- Your Chat Plugin code -->
-  <div class="fb-customerchat" attribution="setup_tool" page_id="1137929663059944">
-  </div>
-
-  <!-- Cal floating-popup embed code begins -->
-  <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; typeof namespace === "string" ? (cal.ns[namespace] = api) && p(api, ar) : p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", { origin: "https://app.cal.com" });
-
-    Cal("floatingButton", { "calLink": "baruchiro/30m", "hideButtonIcon": true, "buttonPosition": "bottom-right", "buttonText": "לקבוע איתי פגישה", "theme": __theme });
-    Cal("ui", { "styles": { "branding": { "brandColor": "#000000" } }, "hideEventTypeDetails": false });
-  </script>
-  <!-- Cal floating-popup embed code ends -->
-</body>
-
+    </script>
+    <!-- Cal floating-popup embed code ends -->
+  </body>
 </html>

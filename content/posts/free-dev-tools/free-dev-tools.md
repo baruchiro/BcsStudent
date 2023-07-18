@@ -38,5 +38,5 @@ date: 2019-03-13 07:53:52
 
 ### רשימות נוספות של כלים בחינם
 
-* [החבילה של Github](https://education.github.com/pack)
-* [רשימה מתעדכנת של כלים](https://github.com/AchoArnold/discount-for-student-dev)
+- [החבילה של Github](https://education.github.com/pack)
+- [רשימה מתעדכנת של כלים](https://github.com/AchoArnold/discount-for-student-dev)

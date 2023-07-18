@@ -3,13 +3,13 @@ import FontAwesome from "./font-awesome";
 import mixpanel from "mixpanel-browser";
 
 // Import main css
-import '~/assets/style/index.scss'
+import "~/assets/style/index.scss";
 
 // Import default layout so we don't need to import it to every page
-import DefaultLayout from '~/layouts/Default.vue'
+import DefaultLayout from "~/layouts/Default.vue";
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function(Vue, { router, head, isClient }) {
+export default function (Vue, { router, head, isClient }) {
   FontAwesome(Vue);
   mixpanel.init("22234dc68dcb1a4bab3e17c2af2b181e", {
     debug: true,
@@ -17,19 +17,19 @@ export default function(Vue, { router, head, isClient }) {
     persistence: "localStorage",
   });
 
-  FontAwesome(Vue)
+  FontAwesome(Vue);
 
-  head.htmlAttrs = { lang: 'he' }
-  head.bodyAttrs = { dir: 'rtl' }
+  head.htmlAttrs = { lang: "he" };
+  head.bodyAttrs = { dir: "rtl" };
 
   Vue.use(VueDisqus, {
-    shortname: 'bcsstudent'
-  })
+    shortname: "bcsstudent",
+  });
 
   if (isClient) {
     Vue.use(router);
   }
 
   // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout)
+  Vue.component("Layout", DefaultLayout);
 }

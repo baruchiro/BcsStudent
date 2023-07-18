@@ -1,8 +1,8 @@
 <template>
   <div class="post-titles content-box">
     <div class="post-titles__title">
-      <g-link v-if="tag" :to="`/tag/${tag}/`">{{title}}</g-link>
-      <span v-else>{{title}}</span>
+      <g-link v-if="tag" :to="`/tag/${tag}/`">{{ title }}</g-link>
+      <span v-else>{{ title }}</span>
     </div>
 
     <g-link
@@ -10,9 +10,10 @@
       v-for="post in posts"
       :key="post.id"
       :to="post.path"
-    >{{post.title}}</g-link>
+      >{{ post.title }}</g-link
+    >
 
-    <div v-if="posts.length === 0">אין {{title}} כרגע</div>
+    <div v-if="posts.length === 0">אין {{ title }} כרגע</div>
   </div>
 </template>
 
@@ -21,18 +22,18 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     posts: {
       type: Array,
-      required: true
+      required: true,
     },
     tag: {
       type: String,
       required: false,
-      default: null
-    }
-  }
+      default: null,
+    },
+  },
 };
 </script>
 
@@ -48,7 +49,7 @@ export default {
   &__title {
     text-align: center;
     font-weight: bold;
-    
+
     a {
       color: inherit;
     }

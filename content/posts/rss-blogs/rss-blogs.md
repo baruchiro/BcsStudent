@@ -63,7 +63,7 @@ date: 2019-04-11 18:46:00
 
 ### לא פעילים (על פי Feedly)
 
-- [לפני האיתחול](https://tech.b48.club/): דף הבית  - לפני האיתחול ([Feed](https://tech.b48.club/feed.xml))
+- [לפני האיתחול](https://tech.b48.club/): דף הבית - לפני האיתחול ([Feed](https://tech.b48.club/feed.xml))
 - [מדעןתונים](https://madantunim.wordpress.com): מדעןתונים ([Feed](https://madantunim.wordpress.com/feed/))
 - [Code Junkie Blog](http://codejunkie.blog): Code Junkie Blog - ([Feed](http://codejunkie.blog/feed/))
 - [תוכנה חופשית בעברית](https://kaplanopensource.wordpress.com): תוכנה חופשית בעברית | מיומנו של חבר בקהילת התוכנה החופשית בישראל ([Feed](http://kaplanopensource.wordpress.com/feed/))
@@ -98,9 +98,7 @@ date: 2019-04-11 18:46:00
 
 ### לא זמינים (על פי Feedly)
 
-
 - [לא מדויק](https://gadial.net): לא מדויק | בלוג על מתמטיקה ומדעי המחשבלא מדויק ([Feed](http://www.gadial.net/?feed=rss2))
-
 
 - [בייט חכם](https://smartbyte.blog): בייט חכם - בלוג בית חכם ([Feed](https://smartbyte.blog/feed/))
 
@@ -122,7 +120,6 @@ date: 2019-04-11 18:46:00
 - [אלביט מדברים טכנולוגיה](https://elbittech.podbean.com): אלביט מדברים טכנולוגיה ([Feed](https://feed.podbean.com/elbittech/feed.xml))
 - [איגוד האינטרנט הישראלי](https://www.isoc.org.il): איגוד האינטרנט הישראלי – ISOC-IL – המתחם הישראלי ([Feed](https://www.isoc.org.il/podcasts/feed))
 
-
 ### סייבר
 
 - [Digital Whisper - גיליונות](https://www.digitalwhisper.co.il/): Digital Whisper :: Digital Whisper :: מגזין אבטחת מידע וטכנולוגיה, בלוג אבטחת מידע. ([Feed](http://feeds.feedburner.com/DigitalWhisper))
@@ -143,4 +140,3 @@ date: 2019-04-11 18:46:00
 - [כלכליסט - טכנולוגי](https://www.calcalist.co.il/internet/home/0,7340,L-4,00.html): טכנולוגי | כלכליסט ([Feed](http://www.calcalist.co.il/GeneralRSS/0,16335,L-4,00.xml))
 - [Geektime גיקטיים](https://www.geektime.co.il): גיקטיים ([Feed](http://feeds.feedburner.com/newsgeekfeed))
 - [HWzone](https://hwzone.co.il): מדברים טכנולוגיה • HWzone ([Feed](http://feeds.feedburner.com/hwzone))
-

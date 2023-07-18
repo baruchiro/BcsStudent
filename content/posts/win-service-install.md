@@ -3,6 +3,7 @@ title: מדריך Windows Service בעברית- התקנה
 published: true
 date: 2012-04-05 12:24:00
 ---
+
 <div dir="rtl" style="text-align:right;">
 <div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;height:auto;margin-right:23px;text-align:right;vertical-align:baseline;width:auto;word-wrap:normal !important;padding:0;"><span class="TextRun Underlined SCX124670610" style="font-size:14pt;font-weight:bold;text-decoration:underline;word-wrap:normal !important;margin:0;padding:0;" xml:lang="HE-IL">התקנה:  </span><span class="EOP SCX124670610" style="font-size:14pt;word-wrap:normal !important;margin:0;padding:0;"> </span></div>

@@ -8,4 +8,4 @@ To be a computer science student.
 
 My blog, mainly about programming, in Hebrew.
 
-Built with *Gridsome*.
+Built with _Gridsome_.

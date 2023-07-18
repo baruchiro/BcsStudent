@@ -7,7 +7,8 @@
     "develop": "gridsome develop",
     "explore": "gridsome explore",
     "snyk-protect": "snyk protect",
-    "rss": "node scripts/opml/opml.js"
+    "rss": "node scripts/opml/opml.js",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,html,css,scss,md,json,mdx,yml,yaml}\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -28,6 +29,7 @@
     "axios": "^0.21.4",
     "cheerio": "^1.0.0-rc.10",
     "node-sass": "^6.0.0",
+    "prettier": "^3.0.0",
     "sass-loader": "^10.2.1",
     "snyk": "^1.720.0",
     "xml2js": "^0.5.0"

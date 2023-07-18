@@ -3,6 +3,7 @@ title: טיפול במחשב עם כונן פגוע
 published: true
 date: 2016-09-29 16:09:43
 ---
+
 <p style="text-align:justify;">קיבלתי מחשב נייד שעובד <strong>מאוד</strong> לאט. הכוונה ב"מאוד" היא שאני מדליק אותו ביום שישי, כדי שעד מוצ"ש הוא יצליח לעלות ואני אוכל לבצע בו כמה פעולות.</p>
 
 <p style="text-align:justify;">קודם כל, בעזרת תוכנת <a href="http://www.piriform.com/ccleaner" target="_blank" rel="noopener noreferrer">CCleaner</a> ניקיתי את כל המחשב. את הקבצים כמובן, אבל בעיקר את ערכי הרישום, שעלולים להגדיר כל מיני דברים, כמו תוכנות שעולות עם המחשב או דברים חשודים יותר.</p>

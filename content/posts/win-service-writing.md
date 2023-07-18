@@ -3,6 +3,7 @@ title: מדריך Windows Service בעברית- כתיבה
 published: true
 date: 2012-04-05 12:18:00
 ---
+
 <div dir="rtl" style="text-align: right;">
 <div class="OutlineElement Rtl SCX155025806" style="font-family: Calibri, sans-serif; font-size: 11px; text-align: -webkit-auto; margin: 0; padding: 0;">
 <div class="Paragraph Rtl SCX155025806" style="color: windowtext; direction: rtl; font-size: 8pt; height: auto; margin-right: 23px; text-align: right; vertical-align: baseline; width: auto; word-wrap: normal !important; padding: 0;"><span class="TextRun Underlined SCX155025806" style="font-size: 14pt; font-weight: bold; text-decoration: underline; word-wrap: normal !important; margin: 0; padding: 0;" xml:lang="HE-IL">מתחילים!</span><span class="EOP SCX155025806" style="font-size: 14pt; word-wrap: normal !important; margin: 0; padding: 0;"> </span></div>

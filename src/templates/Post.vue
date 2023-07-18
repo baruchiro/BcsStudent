@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import mixpanel from 'mixpanel-browser';
+import mixpanel from "mixpanel-browser";
 import Author from "~/components/Author.vue";
 import PostMeta from "~/components/PostMeta";
 import PostPublications from "~/components/PostPublications";
@@ -58,9 +58,9 @@ export default {
     PostPublications,
   },
   created() {
-    mixpanel.track('Post View', {
+    mixpanel.track("Post View", {
       title: this.$page.post.title,
-    })
+    });
   },
   computed: {
     dir() {

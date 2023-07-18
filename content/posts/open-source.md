@@ -2,8 +2,9 @@
 title: מה כדאי לסטודנט לדעת- קוד פתוח
 published: true
 date: 2018-12-20 17:34:55
-tags: ['מה כדאי לסטודנט לדעת', 'OpenSource']
+tags: ["מה כדאי לסטודנט לדעת", "OpenSource"]
 ---
+
 <!-- wp:block {"ref":835} /-->
 
 <!-- wp:quote -->

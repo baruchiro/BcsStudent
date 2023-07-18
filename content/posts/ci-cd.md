@@ -2,8 +2,9 @@
 title: מה כדאי לסטודנט לדעת- CI/CD
 published: true
 date: 2018-12-09 09:04:48
-tags: ['מה כדאי לסטודנט לדעת', 'CI/CD']
+tags: ["מה כדאי לסטודנט לדעת", "CI/CD"]
 ---
+
 <!-- wp:block {"ref":835} /-->
 <!-- wp:paragraph -->
 <p>אחרי הפוסטים של <a aria-label="אחרי הפוסטים של טסטים וגיט, הגיע הזמן לשילוב שלהם- תהליכי CI/CD. (opens in a new tab)" href="https://www.bcsstudent.com/tests/" rel="noreferrer noopener" target="_blank">טסטים</a> ו<a aria-label="אחרי הפוסטים של טסטים וגיט, הגיע הזמן לשילוב שלהם- תהליכי CI/CD. (opens in a new tab)" href="https://www.bcsstudent.com/git/" rel="noreferrer noopener" target="_blank">גיט</a>, הגיע הזמן לשילוב שלהם- תהליכי CI/CD.</p>

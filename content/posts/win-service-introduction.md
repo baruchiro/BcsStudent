@@ -3,6 +3,7 @@ title: מדריך Windows Service בעברית- הקדמה
 published: true
 date: 2012-04-05 12:09:00
 ---
+
 <div dir="rtl" style="text-align:right;">
 <div class="OutlineElement Rtl SCX192270846" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 <div class="Paragraph Rtl SCX192270846" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;"><span class="TextRun SCX192270846" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" xml:lang="HE-IL">בס"ד</span><span class="EOP SCX192270846" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span></div>

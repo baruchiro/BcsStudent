@@ -5,7 +5,11 @@
     <p class="tag-description" v-if="description" v-html="description" />
 
     <div class="posts">
-      <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node" />
+      <PostCard
+        v-for="edge in $page.tag.belongsTo.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      />
     </div>
   </Layout>
 </template>
@@ -62,4 +66,3 @@ export default {
   padding: var(--space);
 }
 </style>
-

@@ -3,6 +3,7 @@ title: פרויקט גמר - תכנון
 published: true
 date: 2019-01-03 07:25:28
 ---
+
 <!-- wp:block {"ref":1075} /-->
 <!-- wp:paragraph -->
 <p>אחרי ה<a href="https://www.bcsstudent.com/ihis-computers/">פוסט</a> בו תיארתי את המודל העסקי של הפרויקט, הגיע הזמן להתחיל לעבוד.</p>

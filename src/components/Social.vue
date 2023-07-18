@@ -14,8 +14,8 @@ const linkToIcon = {
   mailto: ["fas", "envelope"],
   feed: ["fas", "rss"],
   medium: ["fab", "medium"],
-  'dev.to': ["fab", "dev"],
-  't.me': ["fab", "telegram"],
+  "dev.to": ["fab", "dev"],
+  "t.me": ["fab", "telegram"],
 };
 
 export default {
@@ -23,7 +23,7 @@ export default {
   computed: {
     icon() {
       const keyword = Object.keys(linkToIcon).find((key) =>
-        this.link.toLowerCase().includes(key)
+        this.link.toLowerCase().includes(key),
       );
       return linkToIcon[keyword];
     },
@@ -31,8 +31,8 @@ export default {
       return this.link.startsWith("http") ? "noreferrer noopener" : "";
     },
     target() {
-        return this.link.startsWith("http") ? "_blank" : "";
-    }
+      return this.link.startsWith("http") ? "_blank" : "";
+    },
   },
 };
 </script>

@@ -15,7 +15,9 @@
     </main>
 
     <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }}.</span>
+      <span class="footer__copyright"
+        >Copyright © {{ new Date().getFullYear() }}.</span
+      >
       <span class="footer__links">
         Powered by
         <a href="//gridsome.org">Gridsome</a>
@@ -31,11 +33,11 @@ import ToggleTheme from "~/components/ToggleTheme.vue";
 export default {
   props: {
     showLogo: { default: true },
-    showSidebar: { default: true }
+    showSidebar: { default: true },
   },
   components: {
     Logo,
-    ToggleTheme
+    ToggleTheme,
   },
 };
 </script>

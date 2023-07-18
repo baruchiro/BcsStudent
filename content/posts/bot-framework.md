@@ -3,16 +3,16 @@ title: How to structure your Bot Framework project in ASP.NET Core
 published: true
 date: 2019-05-06 18:00:47
 description: |
-    Decisions I made while building a bot with Microsoft Bot Framework.
-    Read with LTR in <a href="https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1">Dev.to</a>
-tags: ['bot-framework', '.NET Core', 'ASP.NET']
+  Decisions I made while building a bot with Microsoft Bot Framework.
+  Read with LTR in <a href="https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1">Dev.to</a>
+tags: ["bot-framework", ".NET Core", "ASP.NET"]
 language: en
 ---
 
 ## Prerequisites
 
- - Knowledge of *ASP.NET Core* project structure.
- - Basic knowledge of configuring and developing a *Bot Framework* in *C#*.
+- Knowledge of _ASP.NET Core_ project structure.
+- Basic knowledge of configuring and developing a _Bot Framework_ in _C#_.
 
 ## Intro
 
@@ -51,7 +51,7 @@ namespace Microsoft.Bot.Builder
 
 Of course, all the states and accessors ([`ConversationState`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.conversationstate), [`IStatePropertyAccessor<T>`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.istatepropertyaccessor-1>)) will be in the Bot project.
 
-**The rule of thumb** is that things that the bot needs __only for its logic__, and are independent of the environment in which it runs, should be in its project. (Except when you want your bot to be more configurable, but that is not the subject of this post). But things that __depend on the environment__ in which the bot runs, such as things that belong to the Console Application against things that are relevant to the Web API, or a file system, a database, etc., will be injected into the bot from the outside.
+**The rule of thumb** is that things that the bot needs **only for its logic**, and are independent of the environment in which it runs, should be in its project. (Except when you want your bot to be more configurable, but that is not the subject of this post). But things that **depend on the environment** in which the bot runs, such as things that belong to the Console Application against things that are relevant to the Web API, or a file system, a database, etc., will be injected into the bot from the outside.
 
 **How?**
 
@@ -119,6 +119,7 @@ public static class BotRegistrationExtension
     }
 }
 ```
+
 Now, adding and removing the bot in the code will be very simple, all we need to do is call this function in one place in the `Startup.ConfigureServices`:
 
 ```csharp

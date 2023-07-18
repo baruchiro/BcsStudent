@@ -3,6 +3,7 @@ title: איך מתחילים לכתוב בלוג?
 published: true
 date: 2013-01-14 13:43:00
 ---
+
 <div dir="rtl" style="text-align:right;"><span style="font-family:Arial, Helvetica, sans-serif;">
 </span><span style="font-family:Arial, Helvetica, sans-serif;"><b>קודם כל, מה זה בלוג?</b></span>
 <div style="text-align:justify;"><span style="font-family:Arial, Helvetica, sans-serif;">המילה בלוג היא שילוב של המילים Web-Log, יומן רשת, והוא אכן משמש מעין יומן של הכותב, שמתפרסם באופן ציבורי. יש בלוגים שנראים ממש כמו יומן, ומטרתם לשתף את הקורא בחיים המעניינים של הכותב, בחוויות, בלימודים ובמסקנות שלו. ויש בלוגים שהם היומן של הכותב, בנושא ממוקד יותר, כמו למשל בלוג על בישול, שבו הכותב משתף את הציבור בחוויות, לימודים, מסקנות וכו'- מעולם הבישול.</span></div>

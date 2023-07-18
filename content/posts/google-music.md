@@ -3,6 +3,7 @@ title: סנכרון מוזיקה- Google Music
 published: true
 date: 2016-07-27 14:59:32
 ---
+
 <p style="text-align:justify;">כדי לגבות את המוזיקה מהמחשב ולגשת אליה מכל המכשירים שלנו, נשתמש ב<a href="http://music.google.com" target="_blank" rel="noopener noreferrer">גוגל מוזיקה</a>.</p>
 
 <p style="text-align:justify;">לפני שמעלים את כל המוזיקה, אני ממליץ להעביר את השירים בתוכנת <a href="http://www.mp3tag.de/en/download.html" target="_blank" rel="noopener noreferrer">Mp3Tag</a>, כדי למנוע את הבעיה של שמות שירים, אמנים ואלבומים שמוצגים בג'יבריש במקום בעברית.
