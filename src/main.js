@@ -9,7 +9,13 @@ import '~/assets/style/index.scss'
 import DefaultLayout from '~/layouts/Default.vue'
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function (Vue, { router, head, isClient }) {
+export default function(Vue, { router, head, isClient }) {
+  FontAwesome(Vue);
+  mixpanel.init("22234dc68dcb1a4bab3e17c2af2b181e", {
+    debug: true,
+    track_pageview: true,
+    persistence: "localStorage",
+  });
 
   FontAwesome(Vue)
 
@@ -22,11 +28,6 @@ export default function (Vue, { router, head, isClient }) {
 
   if (isClient) {
     Vue.use(router);
-    mixpanel.init("22234dc68dcb1a4bab3e17c2af2b181e", {
-      debug: true,
-      track_pageview: true,
-      persistence: "localStorage",
-    });
   }
 
   // Set default layout as a global component
