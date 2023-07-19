@@ -249,3 +249,9 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcd
 ## Badges
 
 עוד אין לי רשימה, זה בטח גם תלוי בכלים שאני משתמש בהם.
+
+## תוספות מתגובות לפוסט
+
+[ישראל המליץ בטוויטר](https://twitter.com/IsraelFruchter/status/1681352397266862098) על [cookiecutter](https://github.com/cookiecutter/cookiecutter), כלי ליצירת Templates לפרויקטים. האמת שנראה טוב ואני מקווה שביום שאני אצור פרויקט לשימוש חוזר אני אשתמש בזה (אם כי אני כבר חושב שאולי זה מוגבל רק לvariables ולא לרמה של איזה קבצים לכלול בפרויקט, אבל לא קראתי את כל התיעוד)
+
+[מני המליץ בטוויטר](https://twitter.com/LandaMendy/status/1681394842264272921) על [`ts-reset`](https://github.com/total-typescript/ts-reset), זאת חבילה שקצת מתקנת Types של TypeScript. אני שומר את זה פה אבל זה כנראה שייך לפוסט מעט דומה על כלים לעבודה על פרויקטים (כאן אנחנו מתמקדים בCI)
