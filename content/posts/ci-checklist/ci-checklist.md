@@ -255,3 +255,5 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcd
 [ישראל המליץ בטוויטר](https://twitter.com/IsraelFruchter/status/1681352397266862098) על [cookiecutter](https://github.com/cookiecutter/cookiecutter), כלי ליצירת Templates לפרויקטים. האמת שנראה טוב ואני מקווה שביום שאני אצור פרויקט לשימוש חוזר אני אשתמש בזה (אם כי אני כבר חושב שאולי זה מוגבל רק לvariables ולא לרמה של איזה קבצים לכלול בפרויקט, אבל לא קראתי את כל התיעוד)
 
 [מענדי המליץ בטוויטר](https://twitter.com/LandaMendy/status/1681394842264272921) על [`ts-reset`](https://github.com/total-typescript/ts-reset), זאת חבילה שקצת מתקנת Types של TypeScript. אני שומר את זה פה אבל זה כנראה שייך לפוסט מעט דומה על כלים לעבודה על פרויקטים (כאן אנחנו מתמקדים בCI)
+
+[מענדי המליץ גם](https://twitter.com/LandaMendy/status/1681677919809069056?s=20) על [`sync-dotenv`](https://github.com/codeshifu/sync-dotenv) להוספה ל`pre-commit` _Git Hook_ שתיארתי למעלה. המטרה של הכלי הזה היא לוודא שרשימת משתני הסביבה בקובץ `.env.example` תואמת לרשימה שיש לנו ב`.env` (שכמובן לא נכנס לGit)
