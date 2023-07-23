@@ -23,7 +23,7 @@ tags: [צ'קליסט, CI/CD, Github Actions]
 
 בשלב הזה אני מריץ את הכלים הפשוטים שחוסכים לכולנו כאב ראש:
 
-- [ ] Linting ([ESLint](https://eslint.org/))
+- [ ] Linting ([ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/))
 - [ ] Type Checking ([TypeScript](https://www.typescriptlang.org/))
 - [ ] Pretty Formatting ([Prettier](https://prettier.io/))
 
@@ -51,7 +51,7 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/mas
 
 כאן לא מדובר בכלים ספציפיים, אלא בפעולות שכדאי להוסיף עוד בשלב הPull Request כדי לחסוך הערות מיותרות בסקירה, וגם כדי לזהות בהקדם בעיות שעלולות לצוץ בענף הראשי:
 
-- [ ] Linting ([golangci-lint](https://github.com/golangci/golangci-lint), [ESLint](https://eslint.org/), [`go mod tidy`](https://github.com/Checkmarx/2ms/blob/cf3f46a51041a8e8fe934775e295fe2ea9dc810e/.github/workflows/pr-validation.yml#L25C6-L28))
+- [ ] Linting ([golangci-lint](https://github.com/golangci/golangci-lint), [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), [`go mod tidy`](https://github.com/Checkmarx/2ms/blob/cf3f46a51041a8e8fe934775e295fe2ea9dc810e/.github/workflows/pr-validation.yml#L25C6-L28)) (ולא לשכוח לחפש פורמט של Github, למשל `stylelint --formatter=github` או [@jamesacarr/eslint-formatter-github-actions](https://www.npmjs.com/package/@jamesacarr/eslint-formatter-github-actions))
 - [ ] Type Checking
 - [ ] Unit Tests
 - [ ] Build (bundle, compile, Docker)
