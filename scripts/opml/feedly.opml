@@ -6,16 +6,16 @@
     </head>
     <body>
         <outline text="חיפוש עבודה" title="חיפוש עבודה">
-            <outline type="rss" text=" הג'וניור המצוי " title=" הג'וניור המצוי " xmlUrl="https://www.hajunior.com/feed/" htmlUrl="https://www.hajunior.com"/>
+            <outline type="rss" text=" הג'וניור המצוי " title=" הג'וניור המצוי " xmlUrl="https://www.hajunior.com/feed/" htmlUrl="https://www.hajunior.com/"/>
         </outline>
         <outline text="תשתיות" title="תשתיות">
             <outline type="rss" text=" כמה מילים ברשותכם V2.0 " title=" כמה מילים ברשותכם V2.0 " xmlUrl="http://benhamo.org/feed/" htmlUrl="https://benhamo.org"/>
             <outline type="rss" text=" הבלוג של חץ ביז " title=" הבלוג של חץ ביז " xmlUrl="http://linvirtstor.net/feed/" htmlUrl="https://linvirtstor.net"/>
-            <outline type="rss" text="DockerIL « פיד‏" title="DockerIL « פיד‏" xmlUrl="https://www.dockeril.net/feed/" htmlUrl="https://www.dockeril.net"/>
+            <outline type="rss" text="DockerIL « פיד‏" title="DockerIL « פיד‏" xmlUrl="https://www.dockeril.net/feed/" htmlUrl="https://www.dockeril.net/"/>
         </outline>
         <outline text="בדיקות ואוטומציה" title="בדיקות ואוטומציה">
             <outline type="rss" text=" טסטינג " title=" טסטינג " xmlUrl="https://testthing.net/feed/" htmlUrl="https://testthing.net"/>
-            <outline type="rss" text=" אוטומטית " title=" אוטומטית " xmlUrl="https://www.tehila.co.il/feed/" htmlUrl="https://www.tehila.co.il"/>
+            <outline type="rss" text=" אוטומטית " title=" אוטומטית " xmlUrl="https://www.tehila.co.il/feed/" htmlUrl="https://www.tehila.co.il/"/>
             <outline type="rss" text=" בלוג – עתיד האוטומציה " title=" בלוג – עתיד האוטומציה " xmlUrl="http://atidcollege.co.il/category/blog/feed/" htmlUrl="https://atidcollege.co.il"/>
         </outline>
         <outline text="Windows" title="Windows"/>
@@ -23,17 +23,23 @@
         <outline text="תכנות" title="תכנות">
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס - בלוג על אנדרואיד בעברית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס - בלוג על אנדרואיד בעברית&lt;/div&gt;" xmlUrl="https://androidoss.now.sh/index.xml" htmlUrl="https://androidoss.now.sh/"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;בלוג בינה מלאכותית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;בלוג בינה מלאכותית&lt;/div&gt;" xmlUrl="https://ai-blog.co.il/feed/" htmlUrl="https://www.ai-blog.co.il"/>
-            <outline type="rss" text="CodeBrain" title="CodeBrain" xmlUrl="https://www.codebrain.co.il/feed/" htmlUrl="https://www.codebrain.co.il"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;הטוכנע&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;הטוכנע&lt;/div&gt;" xmlUrl="https://www.hatochna.com/blog-feed.xml" htmlUrl="https://www.hatochna.com/my-blog"/>
+            <outline type="rss" text="CodeBrain" title="CodeBrain" xmlUrl="https://www.codebrain.co.il/feed/" htmlUrl="https://www.codebrain.co.il/"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ליקוטי שיבולים&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ליקוטי שיבולים&lt;/div&gt;" xmlUrl="http://feeds.feedburner.com/leketshibolim" htmlUrl="https://leketshibolim.ort.org.il"/>
             <outline type="rss" text="tocode פשוט לתכנת טוב יותר" title="tocode פשוט לתכנת טוב יותר" xmlUrl="https://www.tocode.co.il/feed.atom" htmlUrl="https://www.tocode.co.il"/>
             <outline type="rss" text=" אינטרנט ישראל " title=" אינטרנט ישראל " xmlUrl="http://www.internet-israel.com/feed/" htmlUrl="https://internet-israel.com"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ריאקט ישראל- ריאקט וריאקט נייטיב&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ריאקט ישראל- ריאקט וריאקט נייטיב&lt;/div&gt;" xmlUrl="https://www.react-israel.co.il/feed/" htmlUrl="https://www.react-israel.co.il"/>
+            <outline type="rss" text="Fed Cast – קהילת מפתחי הפרונט בישראל" title="Fed Cast – קהילת מפתחי הפרונט בישראל" xmlUrl="https://fedcast.co.il/feed/" htmlUrl="https://fedcast.co.il/"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אלון אברג'ל&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אלון אברג'ל&lt;/div&gt;" xmlUrl="https://alonabargel.com/feed/" htmlUrl="https://alonabargel.com"/>
-            <outline type="rss" text="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" title="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" xmlUrl="https://grauman.co.il/feed/" htmlUrl="https://grauman.co.il"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;אנדרואידוס&lt;/div&gt;" xmlUrl="https://www.androidoss.dev/rss/" htmlUrl="https://www.androidoss.dev/"/>
+            <outline type="rss" text="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" title="שחר גראומן - קורסים והכשרות לחברות הייטק « פיד‏" xmlUrl="https://grauman.co.il/feed/" htmlUrl="https://www.grauman.co.il/"/>
             <outline type="rss" text=" רשת-טק " title=" רשת-טק " xmlUrl="https://reshetech.co.il/rss/" htmlUrl="http://reshetech.co.il"/>
             <outline type="rss" text="Oz Gonen" title="Oz Gonen" xmlUrl="http://www.ozgonen.co.il/feed.xml" htmlUrl="http://www.ozgonen.co.il/"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;טל בן שושן&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;טל בן שושן&lt;/div&gt;" xmlUrl="https://shushan.co.il/feed" htmlUrl="https://shushan.co.il"/>
             <outline type="rss" text="DSW Tutorial" title="DSW Tutorial" xmlUrl="https://dswtutorial.com/feed/" htmlUrl="https://dswtutorial.com"/>
+            <outline type="rss" text=" מחשבות על תכנות " title=" מחשבות על תכנות " xmlUrl="https://blog.ass.af/rss.xml" htmlUrl="https://assapir.github.io"/>
             <outline type="rss" text=" ברוך אודם - B.Cs Student " title=" ברוך אודם - B.Cs Student " xmlUrl="https://bscstudent.netlify.app/feed.xml" htmlUrl="https://bscstudent.netlify.app"/>
+            <outline type="rss" text="CodeTime" title="CodeTime" xmlUrl="https://codetime.co.il/feed/" htmlUrl="https://codetime.co.il/"/>
             <outline type="rss" text="Software Archiblog -- בלוג ארכיטקטורת תוכנה" title="Software Archiblog -- בלוג ארכיטקטורת תוכנה" xmlUrl="http://www.softwarearchiblog.com/feeds/posts/default" htmlUrl="https://softwarearchiblog.com"/>
         </outline>
         <outline text="לא פעילים (על פי Feedly)" title="לא פעילים (על פי Feedly)">
@@ -41,32 +47,37 @@
             <outline type="rss" text=" מדעןתונים " title=" מדעןתונים " xmlUrl="https://madantunim.wordpress.com/feed/" htmlUrl="https://madantunim.wordpress.com"/>
             <outline type="rss" text="Code Junkie Blog" title="Code Junkie Blog" xmlUrl="http://codejunkie.blog/feed/" htmlUrl="http://codejunkie.blog"/>
             <outline type="rss" text=" תוכנה חופשית בעברית " title=" תוכנה חופשית בעברית " xmlUrl="http://kaplanopensource.wordpress.com/feed/" htmlUrl="https://kaplanopensource.wordpress.com"/>
-            <outline type="rss" text=" מאמרים במחשבים / בלוג מחשבים " title=" מאמרים במחשבים / בלוג מחשבים " xmlUrl="http://smartech.co.il/?feed=rss2" htmlUrl="https://smartech.co.il"/>
+            <outline type="rss" text=" מאמרים במחשבים / בלוג מחשבים " title=" מאמרים במחשבים / בלוג מחשבים " xmlUrl="http://smartech.co.il/?feed=rss2" htmlUrl="https://smartech.co.il/"/>
             <outline type="rss" text=" המקום לפיתוח תוכנה ואוטומציה " title=" המקום לפיתוח תוכנה ואוטומציה " xmlUrl="http://www.automatzia.com/feeds/posts/default" htmlUrl="http://www.tomercode.com/"/>
             <outline type="rss" text=" אלכס קוביצה " title=" אלכס קוביצה " xmlUrl="https://alexkubica.com/he/feed/" htmlUrl="https://alexkubica.com"/>
             <outline type="rss" text=" הבלוג של גו-קוד " title=" הבלוג של גו-קוד " xmlUrl="https://blog.gocode.co.il/rss.xml" htmlUrl="https://blog.gocode.co.il"/>
             <outline type="rss" text="home-assistant" title="home-assistant" xmlUrl="https://www.home-assistant.co.il/feed.xml" htmlUrl="https://www.home-assistant.co.il/articles"/>
             <outline type="rss" text=" בלוג מחשבות על קידוד ופיתוח " title=" בלוג מחשבות על קידוד ופיתוח " xmlUrl="https://blog.castnet.club/feed" htmlUrl="https://blog.castnet.club/"/>
-            <outline type="rss" text=" דורזקי " title=" דורזקי " xmlUrl="https://www.dorzki.co.il/feed/" htmlUrl="https://www.dorzki.co.il"/>
+            <outline type="rss" text=" דורזקי " title=" דורזקי " xmlUrl="https://www.dorzki.co.il/feed/" htmlUrl="https://www.dorzki.io"/>
             <outline type="rss" text="Startupiko" title="Startupiko" xmlUrl="http://he-tech.startupiko.com/feed/" htmlUrl="http://he-tech.startupiko.com"/>
             <outline type="rss" text=" האתר של שביט אילן " title=" האתר של שביט אילן " xmlUrl="https://ilsh.duckdns.org/?feed=rss2" htmlUrl="https://ilsh.duckdns.org"/>
         </outline>
         <outline text="תוכנה" title="תוכנה">
-            <outline type="rss" text="Tech Blog" title="Tech Blog" xmlUrl="https://techblog.co.il/feed/" htmlUrl="https://techblog.co.il"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;נעים מאוד, בלוג&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;נעים מאוד, בלוג&lt;/div&gt;" xmlUrl="https://naimmeod.com/feed/" htmlUrl="https://naimmeod.com/"/>
             <outline type="rss" text=" פינת הקפה " title=" פינת הקפה " xmlUrl="https://pinatkafe.com/feed/" htmlUrl="https://pinatkafe.com"/>
-            <outline type="rss" text=" עברית בלינוקס " title=" עברית בלינוקס " xmlUrl="http://cucomania.mooo.com/he/feed" htmlUrl="http://cucomania.mooo.com"/>
-            <outline type="rss" text="ליאור ישראל « פיד‏" title="ליאור ישראל « פיד‏" xmlUrl="https://www.limateor.com/feed/" htmlUrl="https://www.limateor.com"/>
-            <outline type="rss" text="MY RTFM" title="MY RTFM" xmlUrl="http://myrtfm.blogspot.com/feeds/posts/default" htmlUrl="http://myrtfm.blogspot.com/"/>
+            <outline type="rss" text="ליאור ישראל « פיד‏" title="ליאור ישראל « פיד‏" xmlUrl="https://www.limateor.com/feed/" htmlUrl="https://www.limateor.com/"/>
             <outline type="rss" text=" לראות שונה " title=" לראות שונה " xmlUrl="http://idkn.wordpress.com/feed/" htmlUrl="https://idkn.wordpress.com"/>
             <outline type="rss" text=" פונקציה אנונימית " title=" פונקציה אנונימית " xmlUrl="http://blog.hagarsh.com/?feed=rss2" htmlUrl="https://blog.hagarsh.com"/>
             <outline type="rss" text="StartIsrael - פורטל היזמות הישראלי - כתבות" title="StartIsrael - פורטל היזמות הישראלי - כתבות" xmlUrl="http://www.startisrael.co.il/rss/article" htmlUrl="http://www.startisrael.co.il/"/>
+            <outline type="rss" text="camelCase" title="camelCase" xmlUrl="https://camelcase.blog/feed/" htmlUrl="https://camelcase.blog/"/>
+            <outline type="rss" text=" לינוקס ותוכנה חופשית " title=" לינוקס ותוכנה חופשית " xmlUrl="http://blog.shemesh.biz/?feed=rss2" htmlUrl="https://blog.shemesh.biz/"/>
+            <outline type="rss" text="Tech Blog" title="Tech Blog" xmlUrl="https://techblog.co.il/feed/" htmlUrl="https://techblog.co.il/"/>
+            <outline type="rss" text=" עברית בלינוקס " title=" עברית בלינוקס " xmlUrl="http://cucomania.mooo.com/he/feed" htmlUrl="http://cucomania.mooo.com"/>
+            <outline type="rss" text="MY RTFM" title="MY RTFM" xmlUrl="http://myrtfm.blogspot.com/feeds/posts/default" htmlUrl="http://myrtfm.blogspot.com/"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;מאיה כותבת אלגוריתמים&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;מאיה כותבת אלגוריתמים&lt;/div&gt;" xmlUrl="https://mayareadsblog.wordpress.com/feed/" htmlUrl="https://algoritmim.co.il"/>
-            <outline type="rss" text="camelCase" title="camelCase" xmlUrl="https://camelcase.blog/feed/" htmlUrl="https://camelcase.blog"/>
-            <outline type="rss" text=" לינוקס ותוכנה חופשית " title=" לינוקס ותוכנה חופשית " xmlUrl="http://blog.shemesh.biz/?feed=rss2" htmlUrl="https://blog.shemesh.biz"/>
-            <outline type="rss" text="Startupiko" title="Startupiko" xmlUrl="http://startupiko.com/feed/" htmlUrl="http://he.startupiko.com"/>
+            <outline type="rss" text="נעים מאוד, ניהול מוצר « פיד מהקטגוריה ניהול מוצר" title="נעים מאוד, ניהול מוצר « פיד מהקטגוריה ניהול מוצר" xmlUrl="https://naimmeod.com/category/product/feed/" htmlUrl="https://naimmeod.com/category/product/"/>
+            <outline type="rss" text="Owntrepreneurship" title="Owntrepreneurship" xmlUrl="https://owntrepreneurship.com/feed/" htmlUrl="https://owntrepreneurship.com"/>
+            <outline type="rss" text="He Blogs Archive - Iris Shoor" title="He Blogs Archive - Iris Shoor" xmlUrl="http://startupiko.com/feed/" htmlUrl="http://irisshoor.com/blog/"/>
+            <outline type="rss" text="yairzaslavsky.com" title="yairzaslavsky.com" xmlUrl="https://yairzaslavsky.com/feed/" htmlUrl="https://yairzaslavsky.com"/>
         </outline>
         <outline text="UI/UX" title="UI/UX">
             <outline type="rss" text="mouseux.co.il" title="mouseux.co.il" xmlUrl="https://www.mouseux.co.il/feed/" htmlUrl="https://www.mouseux.co.il"/>
+            <outline type="rss" text="Rachel BT" title="Rachel BT" xmlUrl="https://www.rachelbt.co.il/feed/" htmlUrl="https://www.rachelbt.co.il/"/>
         </outline>
         <outline text="לא זמינים (על פי Feedly)" title="לא זמינים (על פי Feedly)">
             <outline type="rss" text="Eli Shlomo Blog" title="Eli Shlomo Blog" xmlUrl="http://blogs.microsoft.co.il/eshlomo9/feed/" htmlUrl="http://blogs.microsoft.co.il/eshlomo9"/>
@@ -82,35 +93,45 @@
             <outline type="rss" text=" הסדנא בשיחה " title=" הסדנא בשיחה " xmlUrl="http://kolhayeda.libsyn.com/rss" htmlUrl="http://kolhayeda.libsyn.com/website"/>
             <outline type="rss" text="Extend" title="Extend" xmlUrl="http://extend.libsyn.com/rss" htmlUrl="http://extend.libsyn.com/podcast"/>
             <outline type="rss" text=" מפתחים חסרי תרבות " title=" מפתחים חסרי תרבות " xmlUrl="http://notarbut.co/feed/podcast" htmlUrl="http://notarbut.co/"/>
+            <outline type="rss" text="F2FTLV" title="F2FTLV" xmlUrl="https://feed.podbean.com/face2facetlv/feed.xml" htmlUrl="https://f2ftlv.com"/>
             <outline type="rss" text=" כגודל הציפייה " title=" כגודל הציפייה " xmlUrl="https://feed.podbean.com/expectation/feed.xml" htmlUrl="https://expectation.podbean.com"/>
             <outline type="rss" text=" פרונטאנד לנד " title=" פרונטאנד לנד " xmlUrl="https://media.rss.com/frontend-land/feed.xml" htmlUrl="https://rss.com/podcasts/frontend-land"/>
             <outline type="rss" text="רברס עם פלטפורמה" title="רברס עם פלטפורמה" xmlUrl="http://feeds.feedburner.com/reversim" htmlUrl="https://www.reversim.com/"/>
             <outline type="rss" text=" רברס עם פלטפורמה " title=" רברס עם פלטפורמה " xmlUrl="https://www.reversim.com/feeds/posts/default?alt=rss" htmlUrl="https://www.reversim.com/"/>
             <outline type="rss" text=" עושים היסטוריה עם רן לוי Making History with Ran Levi " title=" עושים היסטוריה עם רן לוי Making History with Ran Levi " xmlUrl="http://www.ranlevi.com/feed/podcast/" htmlUrl="https://www.osimhistoria.com/osimhistoria"/>
-            <outline type="rss" text=" דקות או פחות ‎30 " title=" דקות או פחות ‎30 " xmlUrl="https://rss.simplecast.com/podcasts/2728/rss" htmlUrl="https://anchor.fm/30minutesorless"/>
+            <outline type="rss" text=" דקות או פחות ‎30 " title=" דקות או פחות ‎30 " xmlUrl="https://rss.simplecast.com/podcasts/2728/rss" htmlUrl="https://podcasters.spotify.com/pod/show/30minutesorless"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ברווזגומי&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;ברווזגומי&lt;/div&gt;" xmlUrl="https://feed.podbean.com/barvazgumi/feed.xml" htmlUrl="https://barvazgumi.podbean.com"/>
             <outline type="rss" text=" עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna " title=" עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna " xmlUrl="https://www.ranlevi.com/feed/osim_software_feed/" htmlUrl="https://www.osimhistoria.com/software"/>
             <outline type="rss" text="אלביט מדברים טכנולוגיה" title="אלביט מדברים טכנולוגיה" xmlUrl="https://feed.podbean.com/elbittech/feed.xml" htmlUrl="https://elbittech.podbean.com"/>
             <outline type="rss" text=" איגוד האינטרנט הישראלי " title=" איגוד האינטרנט הישראלי " xmlUrl="https://www.isoc.org.il/podcasts/feed" htmlUrl="https://www.isoc.org.il"/>
             <outline type="rss" text=" סייברסייבר " title=" סייברסייבר " xmlUrl="https://podcasti.co/minisites/cyber/feed.xml" htmlUrl="https://podcasti.co/minisites/cyber/"/>
         </outline>
+        <outline text="ניהול מוצר" title="ניהול מוצר">
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;הפרודקטיבית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;הפרודקטיבית&lt;/div&gt;" xmlUrl="https://haproductivit.com/feed/" htmlUrl="https://haproductivit.com"/>
+        </outline>
         <outline text="מיקרוסופט" title="מיקרוסופט">
-            <outline type="rss" text="Microsoft Garage" title="Microsoft Garage" xmlUrl="https://www.microsoft.com/en-us/garage/feed/" htmlUrl="https://www.microsoft.com/en-us/garage"/>
+            <outline type="rss" text="Microsoft Garage" title="Microsoft Garage" xmlUrl="https://www.microsoft.com/en-us/garage/feed/" htmlUrl="https://www.microsoft.com/en-us/garage/"/>
             <outline type="rss" text="Enterprise Craftsmanship" title="Enterprise Craftsmanship" xmlUrl="http://enterprisecraftsmanship.com/feed/" htmlUrl="https://enterprisecraftsmanship.com/"/>
         </outline>
         <outline text="סייבר" title="סייבר">
             <outline type="rss" text="Digital Whisper - גיליונות" title="Digital Whisper - גיליונות" xmlUrl="http://feeds.feedburner.com/DigitalWhisper" htmlUrl="https://www.digitalwhisper.co.il/"/>
-            <outline type="rss" text="CyberSpace" title="CyberSpace" xmlUrl="https://cyber-space.co.il/feed/" htmlUrl="https://cyber-space.co.il"/>
-        </outline>
-        <outline text="English" title="English">
-            <outline type="rss" text="Area 120" title="Area 120" xmlUrl="https://blog.google/technology/area-120/rss" htmlUrl="https://blog.google/technology/area-120/"/>
-            <outline type="rss" text="Slashdot: Linux" title="Slashdot: Linux" xmlUrl="http://rss.slashdot.org/Slashdot/slashdotLinux" htmlUrl="https://linux.slashdot.org/"/>
+            <outline type="rss" text="CyberSpace" title="CyberSpace" xmlUrl="https://cyber-space.co.il/feed/" htmlUrl="https://cyber-space.co.il/"/>
         </outline>
         <outline text="StackOverflow" title="StackOverflow">
             <outline type="rss" text="newest checkmarx questions feed" title="newest checkmarx questions feed" xmlUrl="https://stackoverflow.com/feeds/tag?tagnames=checkmarx&amp;sort=newest" htmlUrl="https://stackoverflow.com/questions/tagged/?tagnames=checkmarx&amp;sort=newest"/>
+            <outline type="rss" text="Active questions tagged checkmarx - Stack Overflow" title="Active questions tagged checkmarx - Stack Overflow" xmlUrl="http://stackoverflow.com/feeds/tag/checkmarx" htmlUrl="https://stackoverflow.com/questions/tagged/?tagnames=checkmarx&amp;sort=active"/>
+            <outline type="rss" text="Active questions tagged checkmarx - Stack Overflow" title="Active questions tagged checkmarx - Stack Overflow" xmlUrl="https://stackoverflow.com/feeds/tag?tagnames=checkmarx&amp;sort=activity" htmlUrl="https://stackoverflow.com/questions/tagged/?tagnames=checkmarx&amp;sort=active"/>
+        </outline>
+        <outline text="English" title="English">
+            <outline type="rss" text="Area 120" title="Area 120" xmlUrl="https://blog.google/technology/area-120/rss" htmlUrl="https://blog.google/technology/area-120/"/>
+            <outline type="rss" text="checkmarx-security - Medium" title="checkmarx-security - Medium" xmlUrl="https://medium.com/feed/checkmarx-security" htmlUrl="https://medium.com/checkmarx-security?source=rss----aae896eee477---4"/>
+            <outline type="rss" text="AppsScriptPulse" title="AppsScriptPulse" xmlUrl="https://pulse.appsscript.info/feed/" htmlUrl="https://pulse.appsscript.info"/>
+            <outline type="rss" text="script.gs" title="script.gs" xmlUrl="https://script.gs/rss/" htmlUrl="https://script.gs/"/>
+            <outline type="rss" text="Checkmarx.com" title="Checkmarx.com" xmlUrl="https://checkmarx.com//feed/" htmlUrl="https://checkmarx.com/"/>
         </outline>
         <outline text="Wordpress" title="Wordpress">
             <outline type="rss" text=" וורדפרס בעברית " title=" וורדפרס בעברית " xmlUrl="https://he.wordpress.org/feed/" htmlUrl="https://he.wordpress.org"/>
-            <outline type="rss" text=" סאבי בלוג " title=" סאבי בלוג " xmlUrl="http://he.savvy.co.il/blog/feed/" htmlUrl="https://savvy.co.il"/>
+            <outline type="rss" text=" סאבי בלוג " title=" סאבי בלוג " xmlUrl="http://he.savvy.co.il/blog/feed/" htmlUrl="https://savvy.co.il/blog/"/>
         </outline>
         <outline text="מדע" title="מדע">
             <outline type="rss" text="חדשות המדע" title="חדשות המדע" xmlUrl="http://madanews.co.il/feed/" htmlUrl="https://madanews.co.il"/>
@@ -118,28 +139,33 @@
         </outline>
         <outline text="קוד פתוח" title="קוד פתוח">
             <outline type="rss" text=" המקור " title=" המקור " xmlUrl="https://www.hamakor.org.il/feed/" htmlUrl="https://www.hamakor.org.il"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;פלאנט תוכנה חופשית בישראל (Planet FOSS-IL)&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;פלאנט תוכנה חופשית בישראל (Planet FOSS-IL)&lt;/div&gt;" xmlUrl="http://planet.linux.org.il/rss20.xml" htmlUrl="https://planet.hamakor.org.il"/>
         </outline>
         <outline text="אחרים" title="אחרים">
-            <outline type="rss" text="Releases – APKMirror" title="Releases – APKMirror" xmlUrl="https://www.apkmirror.com/apk/area-120/feed/" htmlUrl="https://www.apkmirror.com"/>
+            <outline type="rss" text="Omer Reuveni" title="Omer Reuveni" xmlUrl="https://www.solution-oriented.com/feed/" htmlUrl="https://www.solution-oriented.com"/>
+            <outline type="rss" text="Download Keen (Experimental Web App) APKs for Android - APKMirror" title="Download Keen (Experimental Web App) APKs for Android - APKMirror" xmlUrl="https://www.apkmirror.com/apk/area-120/feed/" htmlUrl="https://www.apkmirror.com"/>
             <outline type="rss" text="Free Games Finders RSS Feed" title="Free Games Finders RSS Feed" xmlUrl="http://steamcommunity.com/groups/freegamesfinders/rss/" htmlUrl="https://steamcommunity.com/groups/freegamesfinders"/>
-            <outline type="rss" text="OverDrive" title="OverDrive" xmlUrl="https://company.overdrive.com/feed/" htmlUrl="https://company.overdrive.com"/>
+            <outline type="rss" text=" מה הטעם " title=" מה הטעם " xmlUrl="https://thetaste.co.il/feed/" htmlUrl="https://thetaste.co.il/"/>
             <outline type="rss" xmlUrl="https://toolz.co.il/feed/" htmlUrl="https://toolz.co.il"/>
             <outline type="rss" text=" המדריך לעתיד – הבלוג של ד&quot;ר רועי צזנה " title=" המדריך לעתיד – הבלוג של ד&quot;ר רועי צזנה " xmlUrl="https://madaduhcom.wordpress.com/feed/" htmlUrl="https://madaduhcom.wpcomstaging.com"/>
             <outline type="rss" text="UBports News" title="UBports News" xmlUrl="https://ubports.com/blog/1/feed" htmlUrl="http://ubports.com/blog/1"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;דברים שעוברים לי בראש&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;דברים שעוברים לי בראש&lt;/div&gt;" xmlUrl="http://www.thingsonmymind.com/?feed=rss2" htmlUrl="https://www.thingsonmymind.com"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;פיתוח ידע למידה&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;פיתוח ידע למידה&lt;/div&gt;" xmlUrl="https://www.eladraveh.com/blog-feed.xml" htmlUrl="https://www.eladraveh.com/home"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;למה את חייבת להרוס&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;למה את חייבת להרוס&lt;/div&gt;" xmlUrl="https://www.whyruin.com/?feed=rss2" htmlUrl="https://www.whyruin.com"/>
             <outline type="rss" text="Shiran.Tips" title="Shiran.Tips" xmlUrl="https://shiran.tips/feed.xml" htmlUrl="https://shiran.tips/shiran.tips/"/>
-            <outline type="rss" text="Releases – APKMirror" title="Releases – APKMirror" xmlUrl="https://www.apkmirror.com/apk/google-inc/android-auto/feed/" htmlUrl="https://www.apkmirror.com"/>
-            <outline type="rss" text="Celso Azevedo" title="Celso Azevedo" xmlUrl="https://www.celsoazevedo.com/feed/" htmlUrl="https://www.celsoazevedo.com"/>
+            <outline type="rss" text=" לא מדויק " title=" לא מדויק " xmlUrl="https://gadial.net/feed.xml" htmlUrl="http://gadial.net/"/>
+            <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;‫הו לא‬&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;‫הו לא‬&lt;/div&gt;" xmlUrl="http://feeds.feedburner.com/ho-lo" htmlUrl="http://www.ho-lo.co.il"/>
+            <outline type="rss" text="Celso Azevedo" title="Celso Azevedo" xmlUrl="https://www.celsoazevedo.com/feed/" htmlUrl="https://www.celsoazevedo.com/"/>
             <outline type="rss" text="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;הכריכה האחורית&lt;/div&gt;" title="&lt;div style=&quot;direction:rtl;text-align:right&quot;&gt;הכריכה האחורית&lt;/div&gt;" xmlUrl="http://gizbar.wordpress.com/feed/" htmlUrl="https://gizbar.wordpress.com"/>
-            <outline type="rss" text="Private Feed for baruchiro" title="Private Feed for baruchiro" xmlUrl="https://github.com/baruchiro.private.atom?***REMOVED***" htmlUrl="https://github.com/baruchiro"/>
+            <outline type="rss" text="Chen Writes Stuff" title="Chen Writes Stuff" xmlUrl="https://chenwritesstuff.blogspot.com/feeds/posts/default" htmlUrl="https://chenwritesstuff.blogspot.com/"/>
+            <outline type="rss" text="Private Feed for baruchiro" title="Private Feed for baruchiro" xmlUrl="https://github.com/baruchiro.private.atom?token=AEG6CX4XTIZG2LKDNLEPHS56GSKYG" htmlUrl="https://github.com/baruchiro"/>
             <outline type="rss" text="צדק צרכני!" title="צדק צרכני!" xmlUrl="http://www.glouds.com/feed/" htmlUrl="https://zuzu.reviews"/>
+            <outline type="rss" text="Usability Talking" title="Usability Talking" xmlUrl="http://www.usabilitytalking.com/?feed=rss2" htmlUrl="https://www.usabilitytalking.com"/>
             <outline type="rss" text="Supertools" title="Supertools" xmlUrl="https://barav.co/feed/" htmlUrl="https://barav.co"/>
+            <outline type="rss" text="israeli-bank-scrapers Release Notes" title="israeli-bank-scrapers Release Notes" xmlUrl="https://github.com/eshaham/israeli-bank-scrapers/releases.atom" htmlUrl="https://github.com/eshaham/israeli-bank-scrapers/releases"/>
         </outline>
         <outline text="חדשות טכנולוגיה" title="חדשות טכנולוגיה">
-            <outline type="rss" text="TGspot" title="TGspot" xmlUrl="http://feeds.feedburner.com/TheGadgetSpot" htmlUrl="https://www.tgspot.co.il"/>
-            <outline type="rss" text=" כלכליסט - טכנולוגי " title=" כלכליסט - טכנולוגי " xmlUrl="http://www.calcalist.co.il/GeneralRSS/0,16335,L-4,00.xml" htmlUrl="https://www.calcalist.co.il/internet/home/0,7340,L-4,00.html"/>
-            <outline type="rss" text="Geektime גיקטיים" title="Geektime גיקטיים" xmlUrl="http://feeds.feedburner.com/newsgeekfeed" htmlUrl="https://www.geektime.co.il"/>
-            <outline type="rss" text="HWzone" title="HWzone" xmlUrl="http://feeds.feedburner.com/hwzone" htmlUrl="https://hwzone.co.il"/>
+            <outline type="rss" text="Geektime גיקטיים" title="Geektime גיקטיים" xmlUrl="http://feeds.feedburner.com/newsgeekfeed" htmlUrl="https://www.geektime.co.il/"/>
         </outline>
     </body>
 </opml>
