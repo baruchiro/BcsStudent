@@ -4,7 +4,7 @@ description: |
   בכל פעם שאני מתחיל פרויקט חדש, אישי או של העבודה, אני צריך להיזכר מחדש איזה בדיקות וכלים אני נוהג להוסיף, תלוי בשפה של הפרויקט, בצרכים שלו והאם הוא אישי או ארגוני.
 
   אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
-date: 2023-06-11T14:53:45.583Z
+date: 2023-07-19T14:53:45.583Z
 published: true
 tags: [צ'קליסט, CI/CD, Github Actions]
 ---
@@ -58,6 +58,7 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/mas
 
 _[דוגמא מפרויקט כספיון](https://github.com/brafdlog/caspion/blob/master/.github/workflows/ci.yml)_ (_TypeScript_)  
 _[דוגמא מפרויקט 2ms](https://github.com/Checkmarx/2ms/blob/master/.github/workflows/pr-validation.yml)_ (_Go_)
+\_ולא לשכוח להשתמש ב[`merge_group`](https://github.com/os-scar/overlay/blob/dcdf44f27e8c24542f1f0ca8f2b39be0e5b97d1b/.github/workflows/pr-validation.yml#L7)
 
 ### [lockfile-lint](https://github.com/lirantal/lockfile-lint)
 
