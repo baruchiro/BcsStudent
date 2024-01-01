@@ -20,7 +20,7 @@
     "@gridsome/transformer-remark": "^0.6.2",
     "gridsome": "^0.7.20",
     "gridsome-plugin-feed": "^1.0.2",
-    "mixpanel-browser": "^2.47.0",
+    "mixpanel-browser": "^2.48.1",
     "remark-align": "^1.2.13",
     "vue-disqus": "^4.0.0"
   },
