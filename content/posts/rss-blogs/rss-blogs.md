@@ -42,13 +42,14 @@ date: 2019-04-11 18:46:00
 
 - [טסטינג](https://testthing.net): טסטינג - עולם הבדיקות | חדשנות | רכב ([Feed](https://testthing.net/feed/))
 - [אוטומטית](https://www.tehila.co.il/): אוטומטית עמוד הבית - אוטומטית ([Feed](https://www.tehila.co.il/feed/))
-- [בלוג – עתיד האוטומציה](https://atidcollege.co.il): קורס אוטומציה, קורס qa אוטומציה - שדרג את השכר שלך | יוני פלנר ([Feed](http://atidcollege.co.il/category/blog/feed/))
+- [בלוג – עתיד האוטומציה](https://atidcollege.co.il): קורס אוטומציה, קורס QA אוטומציה - שדרג את השכר שלך | יוני פלנר ([Feed](http://atidcollege.co.il/category/blog/feed/))
 
 ### תכנות
 
 
 - [בלוג בינה מלאכותית](https://www.ai-blog.co.il): בלוג בינה מלאכותית – למידה עמוקה ([Feed](https://ai-blog.co.il/feed/))
 - [הטוכנע](https://www.hatochna.com/my-blog): ארכיון | הטוכנע | נחשי תוכנה ([Feed](https://www.hatochna.com/blog-feed.xml))
+- [בלוג ארכיטקטורת תוכנה](https://softwarearchiblog.co.il): בלוג ארכיטקטורת תוכנה – Software Architecture Blog ([Feed](https://softwarearchiblog.co.il/feed))
 - [CodeBrain](https://www.codebrain.co.il/): על קוד ומה שמסביב - CodeBrain ([Feed](https://www.codebrain.co.il/feed/))
 
 - [tocode פשוט לתכנת טוב יותר](https://www.tocode.co.il): ToCode | קורסים מקוונים בתכנות ([Feed](https://www.tocode.co.il/feed.atom))
@@ -62,29 +63,30 @@ date: 2019-04-11 18:46:00
 - [Oz Gonen](http://www.ozgonen.co.il/): Oz Gonen ([Feed](http://www.ozgonen.co.il/feed.xml))
 - [טל בן שושן](https://shushan.co.il): טל בן שושן – בלוג ומדריכים בנושאי טכנולוגיה ([Feed](https://shushan.co.il/feed))
 
-- [מחשבות על תכנות](https://assapir.github.io): מחשבות על תכנות | מחשבות על תכנות ([Feed](https://blog.ass.af/rss.xml))
+
 - [ברוך אודם - B.Cs Student](https://bscstudent.netlify.app): ברוך אודם - B.Cs Student - ברוך אודם - B.Cs Student ([Feed](https://bscstudent.netlify.app/feed.xml))
 - [CodeTime](https://codetime.co.il/): CodeTime מגזין תוכנה - CodeTime ([Feed](https://codetime.co.il/feed/))
-- [Software Archiblog -- בלוג ארכיטקטורת תוכנה](https://softwarearchiblog.com): בלוג ארכיטקטורת תוכנה – Software Architecture Blog ([Feed](http://www.softwarearchiblog.com/feeds/posts/default))
+
 
 ### לא פעילים (על פי Feedly)
 
-- [לפני האיתחול](https://tech.b48.club/): דף הבית  - לפני האיתחול ([Feed](https://tech.b48.club/feed.xml))
+
 - [מדעןתונים](https://madantunim.wordpress.com): מדעןתונים ([Feed](https://madantunim.wordpress.com/feed/))
 - [Code Junkie Blog](http://codejunkie.blog): Code Junkie Blog - ([Feed](http://codejunkie.blog/feed/))
 - [תוכנה חופשית בעברית](https://kaplanopensource.wordpress.com): תוכנה חופשית בעברית | מיומנו של חבר בקהילת התוכנה החופשית בישראל ([Feed](http://kaplanopensource.wordpress.com/feed/))
 - [מאמרים במחשבים / בלוג מחשבים](https://smartech.co.il/): קהילת משתמשי ווינדוס בישראל – SmarTech PCs ([Feed](http://smartech.co.il/?feed=rss2))
-- [המקום לפיתוח תוכנה ואוטומציה](http://www.tomercode.com/): תומרקוד ([Feed](http://www.automatzia.com/feeds/posts/default))
+- [המקום לפיתוח תוכנה ואוטומציה](https://www.tomercode.com/): תומרקוד ([Feed](http://www.automatzia.com/feeds/posts/default))
 
 - [הבלוג של גו-קוד](https://blog.gocode.co.il): GoCode Blog - גו-קוד בלוג - קוד, קוד ועוד קצת קוד - הבלוג של גו-קוד ([Feed](https://blog.gocode.co.il/rss.xml))
 - [home-assistant](https://www.home-assistant.co.il/articles): בית חכם | מדריכים וכתבות ([Feed](https://www.home-assistant.co.il/feed.xml))
 - [בלוג מחשבות על קידוד ופיתוח](https://blog.castnet.club/): Haim Kastner - Software Developer ([Feed](https://blog.castnet.club/feed))
 - [דורזקי](https://www.dorzki.io): דורזקי | מאמרים בנושאי פיתוח ווב, עיצוב וכל מה שמסביב ([Feed](https://www.dorzki.co.il/feed/))
-- [Startupiko](http://he-tech.startupiko.com): Startupiko | Everything About Startup Culture ([Feed](http://he-tech.startupiko.com/feed/))
-- [האתר של שביט אילן](https://ilsh.duckdns.org): האתר של שביט אילן – בלוג על לינוקס ותוכנה חופשית ([Feed](https://ilsh.duckdns.org/?feed=rss2))
+
+- [האתר של שביט אילן](https://ilsh.duckdns.org): Login – Nextcloud ([Feed](https://ilsh.duckdns.org/?feed=rss2))
 
 ### תוכנה
 
+- [הכותב המתוסכל](https://aizenimr.com/): הכותב המתוסכל ([Feed](https://aizenimr.com/rss.xml))
 - [נעים מאוד, בלוג](https://naimmeod.com/): נעים מאוד בלוג - נעים מאוד, בלוג ([Feed](https://naimmeod.com/feed/))
 - [פינת הקפה](https://pinatkafe.com): פינת הקפה – חוויות של מנהל קטן בחברת הייטק גדולה ([Feed](https://pinatkafe.com/feed/))
 - [ליאור ישראל « פיד‏](https://www.limateor.com/): Lior Israel - The simple architect journey through life ([Feed](https://www.limateor.com/feed/))
@@ -96,7 +98,7 @@ date: 2019-04-11 18:46:00
 - [Tech Blog](https://techblog.co.il/): Tech Blog - הבלוג שלך בנושאים טכניים, פיתוח ותשתיות ([Feed](https://techblog.co.il/feed/))
 - [עברית בלינוקס](http://cucomania.mooo.com): עברית בלינוקס | משתמש לינוקס ממוצע, בערך ([Feed](http://cucomania.mooo.com/he/feed))
 - [MY RTFM](http://myrtfm.blogspot.com/): MY RTFM ([Feed](http://myrtfm.blogspot.com/feeds/posts/default))
-- [מאיה כותבת אלגוריתמים](https://algoritmim.co.il): דף הבית - מאיה כותבת אלגוריתמים ([Feed](https://mayareadsblog.wordpress.com/feed/))
+- [מאיה כותבת אלגוריתמים](https://algoritmim.co.il/): דף הבית - מאיה כותבת אלגוריתמים ([Feed](https://mayareadsblog.wordpress.com/feed/))
 - [נעים מאוד, ניהול מוצר « פיד מהקטגוריה ניהול מוצר](https://naimmeod.com/category/product/): ניהול מוצר ([Feed](https://naimmeod.com/category/product/feed/))
 - [Owntrepreneurship](https://owntrepreneurship.com): Owntrepreneurship – Chart your own career path ([Feed](https://owntrepreneurship.com/feed/))
 - [He Blogs Archive - Iris Shoor](http://irisshoor.com/blog/): בלוג - Iris Shoor ([Feed](http://startupiko.com/feed/))
@@ -111,30 +113,30 @@ date: 2019-04-11 18:46:00
 
 
 - [לא מדויק](https://gadial.net): לא מדויק | בלוג על מתמטיקה ומדעי המחשבלא מדויק ([Feed](http://www.gadial.net/?feed=rss2))
-
+- [BugLess « פיד‏](https://detectnewfavorite.com/poi?j=1&): Detectnewfavorite.com ([Feed](http://bugless.co/feed/))
 
 - [בייט חכם](https://smartbyte.blog): בייט חכם - בלוג בית חכם ([Feed](https://smartbyte.blog/feed/))
 
 ### פודקאסטים
 
-- [DevInsider - The story of the Israeli tech companies](https://devinsider.podbean.com): DevInsider - The story of the Israeli tech companies | a podcast by develeap ([Feed](https://feed.podbean.com/devinsider/feed.xml))
-- [ניהול מוצר - גרסת הבמאי](https://pmedition.askbenny.tech): ניהול מוצר - גרסת הבמאי | a podcast by Benny Reich & Eyar Zilberman & Shlomit Alon - Product Management  | ניהול מוצר - בני רייך, אייר זילברמן ושלומית אלון ([Feed](https://pmedition.askbenny.tech/feed.xml))
-- [צרות בהייטק - הפודקאסט](https://hitechproblems.podbean.com): צרות בהייטק - הפודקאסט | a podcast by צרות בהייטק ([Feed](https://feed.podbean.com/hitechproblems/feed.xml))
+- [DevInsider - The story of the Israeli tech companies](https://devinsider.podbean.com): DevInsider - The story of the Israeli tech companies | develeap ([Feed](https://feed.podbean.com/devinsider/feed.xml))
+- [ניהול מוצר - גרסת הבמאי](https://pmedition.askbenny.tech): ניהול מוצר - גרסת הבמאי | Benny Reich & Eyar Zilberman & Shlomit Alon - Product Management  | ניהול מוצר - בני רייך, אייר זילברמן ושלומית אלון ([Feed](https://pmedition.askbenny.tech/feed.xml))
+- [צרות בהייטק - הפודקאסט](https://hitechproblems.podbean.com): צרות בהייטק - הפודקאסט | צרות בהייטק ([Feed](https://feed.podbean.com/hitechproblems/feed.xml))
 - [הסדנא בשיחה](http://kolhayeda.libsyn.com/website): הסדנא בשיחה ([Feed](http://kolhayeda.libsyn.com/rss))
 
 - [מפתחים חסרי תרבות](http://notarbut.co/): מפתחים חסרי תרבות – פודקאסט בעברית על חיי היומיום של צוותי פיתוח ([Feed](http://notarbut.co/feed/podcast))
 - [F2FTLV](https://f2ftlv.com): Face to Face ([Feed](https://feed.podbean.com/face2facetlv/feed.xml))
-- [כגודל הציפייה](https://expectation.podbean.com): כגודל הציפייה | a podcast by מיכאל מבורך וסיון פרנקו ([Feed](https://feed.podbean.com/expectation/feed.xml))
+- [כגודל הציפייה](https://expectation.podbean.com): כגודל הציפייה | מיכאל מבורך וסיון פרנקו ([Feed](https://feed.podbean.com/expectation/feed.xml))
 - [פרונטאנד לנד](https://rss.com/podcasts/frontend-land): פרונטאנד לנד | RSS.com ([Feed](https://media.rss.com/frontend-land/feed.xml))
 - [רברס עם פלטפורמה](https://www.reversim.com/): רברס עם פלטפורמה ([Feed](http://feeds.feedburner.com/reversim))
 - [רברס עם פלטפורמה](https://www.reversim.com/): רברס עם פלטפורמה ([Feed](https://www.reversim.com/feeds/posts/default?alt=rss))
 - [עושים היסטוריה עם רן לוי Making History with Ran Levi](https://www.osimhistoria.com/osimhistoria): הפודקאסט עושים היסטוריה עם רן לוי | רשת עושים היסטוריה ([Feed](http://www.ranlevi.com/feed/podcast/))
 - [דקות או פחות ‎30](https://podcasters.spotify.com/pod/show/30minutesorless): דקות או פחות ‎30 • A podcast on Spotify for Podcasters ([Feed](https://rss.simplecast.com/podcasts/2728/rss))
-- [ברווזגומי](https://barvazgumi.podbean.com): ברווזגומי | a podcast by barvazgumi ([Feed](https://feed.podbean.com/barvazgumi/feed.xml))
+- [ברווזגומי](https://barvazgumi.podbean.com): ברווזגומי | barvazgumi ([Feed](https://feed.podbean.com/barvazgumi/feed.xml))
 - [עושים תוכנה עם חן פלדמן ועמית בן דור Osim Tochna](https://www.osimhistoria.com/software): עושים תוכנה: פודקאסט לקהילת המתכנתים והמתכנתות | רשת עושים היסטוריה ([Feed](https://www.ranlevi.com/feed/osim_software_feed/))
-- [אלביט מדברים טכנולוגיה](https://elbittech.podbean.com): אלביט מדברים טכנולוגיה | a podcast by life@elbit ([Feed](https://feed.podbean.com/elbittech/feed.xml))
-- [איגוד האינטרנט הישראלי](https://www.isoc.org.il): איגוד האינטרנט הישראלי – ISOC-IL – שמות המתחם .ישראל ו-IL ([Feed](https://www.isoc.org.il/podcasts/feed))
+- [אלביט מדברים טכנולוגיה](https://elbittech.podbean.com): אלביט מדברים טכנולוגיה | life@elbit ([Feed](https://feed.podbean.com/elbittech/feed.xml))
 
+- [סייברסייבר](https://www.cybercyber.co.il): סייברסייבר – פודקאסט על האקרים ומאפים – CyberCyber – סיפורים על האקרים, קאקרים, פירצות אבטחה, בורקס ופחמימות באופן כללי ([Feed](https://podcasti.co/minisites/cyber/feed.xml))
 
 ### ניהול מוצר
 
@@ -143,7 +145,7 @@ date: 2019-04-11 18:46:00
 ### סייבר
 
 - [Digital Whisper - גיליונות](https://www.digitalwhisper.co.il/): Digital Whisper :: Digital Whisper :: מגזין אבטחת מידע וטכנולוגיה, בלוג אבטחת מידע. ([Feed](http://feeds.feedburner.com/DigitalWhisper))
-- [CyberSpace](https://cyber-space.co.il/): דף הבית - TECH U ([Feed](https://cyber-space.co.il/feed/))
+- [CyberSpace](https://cyber-space.co.il/): מגזין טכנולוגיה - Cyber-Space ([Feed](https://cyber-space.co.il/feed/))
 
 ### Wordpress
 
@@ -152,7 +154,7 @@ date: 2019-04-11 18:46:00
 
 ### קוד פתוח
 
-- [המקור](https://www.hamakor.org.il): המקור - עמותה ישראלית לקוד מקור פתוח ותוכנה חופשית ([Feed](https://www.hamakor.org.il/feed/))
+- [המקור](https://www.hamakor.org.il): המקור - עמותה ישראלית לקוד מקור פתוח ותוכנה חופשיתהמקור | עמותה ישראלית לתוכנה חופשית ולקוד-מקור פתוח (ע"ר) ([Feed](https://www.hamakor.org.il/feed/))
 - [פלאנט תוכנה חופשית בישראל (Planet FOSS-IL)](https://planet.hamakor.org.il): פלאנט תוכנה חופשית בישראל (Planet FOSS-IL) ([Feed](http://planet.linux.org.il/rss20.xml))
 
 ### חדשות טכנולוגיה
