@@ -11,6 +11,8 @@ tags: [Open Source]
 
 ## שלב ראשון - זיהוי הצורך
 
+ב[פוסט על CI Checklist](https://bscstudent.netlify.app/ci-checklist#pr-title) תיארתי איך יש לי תהליך אוטומטי שמוודא 
+
 אז ככה, כמו שתיארתי בבלוג שלי: https://bscstudent.netlify.app/ci-checklist#pr-title, בכל פרויקט שלי אני מכניס ולידציה לכותרת של הPR, כי בהמשך על פי הפורמט המוסכם יוצאת גרסה במידת הצורך ועם מספר מתאים (SemVer).
 עכשיו, הפתרון שלי כרגע שונה בכל פרויקט, אבל בסופו של דבר אחרי קצת מחשבה יש דרך יחסית גנרית לעשות את זה, בשימוש בכלי שנקרא commitlint.
 השתמשתי בשיטה הזאת באחד הפרויקטים שלי: https://github.com/Checkmarx/2ms/blob/master/.github/workflows/pr-title.yml
