@@ -13,6 +13,32 @@ Unlike the [CI Checklist] post which is focusing on maintaining a project, this 
 
 An early version of this post is the short talk I gave on the subject and is available on YouTube.
 
+## Onboarding
+
+איך להכיר תורם חדש שמגיע, לשים לב אליו כבר משלב האישיו
+לקבל ממנו פרטים, גם ליצירת קשר בהמשך, וגם כדי להבין מאיפה מגיעים אלינו
+לתת לו מידע על דרכי יצירת קשר איתנו, על איך אנחנו עובדים ועל התהליכים.
+
+## Stale and Notifications
+לשים לב לתהליכים שנתקעו ותורמים שנותרו ללא מענה
+
+## Leaderboard
+
+## SWAGS
+
+## Analytics
+
+להבין כמה עבודה מגיעה מבחוץ, כמה אישיוז נפתחים מבחוץ וכמה מהם מטופלים או שהם זבל ולא דורשים טיפול.
+זמן החיים של אישיו
+זמן החיים של פול ריקווסט
+כמה איטרציות לוקח לסגור פול ריקווסט
+גם בחתך של לפי תורם, אולי בהתחלה לוקח לו זמן ואיטרציות ואז נהיה מהר יותר.
+
+
+
+
+
+
 
 
 ## CI Checklist
