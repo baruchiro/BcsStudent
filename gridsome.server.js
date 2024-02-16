@@ -8,7 +8,7 @@
 const privateSocialLinks = [
   "mailto:baruchiro@gmail.com",
   "https://github.com/baruchiro",
-  "https://www.linkedin.com/in/baruch-rothkoff/",
+  "https://www.linkedin.com/in/baruchiro/",
   "https://twitter.com/baruchiro",
   "https://stackoverflow.com/users/839513/baruchiro",
   "https://dev.to/baruchiro",
