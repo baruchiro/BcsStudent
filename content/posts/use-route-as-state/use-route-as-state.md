@@ -9,6 +9,7 @@ tags: ["react", "npm"]
 publications:
   - https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1
 language: en
+type: Blog
 ---
 
 [![npm](https://img.shields.io/badge/npm-use--route--as--state-informational?logo=npm)](https://www.npmjs.com/package/use-route-as-state)

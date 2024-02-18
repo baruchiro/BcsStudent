@@ -6,6 +6,7 @@ tags: ["כסף"]
 series: true
 summary: |
   למה ועל מה אני הולך לדבר בנושא של כסף, השקעות והתנהלות פיננסית.
+type: Blog
 ---
 
 > [קישור לפוסטים נוספים בסדרה](https://bscstudent.netlify.app/tag/%D7%9B%D7%A1%D7%A3/).

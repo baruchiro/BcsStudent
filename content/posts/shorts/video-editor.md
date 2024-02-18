@@ -5,6 +5,7 @@ draft: false
 tags: ["Shorts", "Not-Technical"]
 cover_image: ./video-editor/video-editor.png
 summary: התחליף העדכני לMovie Maker הישן, למי שצריך איזה כלי נוח לערוך סרטונים פה ושם
+type: Blog
 ---
 
 מה אנחנו בסך הכל צריכים? לחבר כמה סרטונים שקיבלנו בווטסאפ, לחתוך איפה שצריך, ואולי לכתוב איזה ברכה?

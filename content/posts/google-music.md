@@ -2,6 +2,7 @@
 title: סנכרון מוזיקה- Google Music
 draft: false
 date: 2016-07-27 14:59:32
+type: Blog
 ---
 
 <p style="text-align:justify;">כדי לגבות את המוזיקה מהמחשב ולגשת אליה מכל המכשירים שלנו, נשתמש ב<a href="http://music.google.com" target="_blank" rel="noopener noreferrer">גוגל מוזיקה</a>.</p>

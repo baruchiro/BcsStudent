@@ -2,6 +2,7 @@
 title: Remix OS- אנדרואיד לכל מחשב
 draft: false
 date: 2016-07-28 20:15:40
+type: Blog
 ---
 
 [gallery ids="399,400,401" type="slideshow"]

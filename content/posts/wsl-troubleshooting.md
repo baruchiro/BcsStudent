@@ -7,6 +7,7 @@ series: false
 canonical_url: false
 summary: Sequence of operations to find connection issues and fix them in WSL.
 language: en
+type: Blog
 ---
 
 ## Related Resources

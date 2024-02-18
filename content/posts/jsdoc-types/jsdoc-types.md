@@ -6,6 +6,7 @@ cover_image: ./carbon.png
 tags: ["code", "JavaScript", "TypeScript"]
 summary: |
   ללא ספק, TypeScript נהיה נפוץ יותר ויותר. אם אתם מהמתנגדים, או שפשוט המעבר יעלה לכם הרבה, הנה הדרך שבה אתם יכולים להתחיל להיעזר בTypes בלי לגעת באף הגדרה של הפרויקט שלכם!
+type: Blog
 ---
 
 ## למה צריך Types בכלל?

@@ -4,6 +4,7 @@ summary: פוסט על פעולות שאני עושה בכל פרויקט חדש
 date:
 draft: true
 tags: []
+type: Blog
 ---
 
 ## Settings

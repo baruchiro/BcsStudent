@@ -5,6 +5,7 @@ draft: true
 tags: ["home-server", "home-assistant"]
 series: true
 summary: "בדיקה והתנסות במערכת ניהול הבית החכם Home Assistant"
+type: Blog
 ---
 
 ## שרת ביתי

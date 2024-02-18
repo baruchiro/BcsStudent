@@ -5,6 +5,7 @@ summary: >
   תאריכים באקסל
 draft: false
 date: 2016-05-15 07:56:26
+type: Blog
 ---
 
 <!-- wp:paragraph -->

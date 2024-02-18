@@ -5,6 +5,7 @@ draft: false
 tags: ["Shorts", "Command Line"]
 cover_image: ./oh-my-posh/oh-my-posh.png
 summary: שדרוג שורת הפקודה עם פרטי Git Repository, צבעים ועוד...
+type: Blog
 ---
 
 בעבודה אני עובד בWindows. תמיד ראיתי אנשים שמשתפים מסך עם איזה טרמינל של לינוקס, ויש להם Command Line מגניב כזה.

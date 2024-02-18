@@ -2,6 +2,7 @@
 title: פרויקט גמר - תכנון
 draft: false
 date: 2019-01-03 07:25:28
+type: Blog
 ---
 
 <!-- wp:block {"ref":1075} /-->
