@@ -1,6 +1,6 @@
 ---
 title: מדריך Windows Service בעברית- כתיבה
-published: true
+draft: false
 date: 2012-04-05 12:18:00
 ---
 

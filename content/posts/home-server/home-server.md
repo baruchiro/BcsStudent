@@ -1,7 +1,7 @@
 ---
 title: הגדרות שרת המדיה הביתי שלי
 date: 2020-11-06
-published: true
+draft: false
 tags: ["Personal", "home-server", "repository"]
 series: false
 cover_image: ./home-server.png

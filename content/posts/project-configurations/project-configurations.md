@@ -2,7 +2,7 @@
 title: הגדרת פרויקט וסביבת פיתוח
 summary: פוסט על פעולות שאני עושה בכל פרויקט חדש
 date:
-published: false
+draft: true
 tags: []
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: יש לי רעיון לסטארטאפ- התאמת מחשב
-published: true
+draft: false
 date: 2018-12-13 08:20:04
 tags: ["Idea", "Hardware", "Recommendation"]
 summary: |

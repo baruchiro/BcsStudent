@@ -1,6 +1,6 @@
 ---
 title: מה כדאי לסטודנט לדעת - Git
-published: true
+draft: false
 date: 2018-11-28 18:41:51
 tags: ["מה כדאי לסטודנט לדעת", "git"]
 ---

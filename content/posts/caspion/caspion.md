@@ -1,6 +1,6 @@
 ---
 title: "כספיון: תוכנה חברתית לניהול מעקב אחרי ההוצאות וההכנסות שלנו"
-published: true
+draft: false
 date: 2021-07-05
 cover_image: ./main-screenshot.png
 summary: |

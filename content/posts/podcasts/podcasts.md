@@ -12,7 +12,7 @@ summary: >
   מקצועית ולהכיר את
   התעשייה שאנחנו נכנסים
   אליה.
-published: true
+draft: false
 cover_image: ./podcasts.png
 date: 2019-03-24 12:32:18
 ---

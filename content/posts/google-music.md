@@ -1,6 +1,6 @@
 ---
 title: סנכרון מוזיקה- Google Music
-published: true
+draft: false
 date: 2016-07-27 14:59:32
 ---
 

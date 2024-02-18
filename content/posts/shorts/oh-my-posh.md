@@ -1,7 +1,7 @@
 ---
 title: Starship CommandLine Upgrade
 date: 2021-06-22
-published: true
+draft: false
 tags: ["Shorts", "Command Line"]
 cover_image: ./oh-my-posh/oh-my-posh.png
 summary: שדרוג שורת הפקודה עם פרטי Git Repository, צבעים ועוד...

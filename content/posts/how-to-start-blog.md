@@ -1,6 +1,6 @@
 ---
 title: איך מתחילים לכתוב בלוג?
-published: true
+draft: false
 date: 2013-01-14 13:43:00
 ---
 

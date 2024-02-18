@@ -1,7 +1,7 @@
 ---
 title: מה עושים עם כסף בעובר ושב?
 date: 2021-12-25
-published: true
+draft: false
 tags: ["כסף"]
 series: true
 summary: |

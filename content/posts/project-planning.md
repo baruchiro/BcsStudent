@@ -1,6 +1,6 @@
 ---
 title: פרויקט גמר - תכנון
-published: true
+draft: false
 date: 2019-01-03 07:25:28
 ---
 

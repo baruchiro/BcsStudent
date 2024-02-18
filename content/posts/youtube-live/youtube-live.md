@@ -1,7 +1,7 @@
 ---
 title: איך שידרתי חתונה ביוטיוב
 date: 2020-03-18
-published: true
+draft: false
 tags: ["YouTube"]
 series: false
 cover_image: ./home-wedding.jpg

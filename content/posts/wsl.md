@@ -3,7 +3,7 @@ title: לינוקס במקביל לווינדוס
 summary: >
   הגדרת Linux תחת Windows עד
   להצגת חלונות
-published: true
+draft: false
 date: 2018-02-26 12:57:52
 ---
 

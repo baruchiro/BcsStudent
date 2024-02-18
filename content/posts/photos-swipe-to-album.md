@@ -1,7 +1,7 @@
 ---
 title: בחירת תמונות לאלבום הבא
 date: 2020-07-29
-published: true
+draft: false
 tags: ["Idea", "App"]
 summary: |
   אנחנו מצד אחד מתעדים הרבה מאוד- כל הזמן מצלמים עם הפלאפון.

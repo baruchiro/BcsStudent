@@ -2,7 +2,7 @@
 title: לינוקס לפלאפון- Ubuntu Touch
 summary: >
   להריץ לינוקס אמיתי על הפלאפון. מה זה אומר? למה זה כדאי? איך עושים את זה? האם זה שווה את המאמץ? תיאור התנסות שהייתה לי, והמסקנות.
-published: true
+draft: false
 cover_image: ./ubuntu-touch.png
 date: 2019-05-15 08:13:00
 ---

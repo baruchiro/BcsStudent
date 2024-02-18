@@ -1,7 +1,7 @@
 ---
 title: השקעות
 date: 2022-01-22
-published: true
+draft: false
 tags: ["כסף"]
 series: true
 summary: |

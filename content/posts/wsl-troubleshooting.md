@@ -1,7 +1,7 @@
 ---
 title: WSL Troubleshooting
 date: 2020-12-01
-published: true
+draft: false
 tags: ["WSL"]
 series: false
 canonical_url: false

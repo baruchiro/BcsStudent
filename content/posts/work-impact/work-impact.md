@@ -1,6 +1,6 @@
 ---
 title: איך להשפיע במקום העבודה גם בלי ותק ותפקיד
-published: true
+draft: false
 date: 2021-07-15
 cover_image: ./project-planning.jpg
 tags: ["עבודה", "Junior"]

@@ -1,6 +1,6 @@
 ---
 title: גיבוי וניהול תמונות- Google Photos
-published: true
+draft: false
 date: 2016-07-27 14:09:35
 ---
 

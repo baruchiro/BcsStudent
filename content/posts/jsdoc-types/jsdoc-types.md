@@ -1,6 +1,6 @@
 ---
 title: לקבל Types בJavaScript בלי לעבור לTypeScript
-published: true
+draft: false
 date: 2021-08-20
 cover_image: ./carbon.png
 tags: ["code", "JavaScript", "TypeScript"]
