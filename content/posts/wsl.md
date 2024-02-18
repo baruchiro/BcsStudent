@@ -1,6 +1,6 @@
 ---
 title: לינוקס במקביל לווינדוס
-description: >
+summary: >
   הגדרת Linux תחת Windows עד
   להצגת חלונות
 published: true

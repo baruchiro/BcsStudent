@@ -1,6 +1,6 @@
 ---
 title: חישוב כמות שעות בין תאריכים באקסל
-description: >
+summary: >
   חישוב כמות שעות בין
   תאריכים באקסל
 published: true

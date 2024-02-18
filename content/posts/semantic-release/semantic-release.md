@@ -8,7 +8,7 @@ language: en
 publications:
   - https://medium.com/@baruchiro/how-to-setup-auto-semantic-release-184483d2198e
   - https://dev.to/baruchiro/how-to-setup-auto-semantic-release-4fd8
-description: |
+summary: |
   Setup auto-increment, release, and changelog with semantic-release, in Github repo with Github Actions.
 ---
 

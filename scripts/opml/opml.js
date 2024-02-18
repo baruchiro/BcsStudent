@@ -25,7 +25,7 @@ const postPath = path.join(
 
 const preBlog = `---
 title: רשימת הבלוגים בנושאי תוכנה בעברית
-description: >
+summary: >
   רשימת הבלוגים בנושאי תוכנה וטכנולוגיה, בעברית.
   הוסיפו לכאן גם את הבלוגים שלכם!
 published: true

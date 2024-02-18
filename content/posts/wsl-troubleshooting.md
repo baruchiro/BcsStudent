@@ -5,7 +5,7 @@ published: true
 tags: ["WSL"]
 series: false
 canonical_url: false
-description: Sequence of operations to find connection issues and fix them in WSL.
+summary: Sequence of operations to find connection issues and fix them in WSL.
 language: en
 ---
 

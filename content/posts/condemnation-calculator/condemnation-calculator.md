@@ -4,7 +4,7 @@ date: 2020-07-26
 published: true
 tags: ["Idea", "Calculator"]
 cover_image: ./condemnation-calculator.jpg
-description: אמור לי את מה אתה מגנה ואומר לך מי אתה
+summary: אמור לי את מה אתה מגנה ואומר לך מי אתה
 ---
 
 קצת קשור לפוליטיקה, אבל לא באמת, כי זה קשור לכל גווני הקשת הפוליטית ללא בחירת צד.

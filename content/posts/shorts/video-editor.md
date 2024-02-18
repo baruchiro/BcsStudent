@@ -4,7 +4,7 @@ date: 2020-10-16
 published: true
 tags: ["Shorts", "Not-Technical"]
 cover_image: ./video-editor/video-editor.png
-description: התחליף העדכני לMovie Maker הישן, למי שצריך איזה כלי נוח לערוך סרטונים פה ושם
+summary: התחליף העדכני לMovie Maker הישן, למי שצריך איזה כלי נוח לערוך סרטונים פה ושם
 ---
 
 מה אנחנו בסך הכל צריכים? לחבר כמה סרטונים שקיבלנו בווטסאפ, לחתוך איפה שצריך, ואולי לכתוב איזה ברכה?

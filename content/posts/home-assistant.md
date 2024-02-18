@@ -4,7 +4,7 @@ date: 2020-07-03
 published: false
 tags: ["home-server", "home-assistant"]
 series: true
-description: "בדיקה והתנסות במערכת ניהול הבית החכם Home Assistant"
+summary: "בדיקה והתנסות במערכת ניהול הבית החכם Home Assistant"
 ---
 
 ## שרת ביתי
