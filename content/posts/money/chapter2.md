@@ -7,6 +7,7 @@ tags: ["כסף"]
 series: true
 summary: |
   על המושג "ריבית דריבית", המשמעות שלו, ולמה הוא הבסיס לרעיון שכסף עובד בשבילנו.
+type: Blog
 ---
 
 > [קישור לפוסטים נוספים בסדרה](https://bscstudent.netlify.app/tag/%D7%9B%D7%A1%D7%A3/).

@@ -5,6 +5,7 @@ date: 2024-02-14T00:00:00+02:00
 draft: true
 tags: [צ'קליסט, CI/CD, Github Actions, Open Source, Idea]
 language: en
+type: Blog
 ---
 
 In this blog post, I will discuss how to effectively manage an open source project. Some of the objective I already implemented in my projects, and some of them are principals that I think should be followed as an Open Source maintainer.

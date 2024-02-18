@@ -2,6 +2,7 @@
 title: מדריך Windows Service בעברית- הקדמה
 draft: false
 date: 2012-04-05 12:09:00
+type: Blog
 ---
 
 <div dir="rtl" style="text-align:right;">

@@ -2,6 +2,7 @@
 title: שלבים ליצירת RecycleView
 draft: false
 date: 2016-08-31 16:02:29
+type: Blog
 ---
 
 <ol>

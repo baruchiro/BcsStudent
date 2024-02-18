@@ -5,6 +5,7 @@ draft: false
 tags: ["Idea", "Calculator"]
 cover_image: ./condemnation-calculator.jpg
 summary: אמור לי את מה אתה מגנה ואומר לך מי אתה
+type: Blog
 ---
 
 קצת קשור לפוליטיקה, אבל לא באמת, כי זה קשור לכל גווני הקשת הפוליטית ללא בחירת צד.

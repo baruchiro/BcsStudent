@@ -6,6 +6,7 @@ summary: >
   תמונות.
 draft: false
 date: 2015-12-19 19:00:02
+type: Blog
 ---
 
 <h2>חומרים:</h2>

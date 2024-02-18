@@ -2,6 +2,7 @@
 title: RESTful API with ASP.NET Web API 2
 draft: false
 date: 2017-04-25 18:55:49
+type: Blog
 ---
 
 <!-- wp:paragraph -->

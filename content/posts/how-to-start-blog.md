@@ -2,6 +2,7 @@
 title: איך מתחילים לכתוב בלוג?
 draft: false
 date: 2013-01-14 13:43:00
+type: Blog
 ---
 
 <div dir="rtl" style="text-align:right;"><span style="font-family:Arial, Helvetica, sans-serif;">

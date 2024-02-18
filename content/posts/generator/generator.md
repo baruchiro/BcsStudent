@@ -3,6 +3,7 @@ title: אוטומציה וקוד פתוח לבלוג
 draft: false
 date: 2019-01-13 15:47:44
 cover_image: ./generator.png
+type: Blog
 ---
 
 <!-- wp:paragraph -->

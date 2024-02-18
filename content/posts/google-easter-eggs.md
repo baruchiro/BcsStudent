@@ -2,6 +2,7 @@
 title: טריקים מעניינים בגוגל
 draft: false
 date: 2013-01-08 14:20:00
+type: Blog
 ---
 
 <!-- wp:heading -->

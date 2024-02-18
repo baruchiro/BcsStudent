@@ -7,6 +7,7 @@ summary: |
   Read with LTR in <a href="https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1">Dev.to</a>
 tags: ["bot-framework", ".NET Core", "ASP.NET"]
 language: en
+type: Blog
 ---
 
 ## Prerequisites

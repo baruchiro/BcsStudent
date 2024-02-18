@@ -10,6 +10,7 @@ publications:
   - https://dev.to/baruchiro/how-to-setup-auto-semantic-release-4fd8
 summary: |
   Setup auto-increment, release, and changelog with semantic-release, in Github repo with Github Actions.
+type: Blog
 ---
 
 ## Semantic Versioning
