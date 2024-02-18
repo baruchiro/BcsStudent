@@ -2,7 +2,7 @@
 title: Managing an Open Source Project
 summary: In this blog post, we will discuss how to effectively manage an open source project. We will start by referencing the ci-checklist blogpost, and then we will explore some automation techniques to engage developers and keep track of their assigned issues.
 date: 2024-02-14T00:00:00+02:00
-published: false
+draft: true
 tags: [צ'קליסט, CI/CD, Github Actions, Open Source, Idea]
 language: en
 ---

@@ -1,6 +1,6 @@
 ---
 title: מדריך Windows Service בעברית- התקנה
-published: true
+draft: false
 date: 2012-04-05 12:24:00
 ---
 

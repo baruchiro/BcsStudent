@@ -8,7 +8,7 @@ summary: >
   אבל האתגר העיקרי
   שאנחנו פוגשים ביום
   יום הוא דווקא השגרה.
-published: true
+draft: false
 cover_image: ./routine.png
 date: 2019-03-01 14:17:59
 ---

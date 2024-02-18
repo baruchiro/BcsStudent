@@ -1,6 +1,6 @@
 ---
 title: Serverless פשוט וחינמי - Google Apps Script
-published: true
+draft: false
 date: 2022-04-21
 cover_image: ./carbon.png
 tags: ["code", "JavaScript", "low-code", "serverless", "integrations"]

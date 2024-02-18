@@ -1,7 +1,7 @@
 ---
 title: מתגעגעים לMovie Maker?
 date: 2020-10-16
-published: true
+draft: false
 tags: ["Shorts", "Not-Technical"]
 cover_image: ./video-editor/video-editor.png
 summary: התחליף העדכני לMovie Maker הישן, למי שצריך איזה כלי נוח לערוך סרטונים פה ושם

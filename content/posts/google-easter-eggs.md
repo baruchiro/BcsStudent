@@ -1,6 +1,6 @@
 ---
 title: טריקים מעניינים בגוגל
-published: true
+draft: false
 date: 2013-01-08 14:20:00
 ---
 

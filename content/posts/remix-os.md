@@ -1,6 +1,6 @@
 ---
 title: Remix OS- אנדרואיד לכל מחשב
-published: true
+draft: false
 date: 2016-07-28 20:15:40
 ---
 

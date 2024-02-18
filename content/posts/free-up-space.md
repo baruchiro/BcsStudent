@@ -1,6 +1,6 @@
 ---
 title: פעולות מומלצות לפינוי מקום במחשב
-published: true
+draft: false
 date: 2016-07-27 15:00:40
 ---
 

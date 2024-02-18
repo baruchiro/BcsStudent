@@ -1,6 +1,6 @@
 ---
 title: מה כדאי לסטודנט לדעת- קוד פתוח
-published: true
+draft: false
 date: 2018-12-20 17:34:55
 tags: ["מה כדאי לסטודנט לדעת", "OpenSource"]
 ---

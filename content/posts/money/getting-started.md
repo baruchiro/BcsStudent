@@ -1,7 +1,7 @@
 ---
 title: כסף - הקדמה
 date: 2021-12-18
-published: true
+draft: false
 tags: ["כסף"]
 series: true
 summary: |

@@ -1,7 +1,7 @@
 ---
 title: שילוב כלים לאוטומציה פשוטה וחינמית
 date: 2021-01-20
-published: true
+draft: false
 tags: ["no-code", "free", "postman", "integromat", "nodejs"]
 series: false
 cover_image: ./api-automations.png

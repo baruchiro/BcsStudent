@@ -3,7 +3,7 @@ title: מה עושים כשהמחשב איטי?
 summary: >
   כמה טיפים למקרה
   שהמחשב איטי מידי.
-published: true
+draft: false
 date: 2016-05-12 04:56:19
 ---
 

@@ -5,7 +5,7 @@ summary: |
 
   אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
 date: 2023-07-19T14:53:45.583Z
-published: true
+draft: false
 tags: [צ'קליסט, CI/CD, Github Actions]
 ---
 

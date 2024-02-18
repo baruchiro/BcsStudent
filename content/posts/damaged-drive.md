@@ -1,6 +1,6 @@
 ---
 title: טיפול במחשב עם כונן פגוע
-published: true
+draft: false
 date: 2016-09-29 16:09:43
 ---
 

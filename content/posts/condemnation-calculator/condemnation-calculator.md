@@ -1,7 +1,7 @@
 ---
 title: מחשבון גינויים
 date: 2020-07-26
-published: true
+draft: false
 tags: ["Idea", "Calculator"]
 cover_image: ./condemnation-calculator.jpg
 summary: אמור לי את מה אתה מגנה ואומר לך מי אתה

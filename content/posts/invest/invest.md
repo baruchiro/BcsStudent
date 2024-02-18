@@ -1,6 +1,6 @@
 ---
 title: רשימת מקורות ללימוד על השקעות
-published: true
+draft: false
 date: 2021-12-18
 cover_image: ./invest.jpg
 tags: ["כסף"]

@@ -1,6 +1,6 @@
 ---
 title: בואו נקים את מאגר המידע על המלצות מחשבים
-published: true
+draft: false
 date: 2020-08-14 11:30:00
 tags: ["Idea", "Hardware", "Recommendation"]
 summary: |
