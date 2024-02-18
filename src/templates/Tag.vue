@@ -27,7 +27,7 @@ query Tag ($id: ID!) {
             path
             date (format: "D. MMMM YYYY")
             timeToRead
-            description
+            summary
             content
           }
         }

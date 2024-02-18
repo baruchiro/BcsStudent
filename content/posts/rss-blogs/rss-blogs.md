@@ -1,6 +1,6 @@
 ---
 title: רשימת הבלוגים בנושאי תוכנה בעברית
-description: >
+summary: >
   רשימת הבלוגים בנושאי תוכנה וטכנולוגיה, בעברית.
   הוסיפו לכאן גם את הבלוגים שלכם!
 published: true
@@ -46,7 +46,6 @@ date: 2019-04-11 18:46:00
 
 ### תכנות
 
-
 - [בלוג בינה מלאכותית](https://www.ai-blog.co.il): בלוג בינה מלאכותית – למידה עמוקה ([Feed](https://ai-blog.co.il/feed/))
 - [הטוכנע](https://www.hatochna.com/my-blog): ארכיון | הטוכנע | נחשי תוכנה ([Feed](https://www.hatochna.com/blog-feed.xml))
 - [בלוג ארכיטקטורת תוכנה](https://softwarearchiblog.co.il): בלוג ארכיטקטורת תוכנה – Software Architecture Blog ([Feed](https://softwarearchiblog.co.il/feed))
@@ -63,13 +62,10 @@ date: 2019-04-11 18:46:00
 - [Oz Gonen](http://www.ozgonen.co.il/): Oz Gonen ([Feed](http://www.ozgonen.co.il/feed.xml))
 - [טל בן שושן](https://shushan.co.il): טל בן שושן – בלוג ומדריכים בנושאי טכנולוגיה ([Feed](https://shushan.co.il/feed))
 
-
 - [ברוך אודם - B.Cs Student](https://bscstudent.netlify.app): ברוך אודם - B.Cs Student - ברוך אודם - B.Cs Student ([Feed](https://bscstudent.netlify.app/feed.xml))
 - [CodeTime](https://codetime.co.il/): CodeTime מגזין תוכנה - CodeTime ([Feed](https://codetime.co.il/feed/))
 
-
 ### לא פעילים (על פי Feedly)
-
 
 - [מדעןתונים](https://madantunim.wordpress.com): מדעןתונים ([Feed](https://madantunim.wordpress.com/feed/))
 - [Code Junkie Blog](http://codejunkie.blog): Code Junkie Blog - ([Feed](http://codejunkie.blog/feed/))
@@ -106,11 +102,9 @@ date: 2019-04-11 18:46:00
 
 ### UI/UX
 
-
 - [Rachel BT](https://www.rachelbt.co.il/): Rachel BT - Web Designer & Developer ([Feed](https://www.rachelbt.co.il/feed/))
 
 ### לא זמינים (על פי Feedly)
-
 
 - [לא מדויק](https://gadial.net): לא מדויק | בלוג על מתמטיקה ומדעי המחשבלא מדויק ([Feed](http://www.gadial.net/?feed=rss2))
 - [BugLess « פיד‏](https://detectnewfavorite.com/poi?j=1&): Detectnewfavorite.com ([Feed](http://bugless.co/feed/))
@@ -120,7 +114,7 @@ date: 2019-04-11 18:46:00
 ### פודקאסטים
 
 - [DevInsider - The story of the Israeli tech companies](https://devinsider.podbean.com): DevInsider - The story of the Israeli tech companies | develeap ([Feed](https://feed.podbean.com/devinsider/feed.xml))
-- [ניהול מוצר - גרסת הבמאי](https://pmedition.askbenny.tech): ניהול מוצר - גרסת הבמאי | Benny Reich & Eyar Zilberman & Shlomit Alon - Product Management  | ניהול מוצר - בני רייך, אייר זילברמן ושלומית אלון ([Feed](https://pmedition.askbenny.tech/feed.xml))
+- [ניהול מוצר - גרסת הבמאי](https://pmedition.askbenny.tech): ניהול מוצר - גרסת הבמאי | Benny Reich & Eyar Zilberman & Shlomit Alon - Product Management | ניהול מוצר - בני רייך, אייר זילברמן ושלומית אלון ([Feed](https://pmedition.askbenny.tech/feed.xml))
 - [צרות בהייטק - הפודקאסט](https://hitechproblems.podbean.com): צרות בהייטק - הפודקאסט | צרות בהייטק ([Feed](https://feed.podbean.com/hitechproblems/feed.xml))
 - [הסדנא בשיחה](http://kolhayeda.libsyn.com/website): הסדנא בשיחה ([Feed](http://kolhayeda.libsyn.com/rss))
 
@@ -160,4 +154,3 @@ date: 2019-04-11 18:46:00
 ### חדשות טכנולוגיה
 
 - [Geektime גיקטיים](https://www.geektime.co.il/): גיקטיים – אתר הטכנולוגיה וההייטק של ישראלגיקטיים ([Feed](http://feeds.feedburner.com/newsgeekfeed))
-

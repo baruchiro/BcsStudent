@@ -5,7 +5,7 @@ published: true
 cover_image: ./compound_interest.jpg
 tags: ["כסף"]
 series: true
-description: |
+summary: |
   על המושג "ריבית דריבית", המשמעות שלו, ולמה הוא הבסיס לרעיון שכסף עובד בשבילנו.
 ---
 

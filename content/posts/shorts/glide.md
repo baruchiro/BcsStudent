@@ -3,7 +3,7 @@ title: גלייד - Glide
 date: 2020-07-07
 published: true
 tags: ["shorts", "no-code"]
-description: כלי לבניית אפליקצייה מבוססת Google Sheets, ללא קוד
+summary: כלי לבניית אפליקצייה מבוססת Google Sheets, ללא קוד
 ---
 
 לכל הקוראים הטכנולוגיים שלא יודעים לתכנת (אבל גם מתכנתים- מומלץ לקרוא!), כדאי לכם להכיר את הכלי הבא.

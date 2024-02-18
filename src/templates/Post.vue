@@ -62,13 +62,13 @@ export default {
     },
   },
   metaInfo() {
-    const { path, title, description, og_cover_image } = this.$page.post;
+    const { path, title, summary, og_cover_image } = this.$page.post;
     return {
       title,
       meta: getMeta(this.$page.meta.siteUrl, {
         path,
         title,
-        description,
+        summary,
         image: {
           path: og_cover_image?.src || "/logo/og-image.png",
           width: 1200,
@@ -96,7 +96,7 @@ query Post ($id: ID!) {
       title
       path
     }
-    description
+    summary
     content
     cover_image (width: 860, blur: 10)
     og_cover_image: cover_image (width: 1200, height: 630),

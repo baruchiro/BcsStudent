@@ -109,7 +109,7 @@ module.exports = {
           title: node.title,
           id: node.path,
           link: node.path,
-          description: node.description,
+          description: node.summary,
           content: node.content,
           date: node.date,
           // image: node.cover_image

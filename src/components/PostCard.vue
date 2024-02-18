@@ -14,7 +14,7 @@
     </div>
     <div class="post-card__content">
       <h2 class="post-card__title" v-html="post.title" />
-      <p class="post-card__description" v-html="description" />
+      <p class="post-card__description" v-html="summary" />
 
       <p v-if="post.author" class="post-card__author">
         פוסט מאת <span>{{ post.author.title }}</span>
@@ -38,8 +38,8 @@ export default {
   },
   props: ["post"],
   computed: {
-    description() {
-      return this.post.description.replace(/\r?\n/g, "<br/>");
+    summary() {
+      return this.post.summary.replace(/\r?\n/g, "<br/>");
     },
     dir() {
       return this.post.language === "en" ? "ltr" : undefined;

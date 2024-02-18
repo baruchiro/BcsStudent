@@ -4,7 +4,7 @@ date: 2021-06-22
 published: true
 tags: ["Shorts", "Command Line"]
 cover_image: ./oh-my-posh/oh-my-posh.png
-description: שדרוג שורת הפקודה עם פרטי Git Repository, צבעים ועוד...
+summary: שדרוג שורת הפקודה עם פרטי Git Repository, צבעים ועוד...
 ---
 
 בעבודה אני עובד בWindows. תמיד ראיתי אנשים שמשתפים מסך עם איזה טרמינל של לינוקס, ויש להם Command Line מגניב כזה.

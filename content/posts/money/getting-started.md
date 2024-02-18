@@ -4,7 +4,7 @@ date: 2021-12-18
 published: true
 tags: ["כסף"]
 series: true
-description: |
+summary: |
   למה ועל מה אני הולך לדבר בנושא של כסף, השקעות והתנהלות פיננסית.
 ---
 

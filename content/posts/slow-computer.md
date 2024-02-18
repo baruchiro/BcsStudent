@@ -1,6 +1,6 @@
 ---
 title: מה עושים כשהמחשב איטי?
-description: >
+summary: >
   כמה טיפים למקרה
   שהמחשב איטי מידי.
 published: true
