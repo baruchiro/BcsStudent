@@ -2,7 +2,7 @@
 title: גלייד - Glide
 date: 2020-07-07
 draft: false
-tags: ["shorts", "no-code"]
+tags: ['Shorts', 'no-code']
 summary: כלי לבניית אפליקצייה מבוססת Google Sheets, ללא קוד
 type: Blog
 ---

@@ -6,7 +6,7 @@ summary: |
   אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
 date: 2023-07-19T14:53:45.583Z
 draft: false
-tags: [צ'קליסט, CI/CD, Github Actions]
+tags: [צ'קליסט, CI/CD, GitHub Actions]
 type: Blog
 ---
 
@@ -184,23 +184,23 @@ comment-on-possible-stale-issues:
     - uses: actions/stale@v8
       with:
         include-only-assigned: true
-        exempt-assignees: "baruchiro"
+        exempt-assignees: 'baruchiro'
         days-before-stale: 7
         days-before-close: -1 # Never close an issue/pr
-        stale-issue-message: "Hey! This task was taken over a few days ago, but nothing has happened since then. Maybe the current contributor can comment on this?"
-        stale-pr-message: "Hey! This pull request was made a few days ago and still needs changes, but nothing has happened since then. Maybe the current contributor can comment on this?"
-        stale-issue-label: "Waiting for contributor"
-        stale-pr-label: "Waiting for contributor"
-        exempt-issue-labels: "on hold"
-        exempt-pr-labels: "on hold"
+        stale-issue-message: 'Hey! This task was taken over a few days ago, but nothing has happened since then. Maybe the current contributor can comment on this?'
+        stale-pr-message: 'Hey! This pull request was made a few days ago and still needs changes, but nothing has happened since then. Maybe the current contributor can comment on this?'
+        stale-issue-label: 'Waiting for contributor'
+        stale-pr-label: 'Waiting for contributor'
+        exempt-issue-labels: 'on hold'
+        exempt-pr-labels: 'on hold'
         remove-stale-when-updated: true
     - uses: boundfoxstudios/action-unassign-contributor-after-days-of-inactivity@1.0.2
       with:
         last-activity: 7
-        labels: "Waiting for contributor"
-        exempt-assignees: "baruchiro"
-        labels-to-remove: "Waiting for contributor"
-        message: "Due to a long period of inactivity, this task was unassigned automatically."
+        labels: 'Waiting for contributor'
+        exempt-assignees: 'baruchiro'
+        labels-to-remove: 'Waiting for contributor'
+        message: 'Due to a long period of inactivity, this task was unassigned automatically.'
 ```
 
 _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/master/.github/workflows/project-management.yaml)_
