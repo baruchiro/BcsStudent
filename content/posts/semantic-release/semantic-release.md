@@ -3,7 +3,7 @@ title: How to setup auto semantic-release
 published: true
 date: 2021-07-27
 cover_image: ./semantic-release.jpeg
-tags: ["Git", "SemVer"]
+tags: ["git", "SemVer"]
 language: en
 publications:
   - https://medium.com/@baruchiro/how-to-setup-auto-semantic-release-184483d2198e
