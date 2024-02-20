@@ -4,7 +4,7 @@ date: 2020-11-06
 draft: false
 tags: ["Personal", "home-server", "repository"]
 series: false
-cover_image: ./home-server.png
+images: ./home-server.png
 canonical_url: false
 summary: איך מוגדר שרת המדיה הביתי שלי, להורדת סדרות וסרטים בצורה אוטומטית, חיפוש כתוביות, התחברות מכל מכשיר וסקריפטים נוספים
 type: Blog

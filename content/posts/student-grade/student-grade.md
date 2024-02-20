@@ -5,7 +5,7 @@ summary: >
 
   השאלה היא, האם זוהי ההצלחה האמיתית?
 draft: false
-cover_image: ./student-grade.png
+images: ./student-grade.png
 date: 2019-04-04 23:06:00
 author: אוריאל אופיר
 type: Blog

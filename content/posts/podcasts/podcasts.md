@@ -13,7 +13,7 @@ summary: >
   התעשייה שאנחנו נכנסים
   אליה.
 draft: false
-cover_image: ./podcasts.png
+images: ./podcasts.png
 date: 2019-03-24 12:32:18
 type: Blog
 ---

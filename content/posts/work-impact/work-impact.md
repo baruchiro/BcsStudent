@@ -2,7 +2,7 @@
 title: איך להשפיע במקום העבודה גם בלי ותק ותפקיד
 draft: false
 date: 2021-07-15
-cover_image: ./project-planning.jpg
+images: ./project-planning.jpg
 tags: ["עבודה", "Junior"]
 summary: |
   אני בסה"כ מתכנת צעיר, בורג קטן בחברה גדולה, ואני נהנה מהמקום הזה.

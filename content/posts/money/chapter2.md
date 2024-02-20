@@ -2,7 +2,7 @@
 title: ריבית דריבית
 date: 2022-01-16
 draft: false
-cover_image: ./compound_interest.jpg
+images: ./compound_interest.jpg
 tags: ["כסף"]
 series: true
 summary: |
