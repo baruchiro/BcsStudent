@@ -2,7 +2,7 @@
 title: How to setup auto semantic-release
 draft: false
 date: 2021-07-27
-cover_image: ./semantic-release.jpeg
+images: ./semantic-release.jpeg
 tags: ["git", "SemVer"]
 language: en
 publications:

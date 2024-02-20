@@ -4,7 +4,7 @@ summary: >
   רשימת הבלוגים בנושאי תוכנה וטכנולוגיה, בעברית.
   הוסיפו לכאן גם את הבלוגים שלכם!
 draft: false
-cover_image: ./rss-blogs.png
+images: ./rss-blogs.png
 date: 2019-04-11 18:46:00
 type: Blog
 ---

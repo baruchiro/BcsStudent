@@ -3,7 +3,7 @@ title: הפחתת השימוש בעכבר והצגת טקסט על רקע שול
 date: 2020-10-18
 draft: false
 tags: ["Shorts", "Not-Technical"]
-cover_image: ./gbinfo/cover.png
+images: ./gbinfo/cover.png
 summary: איך להדביק טקסט שאתם רוצים שתמיד יהיה זמין לכם, על שולחן העבודה
 type: Blog
 ---

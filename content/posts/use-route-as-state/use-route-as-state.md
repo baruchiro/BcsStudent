@@ -2,7 +2,7 @@
 title: How to sync component state with React Router
 draft: false
 date: 2021-07-07
-cover_image: ./use-route-as-state.gif
+images: ./use-route-as-state.gif
 summary: |
   Custom hooks with the useState interface to use the React Router state as the component state.
 tags: ["react", "npm"]

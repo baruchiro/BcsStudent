@@ -4,7 +4,7 @@ date: 2020-03-18
 draft: false
 tags: ["YouTube"]
 series: false
-cover_image: ./home-wedding.jpg
+images: ./home-wedding.jpg
 canonical_url: false
 summary: "כשהקורונה משתוללת בחוץ ויש הגבלות על כמות המשתתפים בחתונה, כל המשפחה והאנשים שבבית רוצים לקחת חלק בשמחה. לטובת כולם אני משתף איך עשינו את זה בחתונה של שלמה וחן!!"
 type: Blog

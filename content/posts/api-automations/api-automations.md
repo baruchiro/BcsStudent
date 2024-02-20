@@ -4,7 +4,7 @@ date: 2021-01-20
 draft: false
 tags: ["no-code", "free", "postman", "integromat", "nodejs"]
 series: false
-cover_image: ./api-automations.png
+images: ./api-automations.png
 canonical_url: false
 summary: איך לחבר כמה כלים, כדי לגרום לAPI לדבר ביניהם, מבלי לחרוג מהתכנית החינמית של כל כלי ובלי לכתוב יותר מידי קוד.
 type: Blog

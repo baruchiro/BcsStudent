@@ -9,7 +9,7 @@ summary: >
   שאנחנו פוגשים ביום
   יום הוא דווקא השגרה.
 draft: false
-cover_image: ./routine.png
+images: ./routine.png
 date: 2019-03-01 14:17:59
 type: Blog
 ---

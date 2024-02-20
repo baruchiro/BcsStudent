@@ -2,7 +2,7 @@
 title: "כספיון: תוכנה חברתית לניהול מעקב אחרי ההוצאות וההכנסות שלנו"
 draft: false
 date: 2021-07-05
-cover_image: ./main-screenshot.png
+images: ./main-screenshot.png
 summary: |
   איך למשוך בצורה אוטומטית את נתוני העובר ושב מחשבונות הבנק והאשראי, ולנתח אותם בכלים המועדפים עלינו או בכלים מוכרים לניהול הוצאות
 tags: ["כספיון", "Google Data Studio", "OpenSource", "ניהול כספים"]
