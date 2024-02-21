@@ -3,7 +3,7 @@ title: הפחתת השימוש בעכבר והצגת טקסט על רקע שול
 date: 2020-10-18
 draft: false
 tags: ["Shorts", "Not-Technical"]
-images: ./gbinfo/cover.png
+images: ./cover.png
 summary: איך להדביק טקסט שאתם רוצים שתמיד יהיה זמין לכם, על שולחן העבודה
 type: Blog
 ---
@@ -45,6 +45,6 @@ type: Blog
 
 בעקרון, אפשר פשוט להפעיל את התוכנה, לערוך את הטקסט, ובטח גם תרצו לוודא שמוגדר רקע, כדי שלא יהיה מסך שחור ומעצבן:
 
-![background-config](./gbinfo/backround-config.png)
+![background-config](./backround-config.png)
 
 אגב, מה שאני עשיתי זה לייבא קובץ טקסט חיצוני שבו רשמתי את קיצורי המקשים, אבל זה לא חובה.
