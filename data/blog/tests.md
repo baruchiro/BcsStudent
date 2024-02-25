@@ -3,9 +3,10 @@ title: מה כדאי לסטודנט לדעת- טסטים
 summary: "כתיבת טסטים היא חלק חשוב ועיקרי בעולם האג'ייל, וחשוב לדעת את זה מהשלב ההתחלתי שבו אנחנו נמצאים, על מנת להגיע טובים יותר לעבודה הראשונה שלנו."
 draft: false
 date: 2018-11-22 17:29:57
-tags: ["מה כדאי לסטודנט לדעת", "Tests"]
+tags: ['מה כדאי לסטודנט לדעת', 'Tests']
 type: Blog
 ---
+
 הפער המרכזי והידוע בין האקדמיה לתעשייה הוא שבאקדמיה אנחנו לומדים
 **תיאוריה** ומתמקדים בהבנה עמוקה יותר של העקרונות, בעוד שבתעשייה
 המטרה העיקרית היא להביא **מוצר**, ולכן ההתמקדות היא בדברים שיעזרו לנו
@@ -40,36 +41,36 @@ PersonList שתחזיק את האיש הראשון, ותבצע את הפעולו
 אני אציג רק את הקוד הרלוונטי כדי לא להעמיס (המימוש הוא בשפת \#C. אני
 מחפש תוסף שיאפשר להציג בכמה שפות):
 
-    [code language="csharp" classname="code"]&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-    class PersonList&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-    {&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        private Person head;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        public void InsertNewPerson(Person person)&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        {&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            var temp = head;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            while (temp.Next()?.age &amp;amp;amp;amp;amp;amp;gt; person.age)&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            {&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-                temp = temp.Next();&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            }&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            var next = temp.Next();&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            temp.SetNext(person);&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            person.SetNext(next);&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        }&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        public int GetMinAge()&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        {&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            var temp = head;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            while (temp.HasNext()) temp = temp.Next();&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            return temp.age;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        }&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        public double GetAverage()&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        {&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            var temp = head;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            var sum = 0, i = 0;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            for (; temp.HasNext(); i++, temp = temp.Next()) sum += temp.age;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-            return sum / i;&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-        }&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-    }&amp;amp;amp;amp;amp;lt;br&amp;amp;amp;amp;amp;gt;
-    [/code]
+```csharp
+class PersonList
+{
+    private Person head;
+    public void InsertNewPerson(Person person)
+    {
+        var temp = head;
+        while (temp.Next()?.age gt; person.age)
+        {
+            temp = temp.Next();
+        }
+        var next = temp.Next();
+        temp.SetNext(person);
+        person.SetNext(next);
+    }
+    public int GetMinAge()
+    {
+        var temp = head;
+        while (temp.HasNext()) temp = temp.Next();
+        return temp.age;
+    }
+    public double GetAverage()
+    {
+        var temp = head;
+        var sum = 0, i = 0;
+        for (; temp.HasNext(); i++, temp = temp.Next()) sum += temp.age;
+        return sum / i;
+    }
+}
+```
 
 מעולה. עכשיו אנחנו רוצים כמובן לראות שהכל בסדר. מה אנחנו עושים? מפעילים
 את התוכנה, בוחרים אופציה בתפריט, מזינים איזה 10 אנשים ובודקים את
@@ -103,50 +104,50 @@ PersonList שתחזיק את האיש הראשון, ותבצע את הפעולו
 מה שאנחנו נעשה זה ליצור מחלקת טסטים שתבדוק את הפונקציות של המחלקה
 שכתבנו.
 
-    [code language="csharp"]
-    [TestClass]
-    class PersonListTests
+```csharp
+[TestClass]
+class PersonListTests
+{
+    [TestMethod]
+    public void InsertNewPerson()
     {
-        [TestMethod]
-        public void InsertNewPerson()
-        {
-            var personToAdd = new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;Baruch&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 25);
-            var personList = new PersonList();
-            personList.InsertNewPerson(personToAdd);
-    
-            Assert.AreEqual(personToAdd, personList.GetHead());
-        }
-    
-        [TestMethod]
-        public void GetMinAge()
-        {
-            var personList = new PersonList();
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;A&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 34));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;B&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 100));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;C&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 0));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;D&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 34));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;E&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 22));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;F&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 57));
-    
-            Assert.AreEqual(0, personList.GetMinAge());
-        }
-    
-        [TestMethod]
-        public void GetAverage()
-        {
-            var personList = new PersonList();
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;A&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 34));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;B&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 100));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;C&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 0));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;D&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 34));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;E&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 22));
-            personList.InsertNewPerson(new Person(&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;F&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, 57));
-    
-            Assert.AreEqual(41, (int)personList.GetMinAge());
-        }
-    
+        var personToAdd = new Person(quot;Baruchquot;, 25);
+        var personList = new PersonList();
+        personList.InsertNewPerson(personToAdd);
+
+        Assert.AreEqual(personToAdd, personList.GetHead());
     }
-    [/code]
+
+    [TestMethod]
+    public void GetMinAge()
+    {
+        var personList = new PersonList();
+        personList.InsertNewPerson(new Person(quot;Aquot;, 34));
+        personList.InsertNewPerson(new Person(quot;Bquot;, 100));
+        personList.InsertNewPerson(new Person(quot;Cquot;, 0));
+        personList.InsertNewPerson(new Person(quot;Dquot;, 34));
+        personList.InsertNewPerson(new Person(quot;Equot;, 22));
+        personList.InsertNewPerson(new Person(quot;Fquot;, 57));
+
+        Assert.AreEqual(0, personList.GetMinAge());
+    }
+
+    [TestMethod]
+    public void GetAverage()
+    {
+        var personList = new PersonList();
+        personList.InsertNewPerson(new Person(quot;Aquot;, 34));
+        personList.InsertNewPerson(new Person(quot;Bquot;, 100));
+        personList.InsertNewPerson(new Person(quot;Cquot;, 0));
+        personList.InsertNewPerson(new Person(quot;Dquot;, 34));
+        personList.InsertNewPerson(new Person(quot;Equot;, 22));
+        personList.InsertNewPerson(new Person(quot;Fquot;, 57));
+
+        Assert.AreEqual(41, (int)personList.GetMinAge());
+    }
+
+}
+```
 
 אם נריץ את הקוד בעזרת הפקודה \`dotnet test\` למשל, נקבל דו"ח עבור שלושת
 הטסטים והאם הם עברו.
@@ -205,15 +206,3 @@ PersonList שתחזיק את האיש הראשון, ותבצע את הפעולו
 2.  נושא שני הוא תהליכי CI, ששם הבדיקות תופסות חלק משמעותי, ואני מקווה
     לכתוב על זה [פוסט אחר](https://www.bcsstudent.com/ci-cd/)
     בהזדמנות.
-
-<div class="terms_div">
-
-## מושגים
-
-  - <span id="21_agile">**agile**- עדיין אין פירוט למושג הזה.</span>
-  - <span id="21_unit-test">**unit-test**- עדיין אין פירוט למושג
-    הזה.</span>
-  - <span id="21_integration-test">**integration-test**- עדיין אין פירוט
-    למושג הזה.</span>
-
-</div>

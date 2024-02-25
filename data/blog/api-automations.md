@@ -2,10 +2,8 @@
 title: שילוב כלים לאוטומציה פשוטה וחינמית
 date: 2021-01-20
 draft: false
-tags: ["no-code", "free", "postman", "integromat", "nodejs"]
-series: false
+tags: ['no-code', 'free', 'postman', 'integromat', 'nodejs']
 images: /static/images/api-automations/api-automations.png
-canonical_url: false
 summary: איך לחבר כמה כלים, כדי לגרום לAPI לדבר ביניהם, מבלי לחרוג מהתכנית החינמית של כל כלי ובלי לכתוב יותר מידי קוד.
 type: Blog
 ---

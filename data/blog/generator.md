@@ -5,6 +5,7 @@ date: 2019-01-13 15:47:44
 images: /static/images/generator/generator.png
 type: Blog
 ---
+
 היי.
 
 התעכבתי קצת בפרסום הפוסט השבוע, כי עבדתי על אוטומציה וקוד פתוח לבלוג.
@@ -20,7 +21,7 @@ type: Blog
 פוסט בGithub הוא מעדכן מיד את הבלוג.
 
 לכן מעכשיו נגמרו התירוצים. כל הבלוג זמין פה-
-<https://github.com/baruchiro/BcsStudent>.
+https://github.com/baruchiro/BcsStudent.
 
 בנוסף, בכל פוסט יש קישור לעריכת הפוסט. בכך שהעתקתי את כל הפוסטים
 לGithub, אנחנו יכולים יותר בקלות, במקום הנוח המוכר, לעבוד עליהם ביחד.
@@ -51,16 +52,3 @@ Wordpress & PHP, ניצלתי את העובדה שכל הפוסטים נמצאי
 הנפרד](https://www.bcsstudent.com/terms/). הקוד כתוב לא בצורה הכי
 נקייה, אז אתם מוזמנים להציע עריכות משלכם, או ללכת לפי ה[Issues שפתוחים
 בgithub](https://github.com/baruchiro/BcsStudent/issues).
-
-<div class="terms_div">
-
-## מושגים
-
-  - <span id="1117_wordpress">**wordpress**- עדיין אין פירוט למושג
-    הזה.</span>
-  - <span id="1117_github">**GitHub**- גִיטהָאבּ הוא אתר לשיתוף קוד
-    שמתבסס על תוכנת גיט.</span>
-  - <span id="1117_framework">**framework**- עדיין אין פירוט למושג
-    הזה.</span>
-
-</div>
