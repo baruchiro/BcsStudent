@@ -64,8 +64,6 @@ const SearchBox = () => {
 
 ✔️ Getting the data from the `route` is done - the **state** is synced with the **route** (but the **route** is not synced with the **state**).
 
-{% codesandbox react-router-url-parameters-forked-1ub6s module=/RouteParams.js initialpath=/li %}
-
 ### Update the route on change
 
 Now we can update the `search` state with `setSearch`, but we want to keep the URL up to date with the latest `search`, in order to allow the user to copy the URL at any time.
@@ -90,8 +88,6 @@ const SearchBox = () => {
 ```
 
 ✔️ Update the route on change is done - change the `route` instead of the `state`, and the `state` will get updated from the `useEffect` hook.
-
-{% codesandbox react-router-url-parameters-forked-dk35u module=/RouteParams.js initialpath=/li %}
 
 ## Interim conclusions
 
@@ -146,8 +142,6 @@ const useCustomParams = () => {
 ```
 
 I don't know the specific `path` or `params`, I just take, update and push them again.
-
-{% codesandbox react-router-url-parameters-forked-6d236 module=/RouteParams.js initialpath=/li %}
 
 ---
 

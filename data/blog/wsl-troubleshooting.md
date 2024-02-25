@@ -2,9 +2,7 @@
 title: WSL Troubleshooting
 date: 2020-12-01
 draft: false
-tags: ["WSL"]
-series: false
-canonical_url: false
+tags: ['WSL']
 summary: Sequence of operations to find connection issues and fix them in WSL.
 language: en
 type: Blog

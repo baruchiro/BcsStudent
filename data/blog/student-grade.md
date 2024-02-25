@@ -7,7 +7,7 @@ summary: >
 draft: false
 images: /static/images/student-grade/student-grade.png
 date: 2019-04-04 23:06:00
-author: אוריאל אופיר
+authors: ['uriel-ofir']
 type: Blog
 ---
 
