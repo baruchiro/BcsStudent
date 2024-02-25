@@ -1,4 +1,4 @@
-export default (baseUrl, { path, title, description, image, twitterImage }) => {
+export default (baseUrl, { path, title, summary, image, twitterImage }) => {
   const meta = [];
 
   meta.push({
@@ -18,15 +18,15 @@ export default (baseUrl, { path, title, description, image, twitterImage }) => {
       },
     );
 
-  if (description)
+  if (summary)
     meta.push(
       {
         name: "description",
-        content: description,
+        content: summary,
       },
       {
         property: "og:description",
-        content: description,
+        content: summary,
       },
     );
 

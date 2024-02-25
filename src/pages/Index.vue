@@ -31,14 +31,14 @@
 
 <page-query>
 query {
-  posts: allPost(filter: { published: { eq: true }}) {
+  posts: allPost(filter: { draft: { eq: false }}) {
     edges {
       node {
         id
         title
         date (format: "D MMMM YYYY")
         timeToRead
-        description
+        summary
         cover_image (width: 770, height: 380, blur: 10)
         path
         author { title }
@@ -54,7 +54,7 @@ query {
   meta: metadata {
     siteName, siteDescription, siteUrl
   },
-  drafts: allPost(filter: { published: { eq: false }}) {
+  drafts: allPost(filter: { draft: { eq: true }}) {
     edges {
       node {
         id
@@ -71,7 +71,7 @@ query {
             id
             title
             path,
-            published
+            draft
           }
         }
       }
@@ -85,7 +85,7 @@ query {
             id
             title
             path,
-            published
+            draft
           }
         }
       }
@@ -143,14 +143,14 @@ export default {
       return this.$page.ideas
         ? this.$page.ideas.belongsTo.edges
             .map((e) => e.node)
-            .filter((p) => p.published)
+            .filter((p) => !p.draft)
         : [];
     },
     money() {
       return this.$page.money
         ? this.$page.money.belongsTo.edges
             .map((e) => e.node)
-            .filter((p) => p.published)
+            .filter((p) => !p.draft)
         : [];
     },
   },
