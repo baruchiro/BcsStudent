@@ -1,24 +1,24 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'B.cs Student',
+  title: 'ברוך אודם',
   author: 'Baruch Odem',
-  headerTitle: 'B.cs Student',
-  description: 'A blog about computer science and software engineering.',
+  headerTitle: 'ברוך אודם',
+  description: 'הבלוג של ברוך אודם',
   language: 'he-IL',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteUrl: 'https://baruch-odem.vercel.app/',
+  siteRepo: 'https://github.com/baruchiro/BcsStudent',
+  siteLogo: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
+  mastodon: 'https://fosstodon.org/@baruchiro',
+  email: 'baruchiro@gmail.com',
+  github: 'https://github.com/baruchiro',
+  twitter: 'https://twitter.com/baruchiro',
+  facebook: 'https://www.facebook.com/baruchiro/',
+  youtube: 'https://www.youtube.com/channel/UCOkG0VzTh5cij1Iuq6fm9BQ',
+  linkedin: 'https://www.linkedin.com/in/baruchiro',
+  threads: 'https://www.threads.net/@baruchiro',
+  instagram: 'https://www.instagram.com/baruchiro/',
   locale: 'he-IL',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
@@ -45,7 +45,7 @@ const siteMetadata = {
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus
     // Please add your .env file and modify it according to your selection
-    provider: 'buttondown',
+    // provider: 'buttondown',
   },
   comments: {
     // If you want to use an analytics provider you have to add it to the
