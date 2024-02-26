@@ -4,25 +4,26 @@ draft: false
 date: 2013-01-08 14:20:00
 type: Blog
 ---
+
 ## ביצי פסחא- Easter Eggs
 
 על פי ויקיפדיה (וגם על פי המידע שיש לי, כמובן) היא תכונה מוסתרת
 שהמתכנתים החביאו בתוך התוכנה, והיא לא מסייעת לשיפור השימוש
 בתוכנה, אלא היא סוג של בדיחה.
 
-<span style="background-color: white;"><span style="font-family: Arial, Helvetica, sans-serif;">למתכנתים
+למתכנתים
 של גוגל יש 20% מזמן העבודה שמוקדש לפיתוחים אישיים, אז כנראה שלפעמים לא
 היה להם מה לעשות בזמן הזה, אז הם החליטו להוסיף כמה
-טריקים. </span><span style="font-family: Arial, Helvetica, sans-serif;">מה
+טריקים. </span>מה
 שאספתי כולל "ביצי פסחא", אבל חוץ מזה אני מביא עוד כמה דברים מעניינים
 שאפשר למצוא בגוגל והסביבה.</span></span>  
 **אני אשמח לשמוע אם יש משהו שפיספסתי (מן הסתם..)**
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">קודם
+קודם
 כל, נסו לחפש את הביטוי </span>**Do a barrel
-roll **<span style="font-family: Arial, Helvetica, sans-serif;">ותראו
+roll **ותראו
 מה יקרה. (עובד גם עם
-</span>**<span style="vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="color: #660000;">Z
+</span>**<span style="vertical-align: baseline; white-space: pre-wrap;"><span style="color: #660000;">Z
 or R twice</span><span style="font-weight: normal;">)
 </span></span></span>**
 
@@ -32,7 +33,7 @@ askew, משולב בה גם מילון (פעם ראשונה שאני רואה א
 משהו דומה אפשר לעשות עם חיפוש המילים `tilt` או `askew` (שימו לב לתוצאה
 ב- `askew`, משולב בה גם מילון (פעם ראשונה שאני רואה את זה))
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="white-space: pre-wrap;">תחפשו
+<span style="white-space: pre-wrap;">תחפשו
 את אחד מסוגי המספרים (binary, hexadecimal, octal) ותראו כמה תוצאות
 קיבלתם?</span></span></span>
 
@@ -65,7 +66,7 @@ loneliest number</span><span style="font-weight: normal;"> (ותספרו לי מ
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif;">עוד
+<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;">עוד
 ציטוטים משירים-</span></span>
 
 </div>
@@ -86,7 +87,7 @@ in a blue moon</span></span>
 
 ועוד
 [מושג](http://he.wikipedia.org/wiki/%D7%AA%D7%A8%D7%99%D7%A1%D7%A8_%D7%A9%D7%9C_%D7%90%D7%95%D7%A4%D7%99%D7%9D) שקשור
-למחשבון-****
+למחשבון-\*\*\*\*
 
 </div>
 
@@ -113,7 +114,7 @@ bakers dozen</span></span>
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="white-space: pre-wrap;">נסו
+<span style="white-space: pre-wrap;">נסו
 לחפש </span></span></span>
 
 <span style="vertical-align: baseline; white-space: pre-wrap;"><span style="color: #660000;">recursion</span><span style="font-weight: normal;">
@@ -123,7 +124,7 @@ bakers dozen</span></span>
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">רוצים
+רוצים
 לבקש מגוגל להשתפר?
 כנסו [**<span style="color: #660000;">לכאן</span>**](http://support.google.com/mail/bin/static.py?hl=en&page=suggestions.cs) ותוכלו
 לבחור במה אתם רוצים שהם ישתפרו. השיפור האחרון הוא רעיון יפה.</span>
@@ -132,14 +133,14 @@ bakers dozen</span></span>
 
 <div style="text-align: justify;">
 
- <span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">[**<span style="color: #660000;">פה</span>**](http://www.google.com/heart/) נמצא
+[**<span style="color: #660000;">פה</span>**](http://www.google.com/heart/) נמצא
 הלב של גוגל.</span>
 
 </div>
 
 <div style="text-align: justify;">
 
- <span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">מי
+מי
 שמשתמש ב[קורא הRSS של גוגל](https://www.google.com/reader/), אפשר ללחוץ
 על All items, ואז ללחוץ על המקלדת בסדר הבא-</span>
 
@@ -153,14 +154,14 @@ bakers dozen</span></span>
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">גוגל
+גוגל
 הוא מנוע חיפוש, נכון?</span>
 
 </div>
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">אז
+אז
 תשאלו אותו איפה הגרביים\! הוא יודע איפה הם כבר בחיפוש הראשון, אז תלחצו
 על "יותר מזל משכל".</span>
 
@@ -185,9 +186,9 @@ are my socks</span><span style="font-weight: normal;">")</span></span>
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="white-space: pre-wrap;">קודם
-כל, כבוד לצוות המפות של גוגל. הם נמצאים ב- </span>**  
-**</span></span>
+<span style="white-space: pre-wrap;">קודם
+כל, כבוד לצוות המפות של גוגל. הם נמצאים ב- </span>\*\*  
+\*\*</span></span>
 
 <span style="vertical-align: baseline; white-space: pre-wrap;"><span style="color: #660000;">Googleplex
 headquarters in Mountain View,
@@ -209,8 +210,6 @@ California</span><span style="font-weight: normal;"> (צריך להיכנס לת
 משתלב יפה.. גם בתצוגת רחוב, במפה הקטנה בצד, תראו
 אותו.</span></span>
 
- 
-
 <span style="font-weight: normal;">המפות גם בודקות אם אתם באמת מקשיבים
 להוראות שלהם. אם תחפשו את </span><span style="color: #660000;">המסלול
 מיפן לסין</span><span style="font-weight: normal;"> (באנגלית) תראו את
@@ -221,8 +220,8 @@ California</span><span style="font-weight: normal;"> (צריך להיכנס לת
 
 <div style="text-align: justify;">
 
-********<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">פה- **  
-**</span></span>
+**\*\*\*\***פה- \*\*  
+\*\*</span></span>
 
 <span style="vertical-align: baseline; white-space: pre-wrap;"><span style="color: #660000;">44°14'39.35"N
 7°46'11.53"E</span><span style="font-weight: normal;"> עוד לא הצלחתי
@@ -232,12 +231,10 @@ California</span><span style="font-weight: normal;"> (צריך להיכנס לת
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-weight: normal;">שמעתי
+<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-weight: normal;">שמעתי
 גם שבצירוף המקשים </span><span style="color: #660000;">Ctrl + alt +
 A</span><span style="font-weight: normal;"> נכנסים למצב טיסה במפות, אבל
 לא הצלחתי..</span></span></span>
-
- 
 
 <span class="underline">למי שיש את תוכנת Google Earth, יש עוד כמה דברים
 שאפשר לנסות-</span>
@@ -274,13 +271,13 @@ N 1°51'13.51" W</span><span style="font-weight: normal;"> איך היא הגי�
 
 <div style="text-align: justify;">
 
-********************<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: large;"><span class="underline">במתרגם:</span></span></span>
+**\*\*\*\***\*\*\*\***\*\*\*\***<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: large;"><span class="underline">במתרגם:</span></span></span>
 
 </div>
 
 <div style="text-align: justify;">
 
-********<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;"><span style="white-space: pre-wrap;">כשעושים
+**\*\*\*\***<span style="white-space: pre-wrap;">כשעושים
 תרגום מאנגלית, אפשר להכניס את המשפט הזה-</span></span>
 
 </div>
@@ -304,14 +301,12 @@ bsch</span></span>
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-weight: normal;">אם
+<span style="background-color: white; vertical-align: baseline; white-space: pre-wrap;"><span style="font-weight: normal;">אם
 מנסים לתרגם </span><span style="color: #660000;">מלטינית
 לאנגלית</span><span style="font-weight: normal;">, תהיה הערה של
 גוגל שהשפה היא עדיין</span><span style="color: #660000;"> שפת
 Alpha</span><span style="font-weight: normal;">. יכול להיות שזה רציני,
 ולא בדיחה?</span></span></span>
-
- 
 
 <span style="font-weight: normal;">אני בטוח שכולנו משתמשים בגוגל בעברית
 או באנגלית. אבל מה קורה אם החבר
@@ -330,7 +325,7 @@ Alpha</span><span style="font-weight: normal;">. יכול להיות שזה רצ
 
 <div style="text-align: justify;">
 
-<span style="background-color: white; font-family: Arial, Helvetica, sans-serif;">בגלל
+בגלל
 שאני לא יודע בדיוק מה הבדיחה בכל דבר, אני פשוט אביא את השמות. אתם יכולים
 לעזור לי ולכתוב מה הבדיחה בכל אחד-</span>
 
@@ -338,22 +333,22 @@ Alpha</span><span style="font-weight: normal;">. יכול להיות שזה רצ
 
 <div dir="ltr" style="text-align: justify;">
 
-  - **Google Pirate**
-  - **Google Elmer Fudd**
-  - **Google pig Latin**
-  - **Google weenie**
-  - **Google epic**
-  - ****Google ****
-    <div style="display: inline !important;">
-    <div dir="rtl" style="display: inline !important; margin-bottom: 0; margin-top: 0;">
-    <span style="vertical-align: baseline; white-space: pre-wrap;">klingon</span>
-    </div>
-    </div>
-  - **Google hacker**
-  - **Google piglatin**
-  - **Google bork**
-  - **Google 133t **
-  - **Google Leet**
+- **Google Pirate**
+- **Google Elmer Fudd**
+- **Google pig Latin**
+- **Google weenie**
+- **Google epic**
+- \***\*Google \*\***
+  <div style="display: inline !important;">
+  <div dir="rtl" style="display: inline !important; margin-bottom: 0; margin-top: 0;">
+  <span style="vertical-align: baseline; white-space: pre-wrap;">klingon</span>
+  </div>
+  </div>
+- **Google hacker**
+- **Google piglatin**
+- **Google bork**
+- **Google 133t **
+- **Google Leet**
 
 </div>
 
@@ -367,7 +362,7 @@ Alpha</span><span style="font-weight: normal;">. יכול להיות שזה רצ
 
 <div dir="rtl" style="display: inline !important; margin-bottom: 0; margin-top: 0; text-align: right;">
 
-**<span style="vertical-align: baseline; white-space: pre-wrap;"><span style="font-family: Arial, Helvetica, sans-serif;"><span style="font-weight: normal;">ביוטיוב,
+**<span style="vertical-align: baseline; white-space: pre-wrap;"><span style="font-weight: normal;">ביוטיוב,
 מאוד ידוע, שאפשר ללחוץ על </span><span style="color: #660000;">למעלה
 וימינה</span><span style="font-weight: normal;"> למשל, ולהתחיל משחק
 </span><span style="color: #660000;">סנייק</span><span style="font-weight: normal;">.</span></span></span>**

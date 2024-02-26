@@ -7,6 +7,7 @@ draft: false
 date: 2018-02-26 12:57:52
 type: Blog
 ---
+
 אם עד עכשיו היינו מתקינים 2 מערכות הפעלה, או מתקינים מכונה וירטואלית כדי
 להשתמש בלינוקס במקביל לווינדוס, מאז שווינדוס הוסיפו תמיכה בלינוקס יש
 מקרים שזה לא נדרש. אז Windows מתחילים להעיף מבט לכיוון הקוד הפתוח,
@@ -46,7 +47,9 @@ WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10): עבור
 לא מומלץ לגשת לקבצים של מערכת לינוקס דרך Windows, אבל אם רוצים לבצע זאת
 הם נמצאים בתיקיית:
 
-C:Users{UserName}AppDataLocalPackagesCanonicalGroupLimited.UbuntuonWindows\_{id}LocalStaterootfs
+```
+C:\Users\{UserName}\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows\_{id}LocalStaterootfs
+```
 
 ## שימוש בתוכנות גרפיות של Ubuntu
 
