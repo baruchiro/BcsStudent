@@ -5,7 +5,7 @@ date: 2021-07-07
 images: /static/images/use-route-as-state/use-route-as-state.gif
 summary: |
   Custom hooks with the useState interface to use the React Router state as the component state.
-tags: ["react", "npm"]
+tags: ['react']
 publications:
   - https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1
 language: en
