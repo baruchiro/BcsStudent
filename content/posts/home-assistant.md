@@ -74,3 +74,5 @@ home-assistant מספקים הדרכה לתחילת עבודה, [כאן](https:/
 
 אחרי שהצלחתי להבין מה בכלל אני צריך לחפש ומה לעשות עם המידע שאני מוצא, נראה שאני חייב להגדיר פלטפורמה להשמעת המוזיקה, ולא, "הרמקולים שמחוברים" זה לא אופציה.
 שתי האופציות האפשריות שראיתי הם להשתמש בVLC Media Player או בMPD. VLC דורש התקנה מקומית, ומכיוון שאני עובד
+
+- [Sharing your configuration on GitHub - Community Guides - Home Assistant Community](https://community.home-assistant.io/t/sharing-your-configuration-on-github/195144)
