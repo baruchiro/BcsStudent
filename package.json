@@ -30,7 +30,7 @@
     "cheerio": "^1.0.0-rc.12",
     "prettier": "^3.2.5",
     "sass": "^1.69.5",
-    "sass-loader": "^10",
+    "sass-loader": "^14",
     "snyk": "^1.720.0",
     "xml2js": "^0.6.2"
   },
