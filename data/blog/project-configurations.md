@@ -1,7 +1,7 @@
 ---
 title: הגדרת פרויקט וסביבת פיתוח
 summary: פוסט על פעולות שאני עושה בכל פרויקט חדש
-date:
+date: 2021-08-01
 draft: true
 tags: []
 type: Blog

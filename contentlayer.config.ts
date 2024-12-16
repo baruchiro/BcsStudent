@@ -91,6 +91,9 @@ export const Blog = defineDocumentType(() => ({
     layout: { type: 'string' },
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
+    language: { type: 'enum', default: 'he', options: ['he', 'en'] },
+    series: { type: 'boolean', default: false },
+    publications: { type: 'list', of: { type: 'string' } },
   },
   computedFields: {
     ...computedFields,
