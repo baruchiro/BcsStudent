@@ -5,7 +5,7 @@ date: 2021-07-05
 images: /static/images/caspion/main-screenshot.png
 summary: |
   איך למשוך בצורה אוטומטית את נתוני העובר ושב מחשבונות הבנק והאשראי, ולנתח אותם בכלים המועדפים עלינו או בכלים מוכרים לניהול הוצאות
-tags: ["כספיון", "Google Data Studio", "OpenSource", "ניהול כספים"]
+tags: ["כספיון", "Google Data Studio", "OpenSource", "ניהול כספים", "integrations"]
 type: Blog
 ---
 
