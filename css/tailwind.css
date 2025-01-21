@@ -33,3 +33,13 @@ input:-webkit-autofill:focus {
 .katex-display {
   overflow: auto hidden;
 }
+
+.dir-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.dir-rtl {
+  direction: rtl;
+  text-align: right;
+}

@@ -1,18 +1,18 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
-import PageTitle from '@/components/PageTitle'
+import DirectionWrapper from '@/components/DirectionWrapper'
 import { components } from '@/components/MDXComponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
-import PostSimple from '@/layouts/PostSimple'
-import PostLayout from '@/layouts/PostLayout'
-import PostBanner from '@/layouts/PostBanner'
-import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+import PostBanner from '@/layouts/PostBanner'
+import PostLayout from '@/layouts/PostLayout'
+import PostSimple from '@/layouts/PostSimple'
+import type { Authors, Blog } from 'contentlayer/generated'
+import { allAuthors, allBlogs } from 'contentlayer/generated'
+import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { MDXLayoutRenderer } from 'pliny/mdx-components'
+import { allCoreContent, coreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 const defaultLayout = 'PostLayout'
 const layouts = {
@@ -115,7 +115,9 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        <DirectionWrapper language={post.language}>
+          <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        </DirectionWrapper>
       </Layout>
     </>
   )
