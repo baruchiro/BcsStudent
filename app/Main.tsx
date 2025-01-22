@@ -5,7 +5,7 @@ import siteMetadata from '@/data/siteMetadata'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 15
 
 export default function Home({ posts }) {
   return (
