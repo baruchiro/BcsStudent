@@ -2,6 +2,7 @@ import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import Image from 'next/image'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
 
@@ -27,12 +28,25 @@ export default function Home({ posts }) {
               <li key={slug} className="py-12">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                      <dt className="sr-only">פורסם ב</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                      </dd>
-                    </dl>
+                    <div className="space-y-4">
+                      <dl>
+                        <dt className="sr-only">פורסם ב</dt>
+                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                        </dd>
+                      </dl>
+                      {post.images && (
+                        <div>
+                          <Image
+                            src={Array.isArray(post.images) ? post.images[0] : post.images}
+                            alt={title}
+                            width={200}
+                            height={150}
+                            className="rounded-lg object-cover object-center"
+                          />
+                        </div>
+                      )}
+                    </div>
                     <div className="space-y-5 xl:col-span-3">
                       <DirectionWrapper language={language}>
                         <div className="space-y-6">
