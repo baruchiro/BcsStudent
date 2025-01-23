@@ -2,13 +2,15 @@ import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
+import { Blog } from 'contentlayer/generated'
 import Image from 'next/image'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
+import { getCoverImage } from 'utils/coverImage'
 
 const MAX_DISPLAY = 15
 
-export default function Home({ posts }) {
+export default function Home({ posts }: { posts: Blog[] }) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -38,7 +40,7 @@ export default function Home({ posts }) {
                       {post.images && (
                         <div>
                           <Image
-                            src={Array.isArray(post.images) ? post.images[0] : post.images}
+                            src={getCoverImage(post.images)}
                             alt={title}
                             width={200}
                             height={150}

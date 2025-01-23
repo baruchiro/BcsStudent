@@ -9,6 +9,7 @@ import siteMetadata from '@/data/siteMetadata'
 import type { Authors, Blog } from 'contentlayer/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { ReactNode } from 'react'
+import { getCoverImage } from 'utils/coverImage'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -30,31 +31,40 @@ interface LayoutProps {
 }
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+  const { filePath, path, slug, date, title, tags, images } = content
   const basePath = path.split('/')[0]
+  const coverImage = getCoverImage(images)
 
   return (
     <SectionContainer>
       <ScrollTopAndComment />
       <article>
-        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <header className="pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
-              </dl>
-              <div>
-                <PageTitle>{title}</PageTitle>
-              </div>
+        <header className="relative py-16 sm:py-24">
+          {coverImage && (
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+              <Image src={coverImage} alt={title} fill className="object-cover" priority />
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 via-gray-900/60 to-gray-900/80 dark:from-gray-900/90 dark:via-gray-900/70 dark:to-gray-900/90" />
             </div>
-          </header>
+          )}
+          <div className="relative space-y-1 text-center">
+            <dl className="space-y-10">
+              <div>
+                <dt className="sr-only">Published on</dt>
+                <dd className="text-base font-medium leading-6 text-white/90 drop-shadow">
+                  <time dateTime={date}>
+                    {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                  </time>
+                </dd>
+              </div>
+            </dl>
+            <div>
+              <PageTitle>
+                <span className="text-white drop-shadow-md">{title}</span>
+              </PageTitle>
+            </div>
+          </div>
+        </header>
+        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
             <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
               <dt className="sr-only">Authors</dt>
