@@ -7,7 +7,7 @@ const siteMetadata = {
   language: 'he-IL',
   theme: 'system', // system, dark or light
   siteUrl: 'https://baruchiro.online',
-  siteRepo: 'https://github.com/baruchiro/baruchiro/BcsStudent',
+  siteRepo: 'https://github.com/baruchiro/BcsStudent',
   siteLogo: '/static/images/baruch.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://fosstodon.org/@baruchiro',
@@ -53,19 +53,19 @@ const siteMetadata = {
     giscusConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://giscus.app/
-      repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
+      repo: 'baruchiro/bcsstudent',
       repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
-      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
+      category: 'Announcements',
       categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
-      mapping: 'pathname', // supported options: pathname, url, title
+      mapping: 'title', // supported options: pathname, url, title
       reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
       // Send discussion metadata periodically to the parent window: 1 = enable / 0 = disable
       metadata: '0',
       // theme example: light, dark, dark_dimmed, dark_high_contrast
       // transparent_dark, preferred_color_scheme, custom
-      theme: 'light',
+      theme: 'preferred_color_scheme',
       // theme when dark mode
-      darkTheme: 'transparent_dark',
+      darkTheme: 'preferred_color_scheme',
       // If the theme option above is set to 'custom`
       // please provide a link below to your custom theme css file.
       // example: https://giscus.app/themes/custom_example.css

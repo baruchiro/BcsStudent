@@ -13,7 +13,7 @@ import { getCoverImage } from 'utils/coverImage'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
+  `https://x.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -105,10 +105,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
-                  Discuss on Twitter
+                  דיון בטוויטר
                 </Link>
                 {` • `}
-                <Link href={editUrl(filePath)}>View on GitHub</Link>
+                <Link href={editUrl(filePath)}>צפייה ב-GitHub</Link>
               </div>
               {siteMetadata.comments && (
                 <div
@@ -124,7 +124,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 {tags && (
                   <div className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      Tags
+                      תגיות
                     </h2>
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
@@ -138,7 +138,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     {prev && prev.path && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Previous Article
+                          המאמר הקודם
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
@@ -148,7 +148,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                     {next && next.path && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Next Article
+                          המאמר הבא
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/${next.path}`}>{next.title}</Link>
