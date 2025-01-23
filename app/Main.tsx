@@ -11,6 +11,8 @@ import { getCoverImage } from 'utils/coverImage'
 const MAX_DISPLAY = 15
 
 export default function Home({ posts }: { posts: Blog[] }) {
+  const publishedPosts = posts.filter((post) => !post.draft)
+
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -23,8 +25,8 @@ export default function Home({ posts }: { posts: Blog[] }) {
           </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'לא נמצאו פוסטים'}
-          {posts.slice(0, MAX_DISPLAY).map((post) => {
+          {!publishedPosts.length && 'לא נמצאו פוסטים'}
+          {publishedPosts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags, language = 'he' } = post
             return (
               <li key={slug} className="py-12">
@@ -90,7 +92,7 @@ export default function Home({ posts }: { posts: Blog[] }) {
           })}
         </ul>
       </div>
-      {posts.length > MAX_DISPLAY && (
+      {publishedPosts.length > MAX_DISPLAY && (
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
