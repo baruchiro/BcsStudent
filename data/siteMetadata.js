@@ -2,8 +2,8 @@
 const siteMetadata = {
   title: 'ברוך אודם',
   author: 'ברוך אודם',
-  headerTitle: 'TailwindBlog',
-  description: 'בלוג שנבנה עם Next.js ו-Tailwind.css',
+  headerTitle: 'ברוך אודם',
+  description: 'אמנם כבר לא סטודנט, אבל אוהב ללמוד דברים חדשים',
   language: 'he-IL',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
