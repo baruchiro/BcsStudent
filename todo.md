@@ -1,0 +1,5 @@
+- [v] Convert new posts
+- [x] Convert failed posts
+- [ ] remove old vue
+- [ ] deploy
+- [ ] add projects
