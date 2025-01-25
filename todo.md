@@ -1,5 +1,9 @@
 - [v] Convert new posts
 - [x] Convert failed posts
 - [ ] remove old vue
+- [ ] move to src
 - [ ] deploy
 - [ ] add projects
+- [ ] RSS
+- [ ] Analytics
+- [ ] remove jsconfig.json?
