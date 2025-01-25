@@ -6,7 +6,7 @@ import { Blog } from 'contentlayer/generated'
 import Image from 'next/image'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
-import { getCoverImage } from 'utils/coverImage'
+import { getCoverImage } from '@/utils/coverImage'
 
 const MAX_DISPLAY = 15
 

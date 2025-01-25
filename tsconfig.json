@@ -17,10 +17,12 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"],
-      "@/layouts/*": ["layouts/*"],
-      "@/css/*": ["css/*"],
+      "@/*": [
+        "src/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
       "contentlayer/generated": ["./.contentlayer/generated"]
     },
     "plugins": [

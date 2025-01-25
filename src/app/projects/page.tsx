@@ -1,4 +1,4 @@
-import { genPageMetadata } from 'app/seo'
+import { genPageMetadata } from '@/app/seo'
 
 export const metadata = genPageMetadata({ title: 'Projects' })
 
