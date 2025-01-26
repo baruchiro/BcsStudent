@@ -8,3 +8,4 @@
 - [ ] Analytics
 - [ ] remove jsconfig.json?
 - [ ] README.md
+- [ ] 3 posts format (without author, with cover image)

@@ -137,6 +137,7 @@ export default makeSource({
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
+      // @ts-ignore
       remarkExtractFrontmatter,
       remarkGfm,
       remarkCodeTitles,

@@ -7,10 +7,11 @@ import Image from 'next/image'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { formatDate } from 'pliny/utils/formatDate'
 import { getCoverImage } from '@/utils/coverImage'
+import { CoreContent } from 'pliny/utils/contentlayer'
 
 const MAX_DISPLAY = 15
 
-export default function Home({ posts }: { posts: Blog[] }) {
+export default function Home({ posts }: { posts: CoreContent<Blog>[] }) {
   const publishedPosts = posts.filter((post) => !post.draft)
 
   return (
