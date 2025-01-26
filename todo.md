@@ -1,0 +1,10 @@
+- [v] Convert new posts
+- [x] Convert failed posts
+- [v] remove old vue
+- [v] move to src
+- [ ] deploy
+- [ ] add projects
+- [ ] RSS
+- [ ] Analytics
+- [ ] remove jsconfig.json?
+- [ ] README.md
