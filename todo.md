@@ -2,8 +2,10 @@
 - [x] Convert failed posts
 - [v] remove old vue
 - [v] move to src
-- [ ] deploy
-- [ ] domain
+- [v] deploy
+- [v] domain
+- [ ] Social Cards
+- [ ] צפייה בגיטאהב לא עובד
 - [ ] add projects
 - [ ] RSS- check if exists
 - [ ] Analytics
