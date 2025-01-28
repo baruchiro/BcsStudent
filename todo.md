@@ -3,8 +3,9 @@
 - [v] remove old vue
 - [v] move to src
 - [ ] deploy
+- [ ] domain
 - [ ] add projects
-- [ ] RSS
+- [ ] RSS- check if exists
 - [ ] Analytics
 - [ ] remove jsconfig.json?
 - [ ] README.md

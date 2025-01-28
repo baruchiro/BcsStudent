@@ -4,350 +4,350 @@ draft: false
 date: 2012-04-05 12:24:00
 type: Blog
 ---
-<div dir="rtl" style="text-align:right;">
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;height:auto;margin-right:23px;text-align:right;vertical-align:baseline;width:auto;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun Underlined SCX124670610" style="font-size:14pt;font-weight:bold;text-decoration:underline;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">התקנה:  </span><span class="EOP SCX124670610" style="font-size:14pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
+התקנה:   
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">בשונה
+
+
+
+
+
+
+
+בשונה
 מיישומים אחרים, ש Visual Studio מתקין אוטומטית, את השירות נצטרך להתקין
-בעצמנו. </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+בעצמנו.  
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">קודם
+
+
+
+
+קודם
 כל, מומלץ ללחוץ על F6 כדי לבדוק אם קיימות
-שגיאות. </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+שגיאות.  
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">נגיע
+
+
+
+
+נגיע
 חזרה לחלון האפור של TheService.cs, נלחץ לחיצה ימנית ונבחר "Add
 Installer". יתווסף לנו קובץ ProjectInstaller.cs ועוד כמה
-Reference. </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+Reference.  
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">כנס
+
+
+
+
+כנס
 לקובץ ProjectInstaller.cs, ולחץ על ServiceInstaller1. גש לטבלת
 המאפיינים, ושים
-לב- </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+לב-  
 
-</div>
 
-</div>
+
+
 
   - 
     
-    <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
     
-    <span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">המאפיין
+    
+    המאפיין
     DisplayName- המאפיין שיוצג בטבלת השירותים. (אני כתבתי
-    "MyServiceInWindows").</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+    "MyServiceInWindows"). 
     
-    </div>
     
-    <span class="ListGhost SCX124670610" style="margin:0;padding:0;"></span>
+    
+    
 
   - 
     
-    <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
     
-    <span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">המאפיין
+    
+    המאפיין
     Description- כתיבת תיאור לשירות, בתור הסבר שיוצג עם השירות ברשימת
     השירותים של Windows. (אני כתבתי "My experimental service
     (description)"
-    ). </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+    ).  
     
-    </div>
     
-    <span class="ListGhost SCX124670610" style="margin:0;padding:0;"></span>
+    
+    
 
   - 
     
-    <div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
     
-    <span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">המאפיין
+    
+    המאפיין
     StartType- תוכל לעיין בהקדמה למעלה כדי להיזכר בערכים
-    שלו.</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+    שלו. 
     
-    </div>
     
-    <span class="ListGhost SCX124670610" style="margin:0;padding:0;"></span>
+    
+    
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">עכשיו
+
+
+
+
+
+
+עכשיו
 פתח את Visual Studio Command Prompt (אני הייתי צריך "לפתוח כמנהל", אחרת
 זה לא עבד..) הקלד שם "installutil -i" ואז את מיקום היישום- קובץ exe
 שבתיקייה
-"binDebug". </span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+"binDebug".  
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="WACImageContainer Selected SCX124670610" style="margin:0;padding:0;">
+
+
+
+
 
 ![](https://word-edit.officeapps.live.com/we/GetImage.ashx?Fi=SDEC96D5B09D87A2E9!362&C=1__BL2-SKY-WAC-WSHI&ak=t%3d0%26s%3d0%26v%3d!ADDjYhbvrchTdE8&ObjectDataBlobId=%7B5abe51f7-52ea-5fb9-968a-d6a4b8f68308%7D%7B1%7D&Word=1)
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-family:Calibri, sans-serif;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">שים
-לב ל2 ההודעות בסוף, אלו מאשרות את ההתקנה-</span>
 
-</div>
 
-<div class="Paragraph Rtl SCX124670610" style="direction:rtl;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-  - <span style="font-family:Calibri, sans-serif;"><span style="font-size:15px;">The
-    Commit Phase completed successfuli.</span></span>
-  - <span style="font-family:Calibri, sans-serif;"><span style="font-size:15px;">The
-    transacted install has completed.</span></span>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">אם
+שים
+לב ל2 ההודעות בסוף, אלו מאשרות את ההתקנה-
+
+
+
+
+
+
+
+  - The
+    Commit Phase completed successfuli.
+  - The
+    transacted install has completed.
+
+
+
+
+
+
+
+אם
 סיימת עם
-זה-</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+זה- 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="WACImageContainer Selected SCX124670610" style="margin:0;padding:0;">
+
+
+
+
 
 ![](https://word-edit.officeapps.live.com/we/GetImage.ashx?Fi=SDEC96D5B09D87A2E9!362&C=1__BL2-SKY-WAC-WSHI&ak=t%3d0%26s%3d0%26v%3d!ADDjYhbvrchTdE8&ObjectDataBlobId=%7B220b9e40-75da-5851-bfc8-cee6b52fb22b%7D%7B1%7D&Word=1)
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">אולי
+
+
+
+
+אולי
 תנסה להפעיל את שורת הפקודה של visual studio כמנהל, או שהשירות מותקן כבר
 (כך שתנסה להסיר אותו קודם, ראה
-בהמשך.)</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+בהמשך.) 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">פתח
+
+
+
+
+
+
+
+
+פתח
 את MMC (פשוט כתוב ב"הפעלה" (באנגלית "Run...") את הראשי תיבות MMC), קובץ,
 הוספה של יישום snap-in, והוסף מהרשימה את
-"שירותים".</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+"שירותים". 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">פתח
+
+
+
+
+פתח
 את הרשימה ע"י דאבלקליק, וחפש את השירות שלך לפי השם שקראת לו במאפיין
 DisplayName בהתחלת חלק ההתקנה
-במדריך.</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+במדריך. 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">אם
+
+
+
+
+אם
 במאפיין StartType בחרת  Manual, לחץ פעמיים על השירות כדי להפעיל אותו.
 שים לב לתיאור
-שמופיע.</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+שמופיע. 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">הוסף
+
+
+
+
+הוסף
 snap-in חדש, את "מציג האירועים", וחפש שם את השירות
-שלנו.</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+שלנו. 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">להסרת
+
+
+
+
+
+
+
+
+להסרת
 השירות (בשביל לשנות קוד הנך חייב להסיר את השירות, לשמור את השינויים
 ולהתקינו מחדש)
--</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+- 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">אותה
+
+
+
+
+אותה
 פקודה בדיוק, רק installutil
--u.</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+-u. 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">בקשה
-אישית-</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">אם
+
+
+
+
+
+
+
+בקשה
+אישית- 
+
+
+
+
+
+
+
+
+
+אם
 קראת את המדריך, ספר לי, שאני אדע שלא בזבזתי עליו זמן (לוקח זמן לכתוב
 מדריך מושקע..), וגם כי סתם אני נהנה להחליף דעות עם אנשים בנושאי
 תכנות
-למיניהם....</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+למיניהם.... 
 
-</div>
 
-</div>
 
-<div class="OutlineElement Rtl SCX124670610" style="font-family:Calibri, sans-serif;font-size:11px;text-align:-webkit-auto;margin:0;padding:0;">
 
-<div class="Paragraph Rtl SCX124670610" style="color:windowtext;direction:rtl;font-size:8pt;text-align:right;vertical-align:baseline;word-wrap:normal !important;padding:0;">
 
-<span class="TextRun SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;" lang="HE-IL">ברוך
+
+
+
+
+ברוך
 רוטקוף-
-baruchiro@gmail.com</span><span class="EOP SCX124670610" style="font-size:11pt;word-wrap:normal !important;margin:0;padding:0;"> </span>
+baruchiro@gmail.com 
 
-</div>
 
-</div>
 
-</div>
 
-<div class="blogger-post-footer">
+
+
+
+
 
 אני תמיד שמח לתגובות\! (גם אם זה אחרי שנה, שנתיים, עשר..) ברוך רוטקוף.
 
-</div>
+
