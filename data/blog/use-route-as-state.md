@@ -75,14 +75,14 @@ const SearchBox = () => {
   // Code from previous examples
 
   return (
-    <div>
+    
       <input
         type="text"
         value={search}
         onChange={(e) => history.replace("/" + e.target.value)}
       />
       <SearchList search={search} />
-    </div>
+    
   );
 };
 ```

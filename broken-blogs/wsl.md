@@ -46,7 +46,7 @@ WSL](https://docs.microsoft.com/en-us/windows/wsl/install-win10): עבור
 לא מומלץ לגשת לקבצים של מערכת לינוקס דרך Windows, אבל אם רוצים לבצע זאת
 הם נמצאים בתיקיית:
 
-C:Users{UserName}AppDataLocalPackagesCanonicalGroupLimited.UbuntuonWindows\_{id}LocalStaterootfs
+C:Users\{UserName\}AppDataLocalPackagesCanonicalGroupLimited.UbuntuonWindows\_{id}LocalStaterootfs
 
 ## שימוש בתוכנות גרפיות של Ubuntu
 
