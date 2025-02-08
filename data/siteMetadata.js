@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://baruchiro.online',
   siteRepo: 'https://github.com/baruchiro/BcsStudent',
   siteLogo: '/static/images/baruch.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/site-cover.png',
   mastodon: 'https://fosstodon.org/@baruchiro',
   email: 'baruchiro@gmail.com',
   github: 'https://github.com/baruchiro',
