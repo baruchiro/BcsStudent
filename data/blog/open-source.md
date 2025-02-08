@@ -2,7 +2,7 @@
 title: מה כדאי לסטודנט לדעת- קוד פתוח
 draft: false
 date: 2018-12-20 17:34:55
-tags: ["מה כדאי לסטודנט לדעת", "OpenSource"]
+tags: ["מה כדאי לסטודנט לדעת", "Open-Source"]
 type: Blog
 ---
 > [ויקיפדיה](https://he.wikipedia.org/wiki/%D7%A7%D7%95%D7%93_%D7%A4%D7%AA%D7%95%D7%97):

@@ -4,7 +4,7 @@ summary: |
   באמצע יום עבודה רגיל, קלטתי שביצעתי רצף פעולות ארוך של החלטות על קוד פתוח, והבנתי ששווה לתאר רגע איך זה נראה.
 date: 2024-02-15
 draft: false
-tags: [OpenSource]
+tags: [Open-Source]
 type: Blog
 ---
 

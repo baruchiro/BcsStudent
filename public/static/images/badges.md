@@ -4,7 +4,7 @@ description: |
     A list of badges that can be used in a GitHub README file.
 date: 2024-03-18
 published: false
-tags: [OpenSource, GitHub]
+tags: [Open-Source, GitHub]
 ---
 
 ## Open Source

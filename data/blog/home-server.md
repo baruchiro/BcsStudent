@@ -2,7 +2,7 @@
 title: הגדרות שרת המדיה הביתי שלי
 date: 2020-11-06
 draft: false
-tags: ['Personal', 'home-server', 'repository', "integrations"]
+tags: ['Self-Hosted', 'GitHub', "integrations"]
 images: /static/images/home-server/home-server.png
 summary: איך מוגדר שרת המדיה הביתי שלי, להורדת סדרות וסרטים בצורה אוטומטית, חיפוש כתוביות, התחברות מכל מכשיר וסקריפטים נוספים
 type: Blog
