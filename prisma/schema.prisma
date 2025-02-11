@@ -10,7 +10,58 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id             Int    @id @default(autoincrement())
-  githubUsername String
+enum UserType {
+  User
+  Organization
+}
+
+enum PullRequestState {
+  open
+  closed
+}
+
+model GithubUser {
+  id           String        @id
+  username     String        @unique
+  avatarUrl    String?
+  type         UserType
+  url          String
+  createdPRs   PullRequest[] @relation("Author")
+  repositories Repository[]  @relation("Owner")
+}
+
+model Repository {
+  id            String        @id
+  name          String
+  fullName      String        @unique
+  description   String?
+  isPrivate     Boolean
+  url           String
+  defaultBranch String
+  createdAt     DateTime
+  updatedAt     DateTime
+  owner         GithubUser    @relation("Owner", fields: [ownerId], references: [id])
+  ownerId       String
+  pullRequests  PullRequest[]
+}
+
+model PullRequest {
+  id         String           @id
+  number     Int
+  title      String
+  body       String?
+  state      PullRequestState
+  isDraft    Boolean
+  createdAt  DateTime
+  updatedAt  DateTime
+  closedAt   DateTime?
+  mergedAt   DateTime?
+  baseRef    String
+  headRef    String
+  author     GithubUser       @relation("Author", fields: [authorId], references: [id])
+  authorId   String
+  repository Repository       @relation(fields: [repoId], references: [id])
+  repoId     String
+
+  @@unique([repoId, number])
 }
