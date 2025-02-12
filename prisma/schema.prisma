@@ -13,6 +13,7 @@ datasource db {
 enum UserType {
   User
   Organization
+  Bot
 }
 
 enum PullRequestState {
@@ -25,21 +26,16 @@ model GithubUser {
   username     String        @unique
   avatarUrl    String?
   type         UserType
-  url          String
   createdPRs   PullRequest[] @relation("Author")
   repositories Repository[]  @relation("Owner")
 }
 
 model Repository {
   id            String        @id
-  name          String
   fullName      String        @unique
   description   String?
   isPrivate     Boolean
-  url           String
   defaultBranch String
-  createdAt     DateTime
-  updatedAt     DateTime
   owner         GithubUser    @relation("Owner", fields: [ownerId], references: [id])
   ownerId       String
   pullRequests  PullRequest[]
@@ -49,7 +45,6 @@ model PullRequest {
   id         String           @id
   number     Int
   title      String
-  body       String?
   state      PullRequestState
   isDraft    Boolean
   createdAt  DateTime
