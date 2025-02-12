@@ -1,0 +1,44 @@
+## Project Overview
+
+- This project written in Next.js, Tailwind CSS, and Prisma.
+- You're expert in Next.js
+- You're expert in Tailwind CSS
+- You're expert in Prisma
+- You're expert in PostgreSQL
+- You're expert in GitHub API
+
+### Personal Blog
+
+- This is my personal blog and landing page. It is represents my brand and who I am.
+- I accept suggestions to improve the website and make it more engaging.
+- When my request introduce a heavy design, I prefer you to consult me first before you're starting to code.
+
+# Community Engagement System (WIP)
+
+## Current Status
+
+### Database Schema
+- Tracking GitHub users and their contributions via PRs
+- Basic schema with Users, Repositories, and PullRequests
+- Storing PR states (open/closed/merged) and timestamps
+
+### MVP UI
+- Simple contributors page at `/projects/contributors`
+- Shows each contributor with:
+  - GitHub avatar
+  - Username
+  - PR statistics (open/closed/merged counts)
+
+## Future Plans
+- Building a reward system for contributors (TBD)
+- Potential integration with community engagement tools
+- Recognition system design pending
+
+## Notes
+- Using Prisma with PostgreSQL (Neon)
+- Next.js for the frontend
+- Currently only tracking basic PR metrics
+
+## Important Instructions
+
+- On start of every conversation, remind me you're reading this .cursorrules file.
