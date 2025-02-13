@@ -35,6 +35,31 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   const basePath = path.split('/')[0]
   const coverImage = getCoverImage(images)
 
+  const renderAuthorSocialLink = (author: CoreContent<Authors>) => {
+    if (author.twitter) {
+      return (
+        <Link
+          href={author.twitter}
+          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+        >
+          {author.twitter.replace('https://twitter.com/', '@')}
+        </Link>
+      )
+    }
+
+    if (author.linkedin) {
+      return (
+        <Link
+          href={author.linkedin}
+          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+        >
+          {author.linkedin.replace('https://www.linkedin.com/', '')}
+        </Link>
+      )
+    }
+    return null
+  }
+
   return (
     <SectionContainer>
       <ScrollTopAndComment />
@@ -50,7 +75,11 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <dl className="space-y-10">
               <div>
                 <dt className="sr-only">Published on</dt>
-                <dd className="text-base font-medium leading-6 text-white/90 drop-shadow">
+                <dd
+                  className={`text-base font-medium leading-6 ${
+                    coverImage ? 'text-white/90' : 'text-gray-900 dark:text-white/90'
+                  } drop-shadow`}
+                >
                   <time dateTime={date}>
                     {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
                   </time>
@@ -59,7 +88,11 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </dl>
             <div>
               <PageTitle>
-                <span className="text-white drop-shadow-md">{title}</span>
+                <span
+                  className={`${coverImage ? 'text-white' : 'text-gray-900 dark:text-white'} drop-shadow-md`}
+                >
+                  {title}
+                </span>
               </PageTitle>
             </div>
           </div>
@@ -83,18 +116,16 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
                         <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                            >
-                              {author.twitter.replace('https://twitter.com/', '@')}
-                            </Link>
-                          )}
+                        <dd className="text-gray-900 dark:text-gray-100">
+                          <Link
+                            href={`/authors/${author.slug}`}
+                            className="hover:text-primary-600 dark:hover:text-primary-400"
+                          >
+                            {author.name}
+                          </Link>
                         </dd>
+                        <dt className="sr-only">Twitter</dt>
+                        <dd>{renderAuthorSocialLink(author)}</dd>
                       </dl>
                     </li>
                   ))}
