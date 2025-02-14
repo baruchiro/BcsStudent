@@ -1,7 +1,6 @@
 import '@/css/tailwind.css'
 import 'pliny/search/algolia.css'
 
-import AnalyticsProvider from '@/components/AnalyticsProvider'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { SearchProvider } from '@/components/SearchProvider'
@@ -78,18 +77,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
-          <AnalyticsProvider>
-            <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-            <SectionContainer>
-              <div className="flex h-screen flex-col justify-between font-sans">
-                <SearchProvider>
-                  <Header />
-                  <main className="mb-auto">{children}</main>
-                </SearchProvider>
-                <Footer />
-              </div>
-            </SectionContainer>
-          </AnalyticsProvider>
+          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          <SectionContainer>
+            <div className="flex h-screen flex-col justify-between font-sans">
+              <SearchProvider>
+                <Header />
+                <main className="mb-auto">{children}</main>
+              </SearchProvider>
+              <Footer />
+            </div>
+          </SectionContainer>
         </ThemeProviders>
       </body>
     </html>
