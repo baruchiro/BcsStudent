@@ -13,7 +13,7 @@ const ContentSecurityPolicy = `
   media-src *.s3.amazonaws.com *.posthog.com;
   connect-src * *.posthog.com;
   font-src 'self' *.posthog.com;
-  frame-src giscus.app *.posthog.com;
+  frame-src giscus.app *.posthog.com github.com;
 `
 
 const securityHeaders = [
