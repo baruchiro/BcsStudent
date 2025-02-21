@@ -141,6 +141,7 @@ export const Authors = defineDocumentType(() => ({
     github: { type: 'string' },
     githubSponsor: { type: 'boolean', default: false },
     layout: { type: 'string' },
+    language: { type: 'enum', default: 'he', options: ['he', 'en'] },
   },
   computedFields,
 }))

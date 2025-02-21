@@ -1,3 +1,4 @@
+import DirectionWrapper from '@/components/DirectionWrapper'
 import Image from '@/components/Image'
 import type { Authors } from 'contentlayer/generated'
 import { ReactNode } from 'react'
@@ -8,8 +9,18 @@ interface Props {
 }
 
 export default function AuthorLayout({ children, content }: Props) {
-  const { name, avatar, occupation, company, email, twitter, linkedin, github, githubSponsor } =
-    content
+  const {
+    name,
+    avatar,
+    occupation,
+    company,
+    email,
+    twitter,
+    linkedin,
+    github,
+    githubSponsor,
+    language = 'he',
+  } = content
 
   return (
     <>
@@ -35,7 +46,7 @@ export default function AuthorLayout({ children, content }: Props) {
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">
-            {children}
+            <DirectionWrapper language={language}>{children}</DirectionWrapper>
             {githubSponsor && github && (
               <div className="not-prose pt-4">
                 <iframe
