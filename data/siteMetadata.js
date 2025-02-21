@@ -16,6 +16,7 @@ const siteMetadata = {
   twitter: 'https://x.com/baruchiro',
   facebook: 'https://www.facebook.com/baruchiro/',
   linkedin: 'https://www.linkedin.com/in/baruchiro',
+  telegram: 'https://t.me/BcsStudent',
   locale: 'he-IL',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
