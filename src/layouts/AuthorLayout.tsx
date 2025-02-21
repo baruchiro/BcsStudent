@@ -1,5 +1,6 @@
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Image from '@/components/Image'
+import SocialIcon from '@/components/social-icons'
 import type { Authors } from 'contentlayer/generated'
 import { ReactNode } from 'react'
 
@@ -19,6 +20,7 @@ export default function AuthorLayout({ children, content }: Props) {
     linkedin,
     github,
     githubSponsor,
+    telegram,
     language = 'he',
   } = content
 
@@ -44,6 +46,14 @@ export default function AuthorLayout({ children, content }: Props) {
             <h3 className="pb-2 pt-4 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
+
+            <div className="flex space-x-3 pt-6">
+              {email && <SocialIcon kind="mail" href={`mailto:${email}`} size={6} />}
+              {twitter && <SocialIcon kind="twitter" href={twitter} size={6} />}
+              {linkedin && <SocialIcon kind="linkedin" href={linkedin} size={6} />}
+              {github && <SocialIcon kind="github" href={github} size={6} />}
+              {telegram && <SocialIcon kind="telegram" href={telegram} size={6} />}
+            </div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">
             <DirectionWrapper language={language}>{children}</DirectionWrapper>
