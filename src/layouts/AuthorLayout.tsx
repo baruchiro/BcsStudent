@@ -1,3 +1,4 @@
+import DirectionWrapper from '@/components/DirectionWrapper'
 import Image from '@/components/Image'
 import SocialIcon from '@/components/social-icons'
 import type { Authors } from 'contentlayer/generated'
@@ -20,6 +21,7 @@ export default function AuthorLayout({ children, content }: Props) {
     github,
     githubSponsor,
     telegram,
+    language = 'he',
   } = content
 
   return (
@@ -54,7 +56,7 @@ export default function AuthorLayout({ children, content }: Props) {
             </div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">
-            {children}
+            <DirectionWrapper language={language}>{children}</DirectionWrapper>
             {githubSponsor && github && (
               <div className="not-prose pt-4">
                 <iframe
