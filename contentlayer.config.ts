@@ -139,6 +139,7 @@ export const Authors = defineDocumentType(() => ({
     twitter: { type: 'string' },
     linkedin: { type: 'string' },
     github: { type: 'string' },
+    githubSponsor: { type: 'boolean', default: false },
     layout: { type: 'string' },
   },
   computedFields,
