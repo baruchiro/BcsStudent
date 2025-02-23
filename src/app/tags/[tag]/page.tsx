@@ -1,5 +1,6 @@
 import { genPageMetadata } from '@/app/seo'
 import tagData from '@/app/tag-data.json'
+import projectsData from '@/data/projectsData'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allBlogs } from 'contentlayer/generated'
@@ -34,8 +35,16 @@ export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
   // Capitalize first letter and convert space to dash
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
+
+  // Filter blog posts
   const filteredPosts = allCoreContent(
     sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
   )
-  return <ListLayout posts={filteredPosts} title={title} />
+
+  // Filter projects
+  const filteredProjects = projectsData.filter((project) =>
+    project.tags.map((t) => slug(t)).includes(slug(tag))
+  )
+
+  return <ListLayout posts={filteredPosts} projects={filteredProjects} title={title} />
 }

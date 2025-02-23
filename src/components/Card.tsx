@@ -1,7 +1,16 @@
 import Image from './Image'
 import Link from './Link'
+import Tag from './Tag'
 
-const Card = ({ title, description, imgSrc, href }) => (
+interface CardProps {
+  title: string
+  description: string
+  imgSrc?: string
+  href?: string
+  tags?: string[]
+}
+
+const Card = ({ title, description, imgSrc, href, tags = [] }: CardProps) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
       className={`${
@@ -38,6 +47,11 @@ const Card = ({ title, description, imgSrc, href }) => (
             title
           )}
         </h2>
+        <div className="mb-3 flex flex-wrap">
+          {tags.map((tag) => (
+            <Tag key={tag} text={tag} />
+          ))}
+        </div>
         <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
         {href && (
           <Link

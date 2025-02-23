@@ -21,6 +21,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
+import projectsData from './data/projectsData'
 import siteMetadata from './data/siteMetadata'
 
 const root = process.cwd()
@@ -56,10 +57,12 @@ const computedFields: ComputedFields = {
 }
 
 /**
- * Count the occurrences of all tags across blog posts and write to json file
+ * Count the occurrences of all tags across blog posts and projects and write to json file
  */
 function createTagCount(allBlogs) {
   const tagCount: Record<string, number> = {}
+
+  // Count blog post tags
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
@@ -72,6 +75,19 @@ function createTagCount(allBlogs) {
       })
     }
   })
+
+  // Count project tags
+  projectsData.forEach((project) => {
+    project.tags.forEach((tag) => {
+      const formattedTag = slug(tag)
+      if (formattedTag in tagCount) {
+        tagCount[formattedTag] += 1
+      } else {
+        tagCount[formattedTag] = 1
+      }
+    })
+  })
+
   writeFileSync('./src/app/tag-data.json', JSON.stringify(tagCount))
 }
 
