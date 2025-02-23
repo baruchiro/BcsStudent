@@ -13,7 +13,7 @@ const projectsData: Project[] = [
       'כלי CLI לניהול תלויות בין Pull Requests בגיטהאב. מאפשר מעקב אחר PRs תקועים, ארגון PRs לפי פיצ׳רים, וניהול היררכיית תלויות. נבנה עם Node.js ו-React.',
     imgSrc: '/static/images/projects/prstuck.png',
     href: 'https://github.com/baruchiro/gh-prstuck',
-    tags: ['github', 'cli', 'nodejs', 'open-source'],
+    tags: ['github', 'cli', 'open-source'],
   },
   {
     title: 'כספיון',
