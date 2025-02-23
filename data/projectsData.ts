@@ -13,6 +13,13 @@ const projectsData: Project[] = [
     imgSrc: '/static/images/projects/prstuck.png',
     href: 'https://github.com/baruchiro/gh-prstuck',
   },
+  {
+    title: 'כספיון',
+    description:
+      'אפליקציה לניהול תקציב המרכזת למקום אחד את כל פירוטי ההוצאות מחשבונות הבנק וכרטיסי האשראי. האפליקציה רצה מקומית במחשב, מאובטחת, וכוללת ייצוא נתונים ל-Excel, Google Sheets ו-YNAB.',
+    imgSrc: '/static/images/projects/caspion.png',
+    href: 'https://github.com/brafdlog/caspion',
+  },
 ]
 
 export default projectsData
