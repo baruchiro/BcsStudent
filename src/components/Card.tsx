@@ -1,3 +1,4 @@
+import GithubStarButton from './GithubStarButton'
 import Image from './Image'
 import Link from './Link'
 import Tag from './Tag'
@@ -40,9 +41,14 @@ const Card = ({ title, description, imgSrc, href, tags = [] }: CardProps) => (
       <div className="p-6">
         <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
           {href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
-              {title}
-            </Link>
+            <div className="flex items-center justify-between">
+              <Link href={href} aria-label={`Link to ${title}`}>
+                {title}
+              </Link>
+              <div dir="ltr">
+                <GithubStarButton href={href} />
+              </div>
+            </div>
           ) : (
             title
           )}
