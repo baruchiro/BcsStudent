@@ -31,6 +31,10 @@ export const generateStaticParams = async () => {
   return paths
 }
 
+const isTagMatch = (tags: string[], targetTag: string) => {
+  return tags.some((t) => t === targetTag || slug(t) === targetTag)
+}
+
 export default function TagPage({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
   // Capitalize first letter and convert space to dash
@@ -38,13 +42,11 @@ export default function TagPage({ params }: { params: { tag: string } }) {
 
   // Filter blog posts
   const filteredPosts = allCoreContent(
-    sortPosts(allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes(tag)))
+    sortPosts(allBlogs.filter((post) => post.tags && isTagMatch(post.tags, tag)))
   )
 
-  // Filter projects
-  const filteredProjects = projectsData.filter((project) =>
-    project.tags.map((t) => slug(t)).includes(slug(tag))
-  )
+  // Filter projects with the same logic
+  const filteredProjects = projectsData.filter((project) => isTagMatch(project.tags, tag))
 
   return <ListLayout posts={filteredPosts} projects={filteredProjects} title={title} />
 }
