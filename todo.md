@@ -7,10 +7,10 @@
 - [x] Social Cards
 - [x] צפייה בגיטאהב לא עובד
 - [x] add projects
-- [ ] sort projects by stars using server-side rendering and cache (once a day or something)
+- [x] sort projects by stars using server-side rendering and cache (once a day or something)
 - [ ] RSS- check if exists
-- [ ] Analytics
-- [ ] remove jsconfig.json?
+- [x] Analytics
+- [x] remove jsconfig.json?
 - [ ] README.md
 - [ ] 3 posts format (without author, with cover image)
 - [ ] list of ideas https://tender-side-7246.glide.page/dl/ideas

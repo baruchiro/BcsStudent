@@ -1,4 +1,10 @@
-# Tag Management Guidelines
+# Blog Content Guidelines
+
+## About The Blog
+My blog, mainly about programming, in Hebrew.
+Built with Next.js and deployed on Vercel, based on Tailwind Nextjs Starter Blog.
+
+## Tag Management Guidelines
 
 Current tags statistics are available in the `src/app/tag-data.json` file.
 
@@ -15,3 +21,29 @@ Current tags statistics are available in the `src/app/tag-data.json` file.
 2. Remove tags that are used only once unless highly specific and necessary
 3. Merge tags that mean the same thing
 4. Remove overly generic tags that don't add value
+
+## Post Guidelines
+
+### Frontmatter Requirements
+
+Each post must include:
+- title (required)
+- date (required)
+- tags (optional, follow tag rules above)
+- lastmod (optional)
+- draft (optional)
+- summary (optional)
+- images (optional)
+- authors (optional)
+- layout (optional)
+- canonicalUrl (optional)
+
+### Content Features Support
+Posts can include:
+- Math display via KaTeX
+- Citations and bibliography
+- MDX components
+- Syntax highlighting with line numbers
+- Image optimization
+- Multiple authors
+- Nested routing
