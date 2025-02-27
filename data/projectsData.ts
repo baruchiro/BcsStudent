@@ -8,14 +8,6 @@ export interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'PRStuck',
-    description:
-      'כלי CLI לניהול תלויות בין Pull Requests בגיטהאב. מאפשר מעקב אחר PRs תקועים, ארגון PRs לפי פיצ׳רים, וניהול היררכיית תלויות. נבנה עם Node.js ו-React.',
-    imgSrc: '/static/images/projects/prstuck.png',
-    href: 'https://github.com/baruchiro/gh-prstuck',
-    tags: ['github', 'cli', 'open-source', 'extension'],
-  },
-  {
     title: 'כספיון',
     description:
       'אפליקציה לניהול תקציב המרכזת למקום אחד את כל פירוטי ההוצאות מחשבונות הבנק וכרטיסי האשראי. האפליקציה רצה מקומית במחשב, מאובטחת, וכוללת ייצוא נתונים ל-Excel, Google Sheets ו-YNAB.',
@@ -30,6 +22,21 @@ const projectsData: Project[] = [
     imgSrc: '/static/images/projects/overlay.png',
     href: 'https://github.com/os-scar/overlay',
     tags: ['open-source', 'javascript', 'github', 'extension'],
+  },
+  {
+    title: 'Israeli Bank Scrapers',
+    description:
+      'ספריית קוד פתוח המספקת כלים לגישה אוטומטית למידע מכל הבנקים וחברות האשראי הגדולות בישראל.',
+    href: 'https://github.com/eshaham/israeli-bank-scrapers',
+    tags: ['open-source', 'typescript', 'banking', 'scraping'],
+  },
+  {
+    title: 'PRStuck',
+    description:
+      'כלי CLI לניהול תלויות בין Pull Requests בגיטהאב. מאפשר מעקב אחר PRs תקועים, ארגון PRs לפי פיצ׳רים, וניהול היררכיית תלויות. נבנה עם Node.js ו-React.',
+    imgSrc: '/static/images/projects/prstuck.png',
+    href: 'https://github.com/baruchiro/gh-prstuck',
+    tags: ['github', 'cli', 'open-source', 'extension'],
   },
   {
     title: 'URL Title Preview',

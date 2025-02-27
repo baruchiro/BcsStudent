@@ -6,7 +6,7 @@
 - [x] domain
 - [x] Social Cards
 - [x] צפייה בגיטאהב לא עובד
-- [ ] add projects
+- [x] add projects
 - [ ] RSS- check if exists
 - [ ] Analytics
 - [ ] remove jsconfig.json?
