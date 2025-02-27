@@ -7,6 +7,7 @@
 - [x] Social Cards
 - [x] צפייה בגיטאהב לא עובד
 - [x] add projects
+- [ ] sort projects by stars using server-side rendering and cache (once a day or something)
 - [ ] RSS- check if exists
 - [ ] Analytics
 - [ ] remove jsconfig.json?

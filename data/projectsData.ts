@@ -28,7 +28,7 @@ const projectsData: Project[] = [
     description:
       'ספריית קוד פתוח המספקת כלים לגישה אוטומטית למידע מכל הבנקים וחברות האשראי הגדולות בישראל.',
     href: 'https://github.com/eshaham/israeli-bank-scrapers',
-    tags: ['open-source', 'typescript', 'banking', 'scraping'],
+    tags: ['open-source', 'כסף', 'כספיון'],
   },
   {
     title: 'PRStuck',

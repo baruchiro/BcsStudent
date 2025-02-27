@@ -1,0 +1,17 @@
+# Tag Management Guidelines
+
+Current tags statistics are available in the `src/app/tag-data.json` file.
+
+## General Rules
+
+1. Each item (blog post/project) should have between 2-5 tags
+2. Tags should be specific and relevant to the main topics of the content
+3. Use existing tags when possible instead of creating new ones
+4. Tags should be lowercase and use hyphens for spaces
+
+## Tag Cleanup Guidelines
+
+1. Regularly review and consolidate similar tags
+2. Remove tags that are used only once unless highly specific and necessary
+3. Merge tags that mean the same thing
+4. Remove overly generic tags that don't add value
