@@ -4,6 +4,59 @@ export interface Project {
   href?: string
   imgSrc?: string
   tags: string[]
+  stars?: number
+}
+
+function extractGitHubInfo(url: string): { owner: string; repo: string } | null {
+  try {
+    const githubUrl = new URL(url)
+    if (githubUrl.hostname !== 'github.com') return null
+
+    const [, owner, repo] = githubUrl.pathname.split('/')
+    return { owner, repo }
+  } catch {
+    return null
+  }
+}
+
+async function fetchGitHubStars(owner: string, repo: string): Promise<number> {
+  const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+    next: { revalidate: 86400 }, // Cache for 24 hours
+  })
+
+  if (!response.ok) {
+    console.warn(`Failed to fetch stars for ${owner}/${repo}: ${response.statusText}`)
+    return 0
+  }
+
+  const data = await response.json()
+  return data.stargazers_count || 0
+}
+
+export async function getEnhancedProjectsData(): Promise<Project[]> {
+  const enhancedProjects = await Promise.all(
+    projectsData.map(async (project) => {
+      if (!project.href) return project
+
+      const githubInfo = extractGitHubInfo(project.href)
+      if (!githubInfo) return project
+
+      try {
+        const stars = await fetchGitHubStars(githubInfo.owner, githubInfo.repo)
+        return { ...project, stars }
+      } catch (error) {
+        console.error(`Error fetching stars for ${project.href}:`, error)
+        return project
+      }
+    })
+  )
+
+  // Sort by stars (projects without stars will be at the end)
+  return enhancedProjects.sort((a, b) => (b.stars || 0) - (a.stars || 0))
 }
 
 const projectsData: Project[] = [
