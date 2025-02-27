@@ -1,14 +1,15 @@
-- [v] Convert new posts
+- [x] Convert new posts
 - [x] Convert failed posts
-- [v] remove old vue
-- [v] move to src
-- [v] deploy
-- [v] domain
-- [ ] Social Cards
-- [ ] צפייה בגיטאהב לא עובד
+- [x] remove old vue
+- [x] move to src
+- [x] deploy
+- [x] domain
+- [x] Social Cards
+- [x] צפייה בגיטאהב לא עובד
 - [ ] add projects
 - [ ] RSS- check if exists
 - [ ] Analytics
 - [ ] remove jsconfig.json?
 - [ ] README.md
 - [ ] 3 posts format (without author, with cover image)
+- [ ] list of ideas https://tender-side-7246.glide.page/dl/ideas

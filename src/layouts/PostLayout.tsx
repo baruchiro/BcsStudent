@@ -11,7 +11,7 @@ import type { Authors, Blog } from 'contentlayer/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { ReactNode } from 'react'
 
-const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
+const editUrl = (path) => `${siteMetadata.siteRepo}/blob/master/data/${path}`
 const discussUrl = (path) =>
   `https://x.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
