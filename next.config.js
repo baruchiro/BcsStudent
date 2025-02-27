@@ -71,6 +71,10 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'picsum.photos',
         },
+        {
+          protocol: 'https',
+          hostname: 'opengraph.githubassets.com',
+        },
       ],
     },
     async headers() {
