@@ -35,9 +35,7 @@ const Card = ({ title, description, imgSrc, href, tags = [], language }: CardPro
   return (
     <div className="md max-w-[544px] p-4 md:w-1/2">
       <div
-        className={`${
-          imageUrl && 'h-full'
-        }  overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
+        className={`${imageUrl && 'h-full'}  flex h-full flex-col overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
       >
         {imageUrl &&
           (href ? (
@@ -59,14 +57,14 @@ const Card = ({ title, description, imgSrc, href, tags = [], language }: CardPro
               height={306}
             />
           ))}
-        <div className="p-6">
+        <div className="flex flex-1 flex-col p-6">
           <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
             {href ? (
-              <div className="flex items-center justify-between">
-                <Link href={href} aria-label={`Link to ${title}`}>
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <Link href={href} aria-label={`Link to ${title}`} className="min-w-0 flex-grow">
                   {title}
                 </Link>
-                <div dir="ltr">
+                <div dir="ltr" className="shrink-0">
                   <GithubStarButton href={href} />
                 </div>
               </div>
@@ -82,9 +80,9 @@ const Card = ({ title, description, imgSrc, href, tags = [], language }: CardPro
             </div>
             {language && <LanguageBadge language={language.name} color={language.color} />}
           </div>
-          <p className="prose mb-4 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-          <div className="flex items-center justify-end">
-            {href && (
+          <p className="prose mb-auto max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+          {href && (
+            <div className="mt-4 flex items-center justify-end">
               <Link
                 href={href}
                 className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -92,8 +90,8 @@ const Card = ({ title, description, imgSrc, href, tags = [], language }: CardPro
               >
                 לפרויקט &larr;
               </Link>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
