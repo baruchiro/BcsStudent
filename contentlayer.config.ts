@@ -1,9 +1,4 @@
-import {
-  ComputedFields,
-  defineDocumentType,
-  FieldDefs,
-  makeSource,
-} from 'contentlayer/source-files'
+import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
 import { writeFileSync } from 'fs'
 import { slug } from 'github-slugger'
 import path from 'path'
@@ -29,6 +24,13 @@ import rehypeSlug from 'rehype-slug'
 import projectsData from './data/projectsData'
 import siteMetadata from './data/siteMetadata'
 
+interface PlainArr {
+  _array: string[]
+  _typeId: symbol
+  depth: number
+  length: number
+}
+
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -43,23 +45,6 @@ const contentHeaderLinkIcon = fromHtmlIsomorphic(
 `,
   { fragment: true }
 )
-
-const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
-  slug: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
-  },
-  path: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath,
-  },
-  filePath: {
-    type: 'string',
-    resolve: (doc) => doc._raw.sourceFilePath,
-  },
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
-}
 
 /**
  * Count the occurrences of all tags across blog posts and projects and write to json file
@@ -109,70 +94,78 @@ function createSearchIndex(allBlogs) {
   }
 }
 
-const blogFields: FieldDefs = {
-  title: { type: 'string', required: true },
-  date: { type: 'date', required: true },
-  tags: { type: 'list', of: { type: 'string' }, default: [] },
-  lastmod: { type: 'date' },
-  draft: { type: 'boolean' },
-  summary: { type: 'string' },
-  images: { type: 'json' },
-  authors: { type: 'list', of: { type: 'string' } },
-  layout: { type: 'string' },
-  bibliography: { type: 'string' },
-  canonicalUrl: { type: 'string' },
-  language: { type: 'enum', default: 'he', options: ['he', 'en'] },
-  series: { type: 'boolean', default: false },
-  publications: { type: 'list', of: { type: 'string' } },
-}
-
-const blogComputedFields: ComputedFields = {
-  ...computedFields,
-  structuredData: {
-    type: 'json',
-    resolve: (doc) => ({
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: doc.title,
-      datePublished: doc.date,
-      dateModified: doc.lastmod || doc.date,
-      description: doc.summary,
-      image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-      url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-    }),
+const computedFields: ComputedFields = {
+  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  slug: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
   },
+  path: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath,
+  },
+  filePath: {
+    type: 'string',
+    resolve: (doc) => doc._raw.sourceFilePath,
+  },
+  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: 'blog/**/!(ideas)/*.mdx',
-  contentType: 'mdx',
-  fields: blogFields,
-  computedFields: blogComputedFields,
-}))
-
-export const Idea = defineDocumentType(() => ({
-  name: 'Idea',
-  filePathPattern: 'blog/ideas/**/*.mdx',
+  filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    ...blogFields,
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    tags: { type: 'list', of: { type: 'string' }, default: [] },
+    lastmod: { type: 'date' },
+    draft: { type: 'boolean' },
+    summary: { type: 'string' },
+    images: { type: 'json' },
+    authors: { type: 'list', of: { type: 'string' } },
+    layout: { type: 'string' },
+    bibliography: { type: 'string' },
+    canonicalUrl: { type: 'string' },
+    language: { type: 'enum', default: 'he', options: ['he', 'en'] },
+    series: { type: 'boolean', default: false },
+    publications: { type: 'list', of: { type: 'string' } },
+    // Idea-specific fields
     status: {
-      type: 'enum' as const,
+      type: 'enum',
       options: ['draft', 'in-progress', 'done'],
       default: 'draft',
     },
     externalLinks: {
-      type: 'list' as const,
-      of: { type: 'string' as const },
+      type: 'list',
+      of: { type: 'string' },
       default: [],
     },
     implementation: {
-      type: 'string' as const,
+      type: 'string',
       default: '',
     },
   },
-  computedFields: blogComputedFields,
+  computedFields: {
+    ...computedFields,
+    structuredData: {
+      type: 'json',
+      resolve: (doc) => ({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: doc.title,
+        datePublished: doc.date,
+        dateModified: doc.lastmod || doc.date,
+        description: doc.summary,
+        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+      }),
+    },
+    isIdea: {
+      type: 'boolean',
+      resolve: (doc) => (doc.tags as unknown as PlainArr)?._array.includes('idea'),
+    },
+  },
 }))
 
 export const Authors = defineDocumentType(() => ({
@@ -198,7 +191,7 @@ export const Authors = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Idea, Authors],
+  documentTypes: [Blog, Authors],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
