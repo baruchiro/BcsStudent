@@ -1,5 +1,6 @@
 import GithubStarButton from './GithubStarButton'
 import Image from './Image'
+import LanguageBadge from './LanguageBadge'
 import Link from './Link'
 import Tag from './Tag'
 
@@ -9,6 +10,10 @@ interface CardProps {
   imgSrc?: string
   href?: string
   tags?: string[]
+  language?: {
+    name: string
+    color: string
+  }
 }
 
 const getGithubPreviewUrl = (href: string) => {
@@ -24,7 +29,7 @@ const getGithubPreviewUrl = (href: string) => {
   return null
 }
 
-const Card = ({ title, description, imgSrc, href, tags = [] }: CardProps) => {
+const Card = ({ title, description, imgSrc, href, tags = [], language }: CardProps) => {
   const imageUrl = imgSrc || (href && getGithubPreviewUrl(href))
 
   return (
@@ -69,21 +74,26 @@ const Card = ({ title, description, imgSrc, href, tags = [] }: CardProps) => {
               title
             )}
           </h2>
-          <div className="mb-3 flex flex-wrap">
-            {tags.map((tag) => (
-              <Tag key={tag} text={tag} />
-            ))}
+          <div className="mb-3 flex items-center justify-between">
+            <div className="flex flex-wrap items-center gap-1">
+              {tags.map((tag) => (
+                <Tag key={tag} text={tag} />
+              ))}
+            </div>
+            {language && <LanguageBadge language={language.name} color={language.color} />}
           </div>
-          <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-          {href && (
-            <Link
-              href={href}
-              className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-              aria-label={`Link to ${title}`}
-            >
-              לפרויקט &larr;
-            </Link>
-          )}
+          <p className="prose mb-4 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+          <div className="flex items-center justify-end">
+            {href && (
+              <Link
+                href={href}
+                className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                aria-label={`Link to ${title}`}
+              >
+                לפרויקט &larr;
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>

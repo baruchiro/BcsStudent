@@ -28,6 +28,7 @@ export default async function Projects() {
                 imgSrc={d.imgSrc}
                 href={d.href}
                 tags={d.tags}
+                language={d.language}
               />
             ))}
           </div>

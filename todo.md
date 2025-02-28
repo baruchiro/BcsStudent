@@ -11,6 +11,6 @@
 - [ ] RSS- check if exists
 - [x] Analytics
 - [x] remove jsconfig.json?
-- [ ] README.md
-- [ ] 3 posts format (without author, with cover image)
+- [x] README.md
+- [-] 3 posts format (without author, with cover image)
 - [ ] list of ideas https://tender-side-7246.glide.page/dl/ideas

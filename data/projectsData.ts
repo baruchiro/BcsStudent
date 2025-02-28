@@ -5,6 +5,10 @@ export interface Project {
   imgSrc?: string
   tags: string[]
   stars?: number
+  language?: {
+    name: string
+    color: string
+  }
 }
 
 function extractGitHubInfo(url: string): { owner: string; repo: string } | null {
@@ -37,7 +41,55 @@ async function fetchGitHubStars(owner: string, repo: string): Promise<number> {
   return data.stargazers_count || 0
 }
 
+async function getLanguageColors() {
+  try {
+    const colorsResponse = await fetch(
+      'https://raw.githubusercontent.com/ozh/github-colors/master/colors.json',
+      { next: { revalidate: 86400 } } // Cache for 24 hours
+    )
+    if (!colorsResponse.ok) {
+      throw new Error(`Failed to fetch language colors: ${colorsResponse.statusText}`)
+    }
+    const languageColorsCache: Record<string, { color: string }> = await colorsResponse.json()
+    return languageColorsCache
+  } catch (error) {
+    console.warn('Failed to fetch language colors:', error)
+    return null
+  }
+}
+
+async function fetchGitHubLanguages(owner: string, repo: string): Promise<Project['language']> {
+  const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/languages`, {
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+    next: { revalidate: 86400 }, // Cache for 24 hours
+  })
+
+  if (!response.ok) {
+    console.warn(`Failed to fetch languages for ${owner}/${repo}: ${response.statusText}`)
+    return undefined
+  }
+
+  const languages = await response.json()
+  const primaryLanguage = Object.entries(languages).sort(
+    (a, b) => (b[1] as number) - (a[1] as number)
+  )[0]?.[0]
+
+  if (!primaryLanguage) return undefined
+
+  const colors = await getLanguageColors()
+  return {
+    name: primaryLanguage,
+    color: colors?.[primaryLanguage]?.color || '#6e7681', // medium gray
+  }
+}
+
 export async function getEnhancedProjectsData(): Promise<Project[]> {
+  // Pre-fetch language colors to have them ready for all projects
+  await getLanguageColors()
+
   const enhancedProjects = await Promise.all(
     projectsData.map(async (project) => {
       if (!project.href) return project
@@ -46,10 +98,13 @@ export async function getEnhancedProjectsData(): Promise<Project[]> {
       if (!githubInfo) return project
 
       try {
-        const stars = await fetchGitHubStars(githubInfo.owner, githubInfo.repo)
-        return { ...project, stars }
+        const [stars, language] = await Promise.all([
+          fetchGitHubStars(githubInfo.owner, githubInfo.repo),
+          fetchGitHubLanguages(githubInfo.owner, githubInfo.repo),
+        ])
+        return { ...project, stars, language }
       } catch (error) {
-        console.error(`Error fetching stars for ${project.href}:`, error)
+        console.error(`Error fetching GitHub data for ${project.href}:`, error)
         return project
       }
     })
@@ -74,7 +129,7 @@ const projectsData: Project[] = [
       'תוסף דפדפן המסייע למפתחים להעריך חבילות קוד פתוח לפני השימוש בהן. זמין עבור Firefox ו-Chrome, ומספק תובנות על החבילה ישירות ב-npm, PyPI, Stack Overflow ורג׳יסטרים נוספים.',
     imgSrc: '/static/images/projects/overlay.png',
     href: 'https://github.com/os-scar/overlay',
-    tags: ['open-source', 'javascript', 'github', 'extension'],
+    tags: ['open-source', 'github', 'extension'],
   },
   {
     title: 'Israeli Bank Scrapers',
