@@ -1,4 +1,9 @@
-import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files'
+import {
+  ComputedFields,
+  defineDocumentType,
+  FieldDefs,
+  makeSource,
+} from 'contentlayer/source-files'
 import { writeFileSync } from 'fs'
 import { slug } from 'github-slugger'
 import path from 'path'
@@ -104,42 +109,70 @@ function createSearchIndex(allBlogs) {
   }
 }
 
+const blogFields: FieldDefs = {
+  title: { type: 'string', required: true },
+  date: { type: 'date', required: true },
+  tags: { type: 'list', of: { type: 'string' }, default: [] },
+  lastmod: { type: 'date' },
+  draft: { type: 'boolean' },
+  summary: { type: 'string' },
+  images: { type: 'json' },
+  authors: { type: 'list', of: { type: 'string' } },
+  layout: { type: 'string' },
+  bibliography: { type: 'string' },
+  canonicalUrl: { type: 'string' },
+  language: { type: 'enum', default: 'he', options: ['he', 'en'] },
+  series: { type: 'boolean', default: false },
+  publications: { type: 'list', of: { type: 'string' } },
+}
+
+const blogComputedFields: ComputedFields = {
+  ...computedFields,
+  structuredData: {
+    type: 'json',
+    resolve: (doc) => ({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: doc.title,
+      datePublished: doc.date,
+      dateModified: doc.lastmod || doc.date,
+      description: doc.summary,
+      image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+      url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+    }),
+  },
+}
+
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: 'blog/**/*.mdx',
+  filePathPattern: 'blog/**/!(ideas)/*.mdx',
+  contentType: 'mdx',
+  fields: blogFields,
+  computedFields: blogComputedFields,
+}))
+
+export const Idea = defineDocumentType(() => ({
+  name: 'Idea',
+  filePathPattern: 'blog/ideas/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, default: [] },
-    lastmod: { type: 'date' },
-    draft: { type: 'boolean' },
-    summary: { type: 'string' },
-    images: { type: 'json' },
-    authors: { type: 'list', of: { type: 'string' } },
-    layout: { type: 'string' },
-    bibliography: { type: 'string' },
-    canonicalUrl: { type: 'string' },
-    language: { type: 'enum', default: 'he', options: ['he', 'en'] },
-    series: { type: 'boolean', default: false },
-    publications: { type: 'list', of: { type: 'string' } },
-  },
-  computedFields: {
-    ...computedFields,
-    structuredData: {
-      type: 'json',
-      resolve: (doc) => ({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-      }),
+    ...blogFields,
+    status: {
+      type: 'enum' as const,
+      options: ['draft', 'in-progress', 'done'],
+      default: 'draft',
+    },
+    externalLinks: {
+      type: 'list' as const,
+      of: { type: 'string' as const },
+      default: [],
+    },
+    implementation: {
+      type: 'string' as const,
+      default: '',
     },
   },
+  computedFields: blogComputedFields,
 }))
 
 export const Authors = defineDocumentType(() => ({
@@ -165,7 +198,7 @@ export const Authors = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Idea, Authors],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
