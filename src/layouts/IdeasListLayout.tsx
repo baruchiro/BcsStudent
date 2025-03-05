@@ -1,9 +1,7 @@
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { Blog } from '@/types'
+import PostListItem from '@/components/PostListItem'
+import { Blog } from 'contentlayer/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import { formatDate } from 'pliny/utils/formatDate'
 
 interface Props {
   posts: CoreContent<Blog>[]
@@ -35,53 +33,9 @@ export default function IdeasListLayout({
           </p>
         </div>
         <ul>
-          {displayPosts.map((post) => {
-            const { slug, date, title, summary, tags, status } = post
-            return (
-              <li key={slug} className="py-4">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                  <dl>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                    </dd>
-                  </dl>
-                  <div className="space-y-3 xl:col-span-3">
-                    <div>
-                      <h3 className="text-2xl font-bold leading-8 tracking-tight">
-                        <Link href={`/ideas/${slug}`} className="text-gray-900 dark:text-gray-100">
-                          {title}
-                        </Link>
-                      </h3>
-                      <div className="flex flex-wrap">
-                        {tags.map((tag) => (
-                          <Tag key={tag} text={tag} />
-                        ))}
-                        <span
-                          className={`mr-3 text-sm font-medium ${
-                            status === 'done'
-                              ? 'text-green-600 dark:text-green-400'
-                              : status === 'in-progress'
-                                ? 'text-yellow-600 dark:text-yellow-400'
-                                : 'text-gray-600 dark:text-gray-400'
-                          }`}
-                        >
-                          {status === 'done'
-                            ? '✓ הושלם'
-                            : status === 'in-progress'
-                              ? '🚧 בתהליך'
-                              : '📝 טיוטה'}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                      {summary}
-                    </div>
-                  </div>
-                </article>
-              </li>
-            )
-          })}
+          {displayPosts.map((post) => (
+            <PostListItem key={post.path} post={post} />
+          ))}
         </ul>
       </div>
       {pagination && pagination.totalPages > 1 && (

@@ -1,7 +1,6 @@
 import { genPageMetadata } from '@/app/seo'
 import IdeasListLayout from '@/layouts/IdeasListLayout'
-import { Blog } from '@/types'
-import { allBlogs } from 'contentlayer/generated'
+import { allBlogs, Blog } from 'contentlayer/generated'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'

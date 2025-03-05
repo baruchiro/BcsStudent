@@ -1,6 +1,5 @@
 import { genPageMetadata } from '@/app/seo'
 import IdeasListLayout from '@/layouts/IdeasListLayout'
-import { Blog } from '@/types'
 import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
@@ -9,7 +8,7 @@ const POSTS_PER_PAGE = 10
 export const metadata = genPageMetadata({ title: 'רעיונות' })
 
 export default function IdeasPage() {
-  const ideas = allCoreContent(sortPosts((allBlogs as Blog[]).filter((post) => post.isIdea)))
+  const ideas = allCoreContent(sortPosts(allBlogs.filter((post) => post.isIdea)))
   const pageNumber = 1
   const initialDisplayPosts = ideas.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
