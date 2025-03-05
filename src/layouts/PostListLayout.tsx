@@ -5,42 +5,62 @@ import { Blog } from 'contentlayer/generated'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { CoreContent } from 'pliny/utils/contentlayer'
 
-const MAX_DISPLAY = 15
+interface ViewAllLink {
+  href: string
+  text: string
+}
 
-export default function Home({ posts }: { posts: CoreContent<Blog>[] }) {
+interface Props {
+  posts: CoreContent<Blog>[]
+  title: string
+  description?: string
+  showNewsletter?: boolean
+  maxDisplay?: number
+  viewAllLink?: ViewAllLink
+}
+
+export default function PostListLayout({
+  posts,
+  title,
+  description,
+  showNewsletter = false,
+  maxDisplay = 15,
+  viewAllLink,
+}: Props) {
   const publishedPosts = posts.filter((post) => !post.draft)
+  const displayPosts = viewAllLink ? publishedPosts.slice(0, maxDisplay) : publishedPosts
 
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            ברוכים הבאים
+            {title}
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
+          {description && (
+            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">{description}</p>
+          )}
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!publishedPosts.length && 'לא נמצאו פוסטים'}
-          {publishedPosts.slice(0, MAX_DISPLAY).map((post) => (
+          {!displayPosts.length && 'לא נמצאו פוסטים'}
+          {displayPosts.map((post) => (
             <PostListItem key={post.slug} post={post} />
           ))}
         </ul>
       </div>
-      {publishedPosts.length > MAX_DISPLAY && (
+      {viewAllLink && publishedPosts.length > maxDisplay && (
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
-            href="/blog"
+            href={viewAllLink.href}
             className="flex items-center gap-1 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="כל הפוסטים"
+            aria-label={viewAllLink.text}
           >
-            <span>כל הפוסטים</span>
+            <span>{viewAllLink.text}</span>
             <span>{'\u2190'}</span>
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider && (
+      {showNewsletter && siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
