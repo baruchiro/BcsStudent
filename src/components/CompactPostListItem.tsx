@@ -1,5 +1,6 @@
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
+import StatusComponent from '@/components/StatusComponent'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { Blog } from 'contentlayer/generated'
@@ -12,7 +13,7 @@ interface CompactPostListItemProps {
 
 export default function CompactPostListItem({ post }: CompactPostListItemProps) {
   const slug = post.slug || post.path
-  const { date, title, summary, tags, language = 'he' } = post
+  const { date, title, summary, tags, language = 'he', isIdea, status, implementation } = post
 
   return (
     <li className="py-5">
@@ -26,19 +27,32 @@ export default function CompactPostListItem({ post }: CompactPostListItemProps) 
         <div className="space-y-3">
           <DirectionWrapper language={language}>
             <div>
-              <h2 className="flex items-center gap-2 text-2xl font-bold leading-8 tracking-tight">
-                <span className="text-gray-400 dark:text-gray-500" aria-hidden="true">
-                  📝
-                </span>
-                <Link href={`/${slug}`} className="text-gray-900 dark:text-gray-100">
-                  {title}
-                </Link>
-              </h2>
-              <div className="flex flex-wrap">
-                {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+              <div>
+                <div className="flex items-center justify-between">
+                  <h2 className="flex items-center gap-2 text-2xl font-bold leading-8 tracking-tight">
+                    {isIdea ? (
+                      <span className="text-gray-400 dark:text-gray-500" aria-hidden="true">
+                        💡
+                      </span>
+                    ) : (
+                      <span className="text-gray-400 dark:text-gray-500" aria-hidden="true">
+                        📝
+                      </span>
+                    )}
+                    <Link href={`/${slug}`} className="text-gray-900 dark:text-gray-100">
+                      {title}
+                    </Link>
+                  </h2>
+                  {isIdea && status && status !== 'draft' && (
+                    <StatusComponent status={status} implementation={implementation} />
+                  )}
+                </div>
+                <div className="flex flex-wrap">
+                  {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                </div>
               </div>
+              <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div>
             </div>
-            <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div>
           </DirectionWrapper>
         </div>
       </article>

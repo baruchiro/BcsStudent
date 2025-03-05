@@ -14,8 +14,8 @@
 - [x] README.md
 - [-] 3 posts format (without author, with cover image)
 - [ ] list of ideas https://tender-side-7246.glide.page/dl/ideas
-- 
-- 
+- [ ] consider projects as posts too
+-
 - לסדר תגיות
 - לסמן פוסטים של רעיונות בפיד הראשי בסימון מיוחד
 - בעמוד הרעיונות לאפשר פילטור ומידע נוסף

@@ -1,5 +1,6 @@
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
+import StatusComponent from '@/components/StatusComponent'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getCoverImage } from '@/utils/coverImage'
@@ -14,7 +15,17 @@ interface PostListItemProps {
 
 export default function PostListItem({ post }: PostListItemProps) {
   const slug = post.slug || post.path
-  const { date, title, summary, tags, language = 'he', images } = post
+  const {
+    date,
+    title,
+    summary,
+    tags,
+    language = 'he',
+    images,
+    isIdea,
+    status,
+    implementation,
+  } = post
 
   return (
     <li className="py-12">
@@ -43,11 +54,21 @@ export default function PostListItem({ post }: PostListItemProps) {
             <DirectionWrapper language={language}>
               <div className="space-y-6">
                 <div>
-                  <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                    <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
-                      {title}
-                    </Link>
-                  </h2>
+                  <div className="flex items-center justify-between">
+                    <h2 className="flex items-center gap-2 text-2xl font-bold leading-8 tracking-tight">
+                      {isIdea && (
+                        <span className="text-gray-400 dark:text-gray-500" aria-hidden="true">
+                          💡
+                        </span>
+                      )}
+                      <Link href={`/blog/${slug}`} className="text-gray-900 dark:text-gray-100">
+                        {title}
+                      </Link>
+                    </h2>
+                    {isIdea && status && status !== 'draft' && (
+                      <StatusComponent status={status} implementation={implementation} />
+                    )}
+                  </div>
                   <div className="flex flex-wrap">
                     {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                   </div>
