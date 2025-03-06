@@ -14,3 +14,10 @@
 - [x] README.md
 - [-] 3 posts format (without author, with cover image)
 - [ ] list of ideas https://tender-side-7246.glide.page/dl/ideas
+- [ ] consider projects as posts too
+-
+- ברעיונות לאפשר יותר מקישור אימפלמנטציה אחד
+- ברעיונות לשים כותרת לקישור
+- בעמוד הרעיונות לאפשר פילטור ומידע נוסף
+- דף תגית בעברית שבור בפרודקשן
+- להמיר את כל התגיות שאפשר לעברית

@@ -24,6 +24,13 @@ import rehypeSlug from 'rehype-slug'
 import projectsData from './data/projectsData'
 import siteMetadata from './data/siteMetadata'
 
+interface PlainArr {
+  _array: string[]
+  _typeId: symbol
+  depth: number
+  length: number
+}
+
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -38,23 +45,6 @@ const contentHeaderLinkIcon = fromHtmlIsomorphic(
 `,
   { fragment: true }
 )
-
-const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
-  slug: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
-  },
-  path: {
-    type: 'string',
-    resolve: (doc) => doc._raw.flattenedPath,
-  },
-  filePath: {
-    type: 'string',
-    resolve: (doc) => doc._raw.sourceFilePath,
-  },
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
-}
 
 /**
  * Count the occurrences of all tags across blog posts and projects and write to json file
@@ -104,6 +94,23 @@ function createSearchIndex(allBlogs) {
   }
 }
 
+const computedFields: ComputedFields = {
+  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  slug: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+  },
+  path: {
+    type: 'string',
+    resolve: (doc) => doc._raw.flattenedPath,
+  },
+  filePath: {
+    type: 'string',
+    resolve: (doc) => doc._raw.sourceFilePath,
+  },
+  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+}
+
 export const Blog = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'blog/**/*.mdx',
@@ -123,6 +130,21 @@ export const Blog = defineDocumentType(() => ({
     language: { type: 'enum', default: 'he', options: ['he', 'en'] },
     series: { type: 'boolean', default: false },
     publications: { type: 'list', of: { type: 'string' } },
+    // Idea-specific fields
+    status: {
+      type: 'enum',
+      options: ['draft', 'in-progress', 'done'],
+      default: 'draft',
+    },
+    externalLinks: {
+      type: 'list',
+      of: { type: 'string' },
+      default: [],
+    },
+    implementation: {
+      type: 'string',
+      default: '',
+    },
   },
   computedFields: {
     ...computedFields,
@@ -138,6 +160,10 @@ export const Blog = defineDocumentType(() => ({
         image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
         url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
       }),
+    },
+    isIdea: {
+      type: 'boolean',
+      resolve: (doc) => (doc.tags as unknown as PlainArr)?._array.includes('idea'),
     },
   },
 }))

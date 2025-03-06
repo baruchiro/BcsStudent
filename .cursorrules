@@ -4,6 +4,13 @@
 My blog, mainly about programming, in Hebrew.
 Built with Next.js and deployed on Vercel, based on Tailwind Nextjs Starter Blog.
 
+## RTL and Direction Guidelines
+
+The blog is primarily in Hebrew and follows RTL (Right-to-Left) conventions:
+1. Navigation arrows should point left (←) for "forward" actions
+1. Use DirectionWrapper component for proper text direction handling
+1. Text should be written in Hebrew
+
 ## Tag Management Guidelines
 
 Current tags statistics are available in the `src/app/tag-data.json` file.

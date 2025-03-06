@@ -1,4 +1,6 @@
+import CategoryIndicator from '@/components/CategoryIndicator'
 import Comments from '@/components/Comments'
+import IdeaProperties from '@/components/IdeaProperties'
 import Image from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
@@ -86,7 +88,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 </dd>
               </div>
             </dl>
-            <div>
+            <div className="space-y-2">
               <PageTitle>
                 <span
                   className={`${coverImage ? 'text-white' : 'text-gray-900 dark:text-white'} drop-shadow-md`}
@@ -94,6 +96,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   {title}
                 </span>
               </PageTitle>
+              <CategoryIndicator post={content} hasCoverImage={!!coverImage} />
             </div>
           </div>
         </header>
@@ -133,7 +136,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">
+                <IdeaProperties post={content} />
+                {children}
+              </div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <div className="flex items-center justify-between">
                   <div>

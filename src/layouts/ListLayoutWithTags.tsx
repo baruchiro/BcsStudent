@@ -2,16 +2,15 @@
 'use client'
 
 import tagData from '@/app/tag-data.json'
+import CompactPostListItem from '@/components/CompactPostListItem'
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import { Project } from '@/data/projectsData'
-import siteMetadata from '@/data/siteMetadata'
 import type { Blog } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
-import { formatDate } from 'pliny/utils/formatDate'
 
 interface PaginationProps {
   totalPages: number
@@ -163,39 +162,9 @@ export default function ListLayoutWithTags({
                 </li>
               ))}
               {displayPosts.map((post) => {
-                const { path, date, title, summary, tags, language = 'he' } = post
-                return (
-                  <li key={path} className="py-5">
-                    <article className="flex flex-col space-y-2 pe-4 ps-6 xl:space-y-0">
-                      <dl>
-                        <dt className="sr-only">פורסם ב</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                        </dd>
-                      </dl>
-                      <div className="space-y-3">
-                        <DirectionWrapper language={language}>
-                          <div>
-                            <h2 className="flex items-center gap-2 text-2xl font-bold leading-8 tracking-tight">
-                              <span className="text-gray-400 dark:text-gray-500" aria-hidden="true">
-                                📝
-                              </span>
-                              <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
-                                {title}
-                              </Link>
-                            </h2>
-                            <div className="flex flex-wrap">
-                              {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                            </div>
-                          </div>
-                          <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                            {summary}
-                          </div>
-                        </DirectionWrapper>
-                      </div>
-                    </article>
-                  </li>
-                )
+                // Convert path to slug for compatibility with PostListItem
+                const postWithSlug = { ...post, slug: post.path }
+                return <CompactPostListItem key={post.path} post={postWithSlug} />
               })}
             </ul>
             {pagination && pagination.totalPages > 1 && (
