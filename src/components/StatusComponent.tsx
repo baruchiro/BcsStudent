@@ -16,7 +16,7 @@ export default function StatusComponent({ status, implementation }: StatusCompon
     return (
       <Link
         href={implementation}
-        className={`${statusStyle} hover:text-primary-600 dark:hover:text-primary-400`}
+        className={`${statusStyle} no-underline hover:text-primary-600 dark:hover:text-primary-400`}
         target="_blank"
         rel="noopener noreferrer"
       >
