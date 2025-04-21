@@ -1,0 +1,1027 @@
+{
+  "name": "Integration Gmail, OpenAI (ChatGPT, Whisper, DALL-E)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "google-email:TriggerNewEmail",
+      "version": 2,
+      "parameters": {
+        "folder": "INBOX",
+        "xGmRaw": "newer_than:1d ",
+        "account": 7397772,
+        "markSeen": false,
+        "maxResults": 20,
+        "searchType": "gmail"
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "restore": {
+          "parameters": {
+            "folder": {
+              "path": ["INBOX"]
+            },
+            "account": {
+              "data": {
+                "scoped": "true",
+                "connection": "google-restricted"
+              },
+              "label": "My Google Restricted connection (baruch.o@bewith.io)"
+            },
+            "searchType": {
+              "label": "Gmail filter"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account",
+            "type": "account:google-restricted",
+            "label": "Connection",
+            "required": true
+          },
+          {
+            "name": "searchType",
+            "type": "select",
+            "label": "Filter type",
+            "required": true,
+            "validate": {
+              "enum": ["simple", "gmail"]
+            }
+          },
+          {
+            "name": "markSeen",
+            "type": "boolean",
+            "label": "Mark email message(s) as read when fetched"
+          },
+          {
+            "name": "maxResults",
+            "type": "uinteger",
+            "label": "Maximum number of results",
+            "required": true
+          },
+          {
+            "name": "folder",
+            "type": "folder",
+            "label": "Folder",
+            "required": true
+          },
+          {
+            "name": "xGmRaw",
+            "type": "text",
+            "label": "Query",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "module": "util:TextAggregator",
+      "version": 1,
+      "parameters": {
+        "feeder": 1,
+        "rowSeparator": ""
+      },
+      "mapper": {
+        "value": "From: {{1.from}}\nSubject: {{1.subject}}\nSnippet: {{1.text}}\n---"
+      },
+      "metadata": {
+        "designer": {
+          "x": 268,
+          "y": -2
+        },
+        "restore": {
+          "extra": {
+            "feeder": {
+              "label": "Gmail - Watch Emails [1]"
+            }
+          },
+          "parameters": {
+            "rowSeparator": {
+              "label": "Empty"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "rowSeparator",
+            "type": "select",
+            "label": "Row separator",
+            "validate": {
+              "enum": ["\n", "\t", "other"]
+            }
+          }
+        ],
+        "expect": [
+          {
+            "name": "value",
+            "type": "text",
+            "label": "Text"
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "module": "openai-gpt-3:CreateCompletion",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 7397896
+      },
+      "mapper": {
+        "model": "chatgpt-4o-latest",
+        "top_p": "1",
+        "select": "chat",
+        "messages": [
+          {
+            "role": "user",
+            "content": "Please summarise these emails, filter out spam and unimportant emails, and tell me the top 3 action items.\nThe final text should be very short and clear, to save my time. Try to use one paragraph for the summary, and one sentence for the action items.\n\n{{7.text}}",
+            "imageDetail": "auto"
+          }
+        ],
+        "max_tokens": "2048",
+        "temperature": "1",
+        "n_completions": "1",
+        "response_format": "text"
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        },
+        "restore": {
+          "expect": {
+            "stop": {
+              "mode": "chose"
+            },
+            "model": {
+              "mode": "chose",
+              "label": "chatgpt-4o-latest (system)"
+            },
+            "select": {
+              "label": "Create a Chat Completion (GPT and o1 models)"
+            },
+            "messages": {
+              "mode": "chose",
+              "items": [
+                {
+                  "role": {
+                    "mode": "chose",
+                    "label": "User"
+                  },
+                  "imageDetail": {
+                    "mode": "chose",
+                    "label": "Auto"
+                  },
+                  "imageInputType": {
+                    "mode": "chose",
+                    "label": "Empty"
+                  }
+                }
+              ]
+            },
+            "logit_bias": {
+              "mode": "chose"
+            },
+            "response_format": {
+              "mode": "chose",
+              "label": "Text"
+            },
+            "additionalParameters": {
+              "mode": "chose"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "data": {
+                "scoped": "true",
+                "connection": "openai-gpt-3"
+              },
+              "label": "My OpenAI connection"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:openai-gpt-3",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "select",
+            "type": "select",
+            "label": "Select Method",
+            "required": true,
+            "validate": {
+              "enum": ["chat", "prompt"]
+            }
+          },
+          {
+            "name": "temperature",
+            "type": "number",
+            "label": "Temperature",
+            "validate": {
+              "max": 2,
+              "min": 0
+            }
+          },
+          {
+            "name": "top_p",
+            "type": "number",
+            "label": "Top P",
+            "validate": {
+              "max": 1,
+              "min": 0
+            }
+          },
+          {
+            "name": "n_completions",
+            "type": "number",
+            "label": "Number"
+          },
+          {
+            "name": "frequency_penalty",
+            "type": "number",
+            "label": "Frequency Penalty",
+            "validate": {
+              "max": 2,
+              "min": -2
+            }
+          },
+          {
+            "name": "presence_penalty",
+            "type": "number",
+            "label": "Presence Penalty",
+            "validate": {
+              "max": 2,
+              "min": -2
+            }
+          },
+          {
+            "name": "logit_bias",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "token",
+                  "type": "text",
+                  "label": "Token ID",
+                  "required": true
+                },
+                {
+                  "name": "probability",
+                  "type": "number",
+                  "label": "Probability",
+                  "required": true,
+                  "validate": {
+                    "max": 100,
+                    "min": -100
+                  }
+                }
+              ],
+              "type": "collection",
+              "label": "Token Probability"
+            },
+            "type": "array",
+            "label": "Token Probability"
+          },
+          {
+            "name": "seed",
+            "type": "integer",
+            "label": "Seed"
+          },
+          {
+            "name": "stop",
+            "spec": {
+              "name": "value",
+              "type": "text",
+              "label": "Stop Sequence"
+            },
+            "type": "array",
+            "label": "Stop Sequences",
+            "validate": {
+              "maxItems": 4
+            }
+          },
+          {
+            "name": "additionalParameters",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "key",
+                  "type": "text",
+                  "label": "Parameter Name",
+                  "required": true
+                },
+                {
+                  "name": "type",
+                  "type": "select",
+                  "label": "Input Type",
+                  "options": [
+                    {
+                      "label": "Text",
+                      "value": "text",
+                      "nested": [
+                        {
+                          "name": "value",
+                          "type": "text",
+                          "label": "Parameter Value"
+                        }
+                      ],
+                      "default": true
+                    },
+                    {
+                      "label": "Number",
+                      "value": "number",
+                      "nested": [
+                        {
+                          "name": "value",
+                          "type": "number",
+                          "label": "Parameter Value"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Boolean",
+                      "value": "boolean",
+                      "nested": [
+                        {
+                          "name": "value",
+                          "type": "boolean",
+                          "label": "Parameter Value"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Date",
+                      "value": "date",
+                      "nested": [
+                        {
+                          "name": "value",
+                          "type": "date",
+                          "label": "Parameter Value"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Any",
+                      "value": "any",
+                      "nested": [
+                        {
+                          "name": "value",
+                          "type": "any",
+                          "label": "Parameter Value"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "type": "collection",
+              "label": "Input Parameter"
+            },
+            "type": "array",
+            "label": "Other Input Parameters"
+          },
+          {
+            "name": "model",
+            "type": "select",
+            "label": "Model",
+            "required": true
+          },
+          {
+            "name": "max_tokens",
+            "type": "uinteger",
+            "label": "Max Completion Tokens"
+          },
+          {
+            "name": "messages",
+            "spec": {
+              "name": "value",
+              "spec": [
+                {
+                  "name": "role",
+                  "type": "select",
+                  "label": "Role",
+                  "options": {
+                    "store": [
+                      {
+                        "label": "User",
+                        "value": "user",
+                        "nested": [
+                          {
+                            "help": "Text content of the message on behalf of the selected __Role__.",
+                            "name": "content",
+                            "type": "text",
+                            "label": "Text Content"
+                          },
+                          {
+                            "name": "imageInputType",
+                            "type": "select",
+                            "label": "Image Input Type",
+                            "options": [
+                              {
+                                "label": "URL",
+                                "value": "url",
+                                "nested": [
+                                  {
+                                    "help": "Make sure to use a publicly accessible URL.\nYou can test if your image is publicly accessible by opening the link in an incognito tab.",
+                                    "name": "imageUrl",
+                                    "type": "url",
+                                    "label": "Image URL"
+                                  }
+                                ]
+                              },
+                              {
+                                "label": "Image File",
+                                "value": "file",
+                                "nested": [
+                                  {
+                                    "name": "imageFile",
+                                    "spec": [
+                                      {
+                                        "help": "Accepted extensions: `.jpg`, `.jpeg`, `.png`, `.webp` and `.gif`.",
+                                        "name": "imageFilename",
+                                        "type": "filename",
+                                        "label": "Image Filename",
+                                        "semantic": "file:name",
+                                        "extension": ["jpg", "jpeg", "png", "webp", "gif"]
+                                      },
+                                      {
+                                        "name": "imageData",
+                                        "type": "buffer",
+                                        "label": "Image Data",
+                                        "semantic": "file:data"
+                                      }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Image"
+                                  }
+                                ]
+                              }
+                            ],
+                            "mappable": false
+                          },
+                          {
+                            "help": "Recommended value: `Auto`",
+                            "name": "imageDetail",
+                            "type": "select",
+                            "label": "Image Detail",
+                            "options": [
+                              {
+                                "label": "Auto",
+                                "value": "auto",
+                                "default": true
+                              },
+                              {
+                                "label": "High",
+                                "value": "high"
+                              },
+                              {
+                                "label": "Low",
+                                "value": "low"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Assistant",
+                        "value": "assistant",
+                        "nested": [
+                          {
+                            "help": "Text content of the message on behalf of the selected __Role__.",
+                            "name": "content",
+                            "type": "text",
+                            "label": "Text Content"
+                          }
+                        ]
+                      },
+                      {
+                        "label": "Developer / System",
+                        "value": "system",
+                        "nested": [
+                          {
+                            "help": "Text content of the message on behalf of the selected __Role__.",
+                            "name": "content",
+                            "type": "text",
+                            "label": "Text Content"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "required": true
+                }
+              ],
+              "type": "collection",
+              "label": "Message"
+            },
+            "type": "array",
+            "label": "Messages",
+            "required": true
+          },
+          {
+            "name": "response_format",
+            "type": "select",
+            "label": "Response Format",
+            "validate": {
+              "enum": ["text", "json_object"]
+            }
+          },
+          {
+            "name": "prediction",
+            "type": "text",
+            "label": "Predicted Outputs"
+          }
+        ],
+        "interface": [
+          {
+            "name": "result",
+            "type": "any",
+            "label": "Result"
+          },
+          {
+            "name": "id",
+            "type": "text",
+            "label": "ID"
+          },
+          {
+            "name": "object",
+            "type": "text",
+            "label": "Object"
+          },
+          {
+            "name": "created",
+            "type": "date",
+            "label": "Created"
+          },
+          {
+            "name": "model",
+            "type": "text",
+            "label": "Model"
+          },
+          {
+            "name": "choices",
+            "spec": {
+              "spec": [
+                {
+                  "name": "text",
+                  "type": "text",
+                  "label": "Text"
+                },
+                {
+                  "name": "index",
+                  "type": "number",
+                  "label": "Index"
+                },
+                {
+                  "name": "logprobs",
+                  "type": "text",
+                  "label": "Log Probs"
+                },
+                {
+                  "name": "finish_reason",
+                  "type": "text",
+                  "label": "Finish Reason"
+                },
+                {
+                  "name": "message",
+                  "spec": [
+                    {
+                      "name": "role",
+                      "type": "text",
+                      "label": "Role"
+                    },
+                    {
+                      "name": "content",
+                      "type": "text",
+                      "label": "Content"
+                    },
+                    {
+                      "name": "refusal",
+                      "type": "text",
+                      "label": "Refusal"
+                    }
+                  ],
+                  "type": "collection",
+                  "label": "Message"
+                }
+              ],
+              "type": "collection"
+            },
+            "type": "array",
+            "label": "Choices"
+          },
+          {
+            "name": "usage",
+            "spec": [
+              {
+                "name": "prompt_tokens",
+                "type": "number",
+                "label": "Prompt Tokens"
+              },
+              {
+                "name": "completion_tokens",
+                "type": "text",
+                "label": "Completion Tokens"
+              },
+              {
+                "name": "total_tokens",
+                "type": "number",
+                "label": "Total Tokens"
+              },
+              {
+                "name": "prompt_tokens_details",
+                "spec": [
+                  {
+                    "name": "cached_tokens",
+                    "type": "uinteger",
+                    "label": "Cached Tokens"
+                  },
+                  {
+                    "name": "text_tokens",
+                    "type": "uinteger",
+                    "label": "Text Tokens"
+                  },
+                  {
+                    "name": "image_tokens",
+                    "type": "uinteger",
+                    "label": "Image Tokens"
+                  },
+                  {
+                    "name": "audio_tokens",
+                    "type": "uinteger",
+                    "label": "Audio Tokens"
+                  }
+                ],
+                "type": "collection",
+                "label": "Prompt Tokens Details"
+              },
+              {
+                "name": "completion_tokens_details",
+                "spec": [
+                  {
+                    "name": "reasoning_tokens",
+                    "type": "uinteger",
+                    "label": "Reasoning Tokens"
+                  },
+                  {
+                    "name": "text_tokens",
+                    "type": "uinteger",
+                    "label": "Text Tokens"
+                  },
+                  {
+                    "name": "audio_tokens",
+                    "type": "uinteger",
+                    "label": "Audio Tokens"
+                  },
+                  {
+                    "name": "accepted_prediction_tokens",
+                    "type": "uinteger",
+                    "label": "Accepted Prediction Tokens"
+                  },
+                  {
+                    "name": "rejected_prediction_tokens",
+                    "type": "uinteger",
+                    "label": "Rejected Prediction Tokens"
+                  }
+                ],
+                "type": "collection",
+                "label": "Completion Tokens Details"
+              }
+            ],
+            "type": "collection",
+            "label": "Usage"
+          },
+          {
+            "name": "service_tier",
+            "type": "text",
+            "label": "Service Tier"
+          },
+          {
+            "name": "system_fingerprint",
+            "type": "text",
+            "label": "System Fingerprint"
+          }
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 892,
+          "y": -2
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 12,
+              "module": "telegram:SendReplyMessage",
+              "version": 1,
+              "parameters": {
+                "__IMTCONN__": 7517734
+              },
+              "mapper": {
+                "chatId": "GET YOURS",
+                "text": "{{4.result}}",
+                "messageThreadId": "",
+                "parseMode": "",
+                "replyToMessageId": "",
+                "replyMarkupAssembleType": "reply_markup_enter",
+                "replyMarkup": ""
+              },
+              "metadata": {
+                "designer": {
+                  "x": 1150,
+                  "y": -162
+                },
+                "restore": {
+                  "parameters": {
+                    "__IMTCONN__": {
+                      "label": "My Telegram Bot connection",
+                      "data": {
+                        "scoped": "true",
+                        "connection": "telegram"
+                      }
+                    }
+                  },
+                  "expect": {
+                    "parseMode": {
+                      "label": "Empty"
+                    },
+                    "disableNotification": {
+                      "mode": "chose"
+                    },
+                    "replyMarkupAssembleType": {
+                      "label": "Enter the Reply Markup"
+                    }
+                  }
+                },
+                "parameters": [
+                  {
+                    "name": "__IMTCONN__",
+                    "type": "account:telegram",
+                    "label": "Connection",
+                    "required": true
+                  }
+                ],
+                "expect": [
+                  {
+                    "name": "chatId",
+                    "type": "text",
+                    "label": "Chat ID",
+                    "required": true
+                  },
+                  {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text",
+                    "required": true
+                  },
+                  {
+                    "name": "messageThreadId",
+                    "type": "number",
+                    "label": "Message Thread ID"
+                  },
+                  {
+                    "name": "parseMode",
+                    "type": "select",
+                    "label": "Parse Mode",
+                    "validate": {
+                      "enum": ["Markdown", "HTML"]
+                    }
+                  },
+                  {
+                    "name": "disableNotification",
+                    "type": "boolean",
+                    "label": "Disable Notifications"
+                  },
+                  {
+                    "name": "disableWebPagePreview",
+                    "type": "boolean",
+                    "label": "Disable Link Previews"
+                  },
+                  {
+                    "name": "replyToMessageId",
+                    "type": "number",
+                    "label": "Original Message ID"
+                  },
+                  {
+                    "name": "replyMarkupAssembleType",
+                    "type": "select",
+                    "label": "Enter/Assemble the Reply Markup Field",
+                    "validate": {
+                      "enum": ["reply_markup_enter", "reply_markup_assemble"]
+                    }
+                  },
+                  {
+                    "name": "replyMarkup",
+                    "type": "text",
+                    "label": "Reply Markup"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 11,
+              "module": "slack:CreateMessage",
+              "version": 4,
+              "parameters": {
+                "__IMTCONN__": 7398558
+              },
+              "mapper": {
+                "text": "{{4.result}}",
+                "parse": false,
+                "mrkdwn": true,
+                "channel": "D06UJU4FVA8",
+                "channelType": "im",
+                "channelWType": "list"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 1223,
+                  "y": 55
+                },
+                "restore": {
+                  "expect": {
+                    "parse": {
+                      "mode": "chose"
+                    },
+                    "mrkdwn": {
+                      "mode": "chose"
+                    },
+                    "channel": {
+                      "mode": "chose",
+                      "label": "baruch.o"
+                    },
+                    "link_names": {
+                      "mode": "chose"
+                    },
+                    "channelType": {
+                      "label": "Direct message"
+                    },
+                    "channelWType": {
+                      "label": "Select from the list"
+                    },
+                    "unfurl_links": {
+                      "mode": "chose"
+                    },
+                    "unfurl_media": {
+                      "mode": "chose"
+                    },
+                    "reply_broadcast": {
+                      "mode": "chose"
+                    }
+                  },
+                  "parameters": {
+                    "__IMTCONN__": {
+                      "data": {
+                        "scoped": "true",
+                        "connection": "slack2"
+                      },
+                      "label": "My Slack (user) connection (baruch.o)"
+                    }
+                  }
+                },
+                "parameters": [
+                  {
+                    "name": "__IMTCONN__",
+                    "type": "account:slack2,slack3",
+                    "label": "Connection",
+                    "required": true
+                  }
+                ],
+                "expect": [
+                  {
+                    "name": "channelWType",
+                    "type": "select",
+                    "label": "Enter a channel ID or name",
+                    "required": true,
+                    "validate": {
+                      "enum": ["manualy", "list"]
+                    }
+                  },
+                  {
+                    "name": "text",
+                    "type": "text",
+                    "label": "Text"
+                  },
+                  {
+                    "name": "blocks",
+                    "type": "text",
+                    "label": "Blocks"
+                  },
+                  {
+                    "name": "thread_ts",
+                    "type": "text",
+                    "label": "Thread message ID (time stamp)"
+                  },
+                  {
+                    "name": "reply_broadcast",
+                    "type": "boolean",
+                    "label": "Reply broadcast"
+                  },
+                  {
+                    "name": "link_names",
+                    "type": "boolean",
+                    "label": "Link names"
+                  },
+                  {
+                    "name": "parse",
+                    "type": "boolean",
+                    "label": "Parse message text"
+                  },
+                  {
+                    "name": "mrkdwn",
+                    "type": "boolean",
+                    "label": "Use markdown"
+                  },
+                  {
+                    "name": "unfurl_links",
+                    "type": "boolean",
+                    "label": "Unfurl primarily text-based content"
+                  },
+                  {
+                    "name": "unfurl_media",
+                    "type": "boolean",
+                    "label": "Unfurl media content"
+                  },
+                  {
+                    "name": "icon_emoji",
+                    "type": "text",
+                    "label": "Icon emoji"
+                  },
+                  {
+                    "name": "icon_url",
+                    "type": "url",
+                    "label": "Icon url"
+                  },
+                  {
+                    "name": "username",
+                    "type": "text",
+                    "label": "User name"
+                  },
+                  {
+                    "name": "channelType",
+                    "type": "select",
+                    "label": "Channel type",
+                    "required": true,
+                    "validate": {
+                      "enum": ["public", "private", "im", "mpim"]
+                    }
+                  },
+                  {
+                    "name": "channel",
+                    "type": "select",
+                    "label": "User",
+                    "required": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu2.make.com",
+    "notes": []
+  }
+}
