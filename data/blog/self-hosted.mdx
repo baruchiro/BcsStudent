@@ -1,12 +1,12 @@
 ---
-title: "לנהל בעצמנו את כל המערכות: SelfHosted"
+title: 'לנהל בעצמנו את כל המערכות: SelfHosted'
 summary: >
   לכל שירות שאנחנו משלמים עליו באינטרנט יש אלטרנטיבה חינמית בקוד פתוח שאנחנו יכולים לנהל בעצמנו.
 draft: false
 images: /static/images/self-hosted/self-hosted.png
 date: 2025-02-07
 type: Blog
-tags: ["Self-Hosted", "HomeAssistant", "NodeRed"]
+tags: ['Self-Hosted', 'HomeAssistant', 'No-Code']
 ---
 
 אני בדרך כלל מעדיף שהמידע שלי יהיה אצלי, ואני לא אהיה תלוי בשירות כזה או אחר שכדי לעזוב אותו אצטרך לשלם מחיר של איבוד מידע.
@@ -14,11 +14,13 @@ tags: ["Self-Hosted", "HomeAssistant", "NodeRed"]
 בכל פעם שאני צולל לעולם של SelfHosted, אני מתפלא מחדש כמה אלטרנטיבות טובות ויפות יש לשירותים שאנשים רגילים נוהגים לשלם עליהם.
 
 ## מה זה SelfHosted?
+
 שירות מנוהל עצמאית זה תוכנה, בדרך כלל בקוד פתוח, שמפרסמת הוראות איך להתקין אותה על המחשב שלנו בבית.
 
 <Note>
-זה אולי נשמע פשוט למי שרגיל להתקין תוכנות על המחשב, מה מיוחד פה בעצם?
-אז זהו, כמו שגם תראו בהמשך, מדובר קודם כל על אתרי אינטרנט ושרתים, למשל אם היה אפשר להתקין את טוויטר בצורה הזאת, הייתם מתחברים אליו ולא רואים אף אחד ברשת, כי התקנתם את **השרת** של טוויטר, והוא בעצם עותק משלכם של טוויטר
+  זה אולי נשמע פשוט למי שרגיל להתקין תוכנות על המחשב, מה מיוחד פה בעצם? אז זהו, כמו שגם תראו בהמשך,
+  מדובר קודם כל על אתרי אינטרנט ושרתים, למשל אם היה אפשר להתקין את טוויטר בצורה הזאת, הייתם מתחברים
+  אליו ולא רואים אף אחד ברשת, כי התקנתם את **השרת** של טוויטר, והוא בעצם עותק משלכם של טוויטר
 </Note>
 
 כמו שאמרתי, אני אוהב לנהל את המידע והמערכות שלי אצלי, ואני גם לא אוהב לשלם על משהו ואז לזנוח אותו למשך חודשיים.
@@ -36,6 +38,7 @@ tags: ["Self-Hosted", "HomeAssistant", "NodeRed"]
 - [Runtipi - Homeserver management made easy](https://runtipi.io/)
 
 אם מישהו רוצה לנסות אותן ולספר לי איך החוויה, אני אשמח לעזור.
+
 </Note>
 
 עכשיו יש שאלה קטנה שמתחבאת פה. אם מדובר בתוכנות שהן בעצם שרתים ואתרי אינטרנט, איך אני בדיוק משתמש בהן?
@@ -61,7 +64,7 @@ tags: ["Self-Hosted", "HomeAssistant", "NodeRed"]
 
 ### נטפליקס (מדיה)
 
-המשפחה הכי מעניינת, נקראת לפעמים [*arr](https://ravencentric.github.io/awesome-arr/). קבוצה של שירותים שכל אחד אחראי על משימה קטנה וביחד הם יוצרים מערכת הזרמת מדיה מלאה. ([כתבתי על זה בהרחבה כאן](/blog/home-server))
+המשפחה הכי מעניינת, נקראת לפעמים [\*arr](https://ravencentric.github.io/awesome-arr/). קבוצה של שירותים שכל אחד אחראי על משימה קטנה וביחד הם יוצרים מערכת הזרמת מדיה מלאה. ([כתבתי על זה בהרחבה כאן](/blog/home-server))
 
 - מתחילים עם [Sonarr](https://sonarr.tv/) / [Radarr](https://radarr.video/), אחראים לעקוב אחרי יציאת סרטים ופרקים של סדרות.
 - כשיש סרט או פרק זמין, אחראים לחפש זמינות שלו בעזרת [Jackett](https://github.com/Jackett/Jackett).
@@ -81,10 +84,11 @@ tags: ["Self-Hosted", "HomeAssistant", "NodeRed"]
 - [אין יותר להישאר בממ"ד בחושך כשיש אזעקה בשבת. ואפילו לא צריך שעון.#ביתחכם #homeassistant #אזעקה #שבת - YouTube](https://youtube.com/shorts/ZA3jPCTZ8Mc?feature=share)
 
 <Note>
-מי שיתסכל בהגדרות המערכת שלי יראה שאני מריץ גם דפדפן בתוך קונטיינר 🤔  
-הסיבה היא שכדי שיהיה לי מסך שליטה, השגתי בזול Ipad2, רק שהוא כל כך ישן שאי אפשר להתקין עליו אפליקציות מעודכנות, והדפדפנים הישנים לא יכולים להציג את המערכת.  
-במקום זה, השיטה הנפוצה באינטרנט היא להריץ דפדפן בתור שירות, ואז להתחבר אליו מהטאבלט בצורה של ״חיבור מרוחק״, כלומר הוא לא מציג לי אתר אינטרנט, אלא מציג לי תמונה של מסך שמציג אתר אינטרנט 😨  
-אבל זה עובד.
+  מי שיתסכל בהגדרות המערכת שלי יראה שאני מריץ גם דפדפן בתוך קונטיינר 🤔 הסיבה היא שכדי שיהיה לי מסך
+  שליטה, השגתי בזול Ipad2, רק שהוא כל כך ישן שאי אפשר להתקין עליו אפליקציות מעודכנות, והדפדפנים
+  הישנים לא יכולים להציג את המערכת. במקום זה, השיטה הנפוצה באינטרנט היא להריץ דפדפן בתור שירות, ואז
+  להתחבר אליו מהטאבלט בצורה של ״חיבור מרוחק״, כלומר הוא לא מציג לי אתר אינטרנט, אלא מציג לי תמונה של
+  מסך שמציג אתר אינטרנט 😨 אבל זה עובד.
 </Note>
 
 ### ניהול מסמכים

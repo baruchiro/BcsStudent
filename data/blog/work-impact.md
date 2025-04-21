@@ -3,7 +3,7 @@ title: איך להשפיע במקום העבודה גם בלי ותק ותפקי
 draft: false
 date: 2021-07-15
 images: /static/images/work-impact/project-planning.jpg
-tags: ["עבודה", "Junior"]
+tags: ['work', 'Junior']
 summary: |
   אני בסה"כ מתכנת צעיר, בורג קטן בחברה גדולה, ואני נהנה מהמקום הזה.
   אבל למרות זאת, אני מרגיש שיש לי השפעה על הארגון, ושאני מזיז דברים.
