@@ -167,6 +167,13 @@ const projectsData: Project[] = [
     href: 'https://github.com/Checkmarx/2ms',
     tags: ['open-source', 'code', 'git'],
   },
+  {
+    title: 'Multi Text Compare',
+    description:
+      'כלי אונליין להשוואת 2 טקסטים או יותר (כל הכלים שמצאתי מאפשרים השוואת 2 טקסטים בלבד)',
+    href: 'https://github.com/baruchiro/frosted-text-alchemy',
+    tags: ['open-source', 'AI'],
+  },
 ]
 
 export default projectsData
