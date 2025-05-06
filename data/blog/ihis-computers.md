@@ -2,7 +2,7 @@
 title: יש לי רעיון לסטארטאפ- התאמת מחשב
 draft: false
 date: 2018-12-13 08:20:04
-tags: ["Idea", "Hardware", "Recommendation"]
+tags: ['idea', 'Hardware', 'Recommendation']
 summary: |
   אז- יש לי רעיון לסטארטאפ!
   שמעתם את המשפט הזה, נכון? אולי אפילו אמרתם אותו בעצמכם..

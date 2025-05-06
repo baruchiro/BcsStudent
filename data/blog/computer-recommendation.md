@@ -2,7 +2,7 @@
 title: בואו נקים את מאגר המידע על המלצות מחשבים
 draft: false
 date: 2020-08-14 11:30:00
-tags: ["Idea", "Hardware", "Recommendation"]
+tags: ['idea', 'Hardware', 'Recommendation']
 summary: |
   בהמשך לפוסט על המלצות מחשב, בואו נעבוד יחד כדי להרים את המערכת הזאת לטובת כולם.
 type: Blog
