@@ -1,0 +1,15 @@
+:root {
+  --chat--input--text-color: #000;
+}
+
+.chat-window-wrapper {
+  right: auto !important;
+  left: var(--chat--window--right, var(--chat--spacing));
+}
+.chat-window-toggle {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+.chat-window-wrapper .chat-window {
+  transform-origin: bottom left !important;
+}

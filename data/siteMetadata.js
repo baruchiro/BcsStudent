@@ -90,6 +90,7 @@ const siteMetadata = {
     //   indexName: 'docsearch',
     // },
   },
+  n8nChatWebhookUrl: process.env.NEXT_PUBLIC_N8N_CHAT_WEBHOOK_URL,
 }
 
 module.exports = siteMetadata

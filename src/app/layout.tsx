@@ -1,8 +1,10 @@
 import '@/css/tailwind.css'
+import '@/styles/chat-custom.css'
 import 'pliny/search/algolia.css'
 
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import N8nChatClient from '@/components/N8nChatClient'
 import { SearchProvider } from '@/components/SearchProvider'
 import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
@@ -10,6 +12,9 @@ import { Metadata } from 'next'
 import { Space_Grotesk } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { ThemeProviders } from './theme-providers'
+
+// n8n chat
+import '@n8n/chat/style.css'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -58,6 +63,8 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // n8n chat is initialized in the N8nChatClient component
+
   return (
     <html
       lang={siteMetadata.language}
@@ -76,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+        <N8nChatClient />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
