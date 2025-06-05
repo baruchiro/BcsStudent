@@ -16,6 +16,8 @@
 
 /* Code block styles */
 .code-highlight {
+  direction: ltr;
+  text-align: left;
   @apply float-left min-w-full;
 }
 

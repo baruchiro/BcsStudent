@@ -179,7 +179,14 @@ const projectsData: Project[] = [
     description:
       'שרת MCP (Model Context Protocol) המתממשק עם שרת paperless-ngx API. השרת מספק כלים לניהול מסמכים, תגיות, אנשי קשר וסוגי מסמכים במערכת paperless-ngx שלך.',
     href: 'https://github.com/baruchiro/paperless-mcp',
-    tags: ['open-source', /*'mcp',*/ 'AI'],
+    tags: ['open-source', 'mcp', 'AI'],
+  },
+  {
+    title: 'Actual Budget MCP',
+    description:
+      'שרת MCP (Model Context Protocol) המתממשק עם שרת Actual Budget API. השרת מספק כלים לניהול תקציב, תשלומים, והוצאות במערכת Actual Budget שלך.',
+    href: 'https://github.com/baruchiro/actual-mcp',
+    tags: ['open-source', 'mcp', 'AI', 'money', 'caspion'],
   },
 ]
 

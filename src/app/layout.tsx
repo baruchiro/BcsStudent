@@ -1,5 +1,5 @@
+import '@/css/chat-custom.css'
 import '@/css/tailwind.css'
-import '@/styles/chat-custom.css'
 import 'pliny/search/algolia.css'
 
 import Footer from '@/components/Footer'

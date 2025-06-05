@@ -3,16 +3,15 @@ title: 'איך בניתי AI לבלוג בלי ללמוד את כל התחום �
 date: 2025-06-04
 summary: >
   בעזרת n8n בניתי RAG שמכיל את כל הפוסטים של הבלוג ויודע להמליץ למבקרים על פוסטים רלוונטיים, ובזכות n8n לא הייתי צריך להבין בדיוק מה אני עושה, אלא רק את הרעיון הכללי.
-tags: [ai, no-code, self-hosted]
+tags: [ai, no-code, self-hosted, n8n]
 images: '/static/images/ai-blog-chat/chat-cover.png'
-# images: '/static/images/ai-blog-chat/n8n-workflow.png'
 type: Blog
 ---
 
 <img
-  src="/static/images/ai-blog-chat/chat-cover.png"
-  alt="תמונה מייצגת של הצ׳אט"
-  style={{ maxHeight: '500px', width: 'auto', margin: '0 auto' }}
+src="/static/images/ai-blog-chat/chat-cover.png"
+alt="תמונה מייצגת של הצ׳אט"
+style={{ maxHeight: '500px', width: 'auto', margin: '0 auto' }}
 />
 
 ### מה זה RAG?

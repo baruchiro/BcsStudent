@@ -1,0 +1,113 @@
+---
+title: 'רייזאפ AI פרטי בחינם'
+date: 2025-06-08
+draft: false
+summary: |
+  איך להקים אלטרנטיבה חינמית לרייזאפ, כולל אוטומציה ו-AI, על השרת הביתי שלך. שילוב של כלים פתוחים: Moneyman, Actual Budget, MCP ו-n8n, עם דגש על פרטיות ושליטה מלאה בנתונים.
+tags: ['money', 'self-hosted', 'ai', 'open-source', 'caspion', 'mcp', 'n8n']
+images: '/static/images/actual-budget-ai/actual-budget.png'
+type: Blog
+---
+
+### הקדמה והיסטוריה
+
+כידוע, אני כבר הרבה שנים מוביל פרויקטים שעוזרים לנו לנהל הכנסות והוצאות בגישה עצמאית ואוטומטית. זה התחיל בהצטרפות שלי לפרויקט [israeli-bank-scrapers](https://github.com/eshaham/israeli-bank-scrapers) ואחר כך יצירה של ממשק משתמש ידידותי בשם [כספיון](https://caspion.org), יחד עם חבר.
+
+רוב הכלים שמבוססים על פרויקט [scrapers](https://github.com/eshaham/israeli-bank-scrapers) רק מושכים את המידע ומעבירים אותו הלאה או עושים עליו ניתוח ספציפי, מכיוון שהתחום של ניהול כספים דורש מומחיות בפני עצמו, וכדאי תמיד להתמקד במומחיות אחת.
+
+אפשר לקרוא עוד על כספיון [בפוסט שכתבתי לפני שנים](/blog/caspion), אבל בשביל הפתרון שאני מחפש, החסרון של כספיון הוא שאי אפשר להפעיל אותו אוטומטית בתדירות יומיומית.
+
+### פתרון אוטומטי
+
+אז בשביל למשוך את המידע בצורה אוטומטית, קם פרויקט נפלא אחר בשם [Moneyman](https://github.com/daniel-hauser/moneyman) שמבוסס על אותם scrapers, ואותו אפשר להריץ בצורה אוטומטית ולחבר אותו לכל מיני כלי ניהול כספים.
+
+[הצטרפתי גם לפרויקט הזה](https://github.com/daniel-hauser/moneyman/pull/420) כדי להוסיף לו חיבור לכלי שנקרא [Actual Budget](https://actualbudget.org), כלי לניהול תקציב שמריצים על שרת מקומי, וככה נראה השילוב של שני הכלים להרצה על השרת שלי:
+
+```yaml
+services:
+  actual-budget:
+    image: actualbudget/actual-server:latest
+    ports:
+      - '5006:5006'
+    volumes:
+      - actual-data:/data
+    healthcheck:
+      test: ['CMD-SHELL', 'node src/scripts/health-check.js']
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    restart: unless-stopped
+    networks:
+      - budget_net
+
+  moneyman:
+    image: ghcr.io/baruchiro/moneyman:pr-2
+    container_name: moneyman
+    command: tail -f /dev/null
+    env_file:
+      - moneyman.env
+    labels:
+      ofelia.enabled: 'true'
+      ofelia.job-exec.moneyman.schedule: '0 0 8,20 * * *'
+      ofelia.job-exec.moneyman.command: 'npm run start'
+      ofelia.job-exec.moneyman.container: 'moneyman'
+      ofelia.job-exec.moneyman.user: 'pptruser'
+    networks:
+      - budget_net
+    depends_on:
+      - actual-budget
+
+  ofelia:
+    image: mcuadros/ofelia:latest
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+networks:
+  budget_net:
+    name: budget_network
+    driver: bridge
+
+volumes:
+  actual-data:
+```
+
+<Note>
+  הכלי [ofelia](https://github.com/mcuadros/ofelia) הוא ישן ולא מעודכן אבל הוא עדיין עובד, והוא
+  מאפשר להריץ פקודות בתוך קונטיינרים אחרים בתדירות מסוימת (cron).
+</Note>
+
+את Actual Budget עדיין לא הכרתי לעומק. יש שם מנגנון חלוקה לקטגוריות די חשוב אבל קצת מעצבן וידני, וכן מנגנון למעקב אחרי הוצאות קבועות וחוזרות שעוד לא הבנתי עד הסוף. (אבל שימו לב לפיצ׳ר הכל כך נוח שמאפשר לי להעביר אותו למצב חסוי והוא מסתיר את כל הנתונים)
+
+![תמונה של Actual Budget](/static/images/actual-budget-ai/actual-budget.png)
+
+### בונוס: AI
+
+אז איך אפשר בלי AI?
+אם אני רוצה לתת לAI יכולת לדעת ולהתנהל מול המידע שלי, אני יכול להשתמש בMCP, שהוא בעצם שרת קטן שמביא לAI גישה מתועדת ומוסברת להפעלת פעולות. קצת כמו Swagger רק מותאם לAI.
+למזלי מצאתי מישהו שהתחיל כבר לכתוב MCP לActual Budget [לינק](https://github.com/s-stefanov/actual-mcp), וכל מה שנשאר לי זה להפעיל קצת AI כדי לעדכן את הפיתוח שלו שיתאים להרצה על שרת (וגם להוציא את הסימן של הדולר מהקוד, וגם להתאים אותו אחורה לn8n שלא תומך כרגע בפיצ׳רים החדשים של MCP, וגם לשפר את הפלט שהוא מאוד ספציפי ולא נותן לAI את הנתונים הגולמיים לעבוד איתם. לא באמת עשיתי את כל זה עדיין).
+ברגע שיש לי את הMCP, אני יכול לחבר אותו לAI הפרטי שלי שאני מריץ בn8n, ואפשר לקרוא עוד על n8n בפוסט על RAG [לינק](/blog/ai-blog-chat).
+
+<img
+  src="/static/images/actual-budget-ai/chat.jpg"
+  alt="תמונה של צ׳אט"
+  style={{ maxHeight: '500px', width: 'auto', margin: '0 auto' }}
+/>
+
+כדי להפעיל אותו, פשוט מוסיפים אותו לשאר הקונטיינרים:
+
+```yaml
+actual-mcp:
+  image: ghcr.io/baruchiro/baruchiro/actual-mcp:main
+  restart: unless-stopped
+  ports:
+    - '5007:3000'
+  env_file:
+    - shared.env
+    - moneyman.env
+  networks:
+    - budget_net
+```
+
+![תמונה של n8n](/static/images/actual-budget-ai/n8n.png)
