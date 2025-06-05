@@ -3,7 +3,7 @@ title: ריבית דריבית
 date: 2022-01-16
 draft: false
 images: /static/images/money/compound_interest.jpg
-tags: ["כסף"]
+tags: ['money']
 series: true
 summary: |
   על המושג "ריבית דריבית", המשמעות שלו, ולמה הוא הבסיס לרעיון שכסף עובד בשבילנו.

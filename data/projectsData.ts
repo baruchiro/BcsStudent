@@ -121,7 +121,7 @@ const projectsData: Project[] = [
       'אפליקציה לניהול תקציב המרכזת למקום אחד את כל פירוטי ההוצאות מחשבונות הבנק וכרטיסי האשראי. האפליקציה רצה מקומית במחשב, מאובטחת, וכוללת ייצוא נתונים ל-Excel, Google Sheets ו-YNAB.',
     imgSrc: '/static/images/projects/caspion.png',
     href: 'https://github.com/brafdlog/caspion',
-    tags: ['open-source', 'כסף', 'כספיון'],
+    tags: ['open-source', 'money', 'caspion'],
   },
   {
     title: 'Overlay',
@@ -136,7 +136,7 @@ const projectsData: Project[] = [
     description:
       'ספריית קוד פתוח המספקת כלים לגישה אוטומטית למידע מכל הבנקים וחברות האשראי הגדולות בישראל.',
     href: 'https://github.com/eshaham/israeli-bank-scrapers',
-    tags: ['open-source', 'כסף', 'כספיון'],
+    tags: ['open-source', 'money', 'caspion'],
   },
   {
     title: 'PRStuck',

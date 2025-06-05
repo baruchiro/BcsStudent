@@ -2,7 +2,7 @@
 title: WSL Troubleshooting
 date: 2020-12-01
 draft: false
-tags: ['WSL']
+tags: ['open-source']
 summary: Sequence of operations to find connection issues and fix them in WSL.
 language: en
 type: Blog
