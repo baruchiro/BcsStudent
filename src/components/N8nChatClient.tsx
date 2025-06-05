@@ -26,7 +26,7 @@ export default function N8nChatClient() {
             subtitle: 'אפשר לדבר איתי על תוכן הבלוג',
             footer: '',
             getStarted: 'שיחה חדשה',
-            inputPlaceholder: 'מעניין אותי לקרוא על דברים בחינם...',
+            inputPlaceholder: 'מעניין אותי לקרוא על אוטומציות...',
             closeButtonTooltip: 'סגור',
           },
         },
