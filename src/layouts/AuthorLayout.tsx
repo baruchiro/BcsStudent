@@ -22,6 +22,12 @@ export default function AuthorLayout({ children, content }: Props) {
     githubSponsor,
     telegram,
     language = 'he',
+    mastodon,
+    facebook,
+    youtube,
+    instagram,
+    threads,
+    bluesky,
   } = content
 
   return (
@@ -47,12 +53,18 @@ export default function AuthorLayout({ children, content }: Props) {
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
             <div className="text-gray-500 dark:text-gray-400">{company}</div>
 
-            <div className="flex space-x-3 pt-6">
+            <div className="mx-auto grid max-w-xs grid-cols-3 justify-items-center gap-3 pt-6 sm:grid-cols-4 md:grid-cols-6">
               {email && <SocialIcon kind="mail" href={`mailto:${email}`} size={6} />}
               {twitter && <SocialIcon kind="twitter" href={twitter} size={6} />}
               {linkedin && <SocialIcon kind="linkedin" href={linkedin} size={6} />}
               {github && <SocialIcon kind="github" href={github} size={6} />}
               {telegram && <SocialIcon kind="telegram" href={telegram} size={6} />}
+              {mastodon && <SocialIcon kind="mastodon" href={mastodon} size={6} />}
+              {facebook && <SocialIcon kind="facebook" href={facebook} size={6} />}
+              {youtube && <SocialIcon kind="youtube" href={youtube} size={6} />}
+              {instagram && <SocialIcon kind="instagram" href={instagram} size={6} />}
+              {threads && <SocialIcon kind="threads" href={threads} size={6} />}
+              {bluesky && <SocialIcon kind="bluesky" href={bluesky} size={6} />}
             </div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">

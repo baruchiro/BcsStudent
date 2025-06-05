@@ -10,13 +10,15 @@ const siteMetadata = {
   siteRepo: 'https://github.com/baruchiro/BcsStudent',
   siteLogo: '/static/images/baruch.png',
   socialBanner: '/static/images/site-cover.png',
-  mastodon: 'https://fosstodon.org/@baruchiro',
+  mastodon: 'https://tooot.im/@baruchiro',
   email: 'baruchiro@gmail.com',
   github: 'https://github.com/baruchiro',
   twitter: 'https://x.com/baruchiro',
-  facebook: 'https://www.facebook.com/baruchiro/',
+  facebook: 'https://www.facebook.com/BcsStudentBlog',
   linkedin: 'https://www.linkedin.com/in/baruchiro',
   telegram: 'https://t.me/BcsStudent',
+  bluesky: 'https://bsky.app/profile/baruchiro.com',
+  instagram: 'https://www.instagram.com/baruchiro/',
   locale: 'he-IL',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
