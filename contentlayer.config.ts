@@ -21,7 +21,6 @@ import rehypeKatex from 'rehype-katex'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
-import projectsData from './data/projectsData'
 import siteMetadata from './data/siteMetadata'
 
 interface PlainArr {
@@ -49,7 +48,7 @@ const contentHeaderLinkIcon = fromHtmlIsomorphic(
 /**
  * Count the occurrences of all tags across blog posts and projects and write to json file
  */
-function createTagCount(allBlogs) {
+function createTagCount(allBlogs, allProjects, allCommunities) {
   const tagCount: Record<string, number> = {}
 
   // Count blog post tags
@@ -67,13 +66,22 @@ function createTagCount(allBlogs) {
   })
 
   // Count project tags
-  projectsData.forEach((project) => {
-    project.tags.forEach((tag) => {
+  allProjects.forEach((project) => {
+    project.tags?.forEach((tag) => {
       const formattedTag = slug(tag)
       if (formattedTag in tagCount) {
         tagCount[formattedTag] += 1
       } else {
         tagCount[formattedTag] = 1
+      }
+    })
+  })
+
+  allCommunities.forEach((community) => {
+    community.tags?.forEach((tag) => {
+      const formattedTag = slug(tag)
+      if (formattedTag in tagCount) {
+        tagCount[formattedTag] += 1
       }
     })
   })
@@ -223,9 +231,38 @@ export const Community = defineDocumentType(() => ({
   },
 }))
 
+export const Project = defineDocumentType(() => ({
+  name: 'Project',
+  filePathPattern: 'projects/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    imgSrc: { type: 'string' },
+    href: { type: 'string' },
+    tags: { type: 'list', of: { type: 'string' }, required: true },
+    stars: { type: 'number' },
+    language: { type: 'json' },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ''),
+    },
+    path: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath,
+    },
+    filePath: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFilePath,
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Community],
+  documentTypes: [Blog, Authors, Community, Project],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -255,8 +292,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
-    createTagCount(allBlogs)
+    const { allBlogs, allProjects, allCommunities } = await importData()
+    createTagCount(allBlogs, allProjects, allCommunities)
     createSearchIndex(allBlogs)
   },
 })
