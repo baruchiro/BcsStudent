@@ -22,8 +22,9 @@ public/sitemap.xml
 /build
 *.xml
 
-# rss feed
+# feeds
 /public/feed.xml
+/public/all*.json
 
 # search
 /public/search.json

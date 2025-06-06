@@ -1,7 +1,8 @@
+import json from './json.mjs'
 import rss from './rss.mjs'
 
 async function postbuild() {
-  await rss()
+  await Promise.all([rss(), json()])
 }
 
 postbuild()
