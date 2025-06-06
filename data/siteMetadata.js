@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'אמנם כבר לא סטודנט, אבל אוהב ללמוד דברים חדשים',
   language: 'he-IL',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://baruchiro.online',
+  siteUrl: 'https://baruchiro.com',
   siteRepo: 'https://github.com/baruchiro/BcsStudent',
   siteLogo: '/static/images/baruch.png',
   socialBanner: '/static/images/site-cover.png',
