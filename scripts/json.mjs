@@ -1,6 +1,11 @@
 import { writeFileSync } from 'fs'
 import { sortPosts } from 'pliny/utils/contentlayer.js'
-import { allAuthors, allBlogs, allCommunities } from '../.contentlayer/generated/index.mjs'
+import {
+  allAuthors,
+  allBlogs,
+  allCommunities,
+  allProjects,
+} from '../.contentlayer/generated/index.mjs'
 
 function omitBody(post) {
   return { ...post, body: undefined }
@@ -18,6 +23,9 @@ async function generateJSON() {
 
   // allCommunities
   writeFileSync('./public/allCommunities.json', JSON.stringify(allCommunities, null, 2))
+
+  // allProjects
+  writeFileSync('./public/allProjects.json', JSON.stringify(allProjects, null, 2))
 
   console.log('JSON endpoints generated...')
 }
