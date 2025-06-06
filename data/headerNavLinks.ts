@@ -4,6 +4,7 @@ const headerNavLinks = [
   { href: '/ideas', title: 'רעיונות' },
   { href: '/tags', title: 'תגיות' },
   { href: '/projects', title: 'פרויקטים' },
+  { href: '/communities', title: 'קהילות' },
   { href: '/about', title: 'אודות' },
 ]
 

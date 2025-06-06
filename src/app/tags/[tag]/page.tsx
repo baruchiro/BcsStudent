@@ -3,7 +3,7 @@ import tagData from '@/app/tag-data.json'
 import projectsData from '@/data/projectsData'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allBlogs } from 'contentlayer/generated'
+import { allBlogs, allCommunities } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
 import { Metadata } from 'next'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -48,5 +48,15 @@ export default function TagPage({ params }: { params: { tag: string } }) {
   // Filter projects with the same logic
   const filteredProjects = projectsData.filter((project) => isTagMatch(project.tags, tag))
 
-  return <ListLayout posts={filteredPosts} projects={filteredProjects} title={title} />
+  // Filter communities with the same logic
+  const filteredCommunities = allCommunities.filter((community) => isTagMatch(community.tags, tag))
+
+  return (
+    <ListLayout
+      posts={filteredPosts}
+      projects={filteredProjects}
+      communities={filteredCommunities}
+      title={title}
+    />
+  )
 }

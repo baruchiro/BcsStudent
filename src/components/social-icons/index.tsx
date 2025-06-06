@@ -1,4 +1,6 @@
 import {
+  Bluesky,
+  Discord,
   Facebook,
   Github,
   Instagram,
@@ -9,7 +11,6 @@ import {
   Threads,
   Twitter,
   Youtube,
-  Bluesky,
 } from './icons'
 
 const components = {
@@ -24,10 +25,13 @@ const components = {
   instagram: Instagram,
   telegram: Telegram,
   bluesky: Bluesky,
+  discord: Discord,
 }
 
+export type SocialKind = keyof typeof components
+
 type SocialIconProps = {
-  kind: keyof typeof components
+  kind: SocialKind
   href: string | undefined
   size?: number
 }
@@ -37,6 +41,10 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
     return null
 
   const SocialSvg = components[kind]
+  if (!SocialSvg) {
+    console.warn(`SocialIcon: ${kind} not found`)
+    return null
+  }
 
   return (
     <a

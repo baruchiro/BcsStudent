@@ -5,10 +5,12 @@ import tagData from '@/app/tag-data.json'
 import CompactPostListItem from '@/components/CompactPostListItem'
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
+import SocialIcon, { SocialKind } from '@/components/social-icons'
 import Tag from '@/components/Tag'
 import { Project } from '@/data/projectsData'
-import type { Blog } from 'contentlayer/generated'
+import type { Blog, Community } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
 
@@ -19,6 +21,7 @@ interface PaginationProps {
 interface ListLayoutProps {
   posts: CoreContent<Blog>[]
   projects?: Project[]
+  communities?: Community[]
   title: string
   initialDisplayPosts?: CoreContent<Blog>[]
   pagination?: PaginationProps
@@ -67,6 +70,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
 export default function ListLayoutWithTags({
   posts,
   projects = [],
+  communities = [],
   title,
   initialDisplayPosts = [],
   pagination,
@@ -124,6 +128,50 @@ export default function ListLayoutWithTags({
           </div>
           <div className="w-full ps-8">
             <ul>
+              {communities.map((community) => (
+                <li key={community.slug} className="py-5">
+                  <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-blue-500 bg-blue-50 pe-4 ps-6 dark:bg-blue-900/30 xl:space-y-0">
+                    <DirectionWrapper language="he">
+                      <div className="flex items-center gap-4">
+                        <Image
+                          src={community.image}
+                          alt={community.name}
+                          width={48}
+                          height={48}
+                          className="rounded-full object-cover"
+                        />
+                        <div>
+                          <h2 className="flex items-center gap-2 text-xl font-bold leading-8 tracking-tight">
+                            <span className="text-blue-500" aria-hidden="true">
+                              👥
+                            </span>
+                            {community.name}
+                          </h2>
+                          <div className="flex flex-wrap">
+                            {community.tags.map((tag) => (
+                              <Tag key={tag} text={tag} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                        {community.description}
+                      </div>
+                      <div className="flex w-full flex-wrap justify-end gap-3 pt-2">
+                        {community.links &&
+                          Object.entries(community.links).map(([network, link]) => (
+                            <SocialIcon
+                              key={network}
+                              kind={network as SocialKind}
+                              href={link as string}
+                              size={8}
+                            />
+                          ))}
+                      </div>
+                    </DirectionWrapper>
+                  </article>
+                </li>
+              ))}
               {projects.map((project) => (
                 <li key={project.title} className="py-5">
                   <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-primary-500 bg-gray-50 pe-4 ps-6 dark:bg-gray-900/50 xl:space-y-0">

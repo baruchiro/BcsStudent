@@ -196,9 +196,36 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const Community = defineDocumentType(() => ({
+  name: 'Community',
+  filePathPattern: 'communities/*.md',
+  contentType: 'mdx',
+  fields: {
+    name: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    image: { type: 'string', required: true },
+    links: { type: 'json', required: true },
+    tags: { type: 'list', of: { type: 'string' }, required: true },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFileName.replace(/\.md$/, ''),
+    },
+    path: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath,
+    },
+    filePath: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFilePath,
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Authors, Community],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
