@@ -13,6 +13,7 @@ import { allAuthors, allBlogs, allCommunities } from 'contentlayer/generated'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import { allCoreContent, coreContent, sortPosts } from 'pliny/utils/contentlayer'
 
@@ -124,12 +125,31 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     .filter((c): c is (typeof allCommunities)[number] & { sharedTagsCount: number } => Boolean(c))
     .sort((a, b) => b.sharedTagsCount - a.sharedTagsCount)
 
+  const needsN8nDemo = post.body.code.includes('<n8n-demo')
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {needsN8nDemo && (
+        <>
+          <Script
+            src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js"
+            strategy="beforeInteractive"
+          />
+          <Script
+            src="https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js"
+            strategy="beforeInteractive"
+          />
+          <Script
+            src="https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js"
+            type="module"
+            strategy="beforeInteractive"
+          />
+        </>
+      )}
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
         <DirectionWrapper language={post.language}>
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />

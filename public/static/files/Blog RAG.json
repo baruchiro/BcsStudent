@@ -1,0 +1,874 @@
+{
+  "name": "Blog RAG",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "06a34e3b-519a-4b48-afd0-4f2b51d2105d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [100, 60],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "7704f993-b1c9-477a-8b5a-77dc2cb68161",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "position": [1200, 280],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "akUQjBsCs8xPL9mE",
+          "name": "Blog RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('Extract from File').item.json.data }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "post_link",
+                "value": "={{ $('Read File1').item.json.structuredData.url }}"
+              },
+              {
+                "name": "post_title",
+                "value": "={{ $('Read File1').item.json.title }}"
+              },
+              {
+                "name": "post_tags",
+                "value": "={{ $('Read File1').item.json.tags }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "bc6dd8e5-0186-4bf9-9c60-2eab6d9b6520",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [1320, 282.5],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "f87ea014-fe79-444b-88ea-0c4773872b0a",
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "position": [1408, 480],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {
+          "allowedOrigins": "https://www.baruchiro.com",
+          "responseMode": "responseNode"
+        }
+      },
+      "id": "f86e03dc-12ea-4929-9035-4ec3cf46e300",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [100, 1020],
+      "webhookId": "71bfe0f8-227e-466b-9d07-69fd9fe4a27b",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 300
+        }
+      },
+      "id": "ead23ef6-2b6b-428d-b412-b3394bff8248",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [540, 740],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "akUQjBsCs8xPL9mE",
+          "name": "Blog RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "אתה מודל שפה גדול (LLM) שמתנהג וכותב כאילו אתה ברוך אודם, בעל הבלוג, ומגיב לשאילתות על בסיס התוכן בבלוג שלו.\n\n**זהות ואישיות:**\n* **אתה ברוך אודם:** דובק בפרסונה של ברוך אודם באופן עקבי. ענה בגוף ראשון יחיד זכר (\"אני\", \"לי\", \"שלי\").\n# AI Context for ברוך אודם\n\n## Communication Preferences\n> Use a casual tone when responding. Use a playful sense of humor where appropriate.\n\n## Profile\n- Name: Baruch Odem\n- Timezone: Asia/Jerusalem\n- Company: With | DevX Expert\n- Job Title: Software Developer\n- Interests: coding, business automation, no code, self hosted, technology\n\n## Online Presence\n\\[Gravatar Profile\\]: [gravatar.com/baruchiro](https://gravatar.com/baruchiro)\n\\[GitHub\\]: [github.com/baruchiro](https://github.com/baruchiro)\n\\[LinkedIn\\]: [linkedin.com/in/baruchiro](https://www.linkedin.com/in/baruchiro)\n\\[X\\]: [x.com/baruchiro](https://x.com/baruchiro)\n\\[Bluesky\\]: [bsky.app/profile/baruchiro.com](https://bsky.app/profile/baruchiro.com)\n\\[Fediverse\\]: [fosstodon.org/@baruchiro](https://fosstodon.org/@baruchiro)\n\\[Stack Overflow\\]: [stackoverflow.com/users/839513/baruchiro](https://stackoverflow.com/users/839513/baruchiro)\n\\[Facebook\\]: [support.gravatar.com/profiles/verified-accounts/#facebook](https://support.gravatar.com/profiles/verified-accounts/#facebook)\n\\[YouTube\\]: [youtube.com/channel/UCOkG0VzTh5cij1Iuq6fm9BQ](https://www.youtube.com/channel/UCOkG0VzTh5cij1Iuq6fm9BQ)\n\n\nאתה מכיר את כל הפוסטים שהוא כתב, וכאשר שואלים אותך שאלה, אתה עונה בתיאור קצר ומספק לינק לפוסט הרלוונטי לקריאה נוספת.\n\nאם לא נאמר לך אחרת, תניח שאתה מדבר עם אישה בלשון נקבה.\nאם המשתמש מתייחס לעצמו בתור זכר, למשל ״אני אוהב״, תקן את לשון הפניה בהתאם.\n\nאם לא מצאת תוכן רלוונטי מתוך הבלוג, אל תמשיך את השיחה.\n\nבנוסף, תמליץ להצטרף לערוץ הטלגרם של ברוך אודם, שם מתפרסמים פוסטים חדשים ועדכונים קצרים ומעניינים: https://t.me/BcsStudent"
+        }
+      },
+      "id": "bedea10f-b4de-4f0e-9d60-cc8117a2b328",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [676, 520],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [760, 60],
+      "id": "cc7b1fff-3f72-4e0e-83a8-85e304886d92",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "blog",
+        "toolDescription": "Get the relevant content from the blog",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "blog",
+          "mode": "list",
+          "cachedResultName": "blog"
+        },
+        "topK": 5,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.1,
+      "position": [780, 742.5],
+      "id": "9703f3ff-4b11-458e-bd9f-4aa4c636ef9f",
+      "name": "Qdrant Vector Store1",
+      "credentials": {
+        "qdrantApi": {
+          "id": "XvlOBVkg8SDx8asf",
+          "name": "Qdrant account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [868, 940],
+      "id": "2c1528ee-7b0f-486f-92a7-f1d5d0c47914",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "akUQjBsCs8xPL9mE",
+          "name": "Blog RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "collectionName": "n8n_chat_histories_blog_rag",
+        "contextWindowLength": 3
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [660, 740],
+      "id": "7e8c5d6d-c0a5-4db8-9001-58d3e87d554d",
+      "name": "MongoDB Chat Memory",
+      "credentials": {
+        "mongoDb": {
+          "id": "OuAFtv5ZyczW5jGW",
+          "name": "MongoDB home-server"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "eventName": "chat-message",
+        "distinctId": "={{ $json.sessionId }}",
+        "additionalFields": {
+          "propertiesUi": {
+            "propertyValues": [
+              {
+                "key": "message",
+                "value": "={{ $json.chatInput }}"
+              },
+              {
+                "key": "fingerprint",
+                "value": "={{ $json.metadata?.fingerprint }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.postHog",
+      "typeVersion": 1,
+      "position": [320, 1120],
+      "id": "7cf7fc6f-b77b-41eb-a2dd-c618a11e69f6",
+      "name": "PostHog",
+      "credentials": {
+        "postHogApi": {
+          "id": "uDIgMQ0KhBMbU2bC",
+          "name": "PostHog account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": \"הודעה ארוכה מידי 🤷‍♂️\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [798, 1120],
+      "id": "6116f932-8a4a-45c4-bc54-0a2d7e957fd5",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "eventName": "chat-message",
+        "distinctId": "={{ $json.sessionId }}",
+        "additionalFields": {
+          "propertiesUi": {
+            "propertyValues": [
+              {
+                "key": "no_related_content",
+                "value": "true"
+              },
+              {
+                "key": "fingerprint",
+                "value": "={{ $json.metadata?.fingerprint }}"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.postHog",
+      "typeVersion": 1,
+      "position": [320, 1380],
+      "id": "20a6b653-5534-471d-9355-a934e726a772",
+      "name": "PostHog1",
+      "credentials": {
+        "postHogApi": {
+          "id": "uDIgMQ0KhBMbU2bC",
+          "name": "PostHog account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "93527766-7b73-4db0-a30a-8f2c6cb8c9e7",
+              "leftValue": "={{ $json.chatInput.length }}",
+              "rightValue": 150,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [320, 920],
+      "id": "ae088bb7-0f47-49dd-ae3a-e0997827745e",
+      "name": "length < 150"
+    },
+    {
+      "parameters": {
+        "chatId": "50573760",
+        "text": "=```\nUser: {{ $json.sessionId }}\nMessage: {{ $json.chatInput }}\nReason: Not relevant to blog content\n```",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "MarkdownV2"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [320, 1580],
+      "id": "44098760-5c19-43b7-b07c-ba3f7e2f4207",
+      "name": "out of context message",
+      "webhookId": "1a0eaa67-604d-4a82-821e-d87ead70f841",
+      "credentials": {
+        "telegramApi": {
+          "id": "ZBWpaA7cEYyTvOHu",
+          "name": "AI Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "sessionId"
+            },
+            {
+              "name": "chatInput"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [100, 1480],
+      "id": "971de1b0-0226-4ce9-a1a6-5451b4b1f3b8",
+      "name": "When A Message Is Out Of Context"
+    },
+    {
+      "parameters": {
+        "description": "אם המשתמש מנסה לשוחח על נושא שלא קשור לתוכן הבלוג, תפעיל אותי.",
+        "workflowId": {
+          "__rl": true,
+          "value": "5WeoXxhgt9i6zYpW",
+          "mode": "list",
+          "cachedResultName": "Blog RAG"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionId": "={{ $json.sessionId }}",
+            "chatInput": "={{ $json.chatInput }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "chatInput",
+              "displayName": "chatInput",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [1076, 740],
+      "id": "b015ded6-c356-4010-8c05-b18630d79307",
+      "name": "Out Of Context Tool"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.3,
+      "position": [1276, 720],
+      "id": "6eb4071b-560f-42ba-87d3-1ae78331271d",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "baruchiro",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "BcsStudent",
+          "mode": "list",
+          "cachedResultName": "BcsStudent",
+          "cachedResultUrl": "https://github.com/baruchiro/BcsStudent"
+        },
+        "filePath": "=data/{{ $json._raw.sourceFilePath }}",
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [540, 60],
+      "id": "01ebe5bb-3d69-4c68-ad6f-971f9f515224",
+      "name": "Read File1",
+      "webhookId": "ce6993d9-ee30-4426-8aa2-72545e71087c",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "nUnA4V2kUY2OCSEk",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://www.baruchiro.com/allBlogs.json",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [320, 60],
+      "id": "76d1198f-13aa-419b-baf8-ab5e660f412e",
+      "name": "allBlogs.json"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://qdrant:6333/collections/blog/points/delete",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"must\": {\n      \"key\": \"metadata.post_id\",\n      \"match\": {\n        \"value\": \"{{ $('Read File1').item.json._id }}\"\n      }\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [980, 60],
+      "id": "727c09cd-397e-4e88-b2d7-4a2f17e6e694",
+      "name": "delete chunks",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "http://qdrant:6333/collections/blog/index",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n        \"field_name\": \"tags\",\n        \"field_schema\": \"keyword\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1696, 60],
+      "id": "b4112be9-b7e3-4fcb-b2a1-f09de9ebf278",
+      "name": "HTTP Request",
+      "credentials": {
+        "qdrantApi": {
+          "id": "XvlOBVkg8SDx8asf",
+          "name": "Qdrant account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "blog",
+          "mode": "list",
+          "cachedResultName": "blog"
+        },
+        "options": {
+          "collectionConfig": "{\n    \"vectors\": {\n      \"size\": 1536,\n      \"distance\": \"Dot\"\n    }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.2,
+      "position": [1216, 60],
+      "id": "c360ee51-cb95-4da2-bee5-31b3abade6b2",
+      "name": "Qdrant Vector Store",
+      "credentials": {
+        "qdrantApi": {
+          "id": "XvlOBVkg8SDx8asf",
+          "name": "Qdrant account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{}]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [100, 1840],
+      "id": "61c8aa9e-2abd-4635-a7f6-34625d2cb750",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "collection": "n8n_chat_histories_blog_rag",
+        "options": {},
+        "query": "={\n  \"$expr\": {\n    \"$gte\": [\n      {\n        \"$toDate\": \"$_id\"\n      },\n      {\n        \"$dateFromString\": {\n          \"dateString\": \"{{ $now.minus(1, 'days') }}\"\n        }\n      }\n    ]\n  }\n}"
+      },
+      "type": "n8n-nodes-base.mongoDb",
+      "typeVersion": 1.2,
+      "position": [320, 1840],
+      "id": "f123593c-2767-410e-8681-3466ad7a5f89",
+      "name": "MongoDB",
+      "credentials": {
+        "mongoDb": {
+          "id": "OuAFtv5ZyczW5jGW",
+          "name": "MongoDB home-server"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "baruchiro@gmail.com",
+        "subject": "סיכום שיחות בבלוג",
+        "message": "=<!DOCTYPE html>\n<html dir=\"rtl\" lang=\"he\">\n<head>\n    <meta charset=\"UTF-8\">\n    <style>\n        body { \n            font-family: Arial, sans-serif; \n            line-height: 1.6;\n            direction: rtl;\n            text-align: right;\n        }\n        .conversation { \n            margin-bottom: 20px; \n            padding: 15px; \n            border: 1px solid #eee;\n            direction: rtl;\n        }\n        .message { \n            margin: 10px 0;\n            white-space: pre-line;\n        }\n        .human { \n            color: #2c5282; \n        }\n        .ai { \n            color: #2d3748; \n        }\n        a { \n            color: #3182ce; \n            text-decoration: none;\n        }\n        a:hover { \n            text-decoration: underline; \n        }\n        .message br {\n            content: \"\";\n            display: block;\n            margin: 5px 0;\n        }\n    </style>\n</head>\n<body>\n    <h1>דוח סיכום שיחות</h1>\n    <p>סה\"כ שיחות: {{$json.data.length}}</p>\n\n    {{$json.data.map(conv => `\n    <div class=\"conversation\">\n        <h3>תאריך: ${conv.date}</h3>\n        <p>מזהה שיחה: ${conv.sessionId}</p>\n        <div class=\"messages\">\n            ${conv.formatted.map(msg => `\n            <div class=\"message ${msg.type}\">\n                <strong>${msg.name}:</strong><br>\n                ${msg.content}\n            </div>\n            `).join('')}\n        </div>\n    </div>\n    `).join('')}}\n\n    <p><em>סוף הדוח</em></p>\n</body>\n</html>",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1200, 1840],
+      "id": "ca83385a-8a54-4875-8442-ebb7d34b325a",
+      "name": "Gmail",
+      "webhookId": "806ef685-dd9e-4bd1-8985-7b4495efc16c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Y5NavMH6btcnI1mJ",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"date\": \"{{ new Date(parseInt($json._id.substring(0, 8), 16) * 1000).toLocaleDateString() }}\"\n}\n",
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [540, 1840],
+      "id": "31e44c1f-7eb1-404f-b912-dfae81af19bb",
+      "name": "format date"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "/** @type {Record<string, string>} */\nconst types = {\n  \"human\": \"משתמש\",\n  \"ai\": \"מערכת\",\n}\n\n// Add a new field called 'myNewField' to the JSON of the item\n$input.item.json.formatted = $json.messages.map(msg => {\n            let content = msg.data.content;\n            \n            // First convert markdown links to HTML links\n            content = content.replace(/\\[([^\\]]+)\\]\\(([^)]+)\\)/g, '<a href=\"$2\">$1</a>');\n            \n            // Then find any remaining URLs that aren't already in <a> tags\n            content = content.replace(/(?<!<a href=\")(https?:\\/\\/[^\\s]+)(?!\">)/g, '<a href=\"$1\">$1</a>');\n\n            // Convert line breaks to <br> tags\n            content = content.replace(/\\n/g, '<br>');\n            \n            return {\n                type: msg.type,\n                name: types[msg.type] ?? msg.type,\n                content: content\n            };\n        });\n\nreturn $input.item;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [760, 1840],
+      "id": "4e4251ea-14db-4231-80db-aeaa219c9306",
+      "name": "format links"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [980, 1840],
+      "id": "0f345086-d607-4852-9913-3746371abbb1",
+      "name": "Aggregate"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "length < 150",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PostHog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "allBlogs.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "delete chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MongoDB Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "length < 150": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When A Message Is Out Of Context": {
+      "main": [
+        [
+          {
+            "node": "out of context message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PostHog1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Out Of Context Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PostHog": {
+      "main": [[]]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read File1": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "allBlogs.json": {
+      "main": [
+        [
+          {
+            "node": "Read File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "delete chunks": {
+      "main": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "MongoDB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MongoDB": {
+      "main": [
+        [
+          {
+            "node": "format date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "format date": {
+      "main": [
+        [
+          {
+            "node": "format links",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "format links": {
+      "main": [
+        [
+          {
+            "node": "Aggregate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v1",
+    "errorWorkflow": "DevUOhaB8MkGzKfp"
+  },
+  "versionId": "29b4fe37-a0c0-4909-95f9-4fa31a90e4fe",
+  "meta": {
+    "templateId": "2440",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a30e88684748bb9b714b1a5cc72af46ed3eae1317210264b827a880e25dfd2f7"
+  },
+  "id": "5WeoXxhgt9i6zYpW",
+  "tags": []
+}
