@@ -19,6 +19,7 @@ const siteMetadata = {
   telegram: 'https://t.me/BcsStudent',
   bluesky: 'https://bsky.app/profile/baruchiro.com',
   instagram: 'https://www.instagram.com/baruchiro/',
+  threads: 'https://www.threads.com/@baruchiro',
   locale: 'he-IL',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
