@@ -1,0 +1,48 @@
+---
+description: when you masking a n8n workflow json
+alwaysApply: false
+---
+
+# N8n Workflow Masking Guidelines
+
+When sharing n8n workflow JSON files publicly, mask the following sensitive information:
+
+## What to Mask
+
+### Personal Identifiers
+
+- **Chat IDs**: Replace personal Telegram chat IDs (e.g., `50123760`) with `MASKED_CHAT_ID`
+- **User IDs**: Any personal user identifiers should be masked
+
+### Access Tokens and Keys
+
+- **Webhook IDs**: Replace webhook endpoint IDs with `MASKED_WEBHOOK_ID`
+- **API Keys**: Replace actual API keys and tokens with `MASKED_API_KEY`
+- **Bearer Tokens**: Replace authentication tokens with `MASKED_BEARER_TOKEN`
+
+## What NOT to Mask
+
+### Internal Reference IDs
+
+- **Credential IDs**: These are internal n8n reference IDs (e.g., `"id": "CtrTPQy5DUzQE0zC"`) that link to stored credentials but don't contain the actual sensitive data
+- **Node IDs**: Internal node identifiers used by n8n for workflow structure
+
+## Masking Examples
+
+```json
+// Before masking
+"chatId": "50573760",
+"webhookId": "f428a76b-85cd-4f7e-af7a-b5366ea35886",
+"id": "8mITXyEcWWQlNAut"
+
+// After masking
+"chatId": "MASKED_CHAT_ID",
+"webhookId": "MASKED_WEBHOOK_ID",
+"id": "MASKED_WORKFLOW_ID"
+```
+
+## Remember
+
+- Credential IDs are just internal references, not actual API keys
+- Focus on masking personal identifiers and access tokens
+- Keep the workflow structure intact for demonstration purposes
