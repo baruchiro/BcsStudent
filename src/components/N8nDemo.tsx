@@ -7,10 +7,6 @@ const N8N_SCRIPTS = [
   '/static/scripts/n8n-demo.bundled.js',
 ]
 
-// TODO: replace images of n8n with real workflow
-// TODO: check if I can and I want to change the size of the iframe
-// TODO: blog rag: remove unneeded nodes
-
 function loadScript(src: string, type?: string) {
   return new Promise<void>((resolve, reject) => {
     if (document.querySelector(`script[src="${src}"]`)) {
