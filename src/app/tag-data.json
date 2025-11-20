@@ -1,4 +1,8 @@
 {
+  "git": 6,
+  "prettier": 1,
+  "tools": 1,
+  "ci-cd": 1,
   "money": 11,
   "self-hosted": 6,
   "ai": 7,
@@ -9,7 +13,6 @@
   "no-code": 5,
   "idea": 26,
   "bot": 6,
-  "git": 5,
   "homeassistant": 2,
   "github": 6,
   "checklist": 2,
