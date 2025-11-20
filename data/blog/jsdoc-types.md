@@ -3,7 +3,7 @@ title: לקבל Types בJavaScript בלי לעבור לTypeScript
 draft: false
 date: 2021-08-20
 images: /static/images/jsdoc-types/carbon.png
-tags: ["code", "JavaScript"]
+tags: ['code', 'JavaScript', 'DevX']
 summary: |
   ללא ספק, TypeScript נהיה נפוץ יותר ויותר. אם אתם מהמתנגדים, או שפשוט המעבר יעלה לכם הרבה, הנה הדרך שבה אתם יכולים להתחיל להיעזר בTypes בלי לגעת באף הגדרה של הפרויקט שלכם!
 type: Blog
@@ -44,7 +44,7 @@ type: Blog
  * @returns {number}
  */
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 ```
 
@@ -78,7 +78,7 @@ function add(a, b) {
 /**
  * @type User
  */
-let user;
+let user
 ```
 
 השימוש ב`type` הוא כדי לתת הגדרה למשתנה ספציפי, ללא פונקציה.
@@ -98,7 +98,7 @@ let user;
  * @returns {number}
  */
 function add(a, b) {
-  return a + b;
+  return a + b
 }
 ```
 

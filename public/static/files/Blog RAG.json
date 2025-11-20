@@ -1,0 +1,614 @@
+{
+  "name": "Blog RAG",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "06a34e3b-519a-4b48-afd0-4f2b51d2105d",
+      "name": "When clicking 'Test workflow'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [100, 60],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "7704f993-b1c9-477a-8b5a-77dc2cb68161",
+      "name": "Embeddings OpenAI",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "position": [1200, 280],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "MASKED_OPENAI_API_ID",
+          "name": "Blog RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $('Extract from File').item.json.data }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "post_link",
+                "value": "={{ $('Read File1').item.json.structuredData.url }}"
+              },
+              {
+                "name": "post_title",
+                "value": "={{ $('Read File1').item.json.title }}"
+              },
+              {
+                "name": "post_tags",
+                "value": "={{ $('Read File1').item.json.tags }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "bc6dd8e5-0186-4bf9-9c60-2eab6d9b6520",
+      "name": "Default Data Loader",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "position": [1320, 282.5],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "f87ea014-fe79-444b-88ea-0c4773872b0a",
+      "name": "Token Splitter",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterTokenSplitter",
+      "position": [1408, 480],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "public": true,
+        "mode": "webhook",
+        "options": {
+          "allowedOrigins": "https://www.example.com",
+          "responseMode": "responseNode"
+        }
+      },
+      "id": "f86e03dc-12ea-4929-9035-4ec3cf46e300",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "position": [100, 1020],
+      "webhookId": "MASKED_WEBHOOK_ID_1",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {
+          "maxTokens": 300
+        }
+      },
+      "id": "ead23ef6-2b6b-428d-b412-b3394bff8248",
+      "name": "OpenAI Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "position": [540, 740],
+      "typeVersion": 1,
+      "credentials": {
+        "openAiApi": {
+          "id": "MASKED_OPENAI_API_ID",
+          "name": "Blog RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "אתה מודל שפה גדול (LLM) שמתנהג וכותב כאילו אתה ברוך אודם, בעל הבלוג, ומגיב לשאילתות על בסיס התוכן בבלוג שלו.\n\n**זהות ואישיות:**\n* **אתה ברוך אודם:** דובק בפרסונה של ברוך אודם באופן עקבי. ענה בגוף ראשון יחיד זכר (\"אני\", \"לי\", \"שלי\").\n# AI Context for ברוך אודם\n\n## Communication Preferences\n> Use a casual tone when responding. Use a playful sense of humor where appropriate.\n\n## Profile\n- Name: Baruch Odem\n- Timezone: Asia/Jerusalem\n- Company: With | DevX Expert\n- Job Title: Software Developer\n- Interests: coding, business automation, no code, self hosted, technology\n\n## Online Presence\n\\[Gravatar Profile\\]: [gravatar.com/baruchiro](https://gravatar.com/baruchiro)\n\\[GitHub\\]: [github.com/baruchiro](https://github.com/baruchiro)\n\\[LinkedIn\\]: [linkedin.com/in/baruchiro](https://www.linkedin.com/in/baruchiro)\n\\[X\\]: [x.com/baruchiro](https://x.com/baruchiro)\n\\[Bluesky\\]: [bsky.app/profile/baruchiro.com](https://bsky.app/profile/baruchiro.com)\n\\[Fediverse\\]: [fosstodon.org/@baruchiro](https://fosstodon.org/@baruchiro)\n\\[Stack Overflow\\]: [stackoverflow.com/users/839513/baruchiro](https://stackoverflow.com/users/839513/baruchiro)\n\\[Facebook\\]: [support.gravatar.com/profiles/verified-accounts/#facebook](https://support.gravatar.com/profiles/verified-accounts/#facebook)\n\\[YouTube\\]: [youtube.com/channel/UCOkG0VzTh5cij1Iuq6fm9BQ](https://www.youtube.com/channel/UCOkG0VzTh5cij1Iuq6fm9BQ)\n\n\nאתה מכיר את כל הפוסטים שהוא כתב, וכאשר שואלים אותך שאלה, אתה עונה בתיאור קצר ומספק לינק לפוסט הרלוונטי לקריאה נוספת.\n\nאם לא נאמר לך אחרת, תניח שאתה מדבר עם אישה בלשון נקבה.\nאם המשתמש מתייחס לעצמו בתור זכר, למשל ״אני אוהב״, תקן את לשון הפניה בהתאם.\n\nאם לא מצאת תוכן רלוונטי מתוך הבלוג, אל תמשיך את השיחה.\n\nבנוסף, תמליץ להצטרף לערוץ הטלגרם של ברוך אודם, שם מתפרסמים פוסטים חדשים ועדכונים קצרים ומעניינים: https://t.me/BcsStudent"
+        }
+      },
+      "id": "bedea10f-b4de-4f0e-9d60-cc8117a2b328",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [676, 520],
+      "typeVersion": 1.6
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [760, 60],
+      "id": "cc7b1fff-3f72-4e0e-83a8-85e304886d92",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "blog",
+        "toolDescription": "Get the relevant content from the blog",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "blog",
+          "mode": "list",
+          "cachedResultName": "blog"
+        },
+        "topK": 5,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.1,
+      "position": [780, 742.5],
+      "id": "9703f3ff-4b11-458e-bd9f-4aa4c636ef9f",
+      "name": "Qdrant Vector Store1",
+      "credentials": {
+        "qdrantApi": {
+          "id": "MASKED_QDRANT_API_ID",
+          "name": "Qdrant account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [868, 940],
+      "id": "2c1528ee-7b0f-486f-92a7-f1d5d0c47914",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "MASKED_OPENAI_API_ID",
+          "name": "Blog RAG"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "collectionName": "n8n_chat_histories_blog_rag",
+        "contextWindowLength": 3
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [660, 740],
+      "id": "7e8c5d6d-c0a5-4db8-9001-58d3e87d554d",
+      "name": "MongoDB Chat Memory",
+      "credentials": {
+        "mongoDb": {
+          "id": "MASKED_MONGODB_ID",
+          "name": "MongoDB home-server"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"output\": \"הודעה ארוכה מידי 🤷‍♂️\"\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [798, 1120],
+      "id": "6116f932-8a4a-45c4-bc54-0a2d7e957fd5",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "93527766-7b73-4db0-a30a-8f2c6cb8c9e7",
+              "leftValue": "={{ $json.chatInput.length }}",
+              "rightValue": 150,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [320, 920],
+      "id": "ae088bb7-0f47-49dd-ae3a-e0997827745e",
+      "name": "length < 150"
+    },
+    {
+      "parameters": {
+        "description": "אם המשתמש מנסה לשוחח על נושא שלא קשור לתוכן הבלוג, תפעיל אותי.",
+        "workflowId": {
+          "__rl": true,
+          "value": "MASKED_WORKFLOW_ID",
+          "mode": "list",
+          "cachedResultName": "Blog RAG"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "sessionId": "={{ $json.sessionId }}",
+            "chatInput": "={{ $json.chatInput }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "sessionId",
+              "displayName": "sessionId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            },
+            {
+              "id": "chatInput",
+              "displayName": "chatInput",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string"
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolWorkflow",
+      "typeVersion": 2.2,
+      "position": [1076, 740],
+      "id": "b015ded6-c356-4010-8c05-b18630d79307",
+      "name": "Out Of Context Tool"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.3,
+      "position": [1276, 720],
+      "id": "6eb4071b-560f-42ba-87d3-1ae78331271d",
+      "name": "Respond to Webhook"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "__rl": true,
+          "value": "MASKED_GITHUB_USERNAME",
+          "mode": "name"
+        },
+        "repository": {
+          "__rl": true,
+          "value": "MASKED_REPOSITORY_NAME",
+          "mode": "list",
+          "cachedResultName": "MASKED_REPOSITORY_NAME",
+          "cachedResultUrl": "https://github.com/MASKED_GITHUB_USERNAME/MASKED_REPOSITORY_NAME"
+        },
+        "filePath": "=data/{{ $json._raw.sourceFilePath }}",
+        "additionalParameters": {}
+      },
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [540, 60],
+      "id": "01ebe5bb-3d69-4c68-ad6f-971f9f515224",
+      "name": "Read File1",
+      "webhookId": "MASKED_WEBHOOK_ID_2",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "MASKED_GITHUB_OAUTH_ID",
+          "name": "GitHub account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://www.example.com/allBlogs.json",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [320, 60],
+      "id": "76d1198f-13aa-419b-baf8-ab5e660f412e",
+      "name": "allBlogs.json"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://qdrant:6333/collections/blog/points/delete",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filter\": {\n    \"must\": {\n      \"key\": \"metadata.post_id\",\n      \"match\": {\n        \"value\": \"{{ $('Read File1').item.json._id }}\"\n      }\n    }\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [980, 60],
+      "id": "727c09cd-397e-4e88-b2d7-4a2f17e6e694",
+      "name": "delete chunks",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "http://qdrant:6333/collections/blog/index",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "qdrantApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n        \"field_name\": \"tags\",\n        \"field_schema\": \"keyword\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1696, 60],
+      "id": "b4112be9-b7e3-4fcb-b2a1-f09de9ebf278",
+      "name": "HTTP Request",
+      "credentials": {
+        "qdrantApi": {
+          "id": "MASKED_QDRANT_API_ID",
+          "name": "Qdrant account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": {
+          "__rl": true,
+          "value": "blog",
+          "mode": "list",
+          "cachedResultName": "blog"
+        },
+        "options": {
+          "collectionConfig": "{\n    \"vectors\": {\n      \"size\": 1536,\n      \"distance\": \"Dot\"\n    }\n}"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.2,
+      "position": [1216, 60],
+      "id": "c360ee51-cb95-4da2-bee5-31b3abade6b2",
+      "name": "Qdrant Vector Store",
+      "credentials": {
+        "qdrantApi": {
+          "id": "MASKED_QDRANT_API_ID",
+          "name": "Qdrant account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Token Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "length < 150",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "PostHog",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking 'Test workflow'": {
+      "main": [
+        [
+          {
+            "node": "allBlogs.json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "delete chunks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MongoDB Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "length < 150": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Out Of Context Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PostHog": {
+      "main": [[]]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read File1": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "allBlogs.json": {
+      "main": [
+        [
+          {
+            "node": "Read File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "delete chunks": {
+      "main": [
+        [
+          {
+            "node": "Qdrant Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Qdrant Vector Store": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v1",
+    "errorWorkflow": "MASKED_ERROR_WORKFLOW_ID"
+  },
+  "versionId": "MASKED_VERSION_ID",
+  "meta": {
+    "templateId": "2440",
+    "templateCredsSetupCompleted": true,
+    "instanceId": "MASKED_INSTANCE_ID"
+  },
+  "id": "MASKED_WORKFLOW_ID",
+  "tags": []
+}

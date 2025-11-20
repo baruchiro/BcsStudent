@@ -12,7 +12,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir src --dir scripts",
     "rss": "node scripts/opml/opml.js",
-    "prepare": "husky"
+    "prepare": "husky && node ./scripts/download-n8n-demo-scripts.js"
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^4.6.2",

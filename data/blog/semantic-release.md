@@ -3,7 +3,7 @@ title: How to setup auto semantic-release
 draft: false
 date: 2021-07-27
 images: /static/images/semantic-release/semantic-release.jpeg
-tags: ["git", "SemVer", "Extension"]
+tags: ['git', 'SemVer', 'Extension', 'DevX']
 language: en
 publications:
   - https://medium.com/@baruchiro/how-to-setup-auto-semantic-release-184483d2198e
@@ -102,26 +102,26 @@ The default configuration for the relevant sections (in [`release.config.js`](ht
 ```javascript
 module.exports = {
   branches: [
-    "+([0-9])?(.{+([0-9]),x}).x",
-    "master",
-    "next",
-    "next-major",
+    '+([0-9])?(.{+([0-9]),x}).x',
+    'master',
+    'next',
+    'next-major',
     {
-      name: "beta",
+      name: 'beta',
       prerelease: true,
     },
     {
-      name: "alpha",
+      name: 'alpha',
       prerelease: true,
     },
   ],
   plugins: [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
-    "@semantic-release/npm",
-    "@semantic-release/github",
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
+    '@semantic-release/npm',
+    '@semantic-release/github',
   ],
-};
+}
 ```
 
 - [Default `branches`](https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches)
@@ -186,20 +186,20 @@ For me, the `plugins` are now:
 ```javascript
 plugins: [
   [
-    "@semantic-release/commit-analyzer",
+    '@semantic-release/commit-analyzer',
     {
-      preset: "eslint",
+      preset: 'eslint',
     },
   ],
   [
-    "@semantic-release/release-notes-generator",
+    '@semantic-release/release-notes-generator',
     {
-      preset: "eslint",
+      preset: 'eslint',
     },
   ],
-  "@semantic-release/npm",
-  "@semantic-release/github",
-];
+  '@semantic-release/npm',
+  '@semantic-release/github',
+]
 ```
 
 **Note** that I had to update the `@semantic-release/release-notes-generator` settings since it is also analyzing the commits to generate the release notes.
@@ -306,12 +306,12 @@ If you want to get the new version number (or any other value) from `semantic-re
 ```javascript
 plugins: [
   ...[
-    "@semantic-release/exec",
+    '@semantic-release/exec',
     {
       successCmd: 'echo"SEMVER_VERSION=${nextRelease.version}" > $GITHUB_ENV',
     },
   ],
-];
+]
 ```
 
 ## Summary
