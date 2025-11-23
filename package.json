@@ -15,6 +15,7 @@
     "prepare": "husky && node ./scripts/download-n8n-demo-scripts.js"
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@fingerprintjs/fingerprintjs": "^4.6.2",
     "@n8n/chat": "^0.27.1",
     "@next/bundle-analyzer": "14.1.0",
