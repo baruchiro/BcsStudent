@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import Image from './Image'
 import Link from './Link'
 import MobileNav from './MobileNav'
+import NavItem from './NavItem'
 import SearchButton from './SearchButton'
 import ThemeSwitch from './ThemeSwitch'
 
@@ -48,15 +49,16 @@ const Header = () => {
       </div>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6 rtl:space-x-reverse sm:rtl:space-x-reverse">
         {headerNavLinks
-          .filter((link) => link.href !== '/')
+          .filter((link) => !link.hideOnDesktop)
           .map((link) => (
-            <Link
+            <NavItem
               key={link.title}
               href={link.href}
-              className="hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
-            >
-              {link.title}
-            </Link>
+              title={link.title}
+              callToActionButton={link.callToActionButton}
+              hideOnRootPage={link.hideOnRootPage}
+              isRootPage={isRootPage}
+            />
           ))}
         <SearchButton />
         <ThemeSwitch />
