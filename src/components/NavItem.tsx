@@ -14,13 +14,13 @@ const NavItem = ({ href, title, callToActionButton, hideOnRootPage, isRootPage }
   if (callToActionButton) {
     return (
       <div
-        className={`hidden overflow-hidden transition-all duration-300 sm:block ${
+        className={`hidden overflow-hidden transition-all duration-300 md:block ${
           hideOnRootPage && isRootPage ? 'max-w-0' : 'max-w-[200px]'
         }`}
       >
         <Link
           href={href}
-          className="inline-block rounded-md bg-primary-500 px-4 py-2 font-medium text-white transition-colors hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-500"
+          className="inline-block whitespace-nowrap rounded-md bg-primary-500 px-4 py-2 font-medium text-white transition-colors hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-500"
         >
           {title}
         </Link>

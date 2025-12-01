@@ -22,7 +22,7 @@ const Header = () => {
           On xl screens and above, logo is on the right side so it only moves down without centering.
           Below xl screens, logo is centered so it moves to center. */}
       <div
-        className={`origin-top-right transition-all duration-300 rtl:origin-top-left ${
+        className={`me-4 origin-top-right transition-all duration-300 rtl:origin-top-left ${
           isRootPage ? 'header-logo-transition-root pointer-events-none opacity-0' : 'opacity-100'
         }`}
       >
@@ -38,7 +38,7 @@ const Header = () => {
               />
             </div>
             {typeof siteMetadata.headerTitle === 'string' ? (
-              <div className="hidden h-6 text-2xl font-semibold sm:block">
+              <div className="hidden h-6 whitespace-nowrap text-2xl font-semibold sm:block">
                 {siteMetadata.headerTitle}
               </div>
             ) : (
