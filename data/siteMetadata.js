@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'ברוך אודם - ייעוץ חוויית פיתוח',
   author: 'ברוך אודם',
   headerTitle: 'ברוך אודם',
-  description: 'ייעוץ בנושאי חוויית פיתוח וקוד פתוח', // TODO: update description
+  description: 'ייעוץ בנושאי חוויית פיתוח וקוד פתוח',
   language: 'he-IL',
   theme: 'system', // system, dark or light
   siteUrl: 'https://baruchiro.com',
