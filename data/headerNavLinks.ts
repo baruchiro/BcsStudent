@@ -5,7 +5,7 @@ const headerNavLinks = [
   { href: '/tags', title: 'תגיות' },
   { href: '/projects', title: 'פרויקטים' },
   { href: '/communities', title: 'קהילות' },
-  { href: '/about', title: 'אודות' },
+  { href: '/about', title: 'קביעת פגישה' }, // TODO: is it redundant? is it should reference back to /? Is it should be the first?
 ]
 
 export default headerNavLinks

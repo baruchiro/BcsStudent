@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'ברוך אודם',
+  title: 'ברוך אודם - ייעוץ חוויית פיתוח',
   author: 'ברוך אודם',
   headerTitle: 'ברוך אודם',
-  description: 'אמנם כבר לא סטודנט, אבל אוהב ללמוד דברים חדשים',
+  description: 'ייעוץ בנושאי חוויית פיתוח וקוד פתוח', // TODO: update description
   language: 'he-IL',
   theme: 'system', // system, dark or light
   siteUrl: 'https://baruchiro.com',
