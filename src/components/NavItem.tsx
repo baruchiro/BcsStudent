@@ -34,6 +34,7 @@ const NavItem = ({ href, title, callToActionButton, hideOnRootPage, isRootPage }
         className={`hidden overflow-hidden transition-all duration-300 md:block ${
           isRootPage ? 'max-w-0' : 'max-w-fit'
         }`}
+        aria-hidden={isRootPage ? 'true' : undefined}
       >
         <Link href={href} className="font-medium text-gray-900 dark:text-gray-100">
           {title}
