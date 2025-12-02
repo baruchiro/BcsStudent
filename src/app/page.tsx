@@ -1,21 +1,18 @@
-import siteMetadata from '@/data/siteMetadata'
-import PostListLayout from '@/layouts/PostListLayout'
-import { allBlogs } from 'contentlayer/generated'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { components } from '@/components/MDXComponents'
+import AuthorLayout from '@/layouts/AuthorLayout'
+import { Authors, allAuthors } from 'contentlayer/generated'
+import { MDXLayoutRenderer } from 'pliny/mdx-components'
+import { coreContent } from 'pliny/utils/contentlayer'
 
-export default function Home() {
-  const posts = allCoreContent(sortPosts(allBlogs))
+export default function Page() {
+  const author = allAuthors.find((p) => p.slug === 'default') as Authors
+  const mainContent = coreContent(author)
 
   return (
-    <PostListLayout
-      posts={posts}
-      title="ברוכים הבאים"
-      description={siteMetadata.description}
-      showNewsletter={true}
-      viewAllLink={{
-        href: '/blog',
-        text: 'כל הפוסטים',
-      }}
-    />
+    <>
+      <AuthorLayout content={mainContent}>
+        <MDXLayoutRenderer code={author.body.code} components={components} />
+      </AuthorLayout>
+    </>
   )
 }
