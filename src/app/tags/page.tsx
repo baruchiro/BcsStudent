@@ -24,7 +24,7 @@ export default function TagsPage() {
       posts={posts}
       initialDisplayPosts={initialDisplayPosts}
       pagination={pagination}
-      title="All Posts"
+      title="כל הפוסטים"
     />
   )
 }

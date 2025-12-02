@@ -31,7 +31,7 @@ const NavItem = ({ href, title, callToActionButton, hideOnRootPage, isRootPage }
   if (hideOnRootPage) {
     return (
       <div
-        className={`hidden overflow-hidden transition-all duration-300 sm:block ${
+        className={`hidden overflow-hidden transition-all duration-300 md:block ${
           isRootPage ? 'max-w-0' : 'max-w-fit'
         }`}
       >
@@ -43,7 +43,7 @@ const NavItem = ({ href, title, callToActionButton, hideOnRootPage, isRootPage }
   }
 
   return (
-    <Link href={href} className="hidden font-medium text-gray-900 dark:text-gray-100 sm:block">
+    <Link href={href} className="hidden font-medium text-gray-900 dark:text-gray-100 md:block">
       {title}
     </Link>
   )
