@@ -14,6 +14,7 @@ const NavItem = ({ href, title, callToActionButton, hideOnRootPage, isRootPage }
   if (callToActionButton) {
     return (
       <div
+        aria-hidden={hideOnRootPage && isRootPage ? 'true' : undefined}
         className={`hidden overflow-hidden transition-all duration-300 md:block ${
           hideOnRootPage && isRootPage ? 'max-w-0' : 'max-w-[200px]'
         }`}
