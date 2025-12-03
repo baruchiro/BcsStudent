@@ -64,7 +64,7 @@ export default function AuthorLayout({ children, content }: Props) {
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">
             <DirectionWrapper language={language}>{children}</DirectionWrapper>
-            {githubSponsor && github && (
+            {/* {githubSponsor && github && (
               <div className="not-prose pt-4">
                 <iframe
                   src={`https://github.com/sponsors/${github.split('/').pop()}/card`}
@@ -74,7 +74,7 @@ export default function AuthorLayout({ children, content }: Props) {
                   style={{ border: 0 }}
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>
