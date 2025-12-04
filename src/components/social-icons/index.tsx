@@ -10,6 +10,7 @@ import {
   Telegram,
   Threads,
   Twitter,
+  WhatsApp,
   Youtube,
 } from './icons'
 
@@ -26,6 +27,7 @@ const components = {
   telegram: Telegram,
   bluesky: Bluesky,
   discord: Discord,
+  whatsapp: WhatsApp,
 }
 
 export type SocialKind = keyof typeof components
@@ -34,16 +36,41 @@ type SocialIconProps = {
   kind: SocialKind
   href: string | undefined
   size?: number
+  tooltip?: string
 }
 
-const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
-  if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
-    return null
-
+const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
   const SocialSvg = components[kind]
   if (!SocialSvg) {
     console.warn(`SocialIcon: ${kind} not found`)
     return null
+  }
+
+  const hasValidHref =
+    href && !(kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
+  const displayTooltip = tooltip || (!hasValidHref && 'contact me to join')
+
+  if (!hasValidHref && !displayTooltip) {
+    return null
+  }
+
+  const iconElement = (
+    <SocialSvg
+      className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+      title={displayTooltip}
+    />
+  )
+
+  if (!hasValidHref) {
+    return (
+      <span
+        className="relative cursor-pointer text-sm text-gray-500 transition hover:text-gray-600"
+        title={displayTooltip}
+      >
+        <span className="sr-only">{kind}</span>
+        {iconElement}
+      </span>
+    )
   }
 
   return (
@@ -52,11 +79,10 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
       target="_blank"
       rel="noopener noreferrer"
       href={href}
+      title={displayTooltip}
     >
       <span className="sr-only">{kind}</span>
-      <SocialSvg
-        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
-      />
+      {iconElement}
     </a>
   )
 }
