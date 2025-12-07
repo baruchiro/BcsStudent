@@ -5,6 +5,11 @@ draft: false
 images: /static/images/free-dev-tools/free-dev-tools.png
 date: 2019-03-13 07:53:52
 type: Blog
+tags:
+  - free
+  - devtool
+  - github
+  - what-to-know-as-a-student
 ---
 
 בהרבה כלים, מוצרים ושירותים שעולים כסף, יש גם גרסה חינמית לסטודנטים. המטרה ברורה- סטודנטים שישתמשו עכשיו בחינם בכלי, יתרגלו אליו וירכשו אותו בהמשך.
