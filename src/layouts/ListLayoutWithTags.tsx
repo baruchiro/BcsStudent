@@ -129,7 +129,7 @@ export default function ListLayoutWithTags({
             <ul>
               {communities.map((community) => (
                 <li key={community.slug} className="py-5">
-                  <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-blue-500 bg-blue-50 pe-4 ps-6 dark:bg-blue-900/30 xl:space-y-0">
+                  <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-blue-500 bg-blue-50 pb-2 pe-4 ps-6 dark:bg-blue-900/30 xl:space-y-0">
                     <DirectionWrapper language="he">
                       <div className="flex items-center gap-4">
                         <Image
