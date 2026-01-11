@@ -6,10 +6,12 @@ import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
+import SocialIcon, { SocialKind } from '@/components/social-icons'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getCoverImage } from '@/utils/coverImage'
-import type { Authors, Blog } from 'contentlayer/generated'
+import type { Authors, Blog, Community } from 'contentlayer/generated'
+import NextImage from 'next/image'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { ReactNode } from 'react'
 
@@ -29,10 +31,18 @@ interface LayoutProps {
   authorDetails: CoreContent<Authors>[]
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
+  relevantCommunities?: (CoreContent<Community> & { sharedTagsCount: number })[]
   children: ReactNode
 }
 
-export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
+export default function PostLayout({
+  content,
+  authorDetails,
+  next,
+  prev,
+  relevantCommunities,
+  children,
+}: LayoutProps) {
   const { filePath, path, slug, date, title, tags, images } = content
   const basePath = path.split('/')[0]
   const coverImage = getCoverImage(images)
@@ -179,6 +189,49 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <Tag key={tag} text={tag} />
                       ))}
                     </div>
+                  </div>
+                )}
+                {relevantCommunities && relevantCommunities.length > 0 && (
+                  <div className="py-4 xl:py-8">
+                    <h2 className="mb-4 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                      קהילות רלוונטיות
+                    </h2>
+                    <ul className="space-y-4">
+                      {relevantCommunities.map((community) => (
+                        <li
+                          key={community.slug}
+                          className="flex items-start gap-3 rounded-lg border bg-white p-2 dark:bg-gray-900"
+                        >
+                          {community.image && (
+                            <NextImage
+                              src={community.image}
+                              alt={community.name}
+                              width={48}
+                              height={48}
+                              className="h-12 w-12 flex-shrink-0 rounded-full border object-contain"
+                            />
+                          )}
+                          <div className="min-w-0 flex-1">
+                            <div className="text-md font-semibold">{community.name}</div>
+                            <div className="mt-1 text-sm text-gray-600 dark:text-gray-300">
+                              {community.description}
+                            </div>
+                            {community.links && (
+                              <div className="mt-2 flex flex-row gap-2">
+                                {Object.entries(community.links).map(([key, url]) => (
+                                  <SocialIcon
+                                    key={key}
+                                    kind={key as SocialKind}
+                                    href={url as string}
+                                    size={5}
+                                  />
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
                 {(next || prev) && (
