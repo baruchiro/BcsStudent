@@ -43,6 +43,12 @@ input:-webkit-autofill:focus {
   direction: rtl;
   text-align: right;
 }
+
+.dir-rtl code {
+  direction: ltr;
+  text-align: left;
+  display: inline-block;
+}
 /* Content Header Link */
 .content-header-link {
   opacity: 0;
