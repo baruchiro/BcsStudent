@@ -58,9 +58,8 @@ const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
     return null
   }
 
-  const hasValidHref =
-    href && !(kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
-  const displayTooltip = tooltip || (!hasValidHref ? 'contact me to join' : undefined)
+  const invalidHref = !href?.trim() || (kind === 'mail' && !href?.startsWith('mailto:'))
+  const displayTooltip = tooltip || (invalidHref ? 'בקש ממני להצטרף' : undefined)
 
   const iconElement = (
     <SocialSvg
@@ -68,10 +67,10 @@ const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
     />
   )
 
-  if (!hasValidHref) {
+  if (invalidHref) {
     return (
       <span
-        className="relative cursor-pointer text-sm text-gray-500 transition hover:text-gray-600"
+        className="relative cursor-default text-sm text-gray-500 transition hover:text-gray-600"
         title={displayTooltip}
       >
         <span className="sr-only">{kind}</span>
