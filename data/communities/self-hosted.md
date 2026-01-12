@@ -6,5 +6,5 @@ links:
   whatsapp: ''
 tags:
   - self-hosted
-  - devops
+  - docker
 ---

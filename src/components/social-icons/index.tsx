@@ -39,6 +39,18 @@ type SocialIconProps = {
   tooltip?: string
 }
 
+const getSizeClasses = (size: number): string => {
+  const sizeMap: Record<number, string> = {
+    4: 'h-4 w-4',
+    5: 'h-5 w-5',
+    6: 'h-6 w-6',
+    8: 'h-8 w-8',
+    10: 'h-10 w-10',
+    12: 'h-12 w-12',
+  }
+  return sizeMap[size] || 'h-8 w-8'
+}
+
 const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
   const SocialSvg = components[kind]
   if (!SocialSvg) {
@@ -56,7 +68,7 @@ const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
 
   const iconElement = (
     <SocialSvg
-      className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+      className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 ${getSizeClasses(size)}`}
       title={displayTooltip}
     />
   )
