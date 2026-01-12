@@ -60,16 +60,11 @@ const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
 
   const hasValidHref =
     href && !(kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
-  const displayTooltip = tooltip || (!hasValidHref && 'contact me to join')
-
-  if (!hasValidHref && !displayTooltip) {
-    return null
-  }
+  const displayTooltip = tooltip || (!hasValidHref ? 'contact me to join' : undefined)
 
   const iconElement = (
     <SocialSvg
       className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 ${getSizeClasses(size)}`}
-      title={displayTooltip}
     />
   )
 
