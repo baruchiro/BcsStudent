@@ -250,7 +250,20 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcd
 
 ## Badges
 
-עוד אין לי רשימה, זה בטח גם תלוי בכלים שאני משתמש בהם.
+רשימת תגיות (badges) שימושיות ל־README:
+
+### קוד פתוח
+
+- [OpenSSF Best Practices Badge Program](https://www.bestpractices.dev/en)
+
+### GitHub
+
+- גרסה אחרונה: `![Latest Release](https://img.shields.io/github/v/release/owner/repo)` — להחליף `owner/repo` בנתיב הפרויקט
+- רישיון: `![GitHub License](https://img.shields.io/github/license/owner/repo)` — להחליף בנתיב הפרויקט
+
+### npm
+
+- גרסת החבילה: `![npm](https://img.shields.io/npm/v/package-name?logo=npm&label=version)` — להחליף `package-name` בשם החבילה
 
 ## תוספות מתגובות לפוסט
 
@@ -258,4 +271,4 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcd
 
 [מענדי המליץ בטוויטר](https://twitter.com/LandaMendy/status/1681394842264272921) על [`ts-reset`](https://github.com/total-typescript/ts-reset), זאת חבילה שקצת מתקנת Types של TypeScript. אני שומר את זה פה אבל זה כנראה שייך לפוסט מעט דומה על כלים לעבודה על פרויקטים (כאן אנחנו מתמקדים בCI)
 
-[מענדי המליץ גם](https://twitter.com/LandaMendy/status/1681677919809069056?s=20) על [`sync-dotenv`](https://github.com/codeshifu/sync-dotenv) להוספה ל`pre-commit` _Git Hook_ שתיארתי למעלה. המטרה של הכלי הזה היא לוודא שרשימת משתני הסביבה בקובץ `.env.example` תואמת לרשימה שיש לנו ב`.env` (שכמובן לא נכנס לGit)
+[Chorenzo](https://chorenzo.com/): AI sidekick שמטפל ב"engineering chores" ועוזר ליישר פרויקטים להנחיות ו recipes (lint, CI/CD, פורמט קוד, עדכון תלויות, best practices). עובד מתוך Cursor, Windsurf או Copilot. עדיין לא ניסיתי אבל מאוד רוצה. אם תנסו לפניי, אשמח לשמוע.
