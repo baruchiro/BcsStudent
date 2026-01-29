@@ -4,7 +4,7 @@ draft: false
 date: 2019-05-06 18:00:47
 summary: |
   Decisions I made while building a bot with Microsoft Bot Framework.
-tags: ['bot', 'dotnet']
+tags: ['bot', 'code']
 language: en
 type: Blog
 publications:
