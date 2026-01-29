@@ -3,7 +3,7 @@ title: Serverless פשוט וחינמי - Google Apps Script
 draft: false
 date: 2022-04-21
 images: /static/images/jsdoc-types/carbon.png
-tags: ['code', 'JavaScript', 'serverless', 'integrations']
+tags: ['code', 'javascript', 'integrations']
 summary: |
   אתם רוצים להריץ איזה אוטומציה או אפילו אפליקצייה קטנה, בענן, בלי להתעסק בתחזוקה או להרים שרת בבית. וכמובן בלי לשלם?
   בעזרת Google Apps Script אפשר להגיע לפתרונות מדהימים!

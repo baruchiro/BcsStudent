@@ -3,7 +3,7 @@ title: מה כדאי לסטודנט לדעת- טסטים
 summary: "כתיבת טסטים היא חלק חשוב ועיקרי בעולם האג'ייל, וחשוב לדעת את זה מהשלב ההתחלתי שבו אנחנו נמצאים, על מנת להגיע טובים יותר לעבודה הראשונה שלנו."
 draft: false
 date: 2018-11-22 17:29:57
-tags: ['what to know as a student', 'Tests']
+tags: ['what-to-know-as-a-student', 'testing']
 type: Blog
 ---
 

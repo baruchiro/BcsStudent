@@ -2,7 +2,7 @@
 title: מה כדאי לסטודנט לדעת- CI/CD
 draft: false
 date: 2018-12-09 09:04:48
-tags: ['what to know as a student', 'CI/CD']
+tags: ['what-to-know-as-a-student', 'cicd', 'testing']
 type: Blog
 ---
 
