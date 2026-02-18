@@ -16,6 +16,7 @@
   "cicd": 3,
   "testing": 3,
   "developer-experience": 5,
+  "application-security": 2,
   "idea": 25,
   "hardware": 2,
   "recommendation": 2,
@@ -36,6 +37,5 @@
   "youtube": 1,
   "browserextension": 2,
   "webapp": 7,
-  "mobile": 1,
-  "cyber-security": 1
+  "mobile": 1
 }
