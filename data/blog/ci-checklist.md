@@ -6,7 +6,7 @@ summary: |
   אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
 date: 2023-07-19T14:53:45.583Z
 draft: false
-tags: [checklist, cicd, devx, testing]
+tags: [checklist, cicd, developer-experience, testing]
 type: Blog
 ---
 

@@ -2,7 +2,7 @@
 title: איך נכון לעבוד בבראנצ' הפרטי שלכם?
 draft: false
 date: 2025-02-21
-tags: ['git', 'DevX']
+tags: ['git', 'developer-experience']
 type: Blog
 images: /static/images/git-branching/merge-commit.png
 authors: ['aviv-avitan']
