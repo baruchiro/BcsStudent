@@ -3,7 +3,7 @@ title: How to setup auto semantic-release
 draft: false
 date: 2021-07-27
 images: /static/images/semantic-release/semantic-release.jpeg
-tags: ['git', 'extension', 'developer-experience']
+tags: ['git', 'developer-experience', 'ci-cd']
 language: en
 publications:
   - https://medium.com/@baruchiro/how-to-setup-auto-semantic-release-184483d2198e

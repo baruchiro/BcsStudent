@@ -6,7 +6,7 @@ summary: |
   אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
 date: 2023-07-19T14:53:45.583Z
 draft: false
-tags: [cicd, developer-experience, testing, application-security]
+tags: [ci-cd, developer-experience, testing, application-security]
 type: Blog
 ---
 
