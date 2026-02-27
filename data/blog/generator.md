@@ -26,13 +26,13 @@ https://github.com/baruchiro/BcsStudent.
 בנוסף, בכל פוסט יש קישור לעריכת הפוסט. בכך שהעתקתי את כל הפוסטים
 לGithub, אנחנו יכולים יותר בקלות, במקום הנוח המוכר, לעבוד עליהם ביחד.
 (אם Github הוא לא מקום נוח ומוכר לכם, כדאי לכם להכיר אותו. יש פוסטים-
-[git](https://www.bcsstudent.com/git/) ו[קוד
-פתוח](https://www.bcsstudent.com/open-source/), ואני פה כדי לעזור.)
+[git](/tags/git) ו[קוד
+פתוח](/tags/open-source), ואני פה כדי לעזור.)
 
 ## אוטומציה
 
 רציתי אפשרות לסמן מושגים בכל פוסט, ולהציג רשימה שלהם בתחתית הפוסט, וגם
-לרכז רשימה ב[דף נפרד](https://www.bcsstudent.com/terms/).
+לרכז רשימה ב[דף נפרד](/terms/).
 
 מערכת Wordpress כתובה בשפת php, שהיא שפה שאני לא ממש מכיר, ובנוסף,
 מכיוון שמדובר [בFramework](#1117_framework), יש צורך ללמוד איך
@@ -49,6 +49,6 @@ Wordpress & PHP, ניצלתי את העובדה שכל הפוסטים נמצאי
 אז זהו, [יש קוד
 בPython](https://github.com/baruchiro/BcsStudent/tree/master/generator)
 שאוסף את כל המושגים ומציג אותם פה בתחתית, וגם ב[דף
-הנפרד](https://www.bcsstudent.com/terms/). הקוד כתוב לא בצורה הכי
+הנפרד](/terms/). הקוד כתוב לא בצורה הכי
 נקייה, אז אתם מוזמנים להציע עריכות משלכם, או ללכת לפי ה[Issues שפתוחים
 בgithub](https://github.com/baruchiro/BcsStudent/issues).
