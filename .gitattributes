@@ -199,3 +199,7 @@ Procfile          text
 
 # Ignore files (like .npmignore or .gitignore)
 *.*ignore         text
+
+# Yarn
+.yarn/releases/** binary
+.yarn/plugins/** binary
