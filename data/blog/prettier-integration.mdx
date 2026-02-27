@@ -4,6 +4,7 @@ date: '2025-11-20'
 tags: ['git', 'ci-cd', 'devtool', 'github', 'DevX']
 draft: false
 summary: 'מדריך מעשי לשילוב Prettier בפרויקט גדול בלי להרוס את git blame - איך לפרמט את כל הקוד בבת אחת ולשמור על היסטוריה נקייה'
+images: '/static/images/prettier-integration/cover.jpg'
 ---
 
 זה לגמרי הגיוני למחוק חתיכה של קוד ולהשאיר רווח&nbsp;&nbsp;מעצבן&nbsp;&nbsp;כזה , כי אחרי שנייה, בצורה אוטומטית בIDE או אוטומטית האצבעות לוחצות על Format Document.
@@ -26,6 +27,8 @@ summary: 'מדריך מעשי לשילוב Prettier בפרויקט גדול בל
 לפרמט את כל הפרויקט בבת-אחת.
 
 **הבעיה:** זה יוצר שני מכשולים עיקריים. הראשון הוא **Merge Conflicts** מול כל מי שמחזיק גרסה לוקאלית לא עדכנית. השני, והחמור יותר, הוא **אובדן ההיסטוריה**. ברגע שקומיט אחד נוגע בכל השורות בקוד, פקודת `git blame` הופכת לחסרת תועלת. במקום לראות מי כתב את הלוגיקה המקורית, אנחנו תמיד נאשים את מי שנגע בכל הקוד כדי לפרמט אותו.
+
+![דוגמה לבעיה: כל השורות מיוחסות למי שעשה את הפורמט](/static/images/prettier-integration/blame-problem.png)
 
 ## הבחירה שלי: לפרמט הכל
 
@@ -116,6 +119,8 @@ npx husky init
 ```bash
 npx lint-staged
 ```
+
+![lint-staged בפעולה](/static/images/prettier-integration/lint-staged.webp)
 
 **עכשיו הקסם:** ניצור קובץ בשם `.git-blame-ignore-revs` בתיקיית הפרויקט, ונדביק לתוכו את ה-SHA ששמרנו קודם:
 
