@@ -43,11 +43,17 @@ input:-webkit-autofill:focus {
   direction: rtl;
   text-align: right;
 }
+
+.dir-rtl code {
+  direction: ltr;
+  text-align: left;
+  display: inline-block;
+}
 /* Content Header Link */
 .content-header-link {
   opacity: 0;
   margin-inline-start: -24px;
-    padding-inline-end: 4px;
+  padding-inline-end: 4px;
 }
 
 .content-header:hover .content-header-link,
@@ -58,4 +64,14 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+
+.header-logo-transition-root {
+  transform: translateX(-40vw) translateY(12vh) scale(3);
+}
+
+@media (min-width: 1280px) {
+  .header-logo-transition-root {
+    transform: translateY(12vh) scale(3);
+  }
 }

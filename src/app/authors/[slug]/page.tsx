@@ -1,4 +1,5 @@
 import { genPageMetadata } from '@/app/seo'
+import { components } from '@/components/MDXComponents'
 import AuthorLayout from '@/layouts/AuthorLayout'
 import { allAuthors } from 'contentlayer/generated'
 import { Metadata } from 'next'
@@ -33,7 +34,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <AuthorLayout content={mainContent}>
-      <MDXLayoutRenderer code={author.body.code} />
+      <MDXLayoutRenderer code={author.body.code} components={components} />
     </AuthorLayout>
   )
 }

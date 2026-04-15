@@ -1,0 +1,43 @@
+---
+description: Brand colors, voice, and asset usage for the blog and Canva
+globs: **/*.tsx,**/*.css,**/*.mdx,tailwind.config.*
+alwaysApply: false
+---
+
+# Brand Guidelines
+
+When editing UI, styles, or content, follow the brand. Full reference: `data/brand-guidelines.md`, `data/canva-brand-colors.md`.
+
+## Colors
+
+| Role          | Hex                  | Use                                   |
+| ------------- | -------------------- | ------------------------------------- |
+| Primary       | `#6b8e23`            | Links, buttons, CTAs, key UI, borders |
+| Primary light | `#e8f5d0`, `#c8e7c0` | Hover, light backgrounds              |
+| Secondary     | `#a8f7b5`            | Accents, secondary buttons            |
+| Gray text     | `#3a3229`            | Body text                             |
+| Gray bg       | `#fef8f2`            | Light backgrounds                     |
+
+**Do:** One main primary action per screen; gray for text and calm backgrounds.  
+**Don’t:** Primary for long body text; no new accent colors beyond primary/secondary/gray.
+
+Full swatches (50–950): `data/canva-brand-colors.md`.
+
+## Voice (copy / Hebrew content)
+
+- **Tone:** Casual, approachable; first person (אני, שלי). Playful when it fits.
+- **Focus:** DevX, open source, practical tech.
+- **Language:** Hebrew (he-IL), RTL where relevant.
+- **Avoid:** Formal, unexplained jargon, salesy tone.
+
+## Assets
+
+- **Profile / “me”:** `baruch.png` — light or warm neutral backgrounds.
+- **Logo mark:** `logo.png` — headers, social.
+- **Social / cover:** `site-cover.png`.
+
+Don’t stretch, recolor, or place on busy backgrounds.
+
+## Typography
+
+- **Sans:** Space Grotesk (variable) — headings and UI. Headings bold and tight; body readable.

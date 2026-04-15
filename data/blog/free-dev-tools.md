@@ -5,6 +5,11 @@ draft: false
 images: /static/images/free-dev-tools/free-dev-tools.png
 date: 2019-03-13 07:53:52
 type: Blog
+tags:
+  - free
+  - devtool
+  - github
+  - what-to-know-as-a-student
 ---
 
 בהרבה כלים, מוצרים ושירותים שעולים כסף, יש גם גרסה חינמית לסטודנטים. המטרה ברורה- סטודנטים שישתמשו עכשיו בחינם בכלי, יתרגלו אליו וירכשו אותו בהמשך.
@@ -19,7 +24,7 @@ type: Blog
 
 ### [**Github**](https://education.github.com/pack/redeem/github)
 
-השימוש בגיטהב הוזכר בפוסט על [קוד פתוח](https://www.bcsstudent.com/open-source/). גיטהאב מציעים חשבון לסטודנטים, שמאפשר בעיקר לפתוח פרויקטים פרטיים (שלא חשופים לכולם) ללא הגבלה.
+השימוש בגיטהב הוזכר בפוסט על [קוד פתוח](/tags/open-source). גיטהאב מציעים חשבון לסטודנטים, שמאפשר בעיקר לפתוח פרויקטים פרטיים (שלא חשופים לכולם) ללא הגבלה.
 
 [![](/static/images/free-dev-tools/Octocat.png)](https://education.github.com/pack/redeem/github)
 

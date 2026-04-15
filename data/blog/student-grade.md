@@ -9,6 +9,7 @@ images: /static/images/student-grade/student-grade.png
 date: 2019-04-04 23:06:00
 authors: ['uriel-ofir']
 type: Blog
+tags: ['career', 'what-to-know-as-a-student']
 ---
 
 באופן טבעי, הלימודים האקדמיים דוחפים את הסטודנט להצליח בקורסים אותם הוא לומד. ההצלחה היא מאד מדידה ופשוטה- ככל שהציון יותר גבוה כך גם ההצלחה יותר גדולה.
