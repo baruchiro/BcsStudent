@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang={siteMetadata.language}
       dir="rtl"
-      className={`${space_grotesk.variable} scroll-smooth`}
+      className={`${space_grotesk.variable} overflow-x-hidden scroll-smooth`}
       suppressHydrationWarning
     >
       <link rel="icon" type="image/png" href="/static/favicons/favicon-96x96.png" sizes="96x96" />
@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+      <body className="overflow-x-hidden bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <N8nChatClient />
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />

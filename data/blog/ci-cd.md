@@ -2,12 +2,12 @@
 title: מה כדאי לסטודנט לדעת- CI/CD
 draft: false
 date: 2018-12-09 09:04:48
-tags: ['what to know as a student', 'CI/CD']
+tags: ['what-to-know-as-a-student', 'ci-cd', 'testing']
 type: Blog
 ---
 
-אחרי הפוסטים של [טסטים](https://www.bcsstudent.com/tests/)
-ו[גיט](https://www.bcsstudent.com/git/), הגיע הזמן לשילוב שלהם-
+אחרי הפוסטים של [טסטים](/blog/tests)
+ו[גיט](/tags/git), הגיע הזמן לשילוב שלהם-
 תהליכי CI/CD.
 
 תהליכי CI/CD הם תהליכים אוטומטיים שעוזרים לנו לקצר ולפשט את השלבים שבאים

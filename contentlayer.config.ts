@@ -86,7 +86,11 @@ function createTagCount(allBlogs, allProjects, allCommunities) {
     })
   })
 
-  writeFileSync('./src/app/tag-data.json', JSON.stringify(tagCount))
+  const sortedTagCount = Object.fromEntries(
+    Object.entries(tagCount).sort(([, countA], [, countB]) => countB - countA)
+  ) as Record<string, number>
+
+  writeFileSync('./src/app/tag-data.json', JSON.stringify(sortedTagCount, null, 2))
 }
 
 function createSearchIndex(allBlogs) {

@@ -1,3 +1,4 @@
+import CalBooker from '@/components/CalBooker'
 import N8nDemo from '@/components/N8nDemo'
 import type { MDXComponents } from 'mdx/types'
 import BlogNewsletterForm from 'pliny/ui/BlogNewsletterForm'
@@ -17,4 +18,5 @@ export const components: MDXComponents = {
   BlogNewsletterForm,
   Note,
   N8nDemo,
+  CalBooker,
 }

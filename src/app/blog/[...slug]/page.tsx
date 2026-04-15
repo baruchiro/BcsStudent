@@ -3,7 +3,6 @@ import 'katex/dist/katex.css'
 
 import DirectionWrapper from '@/components/DirectionWrapper'
 import { components } from '@/components/MDXComponents'
-import SocialIcon, { SocialKind } from '@/components/social-icons'
 import siteMetadata from '@/data/siteMetadata'
 import PostBanner from '@/layouts/PostBanner'
 import PostLayout from '@/layouts/PostLayout'
@@ -11,7 +10,6 @@ import PostSimple from '@/layouts/PostSimple'
 import type { Authors, Blog } from 'contentlayer/generated'
 import { allAuthors, allBlogs, allCommunities } from 'contentlayer/generated'
 import { Metadata } from 'next'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
@@ -150,50 +148,15 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
           />
         </>
       )}
-      <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+      <Layout
+        content={mainContent}
+        authorDetails={authorDetails}
+        next={next}
+        prev={prev}
+        relevantCommunities={relevantCommunities}
+      >
         <DirectionWrapper language={post.language}>
           <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-          {relevantCommunities.length > 0 && (
-            <section className="mt-10">
-              <h2 className="mb-4 text-xl font-bold">קהילות רלוונטיות</h2>
-              <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {relevantCommunities.map((community) => (
-                  <li
-                    key={community.slug}
-                    className="flex items-center gap-4 rounded-lg border bg-white p-4 dark:bg-gray-900"
-                  >
-                    {community.image && (
-                      <Image
-                        src={community.image}
-                        alt={community.name}
-                        width={64}
-                        height={64}
-                        className="h-16 w-16 rounded-full border object-contain"
-                      />
-                    )}
-                    <div>
-                      <div className="text-lg font-semibold">{community.name}</div>
-                      <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
-                        <span>{community.description}</span>
-                        {community.links && (
-                          <span className="ml-2 flex flex-row gap-2">
-                            {Object.entries(community.links).map(([key, url]) => (
-                              <SocialIcon
-                                key={key}
-                                kind={key as SocialKind}
-                                href={url as string}
-                                size={5}
-                              />
-                            ))}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          )}
         </DirectionWrapper>
       </Layout>
     </>
