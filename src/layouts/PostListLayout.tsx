@@ -1,7 +1,7 @@
 import Link from '@/components/Link'
 import PostListItem from '@/components/PostListItem'
 import siteMetadata from '@/data/siteMetadata'
-import { Blog } from 'contentlayer/generated'
+import { Blog } from 'contentlayer2/generated'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { CoreContent } from 'pliny/utils/contentlayer'
 

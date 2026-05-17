@@ -1,4 +1,4 @@
-import type { Blog } from 'contentlayer/generated'
+import type { Blog } from 'contentlayer2/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
 
 interface CategoryIndicatorProps {

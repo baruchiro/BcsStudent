@@ -1,6 +1,6 @@
 'use client'
 
-import { Blog } from 'contentlayer/generated'
+import { Blog } from 'contentlayer2/generated'
 import { useRouter } from 'next/navigation'
 import { KBarSearchProvider } from 'pliny/search/KBar'
 

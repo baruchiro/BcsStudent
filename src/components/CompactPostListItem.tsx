@@ -3,7 +3,7 @@ import Link from '@/components/Link'
 import StatusComponent from '@/components/StatusComponent'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import { Blog } from 'contentlayer/generated'
+import { Blog } from 'contentlayer2/generated'
 import { CoreContent } from 'pliny/utils/contentlayer'
 import { formatDate } from 'pliny/utils/formatDate'
 

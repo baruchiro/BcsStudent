@@ -2,13 +2,18 @@ import { genPageMetadata } from '@/app/seo'
 import tagData from '@/app/tag-data.json'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allBlogs, allCommunities, allProjects } from 'contentlayer/generated'
+import { allBlogs, allCommunities, allProjects } from 'contentlayer2/generated'
 import { slug } from 'github-slugger'
 import { Metadata } from 'next'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
-export async function generateMetadata({ params }: { params: { tag: string } }): Promise<Metadata> {
-  const tag = decodeURI(params.tag)
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }>
+}): Promise<Metadata> {
+  const { tag: tagParam } = await params
+  const tag = decodeURI(tagParam)
   return genPageMetadata({
     title: tag,
     description: `${siteMetadata.title} ${tag} tagged content`,
@@ -34,8 +39,9 @@ const isTagMatch = (tags: string[], targetTag: string) => {
   return tags.some((t) => t === targetTag || slug(t) === targetTag)
 }
 
-export default function TagPage({ params }: { params: { tag: string } }) {
-  const tag = decodeURI(params.tag)
+export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
+  const { tag: tagParam } = await params
+  const tag = decodeURI(tagParam)
   // Capitalize first letter and convert space to dash
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
 
