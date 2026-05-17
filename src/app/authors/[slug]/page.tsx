@@ -1,7 +1,7 @@
 import { genPageMetadata } from '@/app/seo'
 import { components } from '@/components/MDXComponents'
 import AuthorLayout from '@/layouts/AuthorLayout'
-import { allAuthors } from 'contentlayer/generated'
+import { allAuthors } from 'contentlayer2/generated'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
@@ -10,9 +10,10 @@ import { coreContent } from 'pliny/utils/contentlayer'
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const author = allAuthors.find((p) => p.slug === params.slug)
+  const { slug } = await params
+  const author = allAuthors.find((p) => p.slug === slug)
   if (!author) {
     return {}
   }
@@ -23,8 +24,9 @@ export async function generateMetadata({
   })
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const author = allAuthors.find((p) => p.slug === params.slug)
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const author = allAuthors.find((p) => p.slug === slug)
 
   if (!author) {
     notFound()

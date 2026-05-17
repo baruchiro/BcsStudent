@@ -1,7 +1,7 @@
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Image from '@/components/Image'
 import SocialIcon from '@/components/social-icons'
-import type { Authors } from 'contentlayer/generated'
+import type { Authors } from 'contentlayer2/generated'
 import { ReactNode } from 'react'
 
 interface Props {

@@ -1,6 +1,6 @@
 import { genPageMetadata } from '@/app/seo'
 import PostListLayout from '@/layouts/PostListLayout'
-import { allBlogs } from 'contentlayer/generated'
+import { allBlogs } from 'contentlayer2/generated'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 export const metadata = genPageMetadata({ title: 'רעיונות' })

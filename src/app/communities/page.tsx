@@ -2,7 +2,7 @@ import { genPageMetadata } from '@/app/seo'
 import DirectionWrapper from '@/components/DirectionWrapper'
 import SocialIcon, { SocialKind } from '@/components/social-icons'
 import Tag from '@/components/Tag'
-import { allCommunities } from 'contentlayer/generated'
+import { allCommunities } from 'contentlayer2/generated'
 import Image from 'next/image'
 
 export const metadata = genPageMetadata({ title: 'קהילות' })
