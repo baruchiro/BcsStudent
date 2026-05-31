@@ -1,5 +1,6 @@
 import CalBooker from '@/components/CalBooker'
 import N8nDemo from '@/components/N8nDemo'
+import YouTubeShort from '@/components/YouTubeShort'
 import type { MDXComponents } from 'mdx/types'
 import BlogNewsletterForm from 'pliny/ui/BlogNewsletterForm'
 import Pre from 'pliny/ui/Pre'
@@ -19,4 +20,5 @@ export const components: MDXComponents = {
   Note,
   N8nDemo,
   CalBooker,
+  YouTubeShort,
 }
