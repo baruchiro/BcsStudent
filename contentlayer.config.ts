@@ -48,13 +48,27 @@ const contentHeaderLinkIcon = fromHtmlIsomorphic(
 /**
  * Count the occurrences of all tags across blog posts and projects and write to json file
  */
-function createTagCount(allBlogs, allProjects, allCommunities) {
+function createTagCount(allBlogs, allProjects, allCommunities, allVideos) {
   const tagCount: Record<string, number> = {}
 
   // Count blog post tags
   allBlogs.forEach((file) => {
     if (file.tags && (!isProduction || file.draft !== true)) {
       file.tags.forEach((tag) => {
+        const formattedTag = slug(tag)
+        if (formattedTag in tagCount) {
+          tagCount[formattedTag] += 1
+        } else {
+          tagCount[formattedTag] = 1
+        }
+      })
+    }
+  })
+
+  // Count video tags
+  allVideos.forEach((video) => {
+    if (video.tags && (!isProduction || video.draft !== true)) {
+      video.tags.forEach((tag) => {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
@@ -93,14 +107,15 @@ function createTagCount(allBlogs, allProjects, allCommunities) {
   writeFileSync('./src/app/tag-data.json', JSON.stringify(sortedTagCount, null, 2))
 }
 
-function createSearchIndex(allBlogs) {
+function createSearchIndex(allBlogs, allVideos) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
+    const publishedVideos = allVideos.filter((video) => !isProduction || video.draft !== true)
     writeFileSync(
       `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify(sortPosts(allBlogs))
+      JSON.stringify([...sortPosts(allBlogs), ...publishedVideos])
     )
     console.log('Local search index generated...')
   }
@@ -264,9 +279,38 @@ export const Project = defineDocumentType(() => ({
   },
 }))
 
+export const Video = defineDocumentType(() => ({
+  name: 'Video',
+  filePathPattern: 'videos/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    tags: { type: 'list', of: { type: 'string' }, default: [] },
+    summary: { type: 'string' },
+    url: { type: 'string', required: true }, // external link to the video
+    image: { type: 'string' }, // thumbnail (optional)
+    draft: { type: 'boolean', default: false },
+  },
+  computedFields: {
+    slug: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
+    },
+    path: {
+      type: 'string',
+      resolve: (doc) => doc._raw.flattenedPath,
+    },
+    filePath: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFilePath,
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, Community, Project],
+  documentTypes: [Blog, Authors, Community, Project, Video],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
@@ -296,8 +340,8 @@ export default makeSource({
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs, allProjects, allCommunities } = await importData()
-    createTagCount(allBlogs, allProjects, allCommunities)
-    createSearchIndex(allBlogs)
+    const { allBlogs, allProjects, allCommunities, allVideos } = await importData()
+    createTagCount(allBlogs, allProjects, allCommunities, allVideos)
+    createSearchIndex(allBlogs, allVideos)
   },
 })

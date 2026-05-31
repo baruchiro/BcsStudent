@@ -5,6 +5,7 @@ import {
   allBlogs,
   allCommunities,
   allProjects,
+  allVideos,
 } from '../.contentlayer/generated/index.mjs'
 
 function omitBody(post) {
@@ -26,6 +27,11 @@ async function generateJSON() {
 
   // allProjects
   writeFileSync('./public/allProjects.json', JSON.stringify(allProjects, null, 2))
+
+  // allVideos
+  const publishVideos = allVideos.filter((video) => video.draft !== true)
+  const sortedVideos = sortPosts(publishVideos)
+  writeFileSync('./public/allVideos.json', JSON.stringify(sortedVideos, null, 2))
 
   console.log('JSON endpoints generated...')
 }

@@ -2,8 +2,8 @@
   "idea": 25,
   "open-source": 19,
   "money": 11,
+  "self-hosted": 10,
   "github": 9,
-  "self-hosted": 7,
   "ai": 7,
   "no-code": 7,
   "what-to-know-as-a-student": 7,
@@ -20,6 +20,7 @@
   "ci-cd": 4,
   "docker": 4,
   "shorts": 4,
+  "homeassistant": 4,
   "devx": 4,
   "mcp": 3,
   "n8n": 3,
@@ -32,7 +33,6 @@
   "application-security": 2,
   "hardware": 2,
   "recommendation": 2,
-  "homeassistant": 2,
   "work": 2,
   "mobile": 1
 }
