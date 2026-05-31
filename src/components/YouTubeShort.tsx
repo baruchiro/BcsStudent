@@ -4,7 +4,7 @@ interface Props {
 
 export default function YouTubeShort({ id }: Props) {
   return (
-    <div className="flex justify-center my-4">
+    <div className="my-4 flex justify-center">
       <iframe
         src={`https://www.youtube-nocookie.com/embed/${id}`}
         title="YouTube Short"
