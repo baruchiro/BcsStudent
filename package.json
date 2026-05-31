@@ -6,7 +6,8 @@
   "scripts": {
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
-    "build": "cross-env INIT_CWD=$PWD next build && yarn postbuild",
+    "build": "yarn fetch:videos && cross-env INIT_CWD=$PWD next build && yarn postbuild",
+    "fetch:videos": "node ./scripts/fetch-video-metadata.mjs",
     "postbuild": "node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
@@ -47,7 +48,8 @@
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
     "tailwindcss": "^3.4.1",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "youtubei.js": "^17.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",

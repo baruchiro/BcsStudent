@@ -1,5 +1,5 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer2/source-files'
-import { writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import { slug } from 'github-slugger'
 import path from 'path'
 import readingTime from 'reading-time'
@@ -279,20 +279,58 @@ export const Project = defineDocumentType(() => ({
   },
 }))
 
+/**
+ * Extract the 11-char YouTube id from any video url form
+ * (youtu.be/ID, /shorts/ID, watch?v=ID, /embed/ID).
+ */
+function getVideoId(url: string) {
+  const match = url?.match(/(?:youtu\.be\/|\/shorts\/|[?&]v=|\/embed\/)([A-Za-z0-9_-]{11})/)
+  return match ? match[1] : ''
+}
+
+/**
+ * Metadata (title/date/summary) fetched from the host by
+ * scripts/fetch-video-metadata.mjs. The video .mdx files hold only the link
+ * (+ editorial tags); everything else is resolved from this generated cache.
+ */
+let videoMetadata: Record<string, { title?: string; date?: string; summary?: string }> = {}
+try {
+  videoMetadata = JSON.parse(
+    readFileSync(path.join(root, 'data/videos/_metadata.json'), 'utf-8')
+  ) as typeof videoMetadata
+} catch {
+  // No cache yet — computed fields fall back to safe defaults.
+}
+
 export const Video = defineDocumentType(() => ({
   name: 'Video',
   filePathPattern: 'videos/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
+    // The link is the single hand-authored source of truth (with editorial tags).
+    url: { type: 'string', required: true },
     tags: { type: 'list', of: { type: 'string' }, default: [] },
-    summary: { type: 'string' },
-    url: { type: 'string', required: true }, // external link to the video
-    image: { type: 'string' }, // thumbnail (optional)
     draft: { type: 'boolean', default: false },
   },
   computedFields: {
+    videoId: { type: 'string', resolve: (doc) => getVideoId(doc.url) },
+    title: {
+      type: 'string',
+      resolve: (doc) => videoMetadata[getVideoId(doc.url)]?.title ?? doc.url,
+    },
+    date: {
+      type: 'string',
+      resolve: (doc) =>
+        videoMetadata[getVideoId(doc.url)]?.date ?? new Date(0).toISOString().slice(0, 10),
+    },
+    summary: {
+      type: 'string',
+      resolve: (doc) => videoMetadata[getVideoId(doc.url)]?.summary ?? '',
+    },
+    image: {
+      type: 'string',
+      resolve: (doc) => `https://i.ytimg.com/vi/${getVideoId(doc.url)}/hqdefault.jpg`,
+    },
     slug: {
       type: 'string',
       resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
