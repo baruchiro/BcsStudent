@@ -24,8 +24,9 @@ function getVideoId(url) {
 }
 
 function collectVideoUrls() {
-  return readdirSync(VIDEOS_DIR)
-    .filter((file) => file.endsWith('.mdx'))
+  // Scan recursively to match the Contentlayer glob `videos/**/*.mdx`.
+  return readdirSync(VIDEOS_DIR, { recursive: true })
+    .filter((file) => typeof file === 'string' && file.endsWith('.mdx'))
     .map((file) => matter(readFileSync(path.join(VIDEOS_DIR, file), 'utf-8')).data.url)
     .filter(Boolean)
 }

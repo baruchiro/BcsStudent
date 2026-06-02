@@ -313,7 +313,18 @@ export const Video = defineDocumentType(() => ({
     draft: { type: 'boolean', default: false },
   },
   computedFields: {
-    videoId: { type: 'string', resolve: (doc) => getVideoId(doc.url) },
+    videoId: {
+      type: 'string',
+      resolve: (doc) => {
+        const id = getVideoId(doc.url)
+        if (!id) {
+          throw new Error(
+            `Unsupported video url in ${doc._raw.sourceFilePath}: "${doc.url}". Expected a YouTube link (youtu.be/<id>, /shorts/<id>, watch?v=<id>, /embed/<id>).`
+          )
+        }
+        return id
+      },
+    },
     title: {
       type: 'string',
       resolve: (doc) => videoMetadata[getVideoId(doc.url)]?.title ?? doc.url,

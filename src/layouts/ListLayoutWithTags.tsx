@@ -212,7 +212,7 @@ export default function ListLayoutWithTags({
               ))}
               {videos.map((video) => (
                 <li key={video.url} className="py-5">
-                  <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-red-500 bg-red-50 pe-4 ps-6 dark:bg-red-900/20 xl:space-y-0">
+                  <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-secondary-500 bg-secondary-50 pe-4 ps-6 dark:bg-secondary-900/20 xl:space-y-0">
                     <div className="space-y-3">
                       <DirectionWrapper language="he">
                         <div className="flex items-start gap-4">
@@ -241,7 +241,7 @@ export default function ListLayoutWithTags({
                           )}
                           <div>
                             <h2 className="flex items-center gap-2 text-2xl font-bold leading-8 tracking-tight">
-                              <span className="text-red-500" aria-hidden="true">
+                              <span className="text-secondary-600" aria-hidden="true">
                                 🎬
                               </span>
                               <a
