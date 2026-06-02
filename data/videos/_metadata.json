@@ -1,13 +1,13 @@
 {
   "VHtlTuWX0iM": {
-    "title": "בית חכם עם Home Assistant",
+    "title": "אור חלש",
     "date": "2025-02-07",
-    "summary": "סרטון קצר על אוטומציה בבית החכם עם Home Assistant."
+    "summary": "סרטון קצר על אוטומציית אור חלש בבית החכם עם Home Assistant."
   },
   "ZA3jPCTZ8Mc": {
-    "title": "אין יותר להישאר בממ\"ד בחושך כשיש אזעקה בשבת",
+    "title": "אין יותר להישאר בממ\"ד בחושך כשיש אזעקה בשבת. ואפילו לא צריך שעון.",
     "date": "2025-02-07",
-    "summary": "אוטומציה ב-Home Assistant שמדליקה אור בממ\"ד בזמן אזעקה בשבת."
+    "summary": "אוטומציה ב-Home Assistant שמדליקה אור בממ\"ד בזמן אזעקה בשבת — בלי צורך בשעון."
   },
   "mWoxk7Ixo0U": {
     "title": "Don't Trust in Code from Strangers",
