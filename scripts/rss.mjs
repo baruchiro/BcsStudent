@@ -47,9 +47,8 @@ async function generateRSS(config, allBlogs, page = 'feed.xml') {
     for (const tag of Object.keys(tagData)) {
       const filteredPosts = allBlogs.filter((post) => post.tags.map((t) => slug(t)).includes(tag))
       if (!filteredPosts[0]) {
-        console.error(
-          `No posts found for tag: ${tag}. Check if a project has this tag but this tag not exists in any post.`
-        )
+        // Tag exists only on non-blog content (projects, videos); RSS is blog-only.
+        continue
       }
 
       const rss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)

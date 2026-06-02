@@ -1533,6 +1533,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bufbuild/protobuf@npm:^2.0.0":
+  version: 2.12.0
+  resolution: "@bufbuild/protobuf@npm:2.12.0"
+  checksum: f905c34ffbf0a05ee3fd6281a13f5daa5b43c215682d4900b23629691c1ee7fe0d96fefbbad84055ba0547ef089fb2d488a68c4e8383abf5b7dc56a9207c44ea
+  languageName: node
+  linkType: hard
+
 "@calcom/embed-core@npm:1.5.3":
   version: 1.5.3
   resolution: "@calcom/embed-core@npm:1.5.3"
@@ -4264,6 +4271,7 @@ __metadata:
     tailwindcss: ^3.4.1
     typescript: ^5.1.3
     unist-util-visit: ^5.0.0
+    youtubei.js: ^17.0.1
   languageName: unknown
   linkType: soft
 
@@ -8901,6 +8909,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"meriyah@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "meriyah@npm:6.1.4"
+  checksum: ea10edbc6189cfb1e62111d847db4218b96f7a29a1b25cf0c9b6ccef7a95e50f2fe403f73375ff84ff13120529755687bc5d3966a799792253707d07ec75c3d8
+  languageName: node
+  linkType: hard
+
 "methods@npm:^1.1.1":
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
@@ -13243,6 +13258,16 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: f77b3d8d00310def622123df93d4ee654fc6a0096182af8bd60679ddcdfb3474c56c6c7190817c84a2785648cdee9d721c0154eb45698c62176c322fb46fc700
+  languageName: node
+  linkType: hard
+
+"youtubei.js@npm:^17.0.1":
+  version: 17.0.1
+  resolution: "youtubei.js@npm:17.0.1"
+  dependencies:
+    "@bufbuild/protobuf": ^2.0.0
+    meriyah: ^6.1.4
+  checksum: 4d220810f865c932498be58720be1cf7cba09eac415325248a0fec752cf919944a9cc1648d1414ea738112924c9d8301afbc64b69491366528ceaaaae647837e
   languageName: node
   linkType: hard
 

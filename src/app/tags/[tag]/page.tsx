@@ -2,7 +2,7 @@ import { genPageMetadata } from '@/app/seo'
 import tagData from '@/app/tag-data.json'
 import siteMetadata from '@/data/siteMetadata'
 import ListLayout from '@/layouts/ListLayoutWithTags'
-import { allBlogs, allCommunities, allProjects } from 'contentlayer2/generated'
+import { allBlogs, allCommunities, allProjects, allVideos } from 'contentlayer2/generated'
 import { slug } from 'github-slugger'
 import { Metadata } from 'next'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
@@ -56,11 +56,17 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
   // Filter communities with the same logic
   const filteredCommunities = allCommunities.filter((community) => isTagMatch(community.tags, tag))
 
+  // Filter videos with the same logic
+  const filteredVideos = sortPosts(
+    allVideos.filter((video) => video.tags && isTagMatch(video.tags, tag))
+  )
+
   return (
     <ListLayout
       posts={filteredPosts}
       projects={filteredProjects}
       communities={filteredCommunities}
+      videos={filteredVideos}
       title={title}
     />
   )

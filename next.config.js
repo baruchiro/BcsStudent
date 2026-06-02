@@ -75,6 +75,10 @@ module.exports = () => {
           protocol: 'https',
           hostname: 'opengraph.githubassets.com',
         },
+        {
+          protocol: 'https',
+          hostname: 'i.ytimg.com',
+        },
       ],
     },
     async headers() {
