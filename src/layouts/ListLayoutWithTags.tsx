@@ -7,7 +7,7 @@ import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
 import SocialIcon, { SocialKind } from '@/components/social-icons'
 import Tag from '@/components/Tag'
-import type { Blog, Community, Project } from 'contentlayer2/generated'
+import type { Blog, Community, Project, Video } from 'contentlayer2/generated'
 import { slug } from 'github-slugger'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
@@ -21,6 +21,7 @@ interface ListLayoutProps {
   posts: CoreContent<Blog>[]
   projects?: Project[]
   communities?: Community[]
+  videos?: Video[]
   title: string
   initialDisplayPosts?: CoreContent<Blog>[]
   pagination?: PaginationProps
@@ -70,6 +71,7 @@ export default function ListLayoutWithTags({
   posts,
   projects = [],
   communities = [],
+  videos = [],
   title,
   initialDisplayPosts = [],
   pagination,
@@ -202,6 +204,65 @@ export default function ListLayoutWithTags({
                         </div>
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                           {project.description}
+                        </div>
+                      </DirectionWrapper>
+                    </div>
+                  </article>
+                </li>
+              ))}
+              {videos.map((video) => (
+                <li key={video.url} className="py-5">
+                  <article className="flex flex-col space-y-2 rounded-lg border-s-4 border-secondary-500 bg-secondary-50 pe-4 ps-6 dark:bg-secondary-900/20 xl:space-y-0">
+                    <div className="space-y-3">
+                      <DirectionWrapper language="he">
+                        <div className="flex items-start gap-4">
+                          {video.image && (
+                            <a
+                              href={video.url}
+                              rel="nofollow noreferrer"
+                              target="_blank"
+                              className="relative hidden shrink-0 sm:block"
+                              aria-label={`צפה בסרטון ${video.title}`}
+                            >
+                              <Image
+                                src={video.image}
+                                alt={video.title}
+                                width={120}
+                                height={68}
+                                className="rounded object-cover"
+                              />
+                              <span
+                                className="absolute inset-0 flex items-center justify-center text-3xl text-white drop-shadow"
+                                aria-hidden="true"
+                              >
+                                ▶️
+                              </span>
+                            </a>
+                          )}
+                          <div>
+                            <h2 className="flex items-center gap-2 text-2xl font-bold leading-8 tracking-tight">
+                              <span className="text-secondary-600" aria-hidden="true">
+                                🎬
+                              </span>
+                              <a
+                                href={video.url}
+                                rel="nofollow noreferrer"
+                                target="_blank"
+                                className="text-gray-900 dark:text-gray-100"
+                              >
+                                {video.title}
+                                <span className="ms-1 align-middle text-sm text-gray-400">↗</span>
+                              </a>
+                            </h2>
+                            <div className="flex flex-wrap">
+                              {video.tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                            </div>
+                            {video.summary && (
+                              <div className="prose max-w-none text-gray-500 dark:text-gray-400">
+                                {video.summary}
+                              </div>
+                            )}
+                          </div>
                         </div>
                       </DirectionWrapper>
                     </div>
