@@ -79,8 +79,10 @@ Readers now spot AI-written text instantly, and the author cares about this a lo
   single biggest "a machine wrote this" signal. Restructure instead with a comma, a period, a colon,
   or real parentheses `(…)`. Rewrite `הידיים — שרת n8n-mcp` as `הידיים: שרת n8n-mcp`; rewrite
   `וכשהוא נכשל — והוא ייכשל — יש לי לוג` as two sentences, or move the aside into parentheses.
-- **Keep** legitimate Hebrew prefix-hyphens (`ל-n8n`, `ב-Paperless`, `ה-API`, `מ-AI`) and hyphenated
-  tags (`self-hosted`). Those are correct typography, not the tell.
+- **Also drop Hebrew-prefix hyphens.** The author does **not** write `ל-AI`, `ב-n8n`, `ה-API`, `מ-AI`;
+  he glues the prefix straight onto the word: `לAI`, `בn8n`, `הAPI`, `מAI` (his older posts have
+  `הDocker`, `לAPI`, `בGoogle`, `מ[link]`). Match that. The only hyphens that survive are *inside*
+  English or product names and compound tags (`n8n-mcp`, `self-hosted`).
 
 Other tells to avoid: repeated "not X, but Y" constructions, triplet lists in every paragraph, and a
 parenthetical aside on every line. One or two asides per post, not one per sentence.
@@ -135,38 +137,28 @@ Actually **run** the organize-tags workflow per tag (does it truly apply? is the
 tag? is it justified, or just filler?), and confirm each chosen tag exists in `src/app/tag-data.json`
 with the exact lowercase-hyphen key. Don't just assert "2–5, looks fine".
 
-## Images (cover required)
+## Images (cover required, unique per post)
 
-Every post ships with a **cover image**; the author treats this as mandatory. Convention:
-`public/static/images/<slug>/cover.png`, referenced as `images: /static/images/<slug>/cover.png`.
+Every post gets its **own** cover. The author wants a *special illustration per post*, not one templated
+graphic with the text swapped out, so there is no cover-generator script: design each one fresh.
+Convention: `public/static/images/<slug>/cover.png`, set as `images: /static/images/<slug>/cover.png`.
 
-You can't shoot a real photo, so do **both**:
+Your real job is to **craft an excellent, post-specific AI-image prompt**, then let the author (or an
+image model) generate it and drop the file in. Make the prompt:
 
-**1. Generate a build-safe, on-brand placeholder.** A bundled script renders one from an SVG via the
-installed `sharp`:
+- **Specific to this post's core idea.** Find the one metaphor that captures the post and describe a
+  concrete scene for it. Generic tech clip-art (nodes joined by dotted lines) is boring; aim for an
+  image worth stopping the scroll for.
+- **On-brand.** Palette from the `brand-guidelines` skill: olive green `#6b8e23`, warm cream `#fef8f2`,
+  soft mint `#a8f7b5`. Flat, modern, lots of negative space.
+- **Constrained.** 1200×630 (OG ratio); **no text, no logos, no UI chrome** (raster text shapes badly
+  and dates fast).
 
-```bash
-# run from the repo ROOT so Node resolves `sharp` (a script under /tmp will NOT find it)
-node .claude/skills/write-post/scripts/make-cover.mjs <slug> "Latin Title" "short latin subtitle"
-```
+Give the prompt ready to paste, plus one alternative concept so the author can pick.
 
-Then eyeball the result with the Read tool before committing. Guidelines for any cover you make:
-
-- **Size**: 1200×630 (the OG/social ratio).
-- **Palette** (from the `brand-guidelines` skill, `.claude/skills/brand-guidelines/SKILL.md`): primary `#6b8e23`, primary-light `#e8f5d0`,
-  secondary `#a8f7b5`, text `#3a3229`, warm bg `#fef8f2`. Stay on-brand; no new accent colors.
-- **No Hebrew text in the raster** — RTL/shaping breaks without a configured Hebrew font. Use a short
-  **Latin** wordmark/tagline, or no text at all (the Hebrew title already shows on the page).
-- **Style**: minimal, modern, flat, lots of negative space. A light motif that fits the topic
-  (e.g. connected workflow nodes for automation posts) beats clip-art.
-
-**2. Hand the author a real AI-image prompt** so they can swap in a better cover. Make it specific and
-ready to paste: subject + composition + style + palette + mood + `1200×630` + `no text`. Shape:
-"A minimal, modern flat-illustration banner, 1200×630, olive-green `#6b8e23` and warm cream `#fef8f2`
-palette: <topic motif>. Soft depth, generous negative space, no text, no logos."
-
-Never point `images` at a file that doesn't exist: a missing local image **breaks the Next build**, not
-just the rendering.
+**Build safety:** a missing local image breaks the Next build, so never set `images` to a path that
+isn't there yet. While the real cover is pending, keep `draft: true` (or hold the `images` field) until
+the asset lands. Don't fall back to a generic placeholder; every post earns its own picture.
 
 ## Validate before calling it done
 
@@ -189,6 +181,8 @@ images you added). Keep PRs to a single post unless told otherwise.
 ## Don'ts
 
 - Don't use em-dashes (`—`) or spaced-hyphen separators anywhere in the prose; they read as AI-written.
+- Don't hyphenate Hebrew prefixes onto Latin words (`ל-AI`); glue them (`לAI`), matching the author.
+- Don't invent Hebraized verbs from English (e.g. `ללוג`); use a real Hebrew verb (`לתעד`) or keep the English term as a noun (`לוג`).
 - Don't write in English, or in a formal/salesy register.
 - Don't link private repos (e.g. `home-server`); don't invent image paths or `<N8nDemo>` workflow files.
 - Don't coin new tags when an existing one fits.
