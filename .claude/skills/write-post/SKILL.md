@@ -36,7 +36,7 @@ The canonical rules are in `.cursorrules` (Post Guidelines). In short:
 
 ```yaml
 ---
-title: 'כותרת — בגרשיים בודדים אם יש נקודתיים בכותרת'
+title: 'כותרת עם נקודתיים: עוטפים בגרשיים בודדים'
 date: 2026-06-03            # required, YYYY-MM-DD
 draft: false               # published posts are usually false; PR review is the gate
 summary: >
@@ -67,8 +67,29 @@ Full reference: the **Voice** section of `.cursor/rules/brand-guidelines.mdc`. T
 - **Avoid**: formal/academic tone, unexplained jargon, salesy phrasing, generic "in today's
   fast-paced world" openers. If a sentence could open any Medium post, rewrite it.
 
-Use `<Note>...</Note>` for a side-comment or a "for the technical reader" aside — the author leans on
+Use `<Note>...</Note>` for a side-comment or a "for the technical reader" aside; the author leans on
 it heavily instead of footnotes.
+
+### Avoid AI tells (critical)
+
+Readers now spot AI-written text instantly, and the author cares about this a lot. Two hard rules:
+
+- **No em-dashes (`—`) and no spaced hyphens (` - `) as separators or parentheticals.** This is the
+  single biggest "a machine wrote this" signal. Restructure instead with a comma, a period, a colon,
+  or real parentheses `(…)`. Rewrite `הידיים — שרת n8n-mcp` as `הידיים: שרת n8n-mcp`; rewrite
+  `וכשהוא נכשל — והוא ייכשל — יש לי לוג` as two sentences, or move the aside into parentheses.
+- **Keep** legitimate Hebrew prefix-hyphens (`ל-n8n`, `ב-Paperless`, `ה-API`, `מ-AI`) and hyphenated
+  tags (`self-hosted`). Those are correct typography, not the tell.
+
+Other tells to avoid: repeated "not X, but Y" constructions, triplet lists in every paragraph, and a
+parenthetical aside on every line. One or two asides per post, not one per sentence.
+
+### Use precise, native terms
+
+Name things by their real name. If the AI reaches n8n's nodes through **MCP** (e.g. `n8n-mcp`), call it
+MCP, not a vague "coding agent" or "integration". The author is a domain expert and prefers the exact
+term. Don't overstate architecture you're unsure of either: an AI agent can connect to the tools
+**remotely**, so it need not run "in the same Docker environment". Say what is actually true.
 
 ## Structure
 
@@ -94,10 +115,13 @@ The source of truth is `src/components/MDXComponents.tsx`. Available:
   `[SelfHosted](/blog/self-hosted)`; for n8n/RAG link `/blog/ai-blog-chat`; for MCP+budget link
   `/blog/actual-budget-ai`; for early no-code automation link `/blog/api-automations`. Verify the
   slug exists (`ls data/blog`) before linking.
-- **Link tools to their real homes** — official site and/or GitHub repo on first mention
-  (`[n8n](https://n8n.io/)`, `[Paperless](https://docs.paperless-ngx.com/)`). For projects the author
-  self-hosts, the home-server repo is `https://github.com/baruchiro/home-server` and you can deep-link
-  files (e.g. `infra-stack.yml`) on the `master` branch.
+- **Link tools to their real homes**: official site and/or GitHub repo on first mention
+  (`[n8n](https://n8n.io/)`, `[Paperless](https://docs.paperless-ngx.com/)`). Public projects only.
+- **Never link to private repos.** The author's `home-server` repo
+  (`github.com/baruchiro/home-server`) is **private**; do not link it or deep-link its files
+  (`infra-stack.yml`, `ai-stack.yml`, `update-skills.sh`, etc.) in a published post, because the links
+  404 for every reader. To show config, paste a short inline snippet instead, or point at a public
+  project (e.g. `czlonkowski/n8n-mcp`, `czlonkowski/n8n-skills`, which are public).
 
 ## Tags
 
@@ -106,11 +130,42 @@ English, lowercase-with-hyphens, **reuse existing** tags from `src/app/tag-data.
 new ones. Common relevant tags: `ai`, `n8n`, `self-hosted`, `no-code`, `mcp`, `open-source`, `docker`,
 `devx`. Don't introduce a near-duplicate of an existing tag.
 
-## Images
+Actually **run** the organize-tags workflow per tag (does it truly apply? is there a closer existing
+tag? is it justified, or just filler?), and confirm each chosen tag exists in `src/app/tag-data.json`
+with the exact lowercase-hyphen key. Don't just assert "2–5, looks fine".
 
-`images` is optional. If you don't have a real asset, **omit it** — never point at a file that doesn't
-exist (it renders as a broken cover). If the author wants a cover, the convention is
-`/static/images/<slug>/<slug>.png` under `public/`; tell them to drop the file there.
+## Images (cover required)
+
+Every post ships with a **cover image**; the author treats this as mandatory. Convention:
+`public/static/images/<slug>/cover.png`, referenced as `images: /static/images/<slug>/cover.png`.
+
+You can't shoot a real photo, so do **both**:
+
+**1. Generate a build-safe, on-brand placeholder.** A bundled script renders one from an SVG via the
+installed `sharp`:
+
+```bash
+# run from the repo ROOT so Node resolves `sharp` (a script under /tmp will NOT find it)
+node .claude/skills/write-post/scripts/make-cover.mjs <slug> "Latin Title" "short latin subtitle"
+```
+
+Then eyeball the result with the Read tool before committing. Guidelines for any cover you make:
+
+- **Size**: 1200×630 (the OG/social ratio).
+- **Palette** (from `.cursor/rules/brand-guidelines.mdc`): primary `#6b8e23`, primary-light `#e8f5d0`,
+  secondary `#a8f7b5`, text `#3a3229`, warm bg `#fef8f2`. Stay on-brand; no new accent colors.
+- **No Hebrew text in the raster** — RTL/shaping breaks without a configured Hebrew font. Use a short
+  **Latin** wordmark/tagline, or no text at all (the Hebrew title already shows on the page).
+- **Style**: minimal, modern, flat, lots of negative space. A light motif that fits the topic
+  (e.g. connected workflow nodes for automation posts) beats clip-art.
+
+**2. Hand the author a real AI-image prompt** so they can swap in a better cover. Make it specific and
+ready to paste: subject + composition + style + palette + mood + `1200×630` + `no text`. Shape:
+"A minimal, modern flat-illustration banner, 1200×630, olive-green `#6b8e23` and warm cream `#fef8f2`
+palette: <topic motif>. Soft depth, generous negative space, no text, no logos."
+
+Never point `images` at a file that doesn't exist: a missing local image **breaks the Next build**, not
+just the rendering.
 
 ## Validate before calling it done
 
@@ -132,10 +187,11 @@ images you added). Keep PRs to a single post unless told otherwise.
 
 ## Don'ts
 
+- Don't use em-dashes (`—`) or spaced-hyphen separators anywhere in the prose; they read as AI-written.
 - Don't write in English, or in a formal/salesy register.
-- Don't invent image paths or `<N8nDemo>` workflow files.
+- Don't link private repos (e.g. `home-server`); don't invent image paths or `<N8nDemo>` workflow files.
 - Don't coin new tags when an existing one fits.
-- Don't fabricate links to the author's posts — check the slug first.
+- Don't fabricate links to the author's posts; check the slug first.
 - Don't pad to hit a length; the author values getting to the point.
 
 ## Good exemplars to model
