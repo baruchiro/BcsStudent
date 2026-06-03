@@ -43,7 +43,7 @@ summary: >
   משפט-שניים בעברית שמתארים את הפוסט. נכתב בגוף ראשון, בלי שיווקיות.
 tags: ['ai', 'n8n', 'self-hosted']   # 2–5, see Tags below
 type: Blog                 # always Blog for blog posts
-images: /static/images/<slug>/<slug>.png   # OPTIONAL — see Images
+images: /static/images/<slug>/cover.png    # cover, see Images section
 ---
 ```
 
