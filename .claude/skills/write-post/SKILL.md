@@ -32,7 +32,7 @@ you match the register of *this* author rather than a remembered average.
 
 ## Frontmatter
 
-The canonical rules are in `.cursorrules` (Post Guidelines). In short:
+The canonical rules are in `CLAUDE.md` (the *Blog post frontmatter* and *Content & RTL* sections). In short:
 
 ```yaml
 ---
@@ -52,7 +52,8 @@ images: /static/images/<slug>/<slug>.png   # OPTIONAL — see Images
 
 ## Voice — the part that matters
 
-Full reference: the **Voice** section of `.cursor/rules/brand-guidelines.mdc`. The essence:
+Full reference: the **Voice** section of the `brand-guidelines` skill
+(`.claude/skills/brand-guidelines/SKILL.md`). The essence:
 
 - **First person, casual Hebrew** (אני, שלי). Talk to the reader like a friend who codes.
 - **Tell the journey, not just the result.** Posts read like "ככה הגעתי לזה" — what I tried, what
@@ -125,7 +126,7 @@ The source of truth is `src/components/MDXComponents.tsx`. Available:
 
 ## Tags
 
-Defer to the **`organize-tags`** skill (`.cursor/skills/organize-tags/SKILL.md`). Rules: 2–5 tags,
+Defer to the **`organize-tags`** skill (`.claude/skills/organize-tags/SKILL.md`). Rules: 2–5 tags,
 English, lowercase-with-hyphens, **reuse existing** tags from `src/app/tag-data.json` before coining
 new ones. Common relevant tags: `ai`, `n8n`, `self-hosted`, `no-code`, `mcp`, `open-source`, `docker`,
 `devx`. Don't introduce a near-duplicate of an existing tag.
@@ -152,7 +153,7 @@ node .claude/skills/write-post/scripts/make-cover.mjs <slug> "Latin Title" "shor
 Then eyeball the result with the Read tool before committing. Guidelines for any cover you make:
 
 - **Size**: 1200×630 (the OG/social ratio).
-- **Palette** (from `.cursor/rules/brand-guidelines.mdc`): primary `#6b8e23`, primary-light `#e8f5d0`,
+- **Palette** (from the `brand-guidelines` skill, `.claude/skills/brand-guidelines/SKILL.md`): primary `#6b8e23`, primary-light `#e8f5d0`,
   secondary `#a8f7b5`, text `#3a3229`, warm bg `#fef8f2`. Stay on-brand; no new accent colors.
 - **No Hebrew text in the raster** — RTL/shaping breaks without a configured Hebrew font. Use a short
   **Latin** wordmark/tagline, or no text at all (the Hebrew title already shows on the page).
