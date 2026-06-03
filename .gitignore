@@ -55,3 +55,7 @@ yarn-error.log*
 
 # Ignore public/static/scripts directory
 public/static/scripts/
+
+# Claude Code (per-user local settings; shared config like CLAUDE.md and
+# .claude/skills is committed)
+.claude/settings.local.json
