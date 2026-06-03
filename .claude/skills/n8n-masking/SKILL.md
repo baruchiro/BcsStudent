@@ -1,6 +1,6 @@
 ---
-description: when you masking a n8n workflow json
-alwaysApply: false
+name: n8n-masking
+description: Masks sensitive data in an n8n workflow JSON before sharing it publicly. Use when exporting, sharing, or committing an n8n workflow JSON — replace personal chat/user IDs, webhook IDs, API keys, and bearer tokens while keeping internal credential/node reference IDs and the workflow structure intact.
 ---
 
 # N8n Workflow Masking Guidelines
