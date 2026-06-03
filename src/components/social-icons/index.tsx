@@ -7,6 +7,7 @@ import {
   Linkedin,
   Mail,
   Mastodon,
+  Rss,
   Telegram,
   Threads,
   Twitter,
@@ -28,6 +29,7 @@ const components = {
   bluesky: Bluesky,
   discord: Discord,
   whatsapp: WhatsApp,
+  rss: Rss,
 }
 
 export type SocialKind = keyof typeof components
