@@ -107,7 +107,7 @@ function createTagCount(allBlogs, allProjects, allCommunities, allVideos) {
   writeFileSync('./src/app/tag-data.json', JSON.stringify(sortedTagCount, null, 2))
 }
 
-function createSearchIndex(allBlogs, allVideos) {
+function createSearchIndex(allBlogs, allVideos, allProjects) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
     siteMetadata.search.kbarConfig.searchDocumentsPath
@@ -115,7 +115,7 @@ function createSearchIndex(allBlogs, allVideos) {
     const publishedVideos = allVideos.filter((video) => !isProduction || video.draft !== true)
     writeFileSync(
       `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify([...sortPosts(allBlogs), ...publishedVideos])
+      JSON.stringify([...sortPosts(allBlogs), ...publishedVideos, ...allProjects])
     )
     console.log('Local search index generated...')
   }
@@ -391,6 +391,6 @@ export default makeSource({
   onSuccess: async (importData) => {
     const { allBlogs, allProjects, allCommunities, allVideos } = await importData()
     createTagCount(allBlogs, allProjects, allCommunities, allVideos)
-    createSearchIndex(allBlogs, allVideos)
+    createSearchIndex(allBlogs, allVideos, allProjects)
   },
 })

@@ -1,6 +1,6 @@
 'use client'
 
-import { Blog, Video } from 'contentlayer2/generated'
+import { Blog, Project, Video } from 'contentlayer2/generated'
 import { useRouter } from 'next/navigation'
 import { KBarSearchProvider } from 'pliny/search/KBar'
 
@@ -29,7 +29,7 @@ export const SearchProvider = ({ children }) => {
           },
         ],
         onSearchDocumentsLoad(json) {
-          return json.map((item: Blog | Video) => {
+          return json.map((item: Blog | Video | Project) => {
             if (item.type === 'Video') {
               return {
                 id: item.url,
@@ -38,6 +38,19 @@ export const SearchProvider = ({ children }) => {
                 section: 'Video',
                 subtitle: item.tags?.join(', '),
                 perform: () => window.open(item.url, '_blank', 'noopener,noreferrer'),
+              }
+            }
+            if (item.type === 'Project') {
+              return {
+                id: item.slug,
+                name: item.title,
+                keywords: [item.description, item.tags?.join(' ')].filter(Boolean).join(' '),
+                section: 'Project',
+                subtitle: item.tags?.join(', '),
+                perform: () =>
+                  item.href
+                    ? window.open(item.href, '_blank', 'noopener,noreferrer')
+                    : router.push('/projects'),
               }
             }
             return {
