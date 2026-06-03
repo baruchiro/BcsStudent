@@ -96,9 +96,15 @@ term. Don't overstate architecture you're unsure of either: an AI agent can conn
 
 ## Structure
 
-Open with a personal hook (a preference, a pain, a bit of history) — often linking to a related past
-post. Use `##` / `###` section headers. Keep paragraphs short. End with a takeaway + an invitation to
+Open with a personal hook: a preference, a pain, a bit of history, often linking to a related past
+post. Use `##` / `###` section headers. Keep paragraphs short. End with a takeaway and an invitation to
 comment. Typical length is ~600–1200 words; don't pad.
+
+For how-to or setup posts, get concrete: include copy-pasteable code blocks (a `docker-compose.yml`, the
+exact shell commands) and a short "try it yourself" walkthrough. The author wants readers to *act*, not
+just nod along, so make the path from reading to running as short as possible. When you interleave fenced
+code between steps, use bold step labels (`**1. ...**`) as paragraphs rather than an ordered list, so the
+code blocks render reliably in MDX.
 
 ## MDX components (only in `.mdx`)
 

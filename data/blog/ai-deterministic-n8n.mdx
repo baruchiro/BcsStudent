@@ -57,6 +57,64 @@ type: Blog
 
 זה גם מתחבר מצוין לדרך שאני אוהב לעבוד: מתחילים מPOC מהיר, ואם משהו באמת שורד ונהיה חלק מהשגרה, משקיעים בו, מנטרים אותו, ומשפרים אותו לאט לאט. (בדיוק כמו שעשיתי עם [MCP מול Actual Budget](/blog/actual-budget-ai), שם חיברתי AI לנתונים האמיתיים שלי דרך n8n.)
 
+### רוצים לנסות בעצמכם?
+
+אמרתי שבסוף זה שני קונטיינרים, אז הנה זה בפועל. גרסה מינימלית של מה שרץ אצלי בשרת: n8n עצמו, וn8n-mcp שחושף אותו לAI.
+
+```yaml
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: unless-stopped
+    ports:
+      - '5678:5678'
+    environment:
+      - GENERIC_TIMEZONE=Asia/Jerusalem
+      - N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE=true
+    volumes:
+      - n8n-data:/home/node/.n8n
+
+  n8n-mcp:
+    image: ghcr.io/czlonkowski/n8n-mcp:latest
+    restart: unless-stopped
+    ports:
+      - '3100:3100'
+    environment:
+      - MCP_MODE=http
+      - PORT=3100
+      - N8N_API_URL=http://n8n:5678
+      - N8N_API_KEY=${N8N_API_KEY}
+      - AUTH_TOKEN=${AUTH_TOKEN}
+    depends_on:
+      - n8n
+
+volumes:
+  n8n-data:
+```
+
+ומכאן זה כמה צעדים:
+
+**1. מרימים את הכל.** מייצרים טוקן לMCP עם `openssl rand -base64 32`, שמים אותו בקובץ `.env` ליד הcompose בתור `AUTH_TOKEN`, ומריצים `docker compose up -d`. n8n עולה על http://localhost:5678.
+
+**2. מחברים את הMCP לn8n.** בתוך n8n, בהגדרות תחת ״n8n API״, יוצרים API key. מוסיפים אותו ל`.env` בתור `N8N_API_KEY`, ומריצים שוב `docker compose up -d` כדי שהMCP ירים אותו.
+
+**3. מחברים את סוכן הקוד.** בClaude Code זו שורה אחת:
+
+```bash
+claude mcp add --transport http n8n-mcp http://localhost:3100/mcp \
+  --header "Authorization: Bearer $AUTH_TOKEN"
+```
+
+אם הסוכן רץ על אותה מכונה ולא בא לכם להתעסק בHTTP, יש גם מצב stdio פשוט יותר בלי טוקן, ראו את ה[תיעוד של n8n-mcp](https://github.com/czlonkowski/n8n-mcp).
+
+**4. נותנים לסוכן את הידע.** מתקינים את [הסקילים של czlonkowski](https://github.com/czlonkowski/n8n-skills) כדי שהסוכן יכיר את הקונבנציות של n8n מבפנים:
+
+```bash
+npx skills add https://github.com/czlonkowski/n8n-skills --skill '*' -a claude-code -y
+```
+
+**5. מבקשים.** עכשיו פשוט אומרים לו ״תבנה workflow ש...״, והוא יחפש nodes, יחבר אותם, ויתקף את הworkflow מול הMCP לפני שיגיד שסיים. מכאן זה אתם והדמיון שלכם.
+
 ### שורה תחתונה
 
 השינוי בתפיסה פשוט: במקום לבקש מAI _להיות_ האוטומציה, אני מבקש ממנו _לבנות_ אותה בכלי שנבנה בדיוק בשביל זה. הסוכן כותב פעם אחת, n8n מריץ לנצח (וגם דטרמיניסטית), ושנינו (גם אני וגם הסוכן) מתקנים מתוך לוגים אמיתיים ולא מתוך הזיות.
