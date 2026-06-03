@@ -57,4 +57,4 @@ When the user explicitly asks to organize tags, review tags, or run tag cleanup,
    - If user chooses rename/merge/remove: make the edits in the relevant frontmatter files and in tag usage; then continue.
    - run "yarn build" to update the tag data.json file.
    - Move to the next tag only after user responds or explicitly says "next" / "skip".
-3. **Stop when**: All tags have been reviewed, or the user asks to stop.’t add value.
+3. **Stop when**: All tags have been reviewed, or the user asks to stop.

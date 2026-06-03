@@ -1,7 +1,6 @@
 ---
-description: Brand colors, voice, and asset usage for the blog and Canva
-globs: **/*.tsx,**/*.css,**/*.mdx,tailwind.config.*
-alwaysApply: false
+name: brand-guidelines
+description: Brand colors, voice/tone, typography, and asset usage for the blog and Canva. Use when editing UI, styles, or content — React/TSX components, CSS, Tailwind config, or MDX/Hebrew copy — to keep colors, voice, and assets on-brand.
 ---
 
 # Brand Guidelines
@@ -19,7 +18,7 @@ When editing UI, styles, or content, follow the brand. Full reference: `data/bra
 | Gray bg       | `#fef8f2`            | Light backgrounds                     |
 
 **Do:** One main primary action per screen; gray for text and calm backgrounds.  
-**Don’t:** Primary for long body text; no new accent colors beyond primary/secondary/gray.
+**Don't:** Primary for long body text; no new accent colors beyond primary/secondary/gray.
 
 Full swatches (50–950): `data/canva-brand-colors.md`.
 
@@ -32,11 +31,11 @@ Full swatches (50–950): `data/canva-brand-colors.md`.
 
 ## Assets
 
-- **Profile / “me”:** `baruch.png` — light or warm neutral backgrounds.
+- **Profile / "me":** `baruch.png` — light or warm neutral backgrounds.
 - **Logo mark:** `logo.png` — headers, social.
 - **Social / cover:** `site-cover.png`.
 
-Don’t stretch, recolor, or place on busy backgrounds.
+Don't stretch, recolor, or place on busy backgrounds.
 
 ## Typography
 
