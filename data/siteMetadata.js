@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'ברוך אודם - ייעוץ חוויית פיתוח',
+  title: 'ברוך אודם - אוטומציה של תהליכים עסקיים עם AI',
   author: 'ברוך אודם',
   headerTitle: 'ברוך אודם',
-  description: 'ייעוץ בנושאי חוויית פיתוח וקוד פתוח',
+  description: 'בונה לעסקים ולעצמאים אוטומציות שעובדות - תהליכים שרצים מעצמם, עם AI איפה שהוא באמת עוזר',
   language: 'he-IL',
   theme: 'system', // system, dark or light
   siteUrl: 'https://baruchiro.com',
