@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from 'react'
 
 const N8N_SCRIPTS = [
-  '/static/scripts/webcomponents-loader.js',
-  '/static/scripts/polyfill-support.js',
-  '/static/scripts/n8n-demo.bundled.js',
+  'https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2.0.0/webcomponents-loader.js',
+  'https://www.unpkg.com/lit@2.0.0-rc.2/polyfill-support.js',
+  'https://cdn.jsdelivr.net/npm/@n8n_io/n8n-demo-component/n8n-demo.bundled.js',
 ]
 
 function loadScript(src: string, type?: string) {

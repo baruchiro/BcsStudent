@@ -1,0 +1,2273 @@
+{
+  "updatedAt": "2026-05-29T07:07:50.814Z",
+  "createdAt": "2026-01-21T19:59:41.187Z",
+  "id": "Leida8ulxz4SCJa9",
+  "name": "Budget Tracking",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "a0bf9719-4272-46f6-ab3b-eda6f7b44fd8",
+              "operator": {
+                "type": "string",
+                "operation": "empty",
+                "singleValue": true
+              },
+              "leftValue": "={{ $json.message.text }}",
+              "rightValue": ""
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "526e26a7-5a1e-4fb5-8289-d8ac645168a3",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        1168,
+        624
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "operation": "transcribe",
+        "options": {}
+      },
+      "id": "8c9067c3-4852-4e89-b4a3-baf46ddbdcc9",
+      "name": "Speech to Text",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "position": [
+        1616,
+        552
+      ],
+      "typeVersion": 1.3,
+      "credentials": {
+        "openAiApi": {
+          "id": "CtrTPQy5DUzQE0zC",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "text",
+              "stringValue": "={{ $json?.message?.text || \"\" }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8b54c985-9010-4f30-99d2-f055d1228336",
+      "name": "Voice or Text",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        944,
+        528
+      ],
+      "typeVersion": 3.2
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "fileId": "={{ $('Telegram Trigger').item.json.message.voice.file_id }}",
+        "additionalFields": {}
+      },
+      "id": "7258ae12-a3c6-4f15-a5f0-6f0fb694f5be",
+      "name": "Get Voice File",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        1392,
+        552
+      ],
+      "typeVersion": 1.1,
+      "webhookId": "MASKED_WEBHOOK_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "priQWgyZB2MBYFaw",
+          "name": "baruch_moneyman_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "sendChatAction",
+        "chatId": "={{ $json.message.chat.id }}"
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1168,
+        384
+      ],
+      "id": "004d9862-cbff-4c1e-981f-d3ae9293341b",
+      "name": "Telegram1",
+      "webhookId": "MASKED_WEBHOOK_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "priQWgyZB2MBYFaw",
+          "name": "baruch_moneyman_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "availableInChat": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        1840,
+        1128
+      ],
+      "id": "b4d8c2a5-7a77-494d-8f8e-217ae4e5f5d9",
+      "name": "When chat message received",
+      "webhookId": "MASKED_WEBHOOK_ID"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message",
+          "callback_query"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        272,
+        456
+      ],
+      "id": "c5eb7fd9-f214-43d2-85af-d7376c3addec",
+      "name": "Telegram Trigger",
+      "webhookId": "MASKED_WEBHOOK_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "priQWgyZB2MBYFaw",
+          "name": "baruch_moneyman_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "options": {
+          "systemMessage": "=אתה סוכן סיווג עסקאות ב-Actual Budget.\nתאריך: {{ $now }}.\n\nברירת מחדל להוצאה לא רגילה: הוצאות משתנות.\n\nקטגוריות (Usual Expenses):\nסופרמרקט (אוכל לבית) | אוכל בעבודה | בילויים | רכב | תחבורה ציבורית | רפואה | לבית | בגדים | חשבונות (סכום קבוע) | חשבונות (סכום משתנה) | כלים / AI | עמלות | החזרים | הוצאות משתנות\nמיוחדות: תרומה | חסכון | Income | Starting Balances (לא לעסקאות חדשות)\n\nחוקי ברזל:\n1. העברות בין חשבונות עצמיים — אל תציע קטגוריה (transfer payee קיים).\n2. סכום חיובי = Income (אלא אם החזר על קנייה — אז אותה קטגוריה של המקור).\n3. ספק במעורפל — הצע 3 קטגוריות סבירות, ברירת מחדל הוצאות משתנות.\n4. אסור create-rule / update-rule / delete-rule בהרצה מתוזמנת.\n\nמצבי הפעלה (MODE: בתחילת הקלט):\n• daily_nudge → (א) קרא get-grouped-categories לקבל UUID-י קטגוריות אמיתיים. (ב) קרא get-transactions {uncategorizedOnly:true, limit:1} — תחלץ accountId; קרא get-accounts כדי לתרגם accountId ל-שם חשבון. (ג) אם התוצאה ריקה — החזר {\"empty\":true}. (ד) אחרת: בחר 3 קטגוריות סבירות לעסקה הזו (לא משנה אם היא העברה — המשתמש ילחץ 'done' אם זה לא מתאים). השתמש ב-UUID שמופיעים ב-get-grouped-categories — אסור להמציא! (ה) החזר JSON בלבד (בלי markdown): {\"txn_id\",\"payee\",\"amount\",\"date\",\"account\",\"candidates\":[{\"id\",\"name\"} ×3]}.\n• monthly_summary → spending-by-category לחודש קודם וחודש שלפניו; טקסט סיכום עברי.\n• recurring_drift → ספקים חוזרים שסכום סוטה > 10% או חיוב נעדר 60+ ימים; רשימה עברית.\n• rule_audit → get-rules; דווח כללים בלי התאמות ב-90 ימים.\n• rule_proposal → ספק שסווג לאותה קטגוריה ≥3 ב-90 ימים בלי כלל; הצע אחד.\n• בלי MODE → צ'אט חופשי.\n\nפלט: עברית רגילה עם תת-קבוצה של Markdown בלבד — **מודגש**, *נטוי* או _נטוי_, `קוד`, [תווית](url). אל תברח תווים, אל תוסיף תגי HTML — תת-תהליך tg-format-safe ימיר ל-HTML באופן בטוח. (חוץ מ-daily_nudge שמחזיר JSON גולמי בלבד.)\nמסמך עיצוב מלא (לא נטען בזמן ריצה): .claude/skills/budget-actual-personal/SKILL.md."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2408,
+        816
+      ],
+      "id": "d869979c-4daf-43fe-bd8c-d6d1300ee917",
+      "name": "AI Agent",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2288,
+        1040
+      ],
+      "id": "adb73b5c-6234-40c1-8bde-607b9f07c87a",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "DmJ3n3puD06ILLBt",
+          "name": "n8n budget tracking agent"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.sessionId }}",
+        "collectionName": "n8n_budget_tracking_chat_histories",
+        "databaseName": "n8n",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+      "typeVersion": 1,
+      "position": [
+        2416,
+        1040
+      ],
+      "id": "9635a958-fa86-4bc4-bb74-8718931bf928",
+      "name": "MongoDB Chat Memory",
+      "credentials": {
+        "mongoDb": {
+          "id": "OuAFtv5ZyczW5jGW",
+          "name": "MongoDB home-server"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7b16ff8e-eb15-489f-b6f0-e8d465d34083",
+              "name": "chatInput",
+              "value": "={{ $json.text }}",
+              "type": "string"
+            },
+            {
+              "id": "e65e749c-b584-453a-b764-3d8f9dcd30c8",
+              "name": "sessionId",
+              "value": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+              "type": "number"
+            },
+            {
+              "id": "436bfa0c-bd8c-4bdd-9467-092f3d598b22",
+              "name": "isTelegram",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        720
+      ],
+      "id": "f7c8dd18-7c11-4edc-890c-3c5dbb4970d7",
+      "name": "Map fields to chat"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6e2c19e7-4c46-4ec9-8c98-e78487708c1f",
+              "leftValue": "={{ $('No Operation, do nothing').item.json.isTelegram === true }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3104,
+        768
+      ],
+      "id": "5cfae93a-85ae-4f09-8525-b8dcf66da55f",
+      "name": "if from telegram"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('No Operation, do nothing').item.json.sessionId }}",
+        "text": "={{ $json.text }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML"
+        }
+      },
+      "id": "168a8ac9-cdd0-4dfd-a786-8a2ac2542860",
+      "name": "Send Telegram (HTML)",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        3552,
+        768
+      ],
+      "typeVersion": 1.2,
+      "webhookId": "MASKED_WEBHOOK_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "priQWgyZB2MBYFaw",
+          "name": "baruch_moneyman_bot"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        2544,
+        1040
+      ],
+      "id": "d911b5cc-d1e6-4911-8169-6da3dda5972e",
+      "name": "Calculator"
+    },
+    {
+      "parameters": {
+        "sseEndpoint": "http://actual-mcp:3000/sse",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1,
+      "position": [
+        2672,
+        1040
+      ],
+      "id": "1f09f313-47a4-44e2-b281-33be3881b764",
+      "name": "Actual MCP"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.text }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "reply_to_message_id": "={{ $('Telegram Trigger').item.json.message.message_id }}"
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1840,
+        504
+      ],
+      "id": "7e0dd82f-2668-4e69-b900-a3c7004543c1",
+      "name": "Reply with transcript",
+      "webhookId": "MASKED_WEBHOOK_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "priQWgyZB2MBYFaw",
+          "name": "baruch_moneyman_bot"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2064,
+        816
+      ],
+      "id": "79853ed0-162f-41b3-b790-449b19a92caa",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "60af63b7-f5c6-42e8-9254-5db0cc507ec0",
+              "name": "chatInput",
+              "value": "MODE: daily_nudge",
+              "type": "string"
+            },
+            {
+              "id": "15835cb7-0640-41d7-9fd7-13b3ca31fc26",
+              "name": "sessionId",
+              "value": "daily_nudge_MASKED_CHAT_ID",
+              "type": "string"
+            },
+            {
+              "id": "8d3a1f4b-9012-4f5e-8d10-1234abcdef00",
+              "name": "mode",
+              "value": "daily_nudge",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        936
+      ],
+      "id": "15a7a8ac-fc25-4056-bbdc-fb05c0860d2b",
+      "name": "Find uncategorized transactions"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 21
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        1616,
+        936
+      ],
+      "id": "635cfa0a-12e9-4cbb-a3e1-b5479c0a939e",
+      "name": "9pm"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const output = $json.output;\nlet parsed;\ntry {\n  parsed = JSON.parse(output);\n} catch (e) {\n  return [];\n}\nif (parsed.empty === true || !parsed.txn_id) {\n  return [];\n}\nconst candidates = (parsed.candidates || []).slice(0, 3);\nwhile (candidates.length < 3) candidates.push({ id: '', name: '—' });\nconst token = Math.random().toString(36).slice(2, 10);\nconst sign = parsed.amount < 0 ? '-' : '+';\nconst absAmt = (Math.abs(parsed.amount) / 100).toFixed(2);\nconst account = parsed.account ? `\\n🏦 ${parsed.account}` : '';\nconst text = `📅 ${parsed.date}  •  ${sign}₪${absAmt}\\n🏪 ${parsed.payee}${account}\\n\\nבחר קטגוריה:`;\nconst inline_keyboard = candidates.map((c, i) => [\n  { text: c.name, callback_data: `cat:${token}:${i + 1}` }\n]);\ninline_keyboard.push([{ text: '✨ סיים', callback_data: `done:${token}` }]);\nreturn {\n  token,\n  txn_id: parsed.txn_id,\n  candidate_ids_json: JSON.stringify(candidates.map(c => c.id)),\n  candidate_names_json: JSON.stringify(candidates.map(c => c.name)),\n  chat_id: 'MASKED_CHAT_ID',\n  text,\n  reply_markup: { inline_keyboard },\n};\n"
+      },
+      "id": "332657ce-bc8f-4f08-b73c-644aca6dfccc",
+      "name": "Build Nudge Message",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3104,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "rUtiznE9c6kttyyJ"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "token": "={{ $json.token }}",
+            "txn_id": "={{ $json.txn_id }}",
+            "candidate_ids_json": "={{ $json.candidate_ids_json }}",
+            "candidate_names_json": "={{ $json.candidate_names_json }}",
+            "chat_id": "={{ $json.chat_id }}",
+            "message_id": 0
+          }
+        },
+        "options": {}
+      },
+      "id": "2955e87d-24f7-4111-8e27-7a0b333b83d2",
+      "name": "Save Pending Categorization",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        3328,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "cb1",
+              "leftValue": "={{ $json.callback_query ? 'yes' : '' }}",
+              "rightValue": "yes",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "11baa889-e599-426b-ad2b-40c050c2b2ff",
+      "name": "Is Callback",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        456
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const cbq = $json.callback_query;\nconst data = cbq?.data || '';\nconst parts = data.split(':');\nconst action = parts[0];\nconst token = parts[1] || '';\nconst idx = parts[2] ? parseInt(parts[2], 10) : null;\nreturn {\n  action,\n  token,\n  idx,\n  chat_id: cbq.message.chat.id,\n  message_id: cbq.message.message_id,\n  callback_query_id: cbq.id,\n};\n"
+      },
+      "id": "7fa9051a-7bcb-47fc-b731-697979ce4fd5",
+      "name": "Extract Token",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1392,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "dataTableId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "rUtiznE9c6kttyyJ"
+        },
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "token",
+              "keyValue": "={{ $json.token }}"
+            }
+          ]
+        }
+      },
+      "id": "aaa6a178-9403-497e-b0f3-a89147bc5b9b",
+      "name": "Lookup Pending",
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1.1,
+      "position": [
+        1616,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const cb = $('Extract Token').item.json;\nconst row = $json;\nconst chat_id = cb.chat_id;\n\nif (cb.action === 'done') {\n  return {\n    chatInput: 'השב: סיימנו לעכשיו. תודה!',\n    sessionId: `daily_nudge_${chat_id}`,\n    isTelegram: true,\n  };\n}\n\nlet ids = [];\nlet names = [];\ntry {\n  ids = JSON.parse(row.candidate_ids_json || '[]');\n  names = JSON.parse(row.candidate_names_json || '[]');\n} catch (e) {}\nconst idx = cb.idx || 1;\nconst selectedId = ids[idx - 1];\nconst selectedName = names[idx - 1] || 'ללא שם';\nconst txn_id = row.txn_id;\n\nif (!selectedId || !txn_id) {\n  return {\n    chatInput: 'תקלה בזיהוי העסקה. לא הצלחתי לסווג.',\n    sessionId: `daily_nudge_${chat_id}`,\n    isTelegram: true,\n  };\n}\n\n// Update + chain to next: single agent invocation. Output the NEXT nudge's JSON\n// (so the Route Agent Output Switch will route to Build Nudge Message again),\n// or {\"empty\":true} if no more uncategorized.\nconst chatInput = `MODE: daily_nudge\\n\\nראשית: עדכן את העסקה ${txn_id} לקטגוריה ${selectedId} (${selectedName}) באמצעות update-transaction.\\nאחר מכן: הרץ מחזור מלא של daily_nudge — הבא עסקה אחת ללא קטגוריה (אל תבחר שוב את ${txn_id} — היא כבר סווגה!) והחזר JSON סטנדרטי של daily_nudge ({txn_id, payee, amount, date, candidates}), או {\"empty\":true} אם אין עוד.`;\n\nreturn {\n  chatInput,\n  sessionId: `daily_nudge_${chat_id}`,\n  isTelegram: true,\n};\n"
+      },
+      "id": "0f4722da-29eb-4694-8d98-570a0e889d3b",
+      "name": "Build Callback ChatInput",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Build Nudge Message').item.json.chat_id }}",
+        "text": "={{ $('Build Nudge Message').item.json.text }}",
+        "replyMarkup": "inlineKeyboard",
+        "inlineKeyboard": {
+          "rows": [
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "={{ JSON.parse($('Build Nudge Message').item.json.candidate_names_json)[0] }}",
+                    "additionalFields": {
+                      "callback_data": "={{ 'cat:' + $('Build Nudge Message').item.json.token + ':1' }}"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "={{ JSON.parse($('Build Nudge Message').item.json.candidate_names_json)[1] }}",
+                    "additionalFields": {
+                      "callback_data": "={{ 'cat:' + $('Build Nudge Message').item.json.token + ':2' }}"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "={{ JSON.parse($('Build Nudge Message').item.json.candidate_names_json)[2] }}",
+                    "additionalFields": {
+                      "callback_data": "={{ 'cat:' + $('Build Nudge Message').item.json.token + ':3' }}"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "row": {
+                "buttons": [
+                  {
+                    "text": "✨ סיים",
+                    "additionalFields": {
+                      "callback_data": "={{ 'done:' + $('Build Nudge Message').item.json.token }}"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "ca96bc79-5f12-4924-85b5-e08e5454ffbc",
+      "name": "Send Nudge with Keyboard",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3552,
+        576
+      ],
+      "webhookId": "MASKED_WEBHOOK_ID",
+      "credentials": {
+        "telegramApi": {
+          "id": "priQWgyZB2MBYFaw",
+          "name": "baruch_moneyman_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "r-nudge",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "txn_id",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "nudge"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "loose",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "r-empty",
+                    "leftValue": "={{ $json.output }}",
+                    "rightValue": "empty",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "empty"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "chat"
+        }
+      },
+      "id": "8e3e3978-a6d5-42f9-bd82-2b286e8396e0",
+      "name": "Route Agent Output",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        2880,
+        800
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "7b17401f-25e7-4bc3-95c5-b0dd5d4673a8",
+      "name": "NoOp (empty nudge)",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        3104,
+        960
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "combinator": "and",
+          "conditions": [
+            {
+              "id": "chat-allow",
+              "leftValue": "={{ String($json.message?.chat?.id ?? $json.callback_query?.message?.chat?.id ?? '') }}",
+              "rightValue": "MASKED_CHAT_ID",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7df69379-16fc-48e8-91ee-a498c654eaf9",
+      "name": "Route: Allowed Chat?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        496,
+        456
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "NMnXNijae3doxjLG",
+          "mode": "list",
+          "cachedResultName": "tg-format-safe"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.output || $json.error }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "canBeUsedToMatch": true,
+              "type": "string",
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": true,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "id": "fmt_safe_1",
+      "name": "Format: tg-format-safe",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        3328,
+        768
+      ]
+    }
+  ],
+  "connections": {
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Get Voice File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Map fields to chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Speech to Text": {
+      "main": [
+        [
+          {
+            "node": "Reply with transcript",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Map fields to chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voice or Text": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Voice File": {
+      "main": [
+        [
+          {
+            "node": "Speech to Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MongoDB Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Map fields to chat": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Actual MCP": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find uncategorized transactions": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "9pm": {
+      "main": [
+        [
+          {
+            "node": "Find uncategorized transactions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Nudge Message": {
+      "main": [
+        [
+          {
+            "node": "Save Pending Categorization",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Callback": {
+      "main": [
+        [
+          {
+            "node": "Extract Token",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Voice or Text",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Token": {
+      "main": [
+        [
+          {
+            "node": "Lookup Pending",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lookup Pending": {
+      "main": [
+        [
+          {
+            "node": "Build Callback ChatInput",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Callback ChatInput": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Pending Categorization": {
+      "main": [
+        [
+          {
+            "node": "Send Nudge with Keyboard",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Route Agent Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Agent Output": {
+      "main": [
+        [
+          {
+            "node": "Build Nudge Message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp (empty nudge)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "if from telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Route: Allowed Chat?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route: Allowed Chat?": {
+      "main": [
+        [
+          {
+            "node": "Is Callback",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "if from telegram": {
+      "main": [
+        [
+          {
+            "node": "Format: tg-format-safe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format: tg-format-safe": {
+      "main": [
+        [
+          {
+            "node": "Send Telegram (HTML)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": true,
+    "errorWorkflow": "0XeTyWlTIKHuYayj",
+    "callerPolicy": "workflowsFromSameOwner",
+    "binaryMode": "separate"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    },
+    "node:9pm": {
+      "recurrenceRules": []
+    }
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "versionId": "426bc748-835f-49d1-aea1-90d1c6940919",
+  "activeVersionId": "426bc748-835f-49d1-aea1-90d1c6940919",
+  "triggerCount": 3,
+  "shared": [
+    {
+      "updatedAt": "2026-01-21T19:59:41.197Z",
+      "createdAt": "2026-01-21T19:59:41.197Z",
+      "role": "workflow:owner",
+      "workflowId": "Leida8ulxz4SCJa9",
+      "projectId": "pa2Q5kZ4N6c1lMYO"
+    }
+  ],
+  "activeVersion": {
+    "updatedAt": "2026-05-29T07:07:53.000Z",
+    "createdAt": "2026-05-29T07:07:50.822Z",
+    "versionId": "426bc748-835f-49d1-aea1-90d1c6940919",
+    "workflowId": "Leida8ulxz4SCJa9",
+    "nodes": [
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "a0bf9719-4272-46f6-ab3b-eda6f7b44fd8",
+                "operator": {
+                  "type": "string",
+                  "operation": "empty",
+                  "singleValue": true
+                },
+                "leftValue": "={{ $json.message.text }}",
+                "rightValue": ""
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "526e26a7-5a1e-4fb5-8289-d8ac645168a3",
+        "name": "If",
+        "type": "n8n-nodes-base.if",
+        "position": [
+          1168,
+          624
+        ],
+        "typeVersion": 2.2
+      },
+      {
+        "parameters": {
+          "resource": "audio",
+          "operation": "transcribe",
+          "options": {}
+        },
+        "id": "8c9067c3-4852-4e89-b4a3-baf46ddbdcc9",
+        "name": "Speech to Text",
+        "type": "@n8n/n8n-nodes-langchain.openAi",
+        "position": [
+          1616,
+          552
+        ],
+        "typeVersion": 1.3,
+        "credentials": {
+          "openAiApi": {
+            "id": "CtrTPQy5DUzQE0zC",
+            "name": "OpenAi account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "fields": {
+            "values": [
+              {
+                "name": "text",
+                "stringValue": "={{ $json?.message?.text || \"\" }}"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "8b54c985-9010-4f30-99d2-f055d1228336",
+        "name": "Voice or Text",
+        "type": "n8n-nodes-base.set",
+        "position": [
+          944,
+          528
+        ],
+        "typeVersion": 3.2
+      },
+      {
+        "parameters": {
+          "resource": "file",
+          "fileId": "={{ $('Telegram Trigger').item.json.message.voice.file_id }}",
+          "additionalFields": {}
+        },
+        "id": "7258ae12-a3c6-4f15-a5f0-6f0fb694f5be",
+        "name": "Get Voice File",
+        "type": "n8n-nodes-base.telegram",
+        "position": [
+          1392,
+          552
+        ],
+        "typeVersion": 1.1,
+        "webhookId": "MASKED_WEBHOOK_ID",
+        "credentials": {
+          "telegramApi": {
+            "id": "priQWgyZB2MBYFaw",
+            "name": "baruch_moneyman_bot"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "operation": "sendChatAction",
+          "chatId": "={{ $json.message.chat.id }}"
+        },
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          1168,
+          384
+        ],
+        "id": "004d9862-cbff-4c1e-981f-d3ae9293341b",
+        "name": "Telegram1",
+        "webhookId": "MASKED_WEBHOOK_ID",
+        "credentials": {
+          "telegramApi": {
+            "id": "priQWgyZB2MBYFaw",
+            "name": "baruch_moneyman_bot"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "availableInChat": true,
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+        "typeVersion": 1.1,
+        "position": [
+          1840,
+          1128
+        ],
+        "id": "b4d8c2a5-7a77-494d-8f8e-217ae4e5f5d9",
+        "name": "When chat message received",
+        "webhookId": "MASKED_WEBHOOK_ID"
+      },
+      {
+        "parameters": {
+          "updates": [
+            "message",
+            "callback_query"
+          ],
+          "additionalFields": {}
+        },
+        "type": "n8n-nodes-base.telegramTrigger",
+        "typeVersion": 1.2,
+        "position": [
+          272,
+          456
+        ],
+        "id": "c5eb7fd9-f214-43d2-85af-d7376c3addec",
+        "name": "Telegram Trigger",
+        "webhookId": "MASKED_WEBHOOK_ID",
+        "credentials": {
+          "telegramApi": {
+            "id": "priQWgyZB2MBYFaw",
+            "name": "baruch_moneyman_bot"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "promptType": "define",
+          "text": "={{ $json.chatInput }}",
+          "options": {
+            "systemMessage": "=אתה סוכן סיווג עסקאות ב-Actual Budget.\nתאריך: {{ $now }}.\n\nברירת מחדל להוצאה לא רגילה: הוצאות משתנות.\n\nקטגוריות (Usual Expenses):\nסופרמרקט (אוכל לבית) | אוכל בעבודה | בילויים | רכב | תחבורה ציבורית | רפואה | לבית | בגדים | חשבונות (סכום קבוע) | חשבונות (סכום משתנה) | כלים / AI | עמלות | החזרים | הוצאות משתנות\nמיוחדות: תרומה | חסכון | Income | Starting Balances (לא לעסקאות חדשות)\n\nחוקי ברזל:\n1. העברות בין חשבונות עצמיים — אל תציע קטגוריה (transfer payee קיים).\n2. סכום חיובי = Income (אלא אם החזר על קנייה — אז אותה קטגוריה של המקור).\n3. ספק במעורפל — הצע 3 קטגוריות סבירות, ברירת מחדל הוצאות משתנות.\n4. אסור create-rule / update-rule / delete-rule בהרצה מתוזמנת.\n\nמצבי הפעלה (MODE: בתחילת הקלט):\n• daily_nudge → (א) קרא get-grouped-categories לקבל UUID-י קטגוריות אמיתיים. (ב) קרא get-transactions {uncategorizedOnly:true, limit:1} — תחלץ accountId; קרא get-accounts כדי לתרגם accountId ל-שם חשבון. (ג) אם התוצאה ריקה — החזר {\"empty\":true}. (ד) אחרת: בחר 3 קטגוריות סבירות לעסקה הזו (לא משנה אם היא העברה — המשתמש ילחץ 'done' אם זה לא מתאים). השתמש ב-UUID שמופיעים ב-get-grouped-categories — אסור להמציא! (ה) החזר JSON בלבד (בלי markdown): {\"txn_id\",\"payee\",\"amount\",\"date\",\"account\",\"candidates\":[{\"id\",\"name\"} ×3]}.\n• monthly_summary → spending-by-category לחודש קודם וחודש שלפניו; טקסט סיכום עברי.\n• recurring_drift → ספקים חוזרים שסכום סוטה > 10% או חיוב נעדר 60+ ימים; רשימה עברית.\n• rule_audit → get-rules; דווח כללים בלי התאמות ב-90 ימים.\n• rule_proposal → ספק שסווג לאותה קטגוריה ≥3 ב-90 ימים בלי כלל; הצע אחד.\n• בלי MODE → צ'אט חופשי.\n\nפלט: עברית רגילה עם תת-קבוצה של Markdown בלבד — **מודגש**, *נטוי* או _נטוי_, `קוד`, [תווית](url). אל תברח תווים, אל תוסיף תגי HTML — תת-תהליך tg-format-safe ימיר ל-HTML באופן בטוח. (חוץ מ-daily_nudge שמחזיר JSON גולמי בלבד.)\nמסמך עיצוב מלא (לא נטען בזמן ריצה): .claude/skills/budget-actual-personal/SKILL.md."
+          }
+        },
+        "type": "@n8n/n8n-nodes-langchain.agent",
+        "typeVersion": 2.2,
+        "position": [
+          2408,
+          816
+        ],
+        "id": "d869979c-4daf-43fe-bd8c-d6d1300ee917",
+        "name": "AI Agent",
+        "onError": "continueRegularOutput"
+      },
+      {
+        "parameters": {
+          "model": {
+            "__rl": true,
+            "mode": "list",
+            "value": "gpt-4.1-mini"
+          },
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+        "typeVersion": 1.2,
+        "position": [
+          2288,
+          1040
+        ],
+        "id": "adb73b5c-6234-40c1-8bde-607b9f07c87a",
+        "name": "OpenAI Chat Model",
+        "credentials": {
+          "openAiApi": {
+            "id": "DmJ3n3puD06ILLBt",
+            "name": "n8n budget tracking agent"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "sessionIdType": "customKey",
+          "sessionKey": "={{ $json.sessionId }}",
+          "collectionName": "n8n_budget_tracking_chat_histories",
+          "databaseName": "n8n",
+          "contextWindowLength": 10
+        },
+        "type": "@n8n/n8n-nodes-langchain.memoryMongoDbChat",
+        "typeVersion": 1,
+        "position": [
+          2416,
+          1040
+        ],
+        "id": "9635a958-fa86-4bc4-bb74-8718931bf928",
+        "name": "MongoDB Chat Memory",
+        "credentials": {
+          "mongoDb": {
+            "id": "OuAFtv5ZyczW5jGW",
+            "name": "MongoDB home-server"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "7b16ff8e-eb15-489f-b6f0-e8d465d34083",
+                "name": "chatInput",
+                "value": "={{ $json.text }}",
+                "type": "string"
+              },
+              {
+                "id": "e65e749c-b584-453a-b764-3d8f9dcd30c8",
+                "name": "sessionId",
+                "value": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+                "type": "number"
+              },
+              {
+                "id": "436bfa0c-bd8c-4bdd-9467-092f3d598b22",
+                "name": "isTelegram",
+                "value": true,
+                "type": "boolean"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1840,
+          720
+        ],
+        "id": "f7c8dd18-7c11-4edc-890c-3c5dbb4970d7",
+        "name": "Map fields to chat"
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 3
+            },
+            "conditions": [
+              {
+                "id": "6e2c19e7-4c46-4ec9-8c98-e78487708c1f",
+                "leftValue": "={{ $('No Operation, do nothing').item.json.isTelegram === true }}",
+                "rightValue": "",
+                "operator": {
+                  "type": "boolean",
+                  "operation": "true",
+                  "singleValue": true
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.3,
+        "position": [
+          3104,
+          768
+        ],
+        "id": "5cfae93a-85ae-4f09-8525-b8dcf66da55f",
+        "name": "if from telegram"
+      },
+      {
+        "parameters": {
+          "chatId": "={{ $('No Operation, do nothing').item.json.sessionId }}",
+          "text": "={{ $json.text }}",
+          "additionalFields": {
+            "appendAttribution": false,
+            "parse_mode": "HTML"
+          }
+        },
+        "id": "168a8ac9-cdd0-4dfd-a786-8a2ac2542860",
+        "name": "Send Telegram (HTML)",
+        "type": "n8n-nodes-base.telegram",
+        "position": [
+          3552,
+          768
+        ],
+        "typeVersion": 1.2,
+        "webhookId": "MASKED_WEBHOOK_ID",
+        "credentials": {
+          "telegramApi": {
+            "id": "priQWgyZB2MBYFaw",
+            "name": "baruch_moneyman_bot"
+          }
+        },
+        "onError": "continueErrorOutput"
+      },
+      {
+        "parameters": {},
+        "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+        "typeVersion": 1,
+        "position": [
+          2544,
+          1040
+        ],
+        "id": "d911b5cc-d1e6-4911-8169-6da3dda5972e",
+        "name": "Calculator"
+      },
+      {
+        "parameters": {
+          "sseEndpoint": "http://actual-mcp:3000/sse",
+          "options": {}
+        },
+        "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+        "typeVersion": 1,
+        "position": [
+          2672,
+          1040
+        ],
+        "id": "1f09f313-47a4-44e2-b281-33be3881b764",
+        "name": "Actual MCP"
+      },
+      {
+        "parameters": {
+          "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+          "text": "={{ $json.text }}",
+          "additionalFields": {
+            "appendAttribution": false,
+            "reply_to_message_id": "={{ $('Telegram Trigger').item.json.message.message_id }}"
+          }
+        },
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          1840,
+          504
+        ],
+        "id": "7e0dd82f-2668-4e69-b900-a3c7004543c1",
+        "name": "Reply with transcript",
+        "webhookId": "MASKED_WEBHOOK_ID",
+        "credentials": {
+          "telegramApi": {
+            "id": "priQWgyZB2MBYFaw",
+            "name": "baruch_moneyman_bot"
+          }
+        }
+      },
+      {
+        "parameters": {},
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          2064,
+          816
+        ],
+        "id": "79853ed0-162f-41b3-b790-449b19a92caa",
+        "name": "No Operation, do nothing"
+      },
+      {
+        "parameters": {
+          "assignments": {
+            "assignments": [
+              {
+                "id": "60af63b7-f5c6-42e8-9254-5db0cc507ec0",
+                "name": "chatInput",
+                "value": "MODE: daily_nudge",
+                "type": "string"
+              },
+              {
+                "id": "15835cb7-0640-41d7-9fd7-13b3ca31fc26",
+                "name": "sessionId",
+                "value": "daily_nudge_MASKED_CHAT_ID",
+                "type": "string"
+              },
+              {
+                "id": "8d3a1f4b-9012-4f5e-8d10-1234abcdef00",
+                "name": "mode",
+                "value": "daily_nudge",
+                "type": "string"
+              }
+            ]
+          },
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.4,
+        "position": [
+          1840,
+          936
+        ],
+        "id": "15a7a8ac-fc25-4056-bbdc-fb05c0860d2b",
+        "name": "Find uncategorized transactions"
+      },
+      {
+        "parameters": {
+          "rule": {
+            "interval": [
+              {
+                "triggerAtHour": 21
+              }
+            ]
+          }
+        },
+        "type": "n8n-nodes-base.scheduleTrigger",
+        "typeVersion": 1.3,
+        "position": [
+          1616,
+          936
+        ],
+        "id": "635cfa0a-12e9-4cbb-a3e1-b5479c0a939e",
+        "name": "9pm"
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const output = $json.output;\nlet parsed;\ntry {\n  parsed = JSON.parse(output);\n} catch (e) {\n  return [];\n}\nif (parsed.empty === true || !parsed.txn_id) {\n  return [];\n}\nconst candidates = (parsed.candidates || []).slice(0, 3);\nwhile (candidates.length < 3) candidates.push({ id: '', name: '—' });\nconst token = Math.random().toString(36).slice(2, 10);\nconst sign = parsed.amount < 0 ? '-' : '+';\nconst absAmt = (Math.abs(parsed.amount) / 100).toFixed(2);\nconst account = parsed.account ? `\\n🏦 ${parsed.account}` : '';\nconst text = `📅 ${parsed.date}  •  ${sign}₪${absAmt}\\n🏪 ${parsed.payee}${account}\\n\\nבחר קטגוריה:`;\nconst inline_keyboard = candidates.map((c, i) => [\n  { text: c.name, callback_data: `cat:${token}:${i + 1}` }\n]);\ninline_keyboard.push([{ text: '✨ סיים', callback_data: `done:${token}` }]);\nreturn {\n  token,\n  txn_id: parsed.txn_id,\n  candidate_ids_json: JSON.stringify(candidates.map(c => c.id)),\n  candidate_names_json: JSON.stringify(candidates.map(c => c.name)),\n  chat_id: 'MASKED_CHAT_ID',\n  text,\n  reply_markup: { inline_keyboard },\n};\n"
+        },
+        "id": "332657ce-bc8f-4f08-b73c-644aca6dfccc",
+        "name": "Build Nudge Message",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          3104,
+          576
+        ]
+      },
+      {
+        "parameters": {
+          "dataTableId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "rUtiznE9c6kttyyJ"
+          },
+          "columns": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "token": "={{ $json.token }}",
+              "txn_id": "={{ $json.txn_id }}",
+              "candidate_ids_json": "={{ $json.candidate_ids_json }}",
+              "candidate_names_json": "={{ $json.candidate_names_json }}",
+              "chat_id": "={{ $json.chat_id }}",
+              "message_id": 0
+            }
+          },
+          "options": {}
+        },
+        "id": "2955e87d-24f7-4111-8e27-7a0b333b83d2",
+        "name": "Save Pending Categorization",
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          3328,
+          576
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 2
+            },
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "cb1",
+                "leftValue": "={{ $json.callback_query ? 'yes' : '' }}",
+                "rightValue": "yes",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "11baa889-e599-426b-ad2b-40c050c2b2ff",
+        "name": "Is Callback",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          720,
+          456
+        ]
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const cbq = $json.callback_query;\nconst data = cbq?.data || '';\nconst parts = data.split(':');\nconst action = parts[0];\nconst token = parts[1] || '';\nconst idx = parts[2] ? parseInt(parts[2], 10) : null;\nreturn {\n  action,\n  token,\n  idx,\n  chat_id: cbq.message.chat.id,\n  message_id: cbq.message.message_id,\n  callback_query_id: cbq.id,\n};\n"
+        },
+        "id": "7fa9051a-7bcb-47fc-b731-697979ce4fd5",
+        "name": "Extract Token",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1392,
+          240
+        ]
+      },
+      {
+        "parameters": {
+          "operation": "get",
+          "dataTableId": {
+            "__rl": true,
+            "mode": "id",
+            "value": "rUtiznE9c6kttyyJ"
+          },
+          "filters": {
+            "conditions": [
+              {
+                "keyName": "token",
+                "keyValue": "={{ $json.token }}"
+              }
+            ]
+          }
+        },
+        "id": "aaa6a178-9403-497e-b0f3-a89147bc5b9b",
+        "name": "Lookup Pending",
+        "type": "n8n-nodes-base.dataTable",
+        "typeVersion": 1.1,
+        "position": [
+          1616,
+          240
+        ]
+      },
+      {
+        "parameters": {
+          "mode": "runOnceForEachItem",
+          "jsCode": "const cb = $('Extract Token').item.json;\nconst row = $json;\nconst chat_id = cb.chat_id;\n\nif (cb.action === 'done') {\n  return {\n    chatInput: 'השב: סיימנו לעכשיו. תודה!',\n    sessionId: `daily_nudge_${chat_id}`,\n    isTelegram: true,\n  };\n}\n\nlet ids = [];\nlet names = [];\ntry {\n  ids = JSON.parse(row.candidate_ids_json || '[]');\n  names = JSON.parse(row.candidate_names_json || '[]');\n} catch (e) {}\nconst idx = cb.idx || 1;\nconst selectedId = ids[idx - 1];\nconst selectedName = names[idx - 1] || 'ללא שם';\nconst txn_id = row.txn_id;\n\nif (!selectedId || !txn_id) {\n  return {\n    chatInput: 'תקלה בזיהוי העסקה. לא הצלחתי לסווג.',\n    sessionId: `daily_nudge_${chat_id}`,\n    isTelegram: true,\n  };\n}\n\n// Update + chain to next: single agent invocation. Output the NEXT nudge's JSON\n// (so the Route Agent Output Switch will route to Build Nudge Message again),\n// or {\"empty\":true} if no more uncategorized.\nconst chatInput = `MODE: daily_nudge\\n\\nראשית: עדכן את העסקה ${txn_id} לקטגוריה ${selectedId} (${selectedName}) באמצעות update-transaction.\\nאחר מכן: הרץ מחזור מלא של daily_nudge — הבא עסקה אחת ללא קטגוריה (אל תבחר שוב את ${txn_id} — היא כבר סווגה!) והחזר JSON סטנדרטי של daily_nudge ({txn_id, payee, amount, date, candidates}), או {\"empty\":true} אם אין עוד.`;\n\nreturn {\n  chatInput,\n  sessionId: `daily_nudge_${chat_id}`,\n  isTelegram: true,\n};\n"
+        },
+        "id": "0f4722da-29eb-4694-8d98-570a0e889d3b",
+        "name": "Build Callback ChatInput",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1840,
+          240
+        ]
+      },
+      {
+        "parameters": {
+          "chatId": "={{ $('Build Nudge Message').item.json.chat_id }}",
+          "text": "={{ $('Build Nudge Message').item.json.text }}",
+          "replyMarkup": "inlineKeyboard",
+          "inlineKeyboard": {
+            "rows": [
+              {
+                "row": {
+                  "buttons": [
+                    {
+                      "text": "={{ JSON.parse($('Build Nudge Message').item.json.candidate_names_json)[0] }}",
+                      "additionalFields": {
+                        "callback_data": "={{ 'cat:' + $('Build Nudge Message').item.json.token + ':1' }}"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "row": {
+                  "buttons": [
+                    {
+                      "text": "={{ JSON.parse($('Build Nudge Message').item.json.candidate_names_json)[1] }}",
+                      "additionalFields": {
+                        "callback_data": "={{ 'cat:' + $('Build Nudge Message').item.json.token + ':2' }}"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "row": {
+                  "buttons": [
+                    {
+                      "text": "={{ JSON.parse($('Build Nudge Message').item.json.candidate_names_json)[2] }}",
+                      "additionalFields": {
+                        "callback_data": "={{ 'cat:' + $('Build Nudge Message').item.json.token + ':3' }}"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "row": {
+                  "buttons": [
+                    {
+                      "text": "✨ סיים",
+                      "additionalFields": {
+                        "callback_data": "={{ 'done:' + $('Build Nudge Message').item.json.token }}"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "id": "ca96bc79-5f12-4924-85b5-e08e5454ffbc",
+        "name": "Send Nudge with Keyboard",
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          3552,
+          576
+        ],
+        "webhookId": "MASKED_WEBHOOK_ID",
+        "credentials": {
+          "telegramApi": {
+            "id": "priQWgyZB2MBYFaw",
+            "name": "baruch_moneyman_bot"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "rules": {
+            "values": [
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "loose",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "r-nudge",
+                      "leftValue": "={{ $json.output }}",
+                      "rightValue": "txn_id",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "nudge"
+              },
+              {
+                "conditions": {
+                  "options": {
+                    "caseSensitive": true,
+                    "leftValue": "",
+                    "typeValidation": "loose",
+                    "version": 2
+                  },
+                  "conditions": [
+                    {
+                      "id": "r-empty",
+                      "leftValue": "={{ $json.output }}",
+                      "rightValue": "empty",
+                      "operator": {
+                        "type": "string",
+                        "operation": "contains"
+                      }
+                    }
+                  ],
+                  "combinator": "and"
+                },
+                "renameOutput": true,
+                "outputKey": "empty"
+              }
+            ]
+          },
+          "options": {
+            "fallbackOutput": "extra",
+            "renameFallbackOutput": "chat"
+          }
+        },
+        "id": "8e3e3978-a6d5-42f9-bd82-2b286e8396e0",
+        "name": "Route Agent Output",
+        "type": "n8n-nodes-base.switch",
+        "typeVersion": 3.4,
+        "position": [
+          2880,
+          800
+        ]
+      },
+      {
+        "parameters": {},
+        "id": "7b17401f-25e7-4bc3-95c5-b0dd5d4673a8",
+        "name": "NoOp (empty nudge)",
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          3104,
+          960
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "combinator": "and",
+            "conditions": [
+              {
+                "id": "chat-allow",
+                "leftValue": "={{ String($json.message?.chat?.id ?? $json.callback_query?.message?.chat?.id ?? '') }}",
+                "rightValue": "MASKED_CHAT_ID",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ]
+          },
+          "options": {}
+        },
+        "id": "7df69379-16fc-48e8-91ee-a498c654eaf9",
+        "name": "Route: Allowed Chat?",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          496,
+          456
+        ]
+      },
+      {
+        "parameters": {
+          "workflowId": {
+            "__rl": true,
+            "value": "NMnXNijae3doxjLG",
+            "mode": "list",
+            "cachedResultName": "tg-format-safe"
+          },
+          "workflowInputs": {
+            "mappingMode": "defineBelow",
+            "value": {
+              "text": "={{ $json.output || $json.error }}"
+            },
+            "matchingColumns": [],
+            "schema": [
+              {
+                "id": "text",
+                "displayName": "text",
+                "required": false,
+                "defaultMatch": false,
+                "display": true,
+                "canBeUsedToMatch": true,
+                "type": "string",
+                "removed": false
+              }
+            ],
+            "attemptToConvertTypes": true,
+            "convertFieldsToString": true
+          },
+          "mode": "each",
+          "options": {
+            "waitForSubWorkflow": true
+          }
+        },
+        "id": "fmt_safe_1",
+        "name": "Format: tg-format-safe",
+        "type": "n8n-nodes-base.executeWorkflow",
+        "typeVersion": 1.2,
+        "position": [
+          3328,
+          768
+        ]
+      }
+    ],
+    "connections": {
+      "If": {
+        "main": [
+          [
+            {
+              "node": "Get Voice File",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Map fields to chat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Speech to Text": {
+        "main": [
+          [
+            {
+              "node": "Reply with transcript",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Map fields to chat",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Voice or Text": {
+        "main": [
+          [
+            {
+              "node": "If",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Telegram1",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Get Voice File": {
+        "main": [
+          [
+            {
+              "node": "Speech to Text",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "When chat message received": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "OpenAI Chat Model": {
+        "ai_languageModel": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_languageModel",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "MongoDB Chat Memory": {
+        "ai_memory": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_memory",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Map fields to chat": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Calculator": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Actual MCP": {
+        "ai_tool": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "ai_tool",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "No Operation, do nothing": {
+        "main": [
+          [
+            {
+              "node": "AI Agent",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Find uncategorized transactions": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "9pm": {
+        "main": [
+          [
+            {
+              "node": "Find uncategorized transactions",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Build Nudge Message": {
+        "main": [
+          [
+            {
+              "node": "Save Pending Categorization",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Is Callback": {
+        "main": [
+          [
+            {
+              "node": "Extract Token",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Voice or Text",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Extract Token": {
+        "main": [
+          [
+            {
+              "node": "Lookup Pending",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Lookup Pending": {
+        "main": [
+          [
+            {
+              "node": "Build Callback ChatInput",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Build Callback ChatInput": {
+        "main": [
+          [
+            {
+              "node": "No Operation, do nothing",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Save Pending Categorization": {
+        "main": [
+          [
+            {
+              "node": "Send Nudge with Keyboard",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "AI Agent": {
+        "main": [
+          [
+            {
+              "node": "Route Agent Output",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Route Agent Output": {
+        "main": [
+          [
+            {
+              "node": "Build Nudge Message",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "NoOp (empty nudge)",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "if from telegram",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Telegram Trigger": {
+        "main": [
+          [
+            {
+              "node": "Route: Allowed Chat?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Route: Allowed Chat?": {
+        "main": [
+          [
+            {
+              "node": "Is Callback",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "if from telegram": {
+        "main": [
+          [
+            {
+              "node": "Format: tg-format-safe",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Format: tg-format-safe": {
+        "main": [
+          [
+            {
+              "node": "Send Telegram (HTML)",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "authors": "Baruch Odem",
+    "name": "Version 426bc748",
+    "description": "",
+    "autosaved": false
+  },
+  "tags": []
+}
