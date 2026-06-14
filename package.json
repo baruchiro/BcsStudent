@@ -24,7 +24,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.13",
     "contentlayer2": "0.5.8",
-    "esbuild": "0.25.0",
+    "esbuild": "0.28.1",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.2",
     "hast-util-from-html-isomorphic": "^2.0.0",
