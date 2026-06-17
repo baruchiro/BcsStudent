@@ -8,7 +8,7 @@ images: /static/images/git-branching/merge-commit.png
 authors: ['aviv-avitan']
 summary: >
   בפוסט זה אני מסכם את דרך העבודה היומיומית שלי ב-GIT ומקווה שזה יעזור למפתחים אחרים לאמץ שיטת עבודה מתוחכמת יותר. מי שירצה להתעמק יותר, מומלץ להמשיך לקרוא.
-questions:
+ragQuestions:
   - 'מה ההבדל בין rebase ל-merge בגיט?'
   - 'מתי עדיף rebase ומתי merge?'
   - "איך מיישרים בראנץ' אישי מול master?"

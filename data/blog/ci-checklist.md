@@ -7,7 +7,7 @@ summary: |
 date: 2023-07-19T14:53:45.583Z
 draft: false
 tags: [ci-cd, developer-experience, testing, application-security]
-questions:
+ragQuestions:
   - 'אילו בדיקות CI כדאי להוסיף לפרויקט חדש?'
   - 'איך מגדירים Git hooks עם husky ו-lint-staged?'
   - 'אילו כלי אבטחה כדאי להריץ ב-CI?'

@@ -6,7 +6,7 @@ date: 2025-04-21
 draft: false
 images: /static/images/email-summary-ai/flow.png
 tags: [no-code, AI]
-questions:
+ragQuestions:
   - 'איך בונים סיכום מיילים יומי אוטומטי?'
   - 'איך מקבלים כל בוקר הודעה עם המשימות הדחופות מהמייל?'
   - 'איך משלבים No Code עם AI כדי לסכם מיילים?'

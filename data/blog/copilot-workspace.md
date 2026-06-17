@@ -6,7 +6,7 @@ tags:
   - GitHub
   - AI
 summary: סקירה של Copilot Workspace, הכלי של GitHub שמתחיל מ-Issue ובונה איתך את הפתרון בשלבים — סיעור מוחות, תוכנית עבודה לפי קבצים, ביצוע ובדיקה ב-Codespaces ועד פתיחת PR. היתרון הגדול הוא שאפשר ליישר את ה-AI בכל שלב במקום לנחש מראש את הפרומפט המושלם.
-questions:
+ragQuestions:
   - 'מה זה Copilot Workspace ואיך הוא עובד?'
   - 'איך GitHub Copilot עוזר לפתור Issue מההתחלה ועד פתיחת PR?'
   - 'איך גורמים ל-AI לעבוד לפי תוכנית מסודרת לפי קבצים?'

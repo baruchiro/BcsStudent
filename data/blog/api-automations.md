@@ -5,7 +5,7 @@ draft: false
 tags: ['no-code', 'free', 'javascript']
 images: /static/images/api-automations/api-automations.png
 summary: איך לחבר כמה כלים, כדי לגרום לAPI לדבר ביניהם, מבלי לחרוג מהתכנית החינמית של כל כלי ובלי לכתוב יותר מידי קוד.
-questions:
+ragQuestions:
   - 'איך מחברים כמה כלים כדי ש-API ידברו ביניהם?'
   - 'איך בונים אוטומציה בלי לחרוג מהתוכנית החינמית?'
   - 'מה זה Integromat (Make) ואיך משתמשים בו לאוטומציה?'

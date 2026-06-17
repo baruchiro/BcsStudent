@@ -149,10 +149,7 @@ export const Blog = defineDocumentType(() => ({
     lastmod: { type: 'date' },
     draft: { type: 'boolean' },
     summary: { type: 'string' },
-    // Natural-language questions a reader might ask that this post answers.
-    // Embedded into the RAG index alongside the post body so reader phrasing
-    // matches even when it differs from the title/wording. See the RAG spec.
-    questions: { type: 'list', of: { type: 'string' }, default: [] },
+    ragQuestions: { type: 'list', of: { type: 'string' }, default: [] },
     images: { type: 'json' },
     authors: { type: 'list', of: { type: 'string' } },
     layout: { type: 'string' },
