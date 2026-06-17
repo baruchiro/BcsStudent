@@ -7,15 +7,6 @@ summary: |
 date: 2023-07-19T14:53:45.583Z
 draft: false
 tags: [ci-cd, developer-experience, testing, application-security]
-ragQuestions:
-  - 'אילו בדיקות CI כדאי להוסיף לפרויקט חדש?'
-  - 'איך מגדירים Git hooks עם husky ו-lint-staged?'
-  - 'אילו כלי אבטחה כדאי להריץ ב-CI?'
-  - 'איך בודקים שכותרת ה-PR עומדת ב-Conventional Commits?'
-  - 'מה זה semantic-release ואיך הוא מנהל גרסאות אוטומטית?'
-  - 'איך מנהלים אוטומטית PR-ים ומשימות שנשכחו בפרויקט קוד פתוח?'
-  - 'איך שולחים התראות על גרסה חדשה לדיסקורד מתוך CI?'
-  - 'אילו badges כדאי לשים ב-README של הפרויקט?'
 type: Blog
 ---
 
