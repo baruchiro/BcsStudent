@@ -188,6 +188,7 @@ images you added). Keep PRs to a single post unless told otherwise.
 
 - Don't use em-dashes (`—`) or spaced-hyphen separators anywhere in the prose; they read as AI-written.
 - Don't hyphenate Hebrew prefixes onto Latin words (`ל-AI`); glue them (`לAI`), matching the author.
+- Don't hard-wrap paragraphs or fold `summary` across multiple lines; keep each on one physical line, since the frontend wraps for display. This applies to MDX body prose, `<Note>` blocks, and frontmatter `summary`/`ragQuestions`.
 - Don't invent Hebraized verbs from English (e.g. `ללוג`); use a real Hebrew verb (`לתעד`) or keep the English term as a noun (`לוג`).
 - Don't write in English, or in a formal/salesy register.
 - Don't link private repos (e.g. `home-server`); don't invent image paths or `<N8nDemo>` workflow files.
