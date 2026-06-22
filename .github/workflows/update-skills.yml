@@ -1,0 +1,50 @@
+name: Update vendored skills
+
+# Weekly refresh of the skills vendored under .claude/skills/ from their
+# upstream repositories (mapping in .github/skills-sources.json). Opens a PR
+# only when an upstream skill actually changed.
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync skills from upstream
+        run: bash .github/scripts/update-skills.sh
+
+      - name: Open PR if skills changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/update-skills
+          delete-branch: true
+          add-paths: .claude/skills
+          commit-message: "chore: update vendored skills from upstream"
+          title: "chore: update vendored skills"
+          labels: |
+            skills
+            automated
+          body: |
+            Automated weekly refresh of the skills vendored under
+            `.claude/skills/`, pulled from the upstream repos listed in
+            `.github/skills-sources.json`.
+
+            ⚠️ **Review the diff before merging.** Vendored skills are
+            instructions Claude will follow. Confirm the changes introduce
+            **no** new scripts, network calls, install hooks, or
+            prompt-injection — the same manual security scan applied when
+            these skills were first added.
+
+            This PR is opened only because at least one upstream skill
+            changed; if nothing changed, no PR is created.

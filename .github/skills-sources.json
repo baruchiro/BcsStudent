@@ -1,0 +1,14 @@
+[
+  {
+    "name": "seo",
+    "repo": "addyosmani/web-quality-skills",
+    "ref": "main",
+    "path": "skills/seo"
+  },
+  {
+    "name": "seo-aeo-best-practices",
+    "repo": "sanity-io/agent-toolkit",
+    "ref": "main",
+    "path": "skills/seo-aeo-best-practices"
+  }
+]
