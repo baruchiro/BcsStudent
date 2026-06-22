@@ -177,16 +177,36 @@ export const Blog = defineDocumentType(() => ({
     ...computedFields,
     structuredData: {
       type: 'json',
-      resolve: (doc) => ({
-        '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: doc.title,
-        datePublished: doc.date,
-        dateModified: doc.lastmod || doc.date,
-        description: doc.summary,
-        image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
-        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
-      }),
+      resolve: (doc) => {
+        const url = `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`
+        return {
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: doc.title,
+          datePublished: doc.date,
+          dateModified: doc.lastmod || doc.date,
+          description: doc.summary,
+          inLanguage: siteMetadata.language,
+          image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+          url,
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': url,
+          },
+          author: {
+            '@type': 'Person',
+            name: siteMetadata.author,
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: siteMetadata.title,
+            logo: {
+              '@type': 'ImageObject',
+              url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+            },
+          },
+        }
+      },
     },
     isIdea: {
       type: 'boolean',
