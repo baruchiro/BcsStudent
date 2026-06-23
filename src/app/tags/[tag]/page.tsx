@@ -29,9 +29,11 @@ export async function generateMetadata({
 export const generateStaticParams = async () => {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
-  const paths = tagKeys.map((tag) => ({
-    tag: encodeURI(tag),
-  }))
+  // Return the raw (decoded) tag. Next.js percent-encodes route params itself,
+  // so passing encodeURI(tag) here double-encodes non-ASCII (Hebrew) tags: the
+  // prerendered page then receives a still-encoded value, filters on it, and
+  // renders an empty list with a garbled title. ASCII tags are unaffected.
+  const paths = tagKeys.map((tag) => ({ tag }))
   return paths
 }
 
