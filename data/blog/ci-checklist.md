@@ -257,12 +257,12 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcd
 
 ### GitHub
 
-- גרסה אחרונה: `![Latest Release](https://img.shields.io/github/v/release/owner/repo)` — להחליף `owner/repo` בנתיב הפרויקט
-- רישיון: `![GitHub License](https://img.shields.io/github/license/owner/repo)` — להחליף בנתיב הפרויקט
+- גרסה אחרונה: `![Latest Release](https://img.shields.io/github/v/release/owner/repo)`: להחליף `owner/repo` בנתיב הפרויקט
+- רישיון: `![GitHub License](https://img.shields.io/github/license/owner/repo)`: להחליף בנתיב הפרויקט
 
 ### npm
 
-- גרסת החבילה: `![npm](https://img.shields.io/npm/v/package-name?logo=npm&label=version)` — להחליף `package-name` בשם החבילה
+- גרסת החבילה: `![npm](https://img.shields.io/npm/v/package-name?logo=npm&label=version)`: להחליף `package-name` בשם החבילה
 
 ## תוספות מתגובות לפוסט
 
