@@ -3,9 +3,9 @@
  * Handles environment variable detection and credential loading
  */
 
-import * as fs from 'fs'
-import * as path from 'path'
-import type { GoogleSearchConsoleConfig, ServiceAccountKey } from './types'
+import * as fs from 'fs';
+import * as path from 'path';
+import type { GoogleSearchConsoleConfig, ServiceAccountKey } from './types';
 
 // ============================================================================
 // Environment Variable Patterns
@@ -24,11 +24,28 @@ const ENV_PATTERNS = {
     'GSC_SERVICE_ACCOUNT_JSON',
     'GOOGLE_CREDENTIALS_JSON',
   ],
-  clientId: ['GOOGLE_CLIENT_ID', 'GSC_CLIENT_ID', 'GOOGLE_OAUTH_CLIENT_ID'],
-  clientSecret: ['GOOGLE_CLIENT_SECRET', 'GSC_CLIENT_SECRET', 'GOOGLE_OAUTH_CLIENT_SECRET'],
-  refreshToken: ['GOOGLE_REFRESH_TOKEN', 'GSC_REFRESH_TOKEN', 'GOOGLE_OAUTH_REFRESH_TOKEN'],
-  siteUrl: ['GOOGLE_SEARCH_CONSOLE_SITE_URL', 'GSC_SITE_URL', 'SEARCH_CONSOLE_SITE', 'GSC_SITE'],
-}
+  clientId: [
+    'GOOGLE_CLIENT_ID',
+    'GSC_CLIENT_ID',
+    'GOOGLE_OAUTH_CLIENT_ID',
+  ],
+  clientSecret: [
+    'GOOGLE_CLIENT_SECRET',
+    'GSC_CLIENT_SECRET',
+    'GOOGLE_OAUTH_CLIENT_SECRET',
+  ],
+  refreshToken: [
+    'GOOGLE_REFRESH_TOKEN',
+    'GSC_REFRESH_TOKEN',
+    'GOOGLE_OAUTH_REFRESH_TOKEN',
+  ],
+  siteUrl: [
+    'GOOGLE_SEARCH_CONSOLE_SITE_URL',
+    'GSC_SITE_URL',
+    'SEARCH_CONSOLE_SITE',
+    'GSC_SITE',
+  ],
+};
 
 // ============================================================================
 // Configuration Detection
@@ -40,23 +57,23 @@ const ENV_PATTERNS = {
 function findEnvValue(patterns: string[]): string | undefined {
   // Try exact matches first
   for (const pattern of patterns) {
-    const value = process.env[pattern]
-    if (value) return value
+    const value = process.env[pattern];
+    if (value) return value;
   }
 
   // Try wildcard patterns
-  const envKeys = Object.keys(process.env)
+  const envKeys = Object.keys(process.env);
   for (const pattern of patterns) {
-    const wildcardPattern = pattern.replace(/_/g, '.*')
-    const regex = new RegExp(`^${wildcardPattern}$`, 'i')
+    const wildcardPattern = pattern.replace(/_/g, '.*');
+    const regex = new RegExp(`^${wildcardPattern}$`, 'i');
     for (const key of envKeys) {
       if (regex.test(key) && process.env[key]) {
-        return process.env[key]
+        return process.env[key];
       }
     }
   }
 
-  return undefined
+  return undefined;
 }
 
 /**
@@ -64,16 +81,16 @@ function findEnvValue(patterns: string[]): string | undefined {
  */
 function loadServiceAccountKeyFile(filePath: string): ServiceAccountKey | null {
   try {
-    const resolvedPath = path.resolve(filePath)
+    const resolvedPath = path.resolve(filePath);
     if (!fs.existsSync(resolvedPath)) {
-      console.warn(`Service account key file not found: ${resolvedPath}`)
-      return null
+      console.warn(`Service account key file not found: ${resolvedPath}`);
+      return null;
     }
-    const content = fs.readFileSync(resolvedPath, 'utf-8')
-    return JSON.parse(content) as ServiceAccountKey
+    const content = fs.readFileSync(resolvedPath, 'utf-8');
+    return JSON.parse(content) as ServiceAccountKey;
   } catch (error) {
-    console.error(`Failed to load service account key file: ${error}`)
-    return null
+    console.error(`Failed to load service account key file: ${error}`);
+    return null;
   }
 }
 
@@ -82,10 +99,10 @@ function loadServiceAccountKeyFile(filePath: string): ServiceAccountKey | null {
  */
 function parseServiceAccountKeyJson(json: string): ServiceAccountKey | null {
   try {
-    return JSON.parse(json) as ServiceAccountKey
+    return JSON.parse(json) as ServiceAccountKey;
   } catch (error) {
-    console.error(`Failed to parse service account key JSON: ${error}`)
-    return null
+    console.error(`Failed to parse service account key JSON: ${error}`);
+    return null;
   }
 }
 
@@ -106,7 +123,7 @@ export class ConfigResolver {
       refreshToken: findEnvValue(ENV_PATTERNS.refreshToken),
       siteUrl: findEnvValue(ENV_PATTERNS.siteUrl),
       timeout: parseInt(process.env.GSC_TIMEOUT || '30000', 10),
-    }
+    };
   }
 
   /**
@@ -115,57 +132,55 @@ export class ConfigResolver {
   static getServiceAccountKey(config: GoogleSearchConsoleConfig): ServiceAccountKey | null {
     // Try inline JSON first
     if (config.serviceAccountKeyJson) {
-      const key = parseServiceAccountKeyJson(config.serviceAccountKeyJson)
-      if (key) return key
+      const key = parseServiceAccountKeyJson(config.serviceAccountKeyJson);
+      if (key) return key;
     }
 
     // Try file path
     if (config.serviceAccountKeyFile) {
-      const key = loadServiceAccountKeyFile(config.serviceAccountKeyFile)
-      if (key) return key
+      const key = loadServiceAccountKeyFile(config.serviceAccountKeyFile);
+      if (key) return key;
     }
 
-    return null
+    return null;
   }
 
   /**
    * Validate configuration
    */
   static validateConfig(config: GoogleSearchConsoleConfig): {
-    valid: boolean
-    errors: string[]
-    warnings: string[]
-    authMethod: 'service_account' | 'oauth' | 'none'
+    valid: boolean;
+    errors: string[];
+    warnings: string[];
+    authMethod: 'service_account' | 'oauth' | 'none';
   } {
-    const errors: string[] = []
-    const warnings: string[] = []
-    let authMethod: 'service_account' | 'oauth' | 'none' = 'none'
+    const errors: string[] = [];
+    const warnings: string[] = [];
+    let authMethod: 'service_account' | 'oauth' | 'none' = 'none';
 
     // Check service account
-    const serviceAccountKey = this.getServiceAccountKey(config)
+    const serviceAccountKey = this.getServiceAccountKey(config);
     if (serviceAccountKey) {
-      authMethod = 'service_account'
+      authMethod = 'service_account';
       if (!serviceAccountKey.client_email) {
-        errors.push('Service account key missing client_email')
+        errors.push('Service account key missing client_email');
       }
       if (!serviceAccountKey.private_key) {
-        errors.push('Service account key missing private_key')
+        errors.push('Service account key missing private_key');
       }
     }
     // Check OAuth
     else if (config.clientId && config.clientSecret && config.refreshToken) {
-      authMethod = 'oauth'
+      authMethod = 'oauth';
     }
     // No credentials
     else {
-      errors.push(
-        'No Google credentials found. Set GOOGLE_SERVICE_ACCOUNT_KEY_FILE or OAuth credentials.'
-      )
+      errors.push('No Google credentials found. Set GOOGLE_SERVICE_ACCOUNT_KEY_FILE or OAuth credentials.');
     }
 
     // Check site URL
     if (!config.siteUrl) {
-      warnings.push('No default site URL configured. Site URL must be provided per request.')
+      warnings.push('No default site URL configured. Site URL must be provided per request.');
     }
 
     return {
@@ -173,7 +188,7 @@ export class ConfigResolver {
       errors,
       warnings,
       authMethod,
-    }
+    };
   }
 
   /**
@@ -186,7 +201,7 @@ export class ConfigResolver {
       hasOAuthCredentials: !!(config.clientId && config.clientSecret && config.refreshToken),
       siteUrl: config.siteUrl || '(not set)',
       timeout: config.timeout,
-    }
+    };
   }
 
   /**
@@ -201,7 +216,7 @@ export class ConfigResolver {
       refreshToken: config.refreshToken ? '***REDACTED***' : undefined,
       siteUrl: config.siteUrl,
       timeout: config.timeout,
-    }
+    };
   }
 }
 
@@ -213,29 +228,27 @@ export class ConfigResolver {
  * Get Google Search Console configuration
  */
 export function getGoogleSearchConsoleConfig(): GoogleSearchConsoleConfig {
-  const config = ConfigResolver.resolveFromEnv()
-  const validation = ConfigResolver.validateConfig(config)
+  const config = ConfigResolver.resolveFromEnv();
+  const validation = ConfigResolver.validateConfig(config);
 
   if (!validation.valid) {
-    throw new Error(`Configuration error: ${validation.errors.join(', ')}`)
+    throw new Error(`Configuration error: ${validation.errors.join(', ')}`);
   }
 
   if (validation.warnings.length > 0) {
-    console.warn(`Configuration warnings: ${validation.warnings.join(', ')}`)
+    console.warn(`Configuration warnings: ${validation.warnings.join(', ')}`);
   }
 
-  return config
+  return config;
 }
 
 /**
  * Create configuration with custom overrides
  */
-export function createConfig(
-  overrides?: Partial<GoogleSearchConsoleConfig>
-): GoogleSearchConsoleConfig {
-  const baseConfig = ConfigResolver.resolveFromEnv()
+export function createConfig(overrides?: Partial<GoogleSearchConsoleConfig>): GoogleSearchConsoleConfig {
+  const baseConfig = ConfigResolver.resolveFromEnv();
   return {
     ...baseConfig,
     ...overrides,
-  }
+  };
 }

@@ -3,8 +3,8 @@
  * Handles authentication and API requests
  */
 
-import * as https from 'https'
-import * as crypto from 'crypto'
+import * as https from 'https';
+import * as crypto from 'crypto';
 import type {
   GoogleSearchConsoleConfig,
   ServiceAccountKey,
@@ -16,51 +16,51 @@ import type {
   Sitemap,
   SitesListResponse,
   Site,
-} from './types'
-import { ConfigResolver } from './config'
+} from './types';
+import { ConfigResolver } from './config';
 
 // ============================================================================
 // Constants
 // ============================================================================
 
-const API_BASE_URL = 'https://searchconsole.googleapis.com'
-const WEBMASTERS_API_URL = 'https://www.googleapis.com/webmasters/v3'
-const TOKEN_URL = 'https://oauth2.googleapis.com/token'
-const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly'
+const API_BASE_URL = 'https://searchconsole.googleapis.com';
+const WEBMASTERS_API_URL = 'https://www.googleapis.com/webmasters/v3';
+const TOKEN_URL = 'https://oauth2.googleapis.com/token';
+const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 
 // ============================================================================
 // JWT Token Generation (for Service Account)
 // ============================================================================
 
 function base64UrlEncode(data: string | Buffer): string {
-  const base64 = Buffer.from(data).toString('base64')
-  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '')
+  const base64 = Buffer.from(data).toString('base64');
+  return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 }
 
 function createJwt(serviceAccount: ServiceAccountKey, scope: string): string {
-  const now = Math.floor(Date.now() / 1000)
+  const now = Math.floor(Date.now() / 1000);
   const header = {
     alg: 'RS256',
     typ: 'JWT',
-  }
+  };
   const payload = {
     iss: serviceAccount.client_email,
     scope: scope,
     aud: TOKEN_URL,
     iat: now,
     exp: now + 3600, // 1 hour
-  }
+  };
 
-  const headerBase64 = base64UrlEncode(JSON.stringify(header))
-  const payloadBase64 = base64UrlEncode(JSON.stringify(payload))
-  const signatureInput = `${headerBase64}.${payloadBase64}`
+  const headerBase64 = base64UrlEncode(JSON.stringify(header));
+  const payloadBase64 = base64UrlEncode(JSON.stringify(payload));
+  const signatureInput = `${headerBase64}.${payloadBase64}`;
 
-  const sign = crypto.createSign('RSA-SHA256')
-  sign.update(signatureInput)
-  const signature = sign.sign(serviceAccount.private_key)
-  const signatureBase64 = base64UrlEncode(signature)
+  const sign = crypto.createSign('RSA-SHA256');
+  sign.update(signatureInput);
+  const signature = sign.sign(serviceAccount.private_key);
+  const signatureBase64 = base64UrlEncode(signature);
 
-  return `${signatureInput}.${signatureBase64}`
+  return `${signatureInput}.${signatureBase64}`;
 }
 
 // ============================================================================
@@ -68,8 +68,8 @@ function createJwt(serviceAccount: ServiceAccountKey, scope: string): string {
 // ============================================================================
 
 interface HttpResponse<T> {
-  statusCode: number
-  data: T
+  statusCode: number;
+  data: T;
 }
 
 async function httpRequest<T>(
@@ -78,32 +78,32 @@ async function httpRequest<T>(
 ): Promise<HttpResponse<T>> {
   return new Promise((resolve, reject) => {
     const req = https.request(url, options, (res) => {
-      let data = ''
-      res.on('data', (chunk) => (data += chunk))
+      let data = '';
+      res.on('data', (chunk) => (data += chunk));
       res.on('end', () => {
         try {
-          const parsed = data ? JSON.parse(data) : {}
+          const parsed = data ? JSON.parse(data) : {};
           resolve({
             statusCode: res.statusCode || 500,
             data: parsed as T,
-          })
+          });
         } catch (error) {
-          reject(new Error(`Failed to parse response: ${data}`))
+          reject(new Error(`Failed to parse response: ${data}`));
         }
-      })
-    })
+      });
+    });
 
-    req.on('error', reject)
+    req.on('error', reject);
     req.on('timeout', () => {
-      req.destroy()
-      reject(new Error('Request timeout'))
-    })
+      req.destroy();
+      reject(new Error('Request timeout'));
+    });
 
     if (options.body) {
-      req.write(options.body)
+      req.write(options.body);
     }
-    req.end()
-  })
+    req.end();
+  });
 }
 
 // ============================================================================
@@ -111,14 +111,14 @@ async function httpRequest<T>(
 // ============================================================================
 
 export class GoogleSearchConsoleClient {
-  private config: GoogleSearchConsoleConfig
-  private serviceAccountKey: ServiceAccountKey | null
-  private accessToken: string | null = null
-  private tokenExpiry: number = 0
+  private config: GoogleSearchConsoleConfig;
+  private serviceAccountKey: ServiceAccountKey | null;
+  private accessToken: string | null = null;
+  private tokenExpiry: number = 0;
 
   constructor(config: GoogleSearchConsoleConfig) {
-    this.config = config
-    this.serviceAccountKey = ConfigResolver.getServiceAccountKey(config)
+    this.config = config;
+    this.serviceAccountKey = ConfigResolver.getServiceAccountKey(config);
   }
 
   /**
@@ -127,16 +127,16 @@ export class GoogleSearchConsoleClient {
   private async getAccessToken(): Promise<string> {
     // Return cached token if still valid
     if (this.accessToken && Date.now() < this.tokenExpiry - 60000) {
-      return this.accessToken
+      return this.accessToken;
     }
 
     if (this.serviceAccountKey) {
-      return this.getServiceAccountToken()
+      return this.getServiceAccountToken();
     } else if (this.config.refreshToken) {
-      return this.refreshOAuthToken()
+      return this.refreshOAuthToken();
     }
 
-    throw new Error('No valid credentials available')
+    throw new Error('No valid credentials available');
   }
 
   /**
@@ -144,31 +144,34 @@ export class GoogleSearchConsoleClient {
    */
   private async getServiceAccountToken(): Promise<string> {
     if (!this.serviceAccountKey) {
-      throw new Error('Service account key not configured')
+      throw new Error('Service account key not configured');
     }
 
-    const jwt = createJwt(this.serviceAccountKey, SCOPE)
+    const jwt = createJwt(this.serviceAccountKey, SCOPE);
     const body = new URLSearchParams({
       grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
       assertion: jwt,
-    }).toString()
+    }).toString();
 
-    const response = await httpRequest<{ access_token: string; expires_in: number }>(TOKEN_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': Buffer.byteLength(body),
-      },
-      body,
-    })
+    const response = await httpRequest<{ access_token: string; expires_in: number }>(
+      TOKEN_URL,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': Buffer.byteLength(body),
+        },
+        body,
+      }
+    );
 
     if (response.statusCode !== 200) {
-      throw new Error(`Failed to get access token: ${JSON.stringify(response.data)}`)
+      throw new Error(`Failed to get access token: ${JSON.stringify(response.data)}`);
     }
 
-    this.accessToken = response.data.access_token
-    this.tokenExpiry = Date.now() + response.data.expires_in * 1000
-    return this.accessToken
+    this.accessToken = response.data.access_token;
+    this.tokenExpiry = Date.now() + response.data.expires_in * 1000;
+    return this.accessToken;
   }
 
   /**
@@ -176,7 +179,7 @@ export class GoogleSearchConsoleClient {
    */
   private async refreshOAuthToken(): Promise<string> {
     if (!this.config.clientId || !this.config.clientSecret || !this.config.refreshToken) {
-      throw new Error('OAuth credentials not configured')
+      throw new Error('OAuth credentials not configured');
     }
 
     const body = new URLSearchParams({
@@ -184,59 +187,69 @@ export class GoogleSearchConsoleClient {
       client_id: this.config.clientId,
       client_secret: this.config.clientSecret,
       refresh_token: this.config.refreshToken,
-    }).toString()
+    }).toString();
 
-    const response = await httpRequest<{ access_token: string; expires_in: number }>(TOKEN_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': Buffer.byteLength(body),
-      },
-      body,
-    })
+    const response = await httpRequest<{ access_token: string; expires_in: number }>(
+      TOKEN_URL,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': Buffer.byteLength(body),
+        },
+        body,
+      }
+    );
 
     if (response.statusCode !== 200) {
-      throw new Error(`Failed to refresh token: ${JSON.stringify(response.data)}`)
+      throw new Error(`Failed to refresh token: ${JSON.stringify(response.data)}`);
     }
 
-    this.accessToken = response.data.access_token
-    this.tokenExpiry = Date.now() + response.data.expires_in * 1000
-    return this.accessToken
+    this.accessToken = response.data.access_token;
+    this.tokenExpiry = Date.now() + response.data.expires_in * 1000;
+    return this.accessToken;
   }
 
   /**
    * Make authenticated API request
    */
-  private async request<T>(method: string, url: string, body?: unknown): Promise<T> {
-    const token = await this.getAccessToken()
-    const bodyStr = body ? JSON.stringify(body) : undefined
+  private async request<T>(
+    method: string,
+    url: string,
+    body?: unknown
+  ): Promise<T> {
+    const token = await this.getAccessToken();
+    const bodyStr = body ? JSON.stringify(body) : undefined;
 
-    const response = await httpRequest<T & { error?: { message: string; code: number } }>(url, {
-      method,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-        ...(bodyStr && { 'Content-Length': Buffer.byteLength(bodyStr) }),
-      },
-      timeout: this.config.timeout || 30000,
-      body: bodyStr,
-    })
+    const response = await httpRequest<T & { error?: { message: string; code: number } }>(
+      url,
+      {
+        method,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+          ...(bodyStr && { 'Content-Length': Buffer.byteLength(bodyStr) }),
+        },
+        timeout: this.config.timeout || 30000,
+        body: bodyStr,
+      }
+    );
 
     if (response.statusCode >= 400) {
-      const error = response.data.error
+      const error = response.data.error;
       throw new Error(
         error?.message || `API error: ${response.statusCode} - ${JSON.stringify(response.data)}`
-      )
+      );
     }
 
-    return response.data
+    return response.data;
   }
 
   /**
    * Encode site URL for API path
    */
   private encodeSiteUrl(siteUrl: string): string {
-    return encodeURIComponent(siteUrl)
+    return encodeURIComponent(siteUrl);
   }
 
   // ==========================================================================
@@ -250,8 +263,8 @@ export class GoogleSearchConsoleClient {
     siteUrl: string,
     request: SearchAnalyticsRequest
   ): Promise<SearchAnalyticsResponse> {
-    const url = `${API_BASE_URL}/webmasters/v3/sites/${this.encodeSiteUrl(siteUrl)}/searchAnalytics/query`
-    return this.request<SearchAnalyticsResponse>('POST', url, request)
+    const url = `${API_BASE_URL}/webmasters/v3/sites/${this.encodeSiteUrl(siteUrl)}/searchAnalytics/query`;
+    return this.request<SearchAnalyticsResponse>('POST', url, request);
   }
 
   // ==========================================================================
@@ -262,8 +275,8 @@ export class GoogleSearchConsoleClient {
    * Inspect a URL
    */
   async inspectUrl(request: UrlInspectionRequest): Promise<UrlInspectionResult> {
-    const url = `${API_BASE_URL}/v1/urlInspection/index:inspect`
-    return this.request<UrlInspectionResult>('POST', url, request)
+    const url = `${API_BASE_URL}/v1/urlInspection/index:inspect`;
+    return this.request<UrlInspectionResult>('POST', url, request);
   }
 
   // ==========================================================================
@@ -274,32 +287,32 @@ export class GoogleSearchConsoleClient {
    * List all sitemaps for a site
    */
   async listSitemaps(siteUrl: string): Promise<SitemapsListResponse> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps`
-    return this.request<SitemapsListResponse>('GET', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps`;
+    return this.request<SitemapsListResponse>('GET', url);
   }
 
   /**
    * Get a specific sitemap
    */
   async getSitemap(siteUrl: string, feedpath: string): Promise<Sitemap> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps/${encodeURIComponent(feedpath)}`
-    return this.request<Sitemap>('GET', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps/${encodeURIComponent(feedpath)}`;
+    return this.request<Sitemap>('GET', url);
   }
 
   /**
    * Submit a sitemap
    */
   async submitSitemap(siteUrl: string, feedpath: string): Promise<void> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps/${encodeURIComponent(feedpath)}`
-    await this.request<void>('PUT', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps/${encodeURIComponent(feedpath)}`;
+    await this.request<void>('PUT', url);
   }
 
   /**
    * Delete a sitemap
    */
   async deleteSitemap(siteUrl: string, feedpath: string): Promise<void> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps/${encodeURIComponent(feedpath)}`
-    await this.request<void>('DELETE', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}/sitemaps/${encodeURIComponent(feedpath)}`;
+    await this.request<void>('DELETE', url);
   }
 
   // ==========================================================================
@@ -310,32 +323,32 @@ export class GoogleSearchConsoleClient {
    * List all verified sites
    */
   async listSites(): Promise<SitesListResponse> {
-    const url = `${WEBMASTERS_API_URL}/sites`
-    return this.request<SitesListResponse>('GET', url)
+    const url = `${WEBMASTERS_API_URL}/sites`;
+    return this.request<SitesListResponse>('GET', url);
   }
 
   /**
    * Get site information
    */
   async getSite(siteUrl: string): Promise<Site> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}`
-    return this.request<Site>('GET', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}`;
+    return this.request<Site>('GET', url);
   }
 
   /**
    * Add a site
    */
   async addSite(siteUrl: string): Promise<void> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}`
-    await this.request<void>('PUT', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}`;
+    await this.request<void>('PUT', url);
   }
 
   /**
    * Remove a site
    */
   async removeSite(siteUrl: string): Promise<void> {
-    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}`
-    await this.request<void>('DELETE', url)
+    const url = `${WEBMASTERS_API_URL}/sites/${this.encodeSiteUrl(siteUrl)}`;
+    await this.request<void>('DELETE', url);
   }
 
   // ==========================================================================
@@ -347,10 +360,10 @@ export class GoogleSearchConsoleClient {
    */
   async testConnection(): Promise<boolean> {
     try {
-      await this.listSites()
-      return true
+      await this.listSites();
+      return true;
     } catch (error) {
-      return false
+      return false;
     }
   }
 
@@ -358,7 +371,7 @@ export class GoogleSearchConsoleClient {
    * Get default site URL from config
    */
   getDefaultSiteUrl(): string | undefined {
-    return this.config.siteUrl
+    return this.config.siteUrl;
   }
 }
 
@@ -369,6 +382,6 @@ export class GoogleSearchConsoleClient {
 export function createGoogleSearchConsoleClient(
   config?: GoogleSearchConsoleConfig
 ): GoogleSearchConsoleClient {
-  const resolvedConfig = config || ConfigResolver.resolveFromEnv()
-  return new GoogleSearchConsoleClient(resolvedConfig)
+  const resolvedConfig = config || ConfigResolver.resolveFromEnv();
+  return new GoogleSearchConsoleClient(resolvedConfig);
 }

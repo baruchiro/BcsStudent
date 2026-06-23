@@ -166,7 +166,11 @@ Ready-to-use JSON-LD structured data templates for SEO and GEO optimization.
   "softwareVersion": "1.0.0",
   "releaseNotes": "https://example.com/changelog",
   "screenshot": "https://example.com/screenshot.png",
-  "featureList": ["Feature 1 description", "Feature 2 description", "Feature 3 description"],
+  "featureList": [
+    "Feature 1 description",
+    "Feature 2 description",
+    "Feature 3 description"
+  ],
   "offers": {
     "@type": "Offer",
     "price": "0",
@@ -241,7 +245,10 @@ Ready-to-use JSON-LD structured data templates for SEO and GEO optimization.
   "@type": "Product",
   "name": "[Product Name]",
   "description": "[Product description]",
-  "image": ["https://example.com/product-image-1.jpg", "https://example.com/product-image-2.jpg"],
+  "image": [
+    "https://example.com/product-image-1.jpg",
+    "https://example.com/product-image-2.jpg"
+  ],
   "sku": "[SKU]",
   "brand": {
     "@type": "Brand",
@@ -426,7 +433,12 @@ Ready-to-use JSON-LD structured data templates for SEO and GEO optimization.
   "name": "[Page Title]",
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": ["h1", ".summary", ".key-takeaways", ".faq-answer"]
+    "cssSelector": [
+      "h1",
+      ".summary",
+      ".key-takeaways",
+      ".faq-answer"
+    ]
   }
 }
 ```
@@ -491,13 +503,11 @@ For a software product page with FAQ:
 ## Validation Tools
 
 1. **Google Rich Results Test**
-
    ```
    https://search.google.com/test/rich-results?url={your-url}
    ```
 
 2. **Schema.org Validator**
-
    ```
    https://validator.schema.org/?url={your-url}
    ```
