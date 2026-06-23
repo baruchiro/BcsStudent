@@ -34,6 +34,12 @@ jobs:
             --skill seo --agent claude-code --copy --yes
           npx -y skills@1 add sanity-io/agent-toolkit \
             --skill seo-aeo-best-practices --agent claude-code --copy --yes
+          npx -y skills@1 add addyosmani/web-quality-skills \
+            --skill web-quality-audit --agent claude-code --copy --yes
+          npx -y skills@1 add resciencelab/opc-skills \
+            --skill seo-geo --agent claude-code --copy --yes
+          npx -y skills@1 add jakenuts/agent-skills \
+            --skill google-search-console --agent claude-code --copy --yes
 
       - name: Open PR if skills changed
         uses: peter-evans/create-pull-request@v6

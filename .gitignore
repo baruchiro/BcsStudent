@@ -59,3 +59,7 @@ public/static/scripts/
 # Claude Code (per-user local settings; shared config like CLAUDE.md and
 # .claude/skills is committed)
 .claude/settings.local.json
+
+# skills CLI lockfile — this repo vendors skills via `skills add --copy`
+# (real dirs under .claude/skills/), so the generated lockfile is not tracked.
+skills-lock.json
