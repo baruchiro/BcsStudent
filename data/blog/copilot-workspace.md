@@ -3,8 +3,8 @@ title: הסבר קצר על מה יפה בפתרון של Copilot Workspace
 date: 2024-12-13
 images: /static/images/copilot-workspace/brainstorm.png
 tags:
-  - GitHub
-  - AI
+  - 'github'
+  - 'ai'
 summary: עוד כלי AI, אבל אני חושב שיש בו יתרון על פני שאר הכלים שלא בדקתי, למרות שהממשק שלו מאתגר קצת בגלל זה.
 type: Blog
 ---

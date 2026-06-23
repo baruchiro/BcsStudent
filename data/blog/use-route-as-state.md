@@ -5,13 +5,12 @@ date: 2021-07-07
 images: /static/images/use-route-as-state/use-route-as-state.gif
 summary: |
   Custom hooks with the useState interface to use the React Router state as the component state.
-tags: ['javascript', 'code', 'open-source']
+tags: ['javascript', 'קוד', 'קוד פתוח']
 publications:
   - https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1
 language: en
 type: Blog
 ---
-
 [![npm](https://img.shields.io/badge/npm-use--route--as--state-informational?logo=npm)](https://www.npmjs.com/package/use-route-as-state)
 
 ## Use Case
@@ -144,7 +143,6 @@ const useCustomParams = () => {
 I don't know the specific `path` or `params`, I just take, update and push them again.
 
 ---
-
 After going through this process myself, and seeing that there was a lack of information on this subject, I created an npm package called [`use-route-as-state`](https://www.npmjs.com/package/use-route-as-state) that implements the solution described in the article.
 
 You are welcome to [use](https://www.npmjs.com/package/use-route-as-state) and [contribute](https://github.com/baruchiro/use-route-as-state)!
