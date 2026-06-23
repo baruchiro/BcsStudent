@@ -3,10 +3,9 @@ title: הגדרת פרויקט וסביבת פיתוח
 summary: פוסט על פעולות שאני עושה בכל פרויקט חדש
 date: 2021-08-01
 draft: true
-tags: [code, 'DevX']
+tags: ['קוד', 'DevX']
 type: Blog
 ---
-
 ## Settings
 
 Remove Wikis
