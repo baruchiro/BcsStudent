@@ -128,16 +128,22 @@ export default function ListLayoutWithTags({
                   return (
                     <li key={t} className="my-3">
                       {activeTag === slug(t) ? (
-                        <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
-                          {`${t} (${tagCounts[t]})`}
+                        <h3 className="flex items-center justify-between gap-2 px-3 py-2 text-sm font-bold uppercase text-primary-500">
+                          <span>{t}</span>
+                          <span dir="ltr" className="tabular-nums">
+                            ({tagCounts[t]})
+                          </span>
                         </h3>
                       ) : (
                         <Link
                           href={`/tags/${slug(t)}`}
-                          className="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+                          className="flex items-center justify-between gap-2 px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
                           aria-label={`צפה בפוסטים עם תגית ${t}`}
                         >
-                          {`${t} (${tagCounts[t]})`}
+                          <span>{t}</span>
+                          <span dir="ltr" className="tabular-nums">
+                            ({tagCounts[t]})
+                          </span>
                         </Link>
                       )}
                     </li>
