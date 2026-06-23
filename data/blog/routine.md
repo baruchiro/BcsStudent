@@ -12,7 +12,7 @@ draft: false
 images: /static/images/routine/routine.png
 date: 2019-03-01 14:17:59
 type: Blog
-tags: ['work', 'career']
+tags: ['work', 'קריירה']
 ---
 
 מניח ששמתם לב, שלא כתבתי בבלוג כבר יותר מחודש. ועל זה בדיוק אני מתכוון

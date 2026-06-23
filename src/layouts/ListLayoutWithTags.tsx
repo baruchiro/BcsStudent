@@ -13,6 +13,18 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { CoreContent } from 'pliny/utils/contentlayer'
 
+/**
+ * Decode a percent-encoded tag segment from the current pathname.
+ * Falls back to the raw segment if it is not valid percent-encoding.
+ */
+function decodeTagSegment(segment: string) {
+  try {
+    return decodeURIComponent(segment)
+  } catch {
+    return segment
+  }
+}
+
 interface PaginationProps {
   totalPages: number
   currentPage: number
@@ -77,6 +89,13 @@ export default function ListLayoutWithTags({
   pagination,
 }: ListLayoutProps) {
   const pathname = usePathname()
+  // usePathname() returns a percent-encoded path, so a Hebrew tag such as שבת
+  // arrives as "/tags/%D7%A9%D7%91%D7%AA". Decode the tag segment before
+  // comparing it to slug(t); otherwise non-ASCII (Hebrew) tags never match and
+  // the active tag is not highlighted in the sidebar.
+  const activeTag = pathname?.startsWith('/tags/')
+    ? decodeTagSegment(pathname.slice('/tags/'.length))
+    : undefined
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
@@ -108,7 +127,7 @@ export default function ListLayoutWithTags({
                 {sortedTags.map((t) => {
                   return (
                     <li key={t} className="my-3">
-                      {pathname?.split('/tags/')[1] === slug(t) ? (
+                      {activeTag === slug(t) ? (
                         <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
                           {`${t} (${tagCounts[t]})`}
                         </h3>
