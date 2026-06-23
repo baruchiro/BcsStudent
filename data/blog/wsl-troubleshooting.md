@@ -2,12 +2,11 @@
 title: WSL Troubleshooting
 date: 2020-12-01
 draft: false
-tags: ['open-source']
+tags: ['קוד פתוח']
 summary: Sequence of operations to find connection issues and fix them in WSL.
 language: en
 type: Blog
 ---
-
 ## Related Resources
 
 - [[WSL2] Checkpoint VPN breaks network connectivity](https://github.com/microsoft/WSL/issues/4246)

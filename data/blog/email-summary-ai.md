@@ -5,7 +5,7 @@ summary: |
 date: 2025-04-21
 draft: false
 images: /static/images/email-summary-ai/flow.png
-tags: ['no-code', 'AI', 'אוטומציה']
+tags: ['no-code', 'ai', 'אוטומציה']
 type: Blog
 ---
 אני באמת אוהב מאוד כלי [No Code](/tags/no-code), שמאפשרים גם לאנשים לא טכניים לבנות תהליכים ואטומציות עסקיות ופרטיות, לייעל תהליכים, ובעצם להיות מתכנתים בלי לכתוב קוד.

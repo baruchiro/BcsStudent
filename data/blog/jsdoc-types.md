@@ -3,7 +3,7 @@ title: לקבל Types בJavaScript בלי לעבור לTypeScript
 draft: false
 date: 2021-08-20
 images: /static/images/jsdoc-types/carbon.png
-tags: ['קוד', 'JavaScript', 'developer-experience']
+tags: ['קוד', 'javascript', 'חוויית פיתוח']
 summary: |
   ללא ספק, TypeScript נהיה נפוץ יותר ויותר. אם אתם מהמתנגדים, או שפשוט המעבר יעלה לכם הרבה, הנה הדרך שבה אתם יכולים להתחיל להיעזר בTypes בלי לגעת באף הגדרה של הפרויקט שלכם!
 type: Blog
