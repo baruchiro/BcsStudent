@@ -6,13 +6,9 @@ interface SocialMetadataProps {
   description?: string
   images?: (string | { url: string })[]
   url?: string
-  // Extra Open Graph fields (e.g. type 'article', publishedTime, authors).
   openGraph?: Record<string, unknown>
 }
 
-// Shared Open Graph + Twitter card metadata. Used by the root layout,
-// page-level metadata (genPageMetadata), and blog posts so the social-card
-// shape lives in one place instead of being copied per route.
 export function genSocialMetadata({
   title,
   description = siteMetadata.description,
