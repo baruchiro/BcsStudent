@@ -1,6 +1,7 @@
 import '@/css/prism.css'
 import 'katex/dist/katex.css'
 
+import { genSocialMetadata } from '@/app/seo'
 import DirectionWrapper from '@/components/DirectionWrapper'
 import { components } from '@/components/MDXComponents'
 import siteMetadata from '@/data/siteMetadata'
@@ -55,24 +56,17 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.summary,
-    openGraph: {
+    ...genSocialMetadata({
       title: post.title,
       description: post.summary,
-      siteName: siteMetadata.title,
-      locale: siteMetadata.locale.replace('-', '_'),
-      type: 'article',
-      publishedTime: publishedAt,
-      modifiedTime: modifiedAt,
-      url: './',
       images: ogImages,
-      authors: authors.length > 0 ? authors : [siteMetadata.author],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
-      images: imageList,
-    },
+      openGraph: {
+        type: 'article',
+        publishedTime: publishedAt,
+        modifiedTime: modifiedAt,
+        authors: authors.length > 0 ? authors : [siteMetadata.author],
+      },
+    }),
   }
 }
 
