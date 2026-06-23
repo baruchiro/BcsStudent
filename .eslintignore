@@ -1,3 +1,6 @@
 node_modules
 .eslintrc.js
 scripts/opml/opml.js
+
+# Vendored skills — keep verbatim from upstream; formatters must not touch them.
+.claude/skills/
