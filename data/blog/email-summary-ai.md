@@ -5,7 +5,7 @@ summary: |
 date: 2025-04-21
 draft: false
 images: /static/images/email-summary-ai/flow.png
-tags: [no-code, AI]
+tags: [no-code, AI, automation]
 type: Blog
 ---
 
