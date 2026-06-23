@@ -1,9 +1,9 @@
 ---
-title: פיתוח HomeAssistant עם Cursor ו-VSCode Remote Containers
+title: פיתוח HomeAssistant עם Cursor וVSCode Remote Containers
 date: 2026-01-12
 draft: false
 tags: ['homeassistant', 'vscode', 'docker', 'self-hosted', 'developer-experience', 'AI']
-summary: הסבר על איך אני מפתח אינטגרציות ב-HomeAssistant באמצעות VSCode Remote SSH, Cursor Debug Mode ו-VSCode Remote Containers, בשרת הביתי שלי
+summary: הסבר על איך אני מפתח אינטגרציות בHomeAssistant באמצעות VSCode Remote SSH, Cursor Debug Mode וVSCode Remote Containers, בשרת הביתי שלי
 ragQuestions:
   - 'איך מפתחים אינטגרציה לHome Assistant?'
   - 'איך עובדים עם Cursor או VSCode על שרת מרוחק?'
