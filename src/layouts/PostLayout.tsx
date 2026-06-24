@@ -50,10 +50,7 @@ export default function PostLayout({
   const renderAuthorSocialLink = (author: CoreContent<Authors>) => {
     if (author.twitter) {
       return (
-        <Link
-          href={author.twitter}
-          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-        >
+        <Link href={author.twitter} className="link-primary inline-block py-1">
           {author.twitter.replace('https://twitter.com/', '@')}
         </Link>
       )
@@ -61,10 +58,7 @@ export default function PostLayout({
 
     if (author.linkedin) {
       return (
-        <Link
-          href={author.linkedin}
-          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-        >
+        <Link href={author.linkedin} className="link-primary inline-block py-1">
           {author.linkedin.replace('https://www.linkedin.com/', '')}
         </Link>
       )
@@ -132,7 +126,7 @@ export default function PostLayout({
                         <dd className="text-gray-900 dark:text-gray-100">
                           <Link
                             href={`/authors/${author.slug}`}
-                            className="hover:text-primary-600 dark:hover:text-primary-400"
+                            className="inline-block py-1 hover:text-primary-600 dark:hover:text-primary-400"
                           >
                             {author.name}
                           </Link>
@@ -241,7 +235,7 @@ export default function PostLayout({
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           המאמר הקודם
                         </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                        <div className="link-primary">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
                         </div>
                       </div>
@@ -251,7 +245,7 @@ export default function PostLayout({
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                           המאמר הבא
                         </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                        <div className="link-primary">
                           <Link href={`/${next.path}`}>{next.title}</Link>
                         </div>
                       </div>
@@ -260,11 +254,7 @@ export default function PostLayout({
                 )}
               </div>
               <div className="pt-4 xl:pt-8">
-                <Link
-                  href={`/${basePath}`}
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="חזרה לבלוג"
-                >
+                <Link href={`/${basePath}`} className="link-primary" aria-label="חזרה לבלוג">
                   חזרה לבלוג &larr;
                 </Link>
               </div>

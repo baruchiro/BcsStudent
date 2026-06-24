@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand text link (WCAG AA on white; lighter in dark mode) */
+.link-primary {
+  @apply text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300;
+}
+
 .task-list-item::before {
   @apply hidden;
 }

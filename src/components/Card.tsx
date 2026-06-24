@@ -85,7 +85,7 @@ const Card = ({ title, description, imgSrc, href, tags = [], language }: CardPro
             <div className="mt-4 flex items-center justify-end">
               <Link
                 href={href}
-                className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                className="link-primary text-base font-medium leading-6"
                 aria-label={`Link to ${title}`}
               >
                 לפרויקט &larr;

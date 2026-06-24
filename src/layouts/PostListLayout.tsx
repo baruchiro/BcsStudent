@@ -52,7 +52,7 @@ export default function PostListLayout({
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href={viewAllLink.href}
-            className="flex items-center gap-1 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+            className="link-primary flex items-center gap-1"
             aria-label={viewAllLink.text}
           >
             <span>{viewAllLink.text}</span>

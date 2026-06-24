@@ -28,10 +28,7 @@ export default function IdeaProperties({ post }: IdeaPropertiesProps) {
           <ul className="list-inside list-disc space-y-1">
             {post.externalLinks.map((link, index) => (
               <li key={index}>
-                <Link
-                  href={link}
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                >
+                <Link href={link} className="link-primary">
                   {link}
                 </Link>
               </li>
