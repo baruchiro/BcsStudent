@@ -180,6 +180,9 @@ export const Blog = defineDocumentType(() => ({
       type: 'json',
       resolve: (doc) => {
         const url = `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`
+        const rawImage =
+          (Array.isArray(doc.images) ? doc.images[0] : doc.images) || siteMetadata.socialBanner
+        const image = rawImage.startsWith('http') ? rawImage : `${siteMetadata.siteUrl}${rawImage}`
         return {
           '@context': 'https://schema.org',
           '@type': 'BlogPosting',
@@ -188,7 +191,7 @@ export const Blog = defineDocumentType(() => ({
           dateModified: doc.lastmod || doc.date,
           description: doc.summary,
           inLanguage: siteMetadata.language,
-          image: doc.images ? doc.images[0] : siteMetadata.socialBanner,
+          image,
           url,
           mainEntityOfPage: {
             '@type': 'WebPage',
