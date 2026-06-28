@@ -1,4 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
+import { serializeJsonLd } from '@/utils/jsonLd'
 
 const sameAs = [
   siteMetadata.github,
@@ -40,7 +41,7 @@ export default function SiteStructuredData() {
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
     />
   )
 }
