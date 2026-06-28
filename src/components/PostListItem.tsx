@@ -79,7 +79,7 @@ export default function PostListItem({ post }: PostListItemProps) {
             <div className="text-base font-medium leading-6">
               <Link
                 href={`/blog/${slug}`}
-                className="flex items-center gap-1 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                className="link-primary flex items-center gap-1"
                 aria-label={`קרא עוד: "${title}"`}
               >
                 <span>קרא עוד</span>

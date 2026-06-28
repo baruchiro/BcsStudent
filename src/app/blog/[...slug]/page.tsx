@@ -4,6 +4,7 @@ import 'katex/dist/katex.css'
 import { genSocialMetadata } from '@/app/seo'
 import DirectionWrapper from '@/components/DirectionWrapper'
 import { components } from '@/components/MDXComponents'
+import PostStructuredData from '@/components/PostStructuredData'
 import siteMetadata from '@/data/siteMetadata'
 import PostBanner from '@/layouts/PostBanner'
 import PostLayout from '@/layouts/PostLayout'
@@ -95,13 +96,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
     return coreContent(authorResults as Authors)
   })
   const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
-      '@type': 'Person',
-      name: author.name,
-    }
-  })
 
   const Layout = layouts[post.layout || defaultLayout]
 
@@ -123,10 +117,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <PostStructuredData post={post} authorNames={authorDetails.map((author) => author.name)} />
       {needsN8nDemo && (
         <>
           <Script
