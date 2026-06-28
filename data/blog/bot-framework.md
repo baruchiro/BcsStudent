@@ -4,13 +4,12 @@ draft: false
 date: 2019-05-06 18:00:47
 summary: |
   Decisions I made while building a bot with Microsoft Bot Framework.
-tags: ['bot', 'code']
+tags: ['בוט', 'קוד']
 language: en
 type: Blog
 publications:
   - https://dev.to/baruchiro/bot-framework-net-design-decisions-5gl1
 ---
-
 ## Prerequisites
 
 - Knowledge of _ASP.NET Core_ project structure.

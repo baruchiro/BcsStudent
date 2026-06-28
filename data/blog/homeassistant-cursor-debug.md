@@ -1,13 +1,21 @@
 ---
-title: פיתוח HomeAssistant עם Cursor ו-VSCode Remote Containers
+title: פיתוח HomeAssistant עם Cursor וVSCode Remote Containers
 date: 2026-01-12
 draft: false
-tags: ['homeassistant', 'vscode', 'docker', 'self-hosted', 'developer-experience', 'AI']
-summary: הסבר על איך אני מפתח אינטגרציות ב-HomeAssistant באמצעות VSCode Remote SSH, Cursor Debug Mode ו-VSCode Remote Containers, בשרת הביתי שלי
+tags: ['homeassistant', 'vscode', 'docker', 'self-hosted', 'חוויית פיתוח', 'ai']
+summary: הסבר על איך אני מפתח אינטגרציות בHomeAssistant באמצעות VSCode Remote SSH, Cursor Debug Mode וVSCode Remote Containers, בשרת הביתי שלי
+ragQuestions:
+  - 'איך מפתחים אינטגרציה לHome Assistant?'
+  - 'איך עובדים עם Cursor או VSCode על שרת מרוחק?'
+  - 'מה זה VSCode Remote SSH ואיך משתמשים בו?'
+  - 'איך מחברים את Cursor לתוך קונטיינר דוקר?'
+  - 'מה זה Cursor Debug Mode ואיך הוא עוזר?'
+  - 'איך מדבגים קוד שרץ בתוך קונטיינר בעזרת AI?'
+  - 'אפשר לפתח אוטומציות לHome Assistant עם AI?'
+  - 'איך עורכים קבצים של קונטיינר שרץ על שרת ביתי?'
 images: /static/images/homeassistant-cursor-debug/architecture.png
 type: Blog
 ---
-
 השרת הביתי שלי (שזה בעצם לפטופ שמריץ שרת אובונטו, מונח בארון מחובר לחשמל ולאינטרנט) מריץ כל מיני אפליקציות על גבי Docker. אחת האפליקציות המרכזיות היא [#HomeAssistant](/tags/homeassistant) שמנהלת לי את הבית החכם.
 
 בגלל שזה שרת ביתי, ותחביב, המורכבות של להרים סביבת בדיקות היא גדולה מידי, ולכן אני עושה שינויים ישירות ב"סביבת המוצר", כמובן בעבודה עם גיט עד כמה שאני יכול כדי לשמור על האפשרות לחזור אחורה.
