@@ -5,5 +5,5 @@ description: מטרת הקהילה היא להנגיש את הרעיון של ק
 image: '/static/images/communities/maakaf.svg'
 links:
   discord: 'https://discord.com/invite/a2VyCjRk2M'
-tags: [open-source]
+tags: ['קוד פתוח']
 ---

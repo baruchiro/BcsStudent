@@ -3,7 +3,7 @@ title: How to setup auto semantic-release
 draft: false
 date: 2021-07-27
 images: /static/images/semantic-release/semantic-release.jpeg
-tags: ['git', 'developer-experience', 'ci-cd']
+tags: ['git', 'חוויית פיתוח', 'ci-cd']
 language: en
 publications:
   - https://medium.com/@baruchiro/how-to-setup-auto-semantic-release-184483d2198e
@@ -12,7 +12,6 @@ summary: |
   Setup auto-increment, release, and changelog with semantic-release, in Github repo with Github Actions.
 type: Blog
 ---
-
 ## Semantic Versioning
 
 _Semantic Versioning_ (AKA _SemVer_) is a convention for package versions. Since it is the most used convention (AFAIK, I don't know about others...), it is well documented and widely used around the open-source, so I'm not going to describe it. You can read more [here](https://semver.org/).
@@ -132,7 +131,6 @@ module.exports = {
 The first configuration I wanted to change is the `branches`. For me and for now, I just need to trigger the release on the `master` branch, you can see how simple is the, just `branches: ['master']` instead of the current config.
 
 ---
-
 ##### So far so good?
 
 You have that configuration, you may push and start using automatic release. What else?
@@ -319,7 +317,6 @@ plugins: [
 > [Finally, all my configuration files](https://gist.github.com/baruchiro/3a52a9897556a880b32f74f03caca299.js).
 
 ---
-
 Update: while writing this post to document my process, I finally found [another blog post that already documented it](https://svdoscience.com/2020-10-31/versioning-with-semantic-release), you are welcome to use both :-).
 
 Thanks to my teammate [Leonid Weinberg](https://www.linkedin.com/in/leonid-weinberg-a45964143/) who review the article to correct language errors.

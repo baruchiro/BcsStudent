@@ -2,10 +2,9 @@
 title: מה כדאי לסטודנט לדעת- CI/CD
 draft: false
 date: 2018-12-09 09:04:48
-tags: ['what-to-know-as-a-student', 'ci-cd', 'testing']
+tags: ['מה כדאי לסטודנט לדעת', 'ci-cd', 'בדיקות']
 type: Blog
 ---
-
 אחרי הפוסטים של [טסטים](/blog/tests)
 ו[גיט](/tags/git), הגיע הזמן לשילוב שלהם-
 תהליכי CI/CD.
