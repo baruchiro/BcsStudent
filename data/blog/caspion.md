@@ -5,10 +5,9 @@ date: 2021-07-05
 images: /static/images/caspion/main-screenshot.png
 summary: |
   איך למשוך בצורה אוטומטית את נתוני העובר ושב מחשבונות הבנק והאשראי, ולנתח אותם בכלים המועדפים עלינו או בכלים מוכרים לניהול הוצאות
-tags: ['caspion', 'open-source', 'money', 'integrations']
+tags: ['קוד פתוח', 'כסף', 'integrations', 'אוטומציה']
 type: Blog
 ---
-
 **אנחנו צריכים להכיר את ההכנסות וההוצאות שלנו**.
 
 > האם הוצאנו החודש יותר ממה שהכנסנו?  
@@ -97,7 +96,6 @@ type: Blog
 [יהונתן גולדפרב](), [ברוך אודם](mailto:baruchiro@gmail.com)
 
 ---
-
 ### הערות וקישורים רלוונטיים
 
 - הפרויקט שלנו מבוסס על [פרויקט ישראלי אחר](https://github.com/eshaham/israeli-bank-scrapers) שאחראי על ייצוא המידע מהבנקים.

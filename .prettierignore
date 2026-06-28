@@ -1,0 +1,4 @@
+# Vendored skills are copied verbatim from upstream via `skills add --copy`
+# (see .github/workflows/update-skills.yml). Prettier must not reformat them,
+# otherwise the weekly refresh produces noisy formatting-only diffs.
+.claude/skills/

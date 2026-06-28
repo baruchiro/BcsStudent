@@ -28,6 +28,7 @@ Full swatches (50–950): `data/canva-brand-colors.md`.
 - **Focus:** DevX, open source, practical tech.
 - **Language:** Hebrew (he-IL), RTL where relevant.
 - **Avoid:** Formal, unexplained jargon, salesy tone.
+- **Mechanics (avoid AI tells):** no em/en dashes (`—`, `–`); restructure with commas, colons, or parentheses. Glue Hebrew prefixes onto Latin words (`לAI`, `בn8n`, not `ל-AI`). Keep each paragraph and `summary` on one line; the frontend wraps. Full rules in the `write-post` skill.
 
 ## Assets
 
