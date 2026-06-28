@@ -1,4 +1,5 @@
 import { components } from '@/components/MDXComponents'
+import SiteStructuredData from '@/components/SiteStructuredData'
 import AuthorLayout from '@/layouts/AuthorLayout'
 import { Authors, allAuthors } from 'contentlayer2/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
@@ -10,6 +11,7 @@ export default function Page() {
 
   return (
     <>
+      <SiteStructuredData />
       <AuthorLayout content={mainContent}>
         <MDXLayoutRenderer code={author.body.code} components={components} />
       </AuthorLayout>

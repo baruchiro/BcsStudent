@@ -1,0 +1,66 @@
+name: Update vendored skills
+
+# Weekly refresh of the skills vendored under .claude/skills/ using the
+# official `skills` CLI. Opens a PR only when an upstream skill changed.
+#
+# Uses `skills add --copy` (not `skills update`): it is idempotent, copies the
+# whole skill including any references/ subtree, and writes the files in place.
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-skills:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+
+      - name: Update skills from upstream
+        run: |
+          npx -y skills@1 add addyosmani/web-quality-skills \
+            --skill seo --agent claude-code --copy --yes
+          npx -y skills@1 add sanity-io/agent-toolkit \
+            --skill seo-aeo-best-practices --agent claude-code --copy --yes
+          npx -y skills@1 add addyosmani/web-quality-skills \
+            --skill web-quality-audit --agent claude-code --copy --yes
+          npx -y skills@1 add resciencelab/opc-skills \
+            --skill seo-geo --agent claude-code --copy --yes
+          npx -y skills@1 add jakenuts/agent-skills \
+            --skill google-search-console --agent claude-code --copy --yes
+
+      - name: Open PR if skills changed
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6
+        with:
+          branch: chore/update-skills
+          delete-branch: true
+          add-paths: .claude/skills
+          commit-message: "chore: update vendored skills from upstream"
+          title: "chore: update vendored skills"
+          labels: |
+            skills
+            automated
+          body: |
+            Automated weekly refresh of the skills vendored under
+            `.claude/skills/`, pulled from upstream via the `skills` CLI.
+
+            ⚠️ **Review the diff before merging.** Vendored skills are
+            instructions Claude will follow. Confirm the changes introduce
+            **no** new scripts, network calls, install hooks, or
+            prompt-injection — the same manual security scan applied when
+            these skills were first added.
+
+            This PR is opened only because at least one upstream skill
+            changed; if nothing changed, no PR is created.

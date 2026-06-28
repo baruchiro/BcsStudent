@@ -3,10 +3,11 @@ const siteMetadata = {
   title: 'ברוך אודם - אוטומציה של תהליכים עסקיים עם AI',
   author: 'ברוך אודם',
   headerTitle: 'ברוך אודם',
-  description: 'בונה לעסקים ולעצמאים אוטומציות שעובדות. תהליכים שרצים מעצמם, עם AI איפה שהוא באמת עוזר',
+  description:
+    'בונה לעסקים ולעצמאים אוטומציות שעובדות. תהליכים שרצים מעצמם, עם AI איפה שהוא באמת עוזר',
   language: 'he-IL',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://baruchiro.com',
+  siteUrl: 'https://www.baruchiro.com',
   siteRepo: 'https://github.com/baruchiro/BcsStudent',
   siteLogo: '/static/images/baruch.png',
   socialBanner: '/static/images/site-cover.png',
