@@ -1,6 +1,41 @@
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 
+interface SocialMetadataProps {
+  title: string
+  description?: string
+  images?: (string | { url: string })[]
+  url?: string
+  openGraph?: Record<string, unknown>
+}
+
+export function genSocialMetadata({
+  title,
+  description = siteMetadata.description,
+  images = [siteMetadata.socialBanner],
+  url = './',
+  openGraph,
+}: SocialMetadataProps): Pick<Metadata, 'openGraph' | 'twitter'> {
+  return {
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: siteMetadata.title,
+      images,
+      locale: siteMetadata.locale.replace('-', '_'),
+      type: 'website',
+      ...openGraph,
+    } as Metadata['openGraph'],
+    twitter: {
+      title,
+      description,
+      card: 'summary_large_image',
+      images,
+    },
+  }
+}
+
 interface PageSEOProps {
   title: string
   description?: string
@@ -12,20 +47,11 @@ interface PageSEOProps {
 export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
   return {
     title,
-    openGraph: {
+    ...genSocialMetadata({
       title: `${title} | ${siteMetadata.title}`,
       description: description || siteMetadata.description,
-      url: './',
-      siteName: siteMetadata.title,
-      images: image ? [image] : [siteMetadata.socialBanner],
-      locale: 'en_US',
-      type: 'website',
-    },
-    twitter: {
-      title: `${title} | ${siteMetadata.title}`,
-      card: 'summary_large_image',
-      images: image ? [image] : [siteMetadata.socialBanner],
-    },
+      images: image ? [image] : undefined,
+    }),
     ...rest,
   }
 }

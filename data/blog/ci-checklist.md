@@ -6,10 +6,9 @@ summary: |
   אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
 date: 2023-07-19T14:53:45.583Z
 draft: false
-tags: [ci-cd, developer-experience, testing, application-security]
+tags: ['ci-cd', 'חוויית פיתוח', 'בדיקות', 'application-security']
 type: Blog
 ---
-
 בכל פעם שאני מתחיל פרויקט חדש, אישי או של העבודה, אני צריך להיזכר מחדש איזה בדיקות וכלים אני נוהג להוסיף, תלוי בשפה של הפרויקט, בצרכים שלו והאם הוא אישי או ארגוני.
 
 אז הנה רשימה של כלים ובדיקות להוסיף לפרויקט חדש.
@@ -258,12 +257,12 @@ _[דוגמא מפרויקט Overlay](https://github.com/os-scar/overlay/blob/dcd
 
 ### GitHub
 
-- גרסה אחרונה: `![Latest Release](https://img.shields.io/github/v/release/owner/repo)` — להחליף `owner/repo` בנתיב הפרויקט
-- רישיון: `![GitHub License](https://img.shields.io/github/license/owner/repo)` — להחליף בנתיב הפרויקט
+- גרסה אחרונה: `![Latest Release](https://img.shields.io/github/v/release/owner/repo)`: להחליף `owner/repo` בנתיב הפרויקט
+- רישיון: `![GitHub License](https://img.shields.io/github/license/owner/repo)`: להחליף בנתיב הפרויקט
 
 ### npm
 
-- גרסת החבילה: `![npm](https://img.shields.io/npm/v/package-name?logo=npm&label=version)` — להחליף `package-name` בשם החבילה
+- גרסת החבילה: `![npm](https://img.shields.io/npm/v/package-name?logo=npm&label=version)`: להחליף `package-name` בשם החבילה
 
 ## תוספות מתגובות לפוסט
 
