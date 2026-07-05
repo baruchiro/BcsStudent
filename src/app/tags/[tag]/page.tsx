@@ -5,6 +5,7 @@ import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allBlogs, allCommunities, allProjects, allVideos } from 'contentlayer2/generated'
 import { slug } from 'github-slugger'
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 
 export async function generateMetadata({
@@ -44,8 +45,6 @@ const isTagMatch = (tags: string[], targetTag: string) => {
 export default async function TagPage({ params }: { params: Promise<{ tag: string }> }) {
   const { tag: tagParam } = await params
   const tag = decodeURI(tagParam)
-  // Capitalize first letter and convert space to dash
-  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
 
   // Filter blog posts
   const filteredPosts = allCoreContent(
@@ -62,6 +61,20 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
   const filteredVideos = sortPosts(
     allVideos.filter((video) => video.tags && isTagMatch(video.tags, tag))
   )
+
+  // A tag with no matching content is a soft-404 — return a real 404 so search
+  // engines drop it instead of clustering the thin page (e.g. converted tags).
+  if (
+    filteredPosts.length === 0 &&
+    filteredProjects.length === 0 &&
+    filteredCommunities.length === 0 &&
+    filteredVideos.length === 0
+  ) {
+    notFound()
+  }
+
+  // Capitalize first letter and convert space to dash
+  const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
 
   return (
     <ListLayout

@@ -16,6 +16,25 @@ const ContentSecurityPolicy = `
   frame-src giscus.app *.posthog.com github.com n8n-preview-service.internal.n8n.cloud app.cal.com www.youtube-nocookie.com;
 `
 
+// Tags converted from English to Hebrew (PRs #248, #258). The old English URLs
+// otherwise render an empty list with HTTP 200 (soft-404), which Google flags as
+// "Duplicate without user-selected canonical". Redirect them to the live Hebrew
+// tag pages to preserve link equity. Keys must match src/app/tag-data.json.
+const convertedTagRedirects = {
+  idea: 'רעיון',
+  money: 'כסף',
+  code: 'קוד',
+  hardware: 'חומרה',
+  recommendation: 'המלצה',
+  free: 'חינם',
+  testing: 'בדיקות',
+  bot: 'בוט',
+  automation: 'אוטומציה',
+  'what-to-know-as-a-student': 'מה-כדאי-לסטודנט-לדעת',
+  work: 'קריירה',
+  career: 'קריירה',
+}
+
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
@@ -80,6 +99,13 @@ module.exports = () => {
           hostname: 'i.ytimg.com',
         },
       ],
+    },
+    async redirects() {
+      return Object.entries(convertedTagRedirects).map(([en, he]) => ({
+        source: `/tags/${en}`,
+        destination: `/tags/${encodeURIComponent(he)}`,
+        permanent: true,
+      }))
     },
     async headers() {
       return [
