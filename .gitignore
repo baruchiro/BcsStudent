@@ -63,3 +63,9 @@ public/static/scripts/
 # skills CLI lockfile — this repo vendors skills via `skills add --copy`
 # (real dirs under .claude/skills/), so the generated lockfile is not tracked.
 skills-lock.json
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+.design-sync/generated-styles.css
