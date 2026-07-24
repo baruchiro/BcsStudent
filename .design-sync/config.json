@@ -1,0 +1,26 @@
+{
+  "pkg": "BscStudent",
+  "globalName": "BlogDS",
+  "shape": "package",
+  "tsconfig": ".design-sync/tsconfig.sync.json",
+  "cssEntry": ".design-sync/generated-styles.css",
+  "buildCmd": "node .design-sync/build-styles.mjs",
+  "readmeHeader": ".design-sync/conventions.md",
+  "componentSrcMap": {
+    "Card": "src/components/Card.tsx",
+    "Tag": "src/components/Tag.tsx",
+    "Note": "src/components/Note.tsx",
+    "LanguageBadge": "src/components/LanguageBadge.tsx",
+    "CategoryIndicator": "src/components/CategoryIndicator.tsx",
+    "PageTitle": "src/components/PageTitle.tsx",
+    "StatusComponent": "src/components/StatusComponent.tsx",
+    "IdeaProperties": "src/components/IdeaProperties.tsx",
+    "GithubStarButton": "src/components/GithubStarButton.tsx",
+    "YouTubeShort": "src/components/YouTubeShort.tsx"
+  },
+  "dtsPropsFor": {
+    "CategoryIndicator": "post: { isIdea?: boolean }; hasCoverImage?: boolean",
+    "IdeaProperties": "post: { isIdea?: boolean; status?: string; implementation?: string; externalLinks?: string[] }"
+  },
+  "libOverrides": {}
+}
