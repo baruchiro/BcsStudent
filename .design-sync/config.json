@@ -1,5 +1,6 @@
 {
   "pkg": "BscStudent",
+  "projectId": "e8d63bf5-2991-48ab-b4fc-1155c31bb2b2",
   "globalName": "BlogDS",
   "shape": "package",
   "tsconfig": ".design-sync/tsconfig.sync.json",

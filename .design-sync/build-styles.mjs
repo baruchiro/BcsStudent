@@ -22,5 +22,7 @@ const args = [
   '--minify',
 ]
 console.error('[build-styles] compiling Tailwind →', resolve(here, 'generated-styles.css'))
-execFileSync(bin, args, { cwd: root, stdio: 'inherit' })
+// Invoke via `node <cli.js>` rather than exec'ing the bin directly: Yarn Berry's
+// node-modules linker can leave the CLI without its executable bit (EACCES).
+execFileSync(process.execPath, [bin, ...args], { cwd: root, stdio: 'inherit' })
 console.error('[build-styles] done')
