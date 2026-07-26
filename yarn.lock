@@ -4386,7 +4386,7 @@ __metadata:
     next-contentlayer2: 0.5.8
     next-themes: ^0.2.1
     pliny: 0.4.0
-    postcss: ^8.5.12
+    postcss: ^8.5.18
     prettier: ^3.0.0
     prettier-plugin-tailwindcss: ^0.5.11
     react: 18.2.0
@@ -9793,6 +9793,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^3.3.12":
+  version: 3.3.16
+  resolution: "nanoid@npm:3.3.16"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 2489d8f87f02178a15b901d7d06e490838383a2acdf01ec2b4e4343c02325ab648965a539eba8bdb821560a33e4c34be506b9e1c7c1bb5cb750e894f500fce92
+  languageName: node
+  linkType: hard
+
 "napi-postinstall@npm:^0.2.2":
   version: 0.2.4
   resolution: "napi-postinstall@npm:0.2.4"
@@ -10539,14 +10548,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.5.12":
-  version: 8.5.12
-  resolution: "postcss@npm:8.5.12"
+"postcss@npm:^8.5.18":
+  version: 8.5.18
+  resolution: "postcss@npm:8.5.18"
   dependencies:
-    nanoid: ^3.3.11
+    nanoid: ^3.3.12
     picocolors: ^1.1.1
     source-map-js: ^1.2.1
-  checksum: e11818908d9f1693438bd7c6e3af99431552f5c9b3f400ebe76af3f25bd1b1efb26bc4c13533f3dcff45540a66ad4e84c62e06491f88003bbfa4ef35b6175f55
+  checksum: 924b71b066ada1909b741970b53529b95a6589106302a154cd14b2fae0c8186144be2bb1e0c45e0f3e530474cf92afa01d790afa8b71dcd60c98ca8ee42f66c1
   languageName: node
   linkType: hard
 
