@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/data/*": ["data/*"],
+      "next/link": [".design-sync/shims/next-link.tsx"],
+      "next/image": [".design-sync/shims/next-image.tsx"],
+      "react-github-btn": [".design-sync/shims/github-btn.tsx"]
+    }
+  }
+}
