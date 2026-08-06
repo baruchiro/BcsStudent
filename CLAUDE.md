@@ -59,3 +59,5 @@ when relevant:
   editing UI, styles, or content.
 - **n8n-masking** — mask sensitive data in n8n workflow JSON before sharing it
   publicly.
+- **humanizer** — remove signs of AI-generated writing from text, based on
+  Wikipedia's "Signs of AI writing" guide.
