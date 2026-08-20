@@ -88,8 +88,6 @@ services:
     restart: unless-stopped
     ports:
       - "8096:8096"
-    env_file:
-      - shared.env
     volumes:
       - jellyfin:/config
       - jellyfin-cache:/cache
@@ -103,8 +101,6 @@ services:
     container_name: jellyseerr
     ports:
       - "5055:5055"
-    env_file:
-      - shared.env
     volumes:
       - jellyseerr:/app/config
     restart: unless-stopped
@@ -119,8 +115,6 @@ services:
     container_name: jackett
     ports:
       - "9117:9117"
-    env_file:
-      - shared.env
     environment:
       - PUID=0
       - PGID=0
@@ -140,8 +134,6 @@ services:
       - "8112:8112"
       - "58846:58846"
     restart: unless-stopped
-    env_file:
-      - shared.env
     volumes:
       - deluge:/config
       - data:/data
@@ -157,8 +149,6 @@ services:
     depends_on:
       - jackett
       - deluge
-    env_file:
-      - shared.env
     environment:
       - PUID=0
       - PGID=0
@@ -178,8 +168,6 @@ services:
     depends_on:
       - jackett
       - deluge
-    env_file:
-      - shared.env
     environment:
       - PUID=0
       - PGID=0
@@ -196,8 +184,6 @@ services:
     container_name: bazarr
     ports:
       - "6767:6767"
-    env_file:
-      - shared.env
     environment:
       - PUID=0
       - PGID=0
@@ -221,8 +207,6 @@ services:
     restart: unless-stopped
     ports:
       - "11011:11011"
-    env_file:
-      - shared.env
     environment:
       - PORT=11011
       - PUID=1000
@@ -261,7 +245,7 @@ volumes:
 ```
 
 <Note>
-כמה דברים שכדאי לדעת: הקובץ מפנה ל`shared.env` שמחזיק משתנים משותפים כמו `TZ` ו`PUID`/`PGID`, ותיקיית ה`data` מוגדרת כvolume חיצוני (`external: true`) כי יצרתי אותה ידנית והיא די גדולה, אז אני לא נותן לcompose ליצור או למחוק אותה.
+כמה דברים שכדאי לדעת: תיקיית ה`data` מוגדרת כvolume חיצוני (`external: true`) כי יצרתי אותה ידנית והיא די גדולה, אז אני לא נותן לcompose ליצור או למחוק אותה.
 </Note>
 
 ## מה הלאה?
