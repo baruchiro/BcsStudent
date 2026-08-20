@@ -95,13 +95,15 @@ services:
     networks:
       - media_net
 
-  jellyseerr:
-    # media request and discovery manager for Jellyfin
-    image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
+  seerr:
+    # media request and discovery manager for Jellyfin (successor to Jellyseerr)
+    image: ghcr.io/seerr-team/seerr:latest
+    container_name: seerr
+    init: true
     ports:
       - "5055:5055"
     volumes:
+      # reuses the former jellyseerr config volume; Seerr auto-migrates on first start
       - jellyseerr:/app/config
     restart: unless-stopped
     networks:
@@ -240,7 +242,7 @@ volumes:
   sonarr:
   radarr:
   bazarr:
-  jellyseerr:
+  jellyseerr: # Seerr config (name kept to preserve existing data)
   cleanuparr:
 ```
 
