@@ -1,0 +1,257 @@
+---
+title: הגדרות שרת המדיה הביתי שלי
+date: 2020-11-06
+draft: false
+tags: ['self-hosted', 'github', 'integrations']
+images: /static/images/home-server/home-server.png
+summary: איך מוגדר שרת המדיה הביתי שלי, להורדת סדרות וסרטים בצורה אוטומטית, חיפוש כתוביות, התחברות מכל מכשיר וסקריפטים נוספים
+type: Blog
+---
+יש לי בבית, ליד הWiFi, מחשב קטן בלי מסך או מקלדת. אתם יודעים, כזה שאמורים לחבר לטלוויזיה או משהו. זה "השרת" הפרטי שלי, משמש לכל מיני דברים שאני רוצה שיפעלו תמיד, כמו בוט של טלגרם, לדוגמא.
+
+זה מאוד קל להגדיר שרת כזה כשמשתמשים ב[Docker](/docker/), ואני יכול פשוט לשתף את ההגדרות שלי עם העולם, אם גם אתם רוצים להגדיר שרת כזה.
+
+אז הנה קצת הסברים על איך השרת שלי מוגדר:
+
+### Jellyfin
+
+_[Jellyfin](https://jellyfin.org/)_ היא תוכנת קוד פתוח (כמובן) ל**שרת מדיה ביתי**.
+
+**שרת מדיה ביתי** זאת בעצם תוכנה שיודעת להציג את המדיה שלנו- סרטים, מוזיקה, תמונות ולפעמים עוד דברים, בצורה מאורגנת. אולי אתם מכירים את Kodi, רק שההבדל הוא שKodi לדעתי מתמקד במדיה, ולכן יש לו הרבה פיצ'רים של הורדת מדיה מהאינטרנט בצורה אוטומטית וכד'. תוכנת _Jellyfin_ אמנם לא יודעת להוריד תוכן מהאינטרנט, אבל היכולת העיקרית שלה היא _גישה מרחוק_- התקנתי אותה על השרת, ועכשיו אני יכול לגשת למדיה שלי מכל המכשירים ברשת הביתית.
+
+אז מאיפה מגיעה המדיה ל*Jellyfin*?
+
+### Jackett
+
+קצת קשה לי להסביר על _[Jackett](https://github.com/Jackett/Jackett)_, גם אני לא יודע עד הסוף מה התהליך שקורה, אבל התפקיד של _Jackett_ הוא באופן כללי, לתת קישורים לתוכן.
+
+אנחנו נראה בהמשך ונבין איך כל תוכנה דואגת למשימה הקטנה שלה, אבל באופן כללי, נניח שאני רוצה להוריד קובץ כלשהו שיצא לרשת, אני יכול להשתמש ב*Jackett* שיודע לחפש את הקובץ בכל מיני אוספים. היתרון הוא שאני צריך לחפש רק פעם אחת, מול _Jackett_, וגם לא צריך להסתבך עם כל אוסף והפורמט\הפרוטוקול שלו.
+
+### Deluge
+
+מאוד פשוט, _[Deluge](https://deluge-torrent.org/)_ הוא תוכנת הורדת torrents. כמובן שהיתרון שלו בהקשר הנוכחי הוא שאפשר להריץ אותו בDocker והוא חושף ממשק Web, כך אני יכול להתחבר אליו מרחוק.
+
+### Sonarr, Radarr, Bazarr
+
+כל השמות נשמעים דומים כי כולם בני אותה משפחה, מה שמכונה [\*arr stack](https://ravencentric.github.io/awesome-arr/), אוסף כלים שהשמות שלהם נגמרים בarr.
+
+כולם נראים ועושים פחות או יותר אותו דבר.
+
+_[Sonarr](https://sonarr.tv/)_ אחראי על מעקב אחרי יציאה של פרקים ב**סדרות** שאתה עוקב אחריהם. אני לא משתמש בכל הפיצ'רים שיש שם, כמו למשל לוח שנה שמציג מתי פרקים מתוכננים לצאת.
+
+_[Radarr](https://radarr.video/)_ הוא כמו _Sonarr_, רק ל**סרטים**. שניהם אחראים רק על מעקב אחרי יציאת תוכן חדש. כאשר תוכן חדש צריך להיות זמין, הם שואלים את _Jackett_ האם הוא יודע לתת להם קישור להורדה, וברגע שיש להם קישור זמין להורדה, הם שולחים אותו ל*Deluge* שיוריד אותו.
+
+הקובץ יורד לתיקייה ש*Jellyfin* מסתכל עליה, ויודע להציג את התוכן ברגע שהוא זמין.
+
+התפקיד של _[Bazzar](https://www.bazarr.media/)_ הוא להסתכל גם כן על התיקייה של המדיה, ולחפש **כתוביות** לתוכן שירד.
+
+### Seerr (לשעבר Jellyseerr)
+
+עד עכשיו, כשרציתי תוכן חדש, הייתי צריך להיכנס ל*Sonarr* או ל*Radarr*, כל אחד בנפרד, לחפש שם ולבדוק אם יש טורנט זמין. קצת מעצבן לקפוץ בין הכלים.
+
+*[Seerr](https://docs.seerr.dev/)* (עד לא מזמן קראו לו Jellyseerr) מרכז את הכל למקום אחד: גם סרטים וגם סדרות, בממשק נוח אחד שנראה כמו נטפליקס. אני מחפש מה שבא לי, לוחץ "בקש לצפות", והבקשה עוברת מאחורי הקלעים ל*Sonarr* או ל*Radarr* שמתחילים בתהליך שתיארתי למעלה. בסוף התוכן פשוט מופיע ב*Jellyfin*.
+
+יש גם אפליקציות לטלפון שמשלבות את *Jellyfin* ו*Seerr* לחוויה אחת, אבל האמת שאני נשארתי עם האפליקציה הרשמית של *Jellyfin*. הבעיה עם האפליקציות החדשות היא שבגלל הAI צצות יותר מדי כאלה, ואי אפשר לעקוב איזו מהן מתאימה לאיזו דרישה.
+
+### Cleanuparr
+
+_[Cleanuparr](https://github.com/Cleanuparr/Cleanuparr)_ אמור לעזור בניקוי אוטומטי של ההורדות. הוא יודע לנקות הורדות תקועות או כושלות מהתור, אבל גם למחוק טורנטים אחרי שעבר מספיק זמן שיתוף (seeding) או אחרי שהעליתי בחזרה מספיק תוכן, מה שרלוונטי למי שמוריד ממאגרים פרטיים שדורשים יחס שיתוף.
+
+אבל בכנות, אני עדיין לא בטוח ב100% איך להשתמש בו ונראה לי שהוא לא באמת מועיל לי, כי הוא לא מוחק את הקבצים של _Jellyfin_ וממילא, הדיסק לא מתנקה.
+
+### telegram-download-deamon
+
+<Note>
+**עדכון:** כבר מזמן אני לא משתמש בכלי הזה, אז אני כבר לא יכול להמליץ עליו. השארתי את הקטע כאן בעיקר בשביל ההיסטוריה.
+</Note>
+
+לפעמים יש מדיה שאני רוצה להוסיף ל*Jellyfin*, אבל התוכנות שהזכרתי למעלה לא מצליחות למצוא אותה. לצורך כך יש לי בוט ב*Telegram* שרץ על שרת המדיה ומוריד את הקבצים שאני שולח אליו.
+
+(טוב, לא בדיוק בוט, זה יותר Telegram Client, מהסיבה שבוט מוגבל יותר בהורדה של קבצים גדולים.)
+
+הקוד של [telegram-download-deamon](https://github.com/alfem/telegram-download-daemon) מנוהל על ידי מישהו אחר, אבל חלקים גדולים מהקוד נכתבו על ידי, ואני עוד שוקל להשתמש בfork שלי, מכיוון שנראה שלי יש יותר צורך ועניין בכלי הזה מאשר לMaintainer.
+
+### Portainer
+
+[Portainer](https://www.portainer.io/) הוא כלי לניהול Docker מרחוק, מאוד נוח, אפשר לראות איזה images, volumes, containers וכו' יש על המכונה כרגע, מה המצב שלהם, לראות לוגים, להיכנס לתוך הcontainers ועוד.
+
+## הכל ביחד: docker-compose
+
+אחרי כל ההסברים, הנה כל הstack של המדיה בקובץ compose אחד. ככה כל השירותים שלמעלה עולים יחד, חולקים רשת אחת (`media_net`) ותיקיית מדיה משותפת (`/data`), מה שגם מאפשר hardlinks בין תיקיית ההורדות לספרייה.
+
+```yaml
+services:
+  jellyfin:
+    # Media Server
+    container_name: jellyfin
+    image: jellyfin/jellyfin
+    restart: unless-stopped
+    ports:
+      - "8096:8096"
+    volumes:
+      - jellyfin:/config
+      - jellyfin-cache:/cache
+      - data:/data
+    networks:
+      - media_net
+
+  seerr:
+    # media request and discovery manager for Jellyfin (successor to Jellyseerr)
+    image: ghcr.io/seerr-team/seerr:latest
+    container_name: seerr
+    init: true
+    ports:
+      - "5055:5055"
+    volumes:
+      # reuses the former jellyseerr config volume; Seerr auto-migrates on first start
+      - jellyseerr:/app/config
+    restart: unless-stopped
+    networks:
+      - media_net
+    depends_on:
+      - jellyfin
+
+  jackett:
+    # torrent trackers
+    image: ghcr.io/linuxserver/jackett
+    container_name: jackett
+    ports:
+      - "9117:9117"
+    environment:
+      - PUID=0
+      - PGID=0
+      - AUTO_UPDATE=true
+    volumes:
+      - jackett:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+
+  deluge:
+    # Torrents Downloader
+    image: ghcr.io/linuxserver/deluge:2.1.1
+    container_name: deluge
+    ports:
+      - "8112:8112"
+      - "58846:58846"
+    restart: unless-stopped
+    volumes:
+      - deluge:/config
+      - data:/data
+    networks:
+      - media_net
+
+  sonarr:
+    # PVR for TV shows
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    ports:
+      - "8989:8989"
+    depends_on:
+      - jackett
+      - deluge
+    environment:
+      - PUID=0
+      - PGID=0
+    volumes:
+      - sonarr:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+
+  radarr:
+    # Movie organizer/manager
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    ports:
+      - "7878:7878"
+    depends_on:
+      - jackett
+      - deluge
+    environment:
+      - PUID=0
+      - PGID=0
+    volumes:
+      - radarr:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+
+  bazarr:
+    # subtitles companion for Sonarr and Radarr
+    image: ghcr.io/linuxserver/bazarr
+    container_name: bazarr
+    ports:
+      - "6767:6767"
+    environment:
+      - PUID=0
+      - PGID=0
+    volumes:
+      - bazarr:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+    depends_on:
+      - sonarr
+      - radarr
+
+  cleanuparr:
+    # Automated cleanup of stalled/failed downloads in Sonarr/Radarr + Deluge.
+    # All rules (dry-run, strikes, seeding) are configured in the Web UI on :11011.
+    # Tip: keep Dry Run ON at first, and /data is mounted read-only so it never
+    # deletes files directly (removal happens through the Deluge API).
+    image: ghcr.io/cleanuparr/cleanuparr:latest
+    container_name: cleanuparr
+    restart: unless-stopped
+    ports:
+      - "11011:11011"
+    environment:
+      - PORT=11011
+      - PUID=1000
+      - PGID=1000
+      - UMASK=022
+    volumes:
+      - cleanuparr:/config
+      - data:/data:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11011/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+    networks:
+      - media_net
+
+networks:
+  media_net:
+    name: media_network
+    driver: bridge
+
+volumes:
+  data: # single shared root: /data/torrents + /data/media, enables hardlinks
+    external: true
+    name: media_data
+  jellyfin:
+  jellyfin-cache:
+  jackett:
+  deluge:
+  sonarr:
+  radarr:
+  bazarr:
+  jellyseerr: # Seerr config (name kept to preserve existing data)
+  cleanuparr:
+```
+
+<Note>
+כמה דברים שכדאי לדעת: תיקיית ה`data` מוגדרת כvolume חיצוני (`external: true`) כי יצרתי אותה ידנית והיא די גדולה, אז אני לא נותן לcompose ליצור או למחוק אותה.
+</Note>
+
+## מה הלאה?
+
+אני תמיד באמצע לבדוק כל מיני כלים חדשים (כשיש לי זמן, לא תמיד אני מגיע לזה). למשל, הייתי באמצע לבדוק את _[home-assistant](https://www.home-assistant.io/)_, יכולים לראות גם [כאן](/home-assistant/).
+
+> מוזמנים להשתמש!
