@@ -11,7 +11,7 @@ type: Blog
 
 זה מאוד קל להגדיר שרת כזה כשמשתמשים ב[Docker](/docker/), ואני יכול פשוט לשתף את ההגדרות שלי עם העולם, אם גם אתם רוצים להגדיר שרת כזה.
 
-אז הגדרות השרת שלי נמצאות [כאן](https://github.com/baruchiro/home-server), והנה קצת הסברים:
+אז הנה קצת הסברים על איך השרת שלי מוגדר:
 
 ### Jellyfin
 
@@ -73,6 +73,6 @@ _[Cleanuparr](https://github.com/Cleanuparr/Cleanuparr)_ אמור לעזור ב�
 
 ## מה הלאה?
 
-אפשר להסתכל ב[branches](https://github.com/baruchiro/home-server/branches) של הקוד, לראות כל מיני כלים חדשים שאני מנסה (כשיש לי זמן, לא תמיד אני מגיע לזה). למשל, הייתי באמצע לבדוק את _[home-assistant](https://www.home-assistant.io/)_, יכולים לראות גם [כאן](/home-assistant/).
+אני תמיד באמצע לבדוק כל מיני כלים חדשים (כשיש לי זמן, לא תמיד אני מגיע לזה). למשל, הייתי באמצע לבדוק את _[home-assistant](https://www.home-assistant.io/)_, יכולים לראות גם [כאן](/home-assistant/).
 
 > מוזמנים להשתמש!
