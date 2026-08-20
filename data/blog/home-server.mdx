@@ -75,6 +75,195 @@ _[Cleanuparr](https://github.com/Cleanuparr/Cleanuparr)_ אמור לעזור ב�
 
 [Portainer](https://www.portainer.io/) הוא כלי לניהול Docker מרחוק, מאוד נוח, אפשר לראות איזה images, volumes, containers וכו' יש על המכונה כרגע, מה המצב שלהם, לראות לוגים, להיכנס לתוך הcontainers ועוד.
 
+## הכל ביחד: docker-compose
+
+אחרי כל ההסברים, הנה כל הstack של המדיה בקובץ compose אחד. ככה כל השירותים שלמעלה עולים יחד, חולקים רשת אחת (`media_net`) ותיקיית מדיה משותפת (`/data`), מה שגם מאפשר hardlinks בין תיקיית ההורדות לספרייה.
+
+```yaml
+services:
+  jellyfin:
+    # Media Server
+    container_name: jellyfin
+    image: jellyfin/jellyfin
+    restart: unless-stopped
+    ports:
+      - "8096:8096"
+    env_file:
+      - shared.env
+    volumes:
+      - jellyfin:/config
+      - jellyfin-cache:/cache
+      - data:/data
+    networks:
+      - media_net
+
+  jellyseerr:
+    # media request and discovery manager for Jellyfin
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    ports:
+      - "5055:5055"
+    env_file:
+      - shared.env
+    volumes:
+      - jellyseerr:/app/config
+    restart: unless-stopped
+    networks:
+      - media_net
+    depends_on:
+      - jellyfin
+
+  jackett:
+    # torrent trackers
+    image: ghcr.io/linuxserver/jackett
+    container_name: jackett
+    ports:
+      - "9117:9117"
+    env_file:
+      - shared.env
+    environment:
+      - PUID=0
+      - PGID=0
+      - AUTO_UPDATE=true
+    volumes:
+      - jackett:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+
+  deluge:
+    # Torrents Downloader
+    image: ghcr.io/linuxserver/deluge:2.1.1
+    container_name: deluge
+    ports:
+      - "8112:8112"
+      - "58846:58846"
+    restart: unless-stopped
+    env_file:
+      - shared.env
+    volumes:
+      - deluge:/config
+      - data:/data
+    networks:
+      - media_net
+
+  sonarr:
+    # PVR for TV shows
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    ports:
+      - "8989:8989"
+    depends_on:
+      - jackett
+      - deluge
+    env_file:
+      - shared.env
+    environment:
+      - PUID=0
+      - PGID=0
+    volumes:
+      - sonarr:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+
+  radarr:
+    # Movie organizer/manager
+    image: ghcr.io/linuxserver/radarr
+    container_name: radarr
+    ports:
+      - "7878:7878"
+    depends_on:
+      - jackett
+      - deluge
+    env_file:
+      - shared.env
+    environment:
+      - PUID=0
+      - PGID=0
+    volumes:
+      - radarr:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+
+  bazarr:
+    # subtitles companion for Sonarr and Radarr
+    image: ghcr.io/linuxserver/bazarr
+    container_name: bazarr
+    ports:
+      - "6767:6767"
+    env_file:
+      - shared.env
+    environment:
+      - PUID=0
+      - PGID=0
+    volumes:
+      - bazarr:/config
+      - data:/data
+    restart: unless-stopped
+    networks:
+      - media_net
+    depends_on:
+      - sonarr
+      - radarr
+
+  cleanuparr:
+    # Automated cleanup of stalled/failed downloads in Sonarr/Radarr + Deluge.
+    # All rules (dry-run, strikes, seeding) are configured in the Web UI on :11011.
+    # Tip: keep Dry Run ON at first, and /data is mounted read-only so it never
+    # deletes files directly (removal happens through the Deluge API).
+    image: ghcr.io/cleanuparr/cleanuparr:latest
+    container_name: cleanuparr
+    restart: unless-stopped
+    ports:
+      - "11011:11011"
+    env_file:
+      - shared.env
+    environment:
+      - PORT=11011
+      - PUID=1000
+      - PGID=1000
+      - UMASK=022
+    volumes:
+      - cleanuparr:/config
+      - data:/data:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11011/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
+    networks:
+      - media_net
+
+networks:
+  media_net:
+    name: media_network
+    driver: bridge
+
+volumes:
+  data: # single shared root: /data/torrents + /data/media, enables hardlinks
+    external: true
+    name: media_data
+  jellyfin:
+  jellyfin-cache:
+  jackett:
+  deluge:
+  sonarr:
+  radarr:
+  bazarr:
+  jellyseerr:
+  cleanuparr:
+```
+
+<Note>
+כמה דברים שכדאי לדעת: הקובץ מפנה ל`shared.env` שמחזיק משתנים משותפים כמו `TZ` ו`PUID`/`PGID`, ותיקיית ה`data` מוגדרת כvolume חיצוני (`external: true`) כי יצרתי אותה ידנית והיא די גדולה, אז אני לא נותן לcompose ליצור או למחוק אותה.
+</Note>
+
 ## מה הלאה?
 
 אני תמיד באמצע לבדוק כל מיני כלים חדשים (כשיש לי זמן, לא תמיד אני מגיע לזה). למשל, הייתי באמצע לבדוק את _[home-assistant](https://www.home-assistant.io/)_, יכולים לראות גם [כאן](/home-assistant/).
