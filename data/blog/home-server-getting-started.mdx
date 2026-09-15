@@ -24,7 +24,7 @@ ragQuestions:
 
 פה יש שאלה נוספת: האם Home Assistant צריך מכונה משלו, או שהוא יכול לשבת על אותו שרת ביתי כמו כל שירות אחר? התשובה היא שיש לזה שתי דרכים, וזה קובע גם את החומרה.
 
-**Home Assistant Container**: אם כבר יש לכם שרת ביתי שרץ קונטיינרים (Docker), אפשר פשוט להרים עוד container אחד לצידם, בדיוק כמו כל שירות אחר בcompose. זה חוסך מכונה נוספת, אבל אין לכם Supervisor, כלומר אין חנות add-ons מובנית, וגישה לחומרה כמו Zigbee dongle או שדרן אינפרא אדום דורשת להעביר את המכשיר (device passthrough) לתוך הcontainer באופן ידני.
+**Home Assistant Container**: אם כבר יש לכם שרת ביתי שרץ קונטיינרים (Docker), אפשר פשוט להרים עוד container אחד לצידם, בדיוק כמו כל שירות אחר בcompose. זה חוסך מכונה נוספת, וגם Zigbee dongle עובד מצוין, פשוט ממפים אותו (device passthrough) לתוך הcontainer בcompose. מה שכן אין לכם זה Supervisor, כלומר אין חנות add-ons מובנית, ותוספים תצטרכו להריץ בעצמכם כcontainer נפרד.
 
 **Home Assistant OS**: מערכת הפעלה שלמה, ייעודית לHome Assistant, עם Supervisor וחנות add-ons מובנית. פה כן כדאי מכונה נפרדת, ו[ההמלצה הרשמית](https://www.home-assistant.io/installation/raspberrypi/) היא Raspberry Pi 4 Model B עם 4GB זכרון, וכרטיס microSD בדירוג ביצועים A2 (לא כל כרטיס, יש תווית ייעודית) של לפחות 32GB. אם בהמשך תרצו להוסיף Zigbee או Z-Wave, זה פשוט dongle USB שמתחבר למכונה, ואם תרצו לשלוט במכשירי אינפרא אדום ישנים (מזגן, טלוויזיה), יש לזה שדרנים ייעודיים (IR blaster).
 
