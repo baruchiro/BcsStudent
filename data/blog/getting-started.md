@@ -3,7 +3,6 @@ title: כסף - הקדמה
 date: 2021-12-18
 draft: false
 tags: ['כסף']
-series: true
 summary: |
   למה ועל מה אני הולך לדבר בנושא של כסף, השקעות והתנהלות פיננסית.
 type: Blog

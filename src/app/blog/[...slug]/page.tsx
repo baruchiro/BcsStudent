@@ -9,6 +9,7 @@ import siteMetadata from '@/data/siteMetadata'
 import PostBanner from '@/layouts/PostBanner'
 import PostLayout from '@/layouts/PostLayout'
 import PostSimple from '@/layouts/PostSimple'
+import { getSeriesInfo } from '@/utils/series'
 import type { Authors, Blog } from 'contentlayer2/generated'
 import { allAuthors, allBlogs, allCommunities } from 'contentlayer2/generated'
 import { Metadata } from 'next'
@@ -87,9 +88,16 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
     return notFound()
   }
 
-  const prev = sortedCoreContents[postIndex + 1]
-  const next = sortedCoreContents[postIndex - 1]
   const post = allBlogs.find((p) => p.slug === slug) as Blog
+  const series = getSeriesInfo(post, sortedCoreContents)
+  // Ordered series navigate part to part; the ends (and levelled series) fall back to date order
+  const seriesStep = (offset: number) => {
+    if (!series || series.isLevelled) return undefined
+    const entry = series.entries[series.currentIndex + offset]
+    return entry && { path: entry.path, title: entry.title, inSeries: true }
+  }
+  const prev = seriesStep(-1) || sortedCoreContents[postIndex + 1]
+  const next = seriesStep(1) || sortedCoreContents[postIndex - 1]
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
     const authorResults = allAuthors.find((p) => p.slug === author)
@@ -140,6 +148,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
         authorDetails={authorDetails}
         next={next}
         prev={prev}
+        series={series}
         relevantCommunities={relevantCommunities}
       >
         <DirectionWrapper language={post.language}>

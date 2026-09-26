@@ -3,7 +3,9 @@ title: מערכת ניהול בית חכם - Home Assistant
 date: 2020-07-03
 draft: true
 tags: ["self-hosted", "homeassistant"]
-series: true
+series: 'שרת ביתי'
+seriesOrder: 4
+seriesLabel: 'Home Assistant'
 summary: "בדיקה והתנסות במערכת ניהול הבית החכם Home Assistant"
 type: Blog
 ---
