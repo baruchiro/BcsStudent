@@ -30,9 +30,15 @@ const convertedTagRedirects = {
   testing: 'בדיקות',
   bot: 'בוט',
   automation: 'אוטומציה',
-  'what-to-know-as-a-student': 'מה-כדאי-לסטודנט-לדעת',
   work: 'קריירה',
   career: 'קריירה',
+}
+
+// Tags removed because a series replaced them. Their pages would otherwise be
+// empty soft-404s too, so send them to the first post of the series.
+const retiredTagRedirects = {
+  'what-to-know-as-a-student': '/blog/tests',
+  'מה-כדאי-לסטודנט-לדעת': '/blog/tests',
 }
 
 const securityHeaders = [
@@ -101,11 +107,18 @@ module.exports = () => {
       ],
     },
     async redirects() {
-      return Object.entries(convertedTagRedirects).map(([en, he]) => ({
-        source: `/tags/${en}`,
-        destination: `/tags/${encodeURIComponent(he)}`,
-        permanent: true,
-      }))
+      return [
+        ...Object.entries(convertedTagRedirects).map(([en, he]) => ({
+          source: `/tags/${en}`,
+          destination: `/tags/${encodeURIComponent(he)}`,
+          permanent: true,
+        })),
+        ...Object.entries(retiredTagRedirects).map(([tag, destination]) => ({
+          source: `/tags/${encodeURIComponent(tag)}`,
+          destination,
+          permanent: true,
+        })),
+      ]
     },
     async headers() {
       return [
