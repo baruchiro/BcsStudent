@@ -6,5 +6,5 @@ links:
   whatsapp: ''
 tags:
   - ai
-  - devtool
+  - self-hosted
 ---

@@ -1,7 +1,7 @@
 {
   "רעיון": 25,
   "קוד-פתוח": 21,
-  "self-hosted": 12,
+  "self-hosted": 13,
   "כסף": 11,
   "ai": 10,
   "אוטומציה": 9,
@@ -14,8 +14,8 @@
   "integrations": 7,
   "מה-כדאי-לסטודנט-לדעת": 7,
   "webapp": 7,
-  "devtool": 6,
   "git": 6,
+  "devtool": 5,
   "homeassistant": 5,
   "cli": 5,
   "browser-extension": 5,
