@@ -7,4 +7,6 @@ links:
 tags:
   - ai
   - self-hosted
+  - docker
+  - בוט
 ---
