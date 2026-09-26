@@ -3,6 +3,8 @@ title: מה כדאי לסטודנט לדעת- CI/CD
 draft: false
 date: 2018-12-09 09:04:48
 tags: ['מה כדאי לסטודנט לדעת', 'ci-cd', 'בדיקות']
+series: 'מה כדאי לסטודנט לדעת'
+seriesOrder: 3
 type: Blog
 ---
 אחרי הפוסטים של [טסטים](/blog/tests)
