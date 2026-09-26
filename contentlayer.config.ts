@@ -22,6 +22,7 @@ import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import siteMetadata from './data/siteMetadata'
+import { validateSeries } from './src/utils/series'
 
 interface PlainArr {
   _array: string[]
@@ -156,7 +157,9 @@ export const Blog = defineDocumentType(() => ({
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
     language: { type: 'enum', default: 'he', options: ['he', 'en'] },
-    series: { type: 'boolean', default: false },
+    series: { type: 'string' },
+    seriesOrder: { type: 'number' },
+    seriesLabel: { type: 'string' },
     publications: { type: 'list', of: { type: 'string' } },
     // Idea-specific fields
     status: {
@@ -201,6 +204,13 @@ export const Blog = defineDocumentType(() => ({
             '@type': 'Person',
             name: siteMetadata.author,
           },
+          ...(doc.series && {
+            isPartOf: {
+              '@type': 'CreativeWorkSeries',
+              name: doc.series,
+              ...(!doc.seriesLabel && { position: doc.seriesOrder }),
+            },
+          }),
           publisher: {
             '@type': 'Organization',
             name: siteMetadata.title,
@@ -414,6 +424,10 @@ export default makeSource({
   },
   onSuccess: async (importData) => {
     const { allBlogs, allProjects, allCommunities, allVideos } = await importData()
+    const seriesErrors = validateSeries(allBlogs)
+    if (seriesErrors.length) {
+      throw new Error(`Invalid series frontmatter:\n${seriesErrors.join('\n')}`)
+    }
     createTagCount(allBlogs, allProjects, allCommunities, allVideos)
     createSearchIndex(allBlogs, allVideos, allProjects)
   },

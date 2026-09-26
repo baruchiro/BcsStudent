@@ -1,5 +1,6 @@
 'use client'
 
+import { seriesMark } from '@/utils/series'
 import { Blog, Project, Video } from 'contentlayer2/generated'
 import { useRouter } from 'next/navigation'
 import { KBarSearchProvider } from 'pliny/search/KBar'
@@ -58,7 +59,9 @@ export const SearchProvider = ({ children }) => {
               name: item.title,
               keywords: item.body.raw,
               section: 'Blog',
-              subtitle: item.tags.join(', '),
+              subtitle: [seriesMark(item) && `סדרה: ${seriesMark(item)}`, item.tags.join(', ')]
+                .filter(Boolean)
+                .join(' | '),
               perform: () => router.push('/' + item.path),
             }
           })

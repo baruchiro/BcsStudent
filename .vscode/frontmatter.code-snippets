@@ -15,7 +15,6 @@
 			"date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
 			"published: ${2|false,true|}",
 			"tags: ['$3']",
-			"series: false",
 			"cover_image: ./$TM_FILENAME_BASE.png",
 			"canonical_url: false",
 			"description: $4",

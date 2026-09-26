@@ -44,6 +44,20 @@ For choosing, normalizing, reviewing, or cleaning up tags, use the
 Each post must include `title` and `date`. Optional fields: `tags`, `lastmod`,
 `draft`, `summary`, `images`, `authors`, `layout`, `canonicalUrl`.
 
+### Series
+
+A post joins a series with three frontmatter fields (no separate series file):
+
+- `series`: the series display name, e.g. `'שרת ביתי'`. It is also the key that groups posts, so
+  spell it identically in every post.
+- `seriesOrder`: position in the series. Must be `1..n` with no gaps or duplicates.
+- `seriesLabel` (optional): shown instead of "חלק N", e.g. `'למתחילים'` or `'נספח: מקורות'`.
+
+If every post in a series has a `seriesLabel`, the series is **levelled** (entry points for
+different readers, keeps date-order prev/next). Otherwise it is **ordered** (prev/next follow the
+series). Put drafts at the end of an ordered series. The build fails on a one-post series, a missing
+`seriesOrder`, or broken numbering (see `validateSeries` in `src/utils/series.ts`).
+
 Posts support: KaTeX math display, citations and bibliography, MDX components,
 syntax highlighting with line numbers, image optimization, multiple authors, and
 nested routing.
