@@ -18,6 +18,7 @@ export interface SeriesEntry {
   title: string
   path: string
   label: string
+  hasCustomLabel: boolean
   isCurrent: boolean
 }
 
@@ -39,6 +40,7 @@ export function getSeriesInfo(post: SeriesPost, posts: SeriesPost[]): SeriesInfo
     title: p.title,
     path: p.path,
     label: p.seriesLabel || `חלק ${i + 1}`,
+    hasCustomLabel: Boolean(p.seriesLabel),
     isCurrent: p.path === post.path,
   }))
   return {

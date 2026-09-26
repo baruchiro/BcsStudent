@@ -25,8 +25,9 @@ function SeriesList({ series }: { series: SeriesInfo }) {
 // Expanded on desktop, collapsed on mobile. Two copies instead of JS so there is no layout shift.
 export default function SeriesBox({ series }: { series: SeriesInfo }) {
   const current = series.entries[series.currentIndex]
-  const position = series.isLevelled
-    ? current?.label
+  // A labelled post (a level, or an appendix in an ordered series) shows its label
+  const position = current?.hasCustomLabel
+    ? current.label
     : `חלק ${series.currentIndex + 1} מתוך ${series.entries.length}`
   const summary = (
     <>
