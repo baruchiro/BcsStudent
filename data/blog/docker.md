@@ -10,6 +10,8 @@ summary: >
 draft: false
 date: 2019-03-06 07:09:14
 tags: ['מה כדאי לסטודנט לדעת', 'docker']
+series: 'מה כדאי לסטודנט לדעת'
+seriesOrder: 5
 type: Blog
 ---
 אוקיי, אז אולי Docker הוא לא תחום בסיסי במקצוע שלנו, ואולי הוא גם לא
