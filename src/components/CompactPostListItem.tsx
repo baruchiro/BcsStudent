@@ -1,6 +1,6 @@
 import DirectionWrapper from '@/components/DirectionWrapper'
 import Link from '@/components/Link'
-import SeriesMark from '@/components/SeriesMark'
+import SeriesBadge from '@/components/series/SeriesBadge'
 import StatusComponent from '@/components/StatusComponent'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
@@ -48,7 +48,7 @@ export default function CompactPostListItem({ post }: CompactPostListItemProps) 
                     <StatusComponent status={status} implementation={implementation} />
                   )}
                 </div>
-                <SeriesMark post={post} />
+                <SeriesBadge post={post} />
                 <div className="flex flex-wrap">
                   {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                 </div>
