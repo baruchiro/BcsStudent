@@ -20,6 +20,11 @@ const ContentSecurityPolicy = `
 // otherwise render an empty list with HTTP 200 (soft-404), which Google flags as
 // "Duplicate without user-selected canonical". Redirect them to the live Hebrew
 // tag pages to preserve link equity. Keys must match src/app/tag-data.json.
+// Posts that moved to a new path; old links keep working
+const movedPostRedirects = {
+  '/blog/getting-started': '/blog/money/introduction',
+}
+
 const convertedTagRedirects = {
   idea: 'רעיון',
   money: 'כסף',
@@ -101,11 +106,18 @@ module.exports = () => {
       ],
     },
     async redirects() {
-      return Object.entries(convertedTagRedirects).map(([en, he]) => ({
-        source: `/tags/${en}`,
-        destination: `/tags/${encodeURIComponent(he)}`,
-        permanent: true,
-      }))
+      return [
+        ...Object.entries(convertedTagRedirects).map(([en, he]) => ({
+          source: `/tags/${en}`,
+          destination: `/tags/${encodeURIComponent(he)}`,
+          permanent: true,
+        })),
+        ...Object.entries(movedPostRedirects).map(([source, destination]) => ({
+          source,
+          destination,
+          permanent: true,
+        })),
+      ]
     },
     async headers() {
       return [
