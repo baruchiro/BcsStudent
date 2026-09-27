@@ -1,6 +1,7 @@
 'use client'
 
-import { seriesMark } from '@/utils/series'
+import seriesData from '@/app/series-data.json'
+import { getSeriesPosition } from '@/utils/series'
 import { Blog, Project, Video } from 'contentlayer2/generated'
 import { useRouter } from 'next/navigation'
 import { KBarSearchProvider } from 'pliny/search/KBar'
@@ -54,12 +55,16 @@ export const SearchProvider = ({ children }) => {
                     : router.push('/projects'),
               }
             }
+            const series = getSeriesPosition(item, seriesData)
             return {
               id: item.path,
               name: item.title,
               keywords: item.body.raw,
               section: 'Blog',
-              subtitle: [seriesMark(item) && `סדרה: ${seriesMark(item)}`, item.tags.join(', ')]
+              subtitle: [
+                series && `סדרה ${series.name} ${series.order}/${series.total}`,
+                item.tags.join(', '),
+              ]
                 .filter(Boolean)
                 .join(' | '),
               perform: () => router.push('/' + item.path),

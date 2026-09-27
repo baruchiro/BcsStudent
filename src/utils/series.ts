@@ -51,10 +51,23 @@ export function getSeriesInfo(post: SeriesPost, posts: SeriesPost[]): SeriesInfo
   }
 }
 
-// Short text for post lists and search results, e.g. "כסף · חלק 2"
-export function seriesMark(post: SeriesPost): string | undefined {
-  if (!post.series) return undefined
-  return `${post.series} · ${post.seriesLabel || `חלק ${post.seriesOrder}`}`
+export interface SeriesPosition {
+  name: string
+  order: number
+  total: number
+  isLevelled: boolean
+}
+
+// Where a post sits in its series, for post lists and search. `seriesData` is
+// src/app/series-data.json, written by contentlayer's onSuccess.
+export function getSeriesPosition(
+  post: SeriesPost,
+  seriesData: Record<string, { total: number; isLevelled: boolean }>
+): SeriesPosition | undefined {
+  if (!post.series || !post.seriesOrder) return undefined
+  const data = seriesData[post.series]
+  if (!data) return undefined
+  return { name: post.series, order: post.seriesOrder, ...data }
 }
 
 // Checked over all posts, drafts included, so a typo can't hide behind a draft
