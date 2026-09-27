@@ -108,6 +108,21 @@ function createTagCount(allBlogs, allProjects, allCommunities, allVideos) {
   writeFileSync('./src/app/tag-data.json', JSON.stringify(sortedTagCount, null, 2))
 }
 
+// Size and kind of each series, so list items can show "2/5" without loading every post
+function createSeriesData(allBlogs) {
+  const seriesData: Record<string, { total: number; isLevelled: boolean }> = {}
+  allBlogs.forEach((file) => {
+    if (file.series && (!isProduction || file.draft !== true)) {
+      const entry = seriesData[file.series] || { total: 0, isLevelled: true }
+      seriesData[file.series] = {
+        total: entry.total + 1,
+        isLevelled: entry.isLevelled && Boolean(file.seriesLabel),
+      }
+    }
+  })
+  writeFileSync('./src/app/series-data.json', JSON.stringify(seriesData, null, 2))
+}
+
 function createSearchIndex(allBlogs, allVideos, allProjects) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
@@ -429,6 +444,7 @@ export default makeSource({
       throw new Error(`Invalid series frontmatter:\n${seriesErrors.join('\n')}`)
     }
     createTagCount(allBlogs, allProjects, allCommunities, allVideos)
+    createSeriesData(allBlogs)
     createSearchIndex(allBlogs, allVideos, allProjects)
   },
 })

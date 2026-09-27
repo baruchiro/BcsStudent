@@ -1,16 +1,29 @@
-import { seriesMark } from '@/utils/series'
+import seriesData from '@/app/series-data.json'
+import SeriesProgress from '@/components/series/SeriesProgress'
+import { getSeriesPosition } from '@/utils/series'
 
 interface SeriesMarkProps {
   post: { title: string; path: string; series?: string; seriesOrder?: number; seriesLabel?: string }
 }
 
 export default function SeriesMark({ post }: SeriesMarkProps) {
-  const text = seriesMark(post)
-  if (!text) return null
+  const position = getSeriesPosition(post, seriesData)
+  if (!position) return null
+  const { name, order, total, isLevelled } = position
   return (
-    <div className="text-sm text-gray-500 dark:text-gray-400">
-      <span aria-hidden="true">📚 </span>
-      סדרה: {text}
+    <div className="inline-flex items-center gap-2 rounded-full bg-primary-50 py-1 pe-3 ps-2.5 text-xs font-medium text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+      <SeriesProgress
+        total={total}
+        current={order}
+        isLevelled={isLevelled}
+        size="sm"
+        className="w-12"
+      />
+      <span className="sr-only">{`סדרה: ${name}, חלק ${order} מתוך ${total}`}</span>
+      <span aria-hidden="true">{name}</span>
+      <span aria-hidden="true" className="tabular-nums opacity-70">
+        {order}/{total}
+      </span>
     </div>
   )
 }
