@@ -57,6 +57,8 @@ If every post in a series has a `seriesLabel`, the series is **levelled** (entry
 different readers, keeps date-order prev/next). Otherwise it is **ordered** (prev/next follow the
 series). Put drafts at the end of an ordered series. The build fails on a one-post series, a missing
 `seriesOrder`, or broken numbering (see `validateSeries` in `src/utils/series.ts`).
+The build also writes each series' size to `src/app/series-data.json` (like `tag-data.json`),
+which the post-list badge and search use for "2/5".
 
 Posts support: KaTeX math display, citations and bibliography, MDX components,
 syntax highlighting with line numbers, image optimization, multiple authors, and
