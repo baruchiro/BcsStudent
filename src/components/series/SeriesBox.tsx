@@ -101,13 +101,31 @@ function SeriesSteps({ series }: { series: SeriesInfo }) {
   )
 }
 
-// Expanded on desktop, collapsed on mobile. Two copies instead of JS so there is no layout shift.
-export default function SeriesBox({ series }: { series: SeriesInfo }) {
+// Inline at the top of the post below xl: expanded on desktop, collapsed on mobile (two copies
+// instead of JS, so there is no layout shift). From xl the post has a side column, and the series
+// moves there next to the tags and prev/next links.
+export default function SeriesBox({
+  series,
+  placement = 'inline',
+}: {
+  series: SeriesInfo
+  placement?: 'inline' | 'sidebar'
+}) {
+  const label = `הסדרה ${series.name}`
+
+  if (placement === 'sidebar') {
+    return (
+      <nav aria-label={label} className="hidden xl:block">
+        <SeriesHeader series={series} />
+        <SeriesSteps series={series} />
+      </nav>
+    )
+  }
+
   const boxClass =
     'not-prose mb-10 rounded-xl border border-gray-900/10 bg-gray-50 p-4 text-sm dark:border-white/10 dark:bg-white/5'
-
   return (
-    <nav aria-label={`הסדרה ${series.name}`}>
+    <nav aria-label={label} className="xl:hidden">
       <details className={`group ${boxClass} md:hidden`}>
         <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
           <SeriesHeader series={series} collapsible />
