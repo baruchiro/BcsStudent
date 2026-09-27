@@ -178,6 +178,11 @@ export default function PostLayout({
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+                {series && (
+                  <div className="hidden xl:block xl:py-8">
+                    <SeriesBox series={series} placement="sidebar" />
+                  </div>
+                )}
                 {tags && (
                   <div className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
