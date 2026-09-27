@@ -1,4 +1,20 @@
 {
+  "אוטומציות": {
+    "total": 2,
+    "isLevelled": false
+  },
+  "מה כדאי לסטודנט לדעת": {
+    "total": 6,
+    "isLevelled": false
+  },
+  "מחשבים": {
+    "total": 2,
+    "isLevelled": false
+  },
+  "כסף": {
+    "total": 5,
+    "isLevelled": false
+  },
   "שרת ביתי": {
     "total": 4,
     "isLevelled": true
