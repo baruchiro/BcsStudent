@@ -2,11 +2,11 @@ import seriesData from '@/app/series-data.json'
 import SeriesProgress from '@/components/series/SeriesProgress'
 import { getSeriesPosition } from '@/utils/series'
 
-interface SeriesMarkProps {
+interface SeriesBadgeProps {
   post: { title: string; path: string; series?: string; seriesOrder?: number; seriesLabel?: string }
 }
 
-export default function SeriesMark({ post }: SeriesMarkProps) {
+export default function SeriesBadge({ post }: SeriesBadgeProps) {
   const position = getSeriesPosition(post, seriesData)
   if (!position) return null
   const { name, order, total, isLevelled } = position
