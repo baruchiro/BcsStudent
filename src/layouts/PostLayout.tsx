@@ -6,10 +6,12 @@ import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
+import SeriesBox from '@/components/series/SeriesBox'
 import SocialIcon, { SocialKind } from '@/components/social-icons'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getCoverImage } from '@/utils/coverImage'
+import type { SeriesInfo } from '@/utils/series'
 import type { Authors, Blog, Community } from 'contentlayer2/generated'
 import NextImage from 'next/image'
 import { CoreContent } from 'pliny/utils/contentlayer'
@@ -29,8 +31,9 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 interface LayoutProps {
   content: CoreContent<Blog>
   authorDetails: CoreContent<Authors>[]
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: { path: string; title: string; inSeries?: boolean }
+  prev?: { path: string; title: string; inSeries?: boolean }
+  series?: SeriesInfo
   relevantCommunities?: (CoreContent<Community> & { sharedTagsCount: number })[]
   children: ReactNode
 }
@@ -40,6 +43,7 @@ export default function PostLayout({
   authorDetails,
   next,
   prev,
+  series,
   relevantCommunities,
   children,
 }: LayoutProps) {
@@ -141,6 +145,7 @@ export default function PostLayout({
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">
+                {series && <SeriesBox series={series} />}
                 <IdeaProperties post={content} />
                 {children}
               </div>
@@ -173,6 +178,11 @@ export default function PostLayout({
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+                {series && (
+                  <div className="hidden xl:block xl:py-8">
+                    <SeriesBox series={series} placement="sidebar" />
+                  </div>
+                )}
                 {tags && (
                   <div className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
@@ -233,7 +243,7 @@ export default function PostLayout({
                     {prev && prev.path && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          המאמר הקודם
+                          {prev.inSeries ? 'החלק הקודם' : 'המאמר הקודם'}
                         </h2>
                         <div className="link-primary">
                           <Link href={`/${prev.path}`}>{prev.title}</Link>
@@ -243,7 +253,7 @@ export default function PostLayout({
                     {next && next.path && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          המאמר הבא
+                          {next.inSeries ? 'החלק הבא' : 'המאמר הבא'}
                         </h2>
                         <div className="link-primary">
                           <Link href={`/${next.path}`}>{next.title}</Link>

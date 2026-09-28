@@ -27,8 +27,8 @@ you match the register of *this* author rather than a remembered average.
   `<N8nDemo>`, sized `<img>`); plain `.md` otherwise.
 - Slug: **English, kebab-case, descriptive.** AI posts often take an `-ai` suffix
   (`actual-budget-ai`, `email-summary-ai`). The slug becomes the URL `/blog/<slug>`.
-- Nested folders exist (`data/blog/money/`, `data/blog/ideas/`) — only use them if the post clearly
-  belongs to that series.
+- Nested folders exist (`data/blog/money/`, `data/blog/ideas/`), but they are only URL paths.
+  Series membership comes from frontmatter (see below), not the folder.
 
 ## Frontmatter
 
@@ -49,6 +49,17 @@ images: /static/images/<slug>/cover.png    # cover, see Images section
 
 `title` is the only field that often needs quoting (wrap in single quotes when it contains a colon).
 `lastmod`, `authors`, `layout`, `canonicalUrl` exist but are rarely needed.
+
+If the post continues or complements existing posts, add it to their series instead of writing
+"זה פוסט המשך ל..." (the series box at the top of the post already says so):
+
+```yaml
+series: 'שרת ביתי'      # exact same name as the other posts in the series
+seriesOrder: 4          # next free number, 1..n without gaps
+seriesLabel: 'למתחילים'  # optional; only for levelled series or an appendix
+```
+
+Rules (enforced by the build) are in the *Series* section of `CLAUDE.md`.
 
 ## Voice — the part that matters
 

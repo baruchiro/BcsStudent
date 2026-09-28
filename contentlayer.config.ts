@@ -22,6 +22,7 @@ import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import siteMetadata from './data/siteMetadata'
+import { validateSeries } from './src/utils/series'
 
 interface PlainArr {
   _array: string[]
@@ -107,6 +108,23 @@ function createTagCount(allBlogs, allProjects, allCommunities, allVideos) {
   writeFileSync('./src/app/tag-data.json', JSON.stringify(sortedTagCount, null, 2))
 }
 
+// Size and kind of each series, so list items can show "2/5" without loading every post
+type SeriesData = Record<string, { total: number; isLevelled: boolean }>
+
+function createSeriesData(allBlogs) {
+  const seriesData = allBlogs
+    .filter((file) => file.series && (!isProduction || file.draft !== true))
+    .reduce((acc: SeriesData, file) => {
+      const entry = acc[file.series] ?? { total: 0, isLevelled: true }
+      acc[file.series] = {
+        total: entry.total + 1,
+        isLevelled: entry.isLevelled && Boolean(file.seriesLabel),
+      }
+      return acc
+    }, {})
+  writeFileSync('./src/app/series-data.json', JSON.stringify(seriesData, null, 2))
+}
+
 function createSearchIndex(allBlogs, allVideos, allProjects) {
   if (
     siteMetadata?.search?.provider === 'kbar' &&
@@ -156,7 +174,9 @@ export const Blog = defineDocumentType(() => ({
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
     language: { type: 'enum', default: 'he', options: ['he', 'en'] },
-    series: { type: 'boolean', default: false },
+    series: { type: 'string' },
+    seriesOrder: { type: 'number' },
+    seriesLabel: { type: 'string' },
     publications: { type: 'list', of: { type: 'string' } },
     // Idea-specific fields
     status: {
@@ -201,6 +221,13 @@ export const Blog = defineDocumentType(() => ({
             '@type': 'Person',
             name: siteMetadata.author,
           },
+          ...(doc.series && {
+            isPartOf: {
+              '@type': 'CreativeWorkSeries',
+              name: doc.series,
+              ...(!doc.seriesLabel && { position: doc.seriesOrder }),
+            },
+          }),
           publisher: {
             '@type': 'Organization',
             name: siteMetadata.title,
@@ -414,7 +441,12 @@ export default makeSource({
   },
   onSuccess: async (importData) => {
     const { allBlogs, allProjects, allCommunities, allVideos } = await importData()
+    const seriesErrors = validateSeries(allBlogs)
+    if (seriesErrors.length) {
+      throw new Error(`Invalid series frontmatter:\n${seriesErrors.join('\n')}`)
+    }
     createTagCount(allBlogs, allProjects, allCommunities, allVideos)
+    createSeriesData(allBlogs)
     createSearchIndex(allBlogs, allVideos, allProjects)
   },
 })
