@@ -70,5 +70,6 @@ ds-bundle/
 .design-sync/node_modules
 .design-sync/generated-styles.css
 
-# tag counts, written by contentlayer's onSuccess on every build
+# tag counts and series sizes, written by contentlayer's onSuccess on every build
 /src/app/tag-data.json
+/src/app/series-data.json
