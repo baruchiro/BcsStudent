@@ -69,3 +69,6 @@ ds-bundle/
 .design-sync/learnings/
 .design-sync/node_modules
 .design-sync/generated-styles.css
+
+# tag counts, written by contentlayer's onSuccess on every build
+/src/app/tag-data.json
