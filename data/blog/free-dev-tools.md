@@ -4,13 +4,10 @@ summary: בהרבה כלים, מוצרים ושירותים שעולים כסף,
 draft: false
 images: /static/images/free-dev-tools/free-dev-tools.png
 date: 2019-03-13 07:53:52
+tags: ['חינם', 'devtool', 'github']
 series: 'מה כדאי לסטודנט לדעת'
 seriesOrder: 6
 type: Blog
-tags:
-  - 'חינם'
-  - 'devtool'
-  - 'github'
 ---
 בהרבה כלים, מוצרים ושירותים שעולים כסף, יש גם גרסה חינמית לסטודנטים. המטרה ברורה- סטודנטים שישתמשו עכשיו בחינם בכלי, יתרגלו אליו וירכשו אותו בהמשך.
 
