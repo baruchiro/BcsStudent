@@ -2,7 +2,7 @@
 title: מה כדאי לסטודנט לדעת- קוד פתוח
 draft: false
 date: 2018-12-20 17:34:55
-tags: ['מה כדאי לסטודנט לדעת', 'קוד פתוח']
+tags: ['קוד פתוח', 'github']
 series: 'מה כדאי לסטודנט לדעת'
 seriesOrder: 4
 type: Blog

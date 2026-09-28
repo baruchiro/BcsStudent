@@ -9,7 +9,7 @@ summary: >
   ההפעלה?
 draft: false
 date: 2019-03-06 07:09:14
-tags: ['מה כדאי לסטודנט לדעת', 'docker']
+tags: ['docker', 'devtool']
 series: 'מה כדאי לסטודנט לדעת'
 seriesOrder: 5
 type: Blog
