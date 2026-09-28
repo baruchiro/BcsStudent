@@ -122,11 +122,7 @@ function createSeriesData(allBlogs) {
       }
       return acc
     }, {})
-  // Sorted so the file only changes when a series does, not when posts move
-  const sorted = Object.fromEntries(
-    Object.entries(seriesData).sort(([a], [b]) => a.localeCompare(b))
-  )
-  writeFileSync('./src/app/series-data.json', JSON.stringify(sorted, null, 2))
+  writeFileSync('./src/app/series-data.json', JSON.stringify(seriesData, null, 2))
 }
 
 function createSearchIndex(allBlogs, allVideos, allProjects) {
