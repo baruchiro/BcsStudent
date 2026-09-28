@@ -1,9 +1,9 @@
 import seriesData from '@/app/series-data.json'
 import SeriesProgress from '@/components/series/SeriesProgress'
-import { getSeriesPosition } from '@/utils/series'
+import { getSeriesPosition, type SeriesPost } from '@/utils/series'
 
 interface SeriesBadgeProps {
-  post: { title: string; path: string; series?: string; seriesOrder?: number; seriesLabel?: string }
+  post: SeriesPost
 }
 
 export default function SeriesBadge({ post }: SeriesBadgeProps) {

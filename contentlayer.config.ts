@@ -109,17 +109,19 @@ function createTagCount(allBlogs, allProjects, allCommunities, allVideos) {
 }
 
 // Size and kind of each series, so list items can show "2/5" without loading every post
+type SeriesData = Record<string, { total: number; isLevelled: boolean }>
+
 function createSeriesData(allBlogs) {
-  const seriesData: Record<string, { total: number; isLevelled: boolean }> = {}
-  allBlogs.forEach((file) => {
-    if (file.series && (!isProduction || file.draft !== true)) {
-      const entry = seriesData[file.series] || { total: 0, isLevelled: true }
-      seriesData[file.series] = {
+  const seriesData = allBlogs
+    .filter((file) => file.series && (!isProduction || file.draft !== true))
+    .reduce((acc: SeriesData, file) => {
+      const entry = acc[file.series] ?? { total: 0, isLevelled: true }
+      acc[file.series] = {
         total: entry.total + 1,
         isLevelled: entry.isLevelled && Boolean(file.seriesLabel),
       }
-    }
-  })
+      return acc
+    }, {})
   // Sorted so the file only changes when a series does, not when posts move
   const sorted = Object.fromEntries(
     Object.entries(seriesData).sort(([a], [b]) => a.localeCompare(b))
