@@ -89,7 +89,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string[
   }
 
   const post = allBlogs.find((p) => p.slug === slug) as Blog
-  const series = getSeriesInfo(post, sortedCoreContents)
+  const series = getSeriesInfo(post.path, sortedCoreContents)
   // Ordered series navigate part to part; the ends (and levelled series) fall back to date order
   const seriesStep = (offset: number) => {
     if (!series || series.isLevelled) return undefined
