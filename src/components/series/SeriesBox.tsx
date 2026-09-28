@@ -105,7 +105,7 @@ function SeriesStep({
       <StepCircle step={step} state={state} />
       <div className="min-w-0 pt-0.5 leading-snug">
         <StepTitle entry={entry} />
-        {entry.hasCustomLabel && (
+        {entry.label && (
           <div className="mt-0.5 text-xs text-gray-600 dark:text-gray-300/80">{entry.label}</div>
         )}
       </div>
@@ -144,7 +144,7 @@ export default function SeriesBox({
 
   if (placement === 'sidebar') {
     return (
-      <nav aria-label={label} className="hidden xl:block">
+      <nav aria-label={label}>
         <SeriesHeader series={series} />
         <SeriesSteps series={series} />
       </nav>

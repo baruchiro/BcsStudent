@@ -1,14 +1,13 @@
 // A series is declared in each post's frontmatter:
 //   series: 'שרת ביתי'   display name, also the key that groups posts
 //   seriesOrder: 2       position in the series (1..n, no gaps or duplicates)
-//   seriesLabel: 'למתחילים'   optional, shown instead of "חלק N"
+//   seriesLabel: 'למתחילים'   optional, shown under the title in the series box
 // A series where every post has a label is "levelled" (entry points per reader level);
 // otherwise it is "ordered" (parts meant to be read in sequence).
 
 export interface SeriesPost {
   title: string
   path: string
-  draft?: boolean
   series?: string
   seriesOrder?: number
   seriesLabel?: string
@@ -17,8 +16,7 @@ export interface SeriesPost {
 export interface SeriesEntry {
   title: string
   path: string
-  label: string
-  hasCustomLabel: boolean
+  label?: string
   isCurrent: boolean
 }
 
@@ -37,11 +35,10 @@ export function getSeriesInfo(path: string, allPosts: SeriesPost[]): SeriesInfo 
   if (!post?.series) return undefined
   const members = allPosts.filter((p) => p.series === post.series).sort(byOrder)
   const isLevelled = members.every((p) => p.seriesLabel)
-  const entries = members.map((p, i) => ({
+  const entries = members.map((p) => ({
     title: p.title,
     path: p.path,
-    label: p.seriesLabel || `חלק ${i + 1}`,
-    hasCustomLabel: Boolean(p.seriesLabel),
+    label: p.seriesLabel,
     isCurrent: p.path === path,
   }))
   return {
@@ -99,8 +96,7 @@ export function validateSeries(posts: SeriesPost[]): string[] {
       continue
     }
     const orders = members.map((p) => p.seriesOrder).sort((a, b) => (a ?? 0) - (b ?? 0))
-    const expected = members.map((_, i) => i + 1)
-    if (orders.some((o, i) => o !== expected[i]))
+    if (orders.some((o, i) => o !== i + 1))
       errors.push(
         `series "${name}": seriesOrder must be 1..${members.length} without gaps or duplicates, got ${orders.join(', ')}`
       )
