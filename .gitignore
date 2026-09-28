@@ -30,6 +30,9 @@ public/sitemap.xml
 # search
 /public/search.json
 
+# series sizes, written by contentlayer's onSuccess on every build
+/src/app/series-data.json
+
 # misc
 .DS_Store
 .temp
