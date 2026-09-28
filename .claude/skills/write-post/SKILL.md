@@ -191,9 +191,8 @@ Then confirm the post parsed: read `.contentlayer/generated/Blog/_index.json` an
 title, tags, and `readingTime`. A build warning about `videos/_metadata.json` is pre-existing and
 unrelated.
 
-**Do not commit** `src/app/tag-data.json` just because the build regenerated it — it's rebuilt on
-deploy, and committing it sweeps in unrelated count drift. Commit only your post file (plus any real
-images you added). Keep PRs to a single post unless told otherwise.
+`src/app/tag-data.json` is gitignored and rebuilt on deploy, so there's nothing to commit there.
+Commit only your post file (plus any real images you added). Keep PRs to a single post unless told otherwise.
 
 ## Don'ts
 
