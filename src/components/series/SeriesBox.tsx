@@ -1,6 +1,6 @@
 import Link from '@/components/Link'
 import SeriesProgress from '@/components/series/SeriesProgress'
-import type { SeriesInfo } from '@/utils/series'
+import { getStepState, type SeriesEntry, type SeriesInfo, type StepState } from '@/utils/series'
 
 function SeriesHeader({ series, collapsible }: { series: SeriesInfo; collapsible?: boolean }) {
   const current = series.currentIndex + 1
@@ -47,56 +47,85 @@ function SeriesHeader({ series, collapsible }: { series: SeriesInfo; collapsible
   )
 }
 
+const circleClass: Record<StepState, string> = {
+  done: 'bg-primary-100 text-primary-700 dark:bg-primary-900/60 dark:text-primary-300',
+  current: 'bg-primary-500 text-white ring-4 ring-primary-100 dark:ring-primary-900/60',
+  upcoming:
+    'border border-gray-900/15 bg-white text-gray-600 dark:border-white/15 dark:bg-gray-900 dark:text-gray-300',
+}
+
+function StepCircle({ step, state }: { step: number; state: StepState }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={`relative grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs font-semibold tabular-nums ${circleClass[state]}`}
+    >
+      {step}
+    </span>
+  )
+}
+
+function StepTitle({ entry }: { entry: SeriesEntry }) {
+  if (entry.isCurrent) {
+    return (
+      <span aria-current="page" className="font-semibold text-gray-900 dark:text-gray-100">
+        {entry.title}
+      </span>
+    )
+  }
+  return (
+    <Link
+      href={`/${entry.path}`}
+      className="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+    >
+      {entry.title}
+    </Link>
+  )
+}
+
+function SeriesStep({
+  entry,
+  step,
+  state,
+  isLast,
+}: {
+  entry: SeriesEntry
+  step: number
+  state: StepState
+  isLast: boolean
+}) {
+  return (
+    <li className="relative flex gap-3 pb-4 last:pb-0">
+      {!isLast && (
+        <span
+          aria-hidden="true"
+          className="absolute bottom-0 start-3 top-7 w-px bg-gray-900/10 dark:bg-white/10"
+        />
+      )}
+      <StepCircle step={step} state={state} />
+      <div className="min-w-0 pt-0.5 leading-snug">
+        <StepTitle entry={entry} />
+        {entry.hasCustomLabel && (
+          <div className="mt-0.5 text-xs text-gray-600 dark:text-gray-300/80">{entry.label}</div>
+        )}
+      </div>
+    </li>
+  )
+}
+
 function SeriesSteps({ series }: { series: SeriesInfo }) {
-  const lastIndex = series.entries.length - 1
+  const current = series.currentIndex + 1
   return (
     <ol className="mt-4">
-      {series.entries.map((entry, i) => {
-        const isDone = !series.isLevelled && i < series.currentIndex
-        const circleClass = entry.isCurrent
-          ? 'bg-primary-500 text-white ring-4 ring-primary-100 dark:ring-primary-900/60'
-          : isDone
-            ? 'bg-primary-100 text-primary-700 dark:bg-primary-900/60 dark:text-primary-300'
-            : 'border border-gray-900/15 bg-white text-gray-600 dark:border-white/15 dark:bg-gray-900 dark:text-gray-300'
-        return (
-          <li key={entry.path} className="relative flex gap-3 pb-4 last:pb-0">
-            {i < lastIndex && (
-              <span
-                aria-hidden="true"
-                className="absolute bottom-0 start-3 top-7 w-px bg-gray-900/10 dark:bg-white/10"
-              />
-            )}
-            <span
-              aria-hidden="true"
-              className={`relative grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs font-semibold tabular-nums ${circleClass}`}
-            >
-              {i + 1}
-            </span>
-            <div className="min-w-0 pt-0.5 leading-snug">
-              {entry.isCurrent ? (
-                <span
-                  aria-current="page"
-                  className="font-semibold text-gray-900 dark:text-gray-100"
-                >
-                  {entry.title}
-                </span>
-              ) : (
-                <Link
-                  href={`/${entry.path}`}
-                  className="text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
-                >
-                  {entry.title}
-                </Link>
-              )}
-              {entry.hasCustomLabel && (
-                <div className="mt-0.5 text-xs text-gray-600 dark:text-gray-300/80">
-                  {entry.label}
-                </div>
-              )}
-            </div>
-          </li>
-        )
-      })}
+      {series.entries.map((entry, i) => (
+        <SeriesStep
+          key={entry.path}
+          entry={entry}
+          step={i + 1}
+          state={getStepState(i + 1, current, series.isLevelled)}
+          isLast={i === series.entries.length - 1}
+        />
+      ))}
     </ol>
   )
 }

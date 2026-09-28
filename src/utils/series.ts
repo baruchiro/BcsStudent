@@ -5,7 +5,7 @@
 // A series where every post has a label is "levelled" (entry points per reader level);
 // otherwise it is "ordered" (parts meant to be read in sequence).
 
-interface SeriesPost {
+export interface SeriesPost {
   title: string
   path: string
   draft?: boolean
@@ -49,6 +49,15 @@ export function getSeriesInfo(post: SeriesPost, posts: SeriesPost[]): SeriesInfo
     entries,
     currentIndex: entries.findIndex((e) => e.isCurrent),
   }
+}
+
+export type StepState = 'done' | 'current' | 'upcoming'
+
+// Levelled series are entry points, not steps, so nothing before the current post counts as done
+export function getStepState(step: number, current: number, isLevelled: boolean): StepState {
+  if (step === current) return 'current'
+  if (!isLevelled && step < current) return 'done'
+  return 'upcoming'
 }
 
 export interface SeriesPosition {
