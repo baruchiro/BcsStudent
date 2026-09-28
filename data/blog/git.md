@@ -3,6 +3,8 @@ title: מה כדאי לסטודנט לדעת - Git
 draft: false
 date: 2018-11-28 18:41:51
 tags: ['מה כדאי לסטודנט לדעת', 'git']
+series: 'מה כדאי לסטודנט לדעת'
+seriesOrder: 2
 type: Blog
 ---
 - **דבר ראשון**- [Git](#738_git) הוא לא [Github](#738_github). תזכרו
