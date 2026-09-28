@@ -31,17 +31,18 @@ export interface SeriesInfo {
 
 const byOrder = (a: SeriesPost, b: SeriesPost) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0)
 
-// `posts` should already exclude what the reader can't see (drafts in production)
-export function getSeriesInfo(post: SeriesPost, posts: SeriesPost[]): SeriesInfo | undefined {
-  if (!post.series) return undefined
-  const members = posts.filter((p) => p.series === post.series).sort(byOrder)
+// `allPosts` should already exclude what the reader can't see (drafts in production)
+export function getSeriesInfo(path: string, allPosts: SeriesPost[]): SeriesInfo | undefined {
+  const post = allPosts.find((p) => p.path === path)
+  if (!post?.series) return undefined
+  const members = allPosts.filter((p) => p.series === post.series).sort(byOrder)
   const isLevelled = members.every((p) => p.seriesLabel)
   const entries = members.map((p, i) => ({
     title: p.title,
     path: p.path,
     label: p.seriesLabel || `חלק ${i + 1}`,
     hasCustomLabel: Boolean(p.seriesLabel),
-    isCurrent: p.path === post.path,
+    isCurrent: p.path === path,
   }))
   return {
     name: post.series,
