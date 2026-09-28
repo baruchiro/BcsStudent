@@ -58,8 +58,8 @@ different readers, keeps date-order prev/next). Otherwise it is **ordered** (pre
 series). Put drafts at the end of an ordered series. The build fails on a one-post series, a missing
 `seriesOrder`, or broken numbering (see `validateSeries` in `src/utils/series.ts`).
 The build also writes each series' size to `src/app/series-data.json`, which the post-list badge
-and search use for "2/5". It is gitignored; run `yarn dev` or `yarn build` once after cloning so
-`tsc` can find it.
+and search use for "2/5". It is generated, not committed; run `yarn dev` or `yarn build` once after
+cloning so `tsc` can find it.
 
 Posts support: KaTeX math display, citations and bibliography, MDX components,
 syntax highlighting with line numbers, image optimization, multiple authors, and
