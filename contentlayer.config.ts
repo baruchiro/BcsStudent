@@ -241,8 +241,7 @@ export const Blog = defineDocumentType(() => ({
     },
     isIdea: {
       type: 'boolean',
-      resolve: (doc) =>
-        (doc.tags as unknown as PlainArr)?._array.map((tag) => tag.toLowerCase()).includes('idea'),
+      resolve: (doc) => (doc.tags as unknown as PlainArr)?._array.includes('רעיון') ?? false,
     },
   },
 }))
