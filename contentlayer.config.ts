@@ -241,8 +241,11 @@ export const Blog = defineDocumentType(() => ({
     },
     isIdea: {
       type: 'boolean',
+      // Keep legacy English tags working alongside the Hebrew tag used by current posts.
       resolve: (doc) =>
-        (doc.tags as unknown as PlainArr)?._array.map((tag) => tag.toLowerCase()).includes('idea'),
+        (doc.tags as unknown as PlainArr)?._array.some((tag) =>
+          ['idea', 'רעיון'].includes(tag.toLowerCase())
+        ) ?? false,
     },
   },
 }))
