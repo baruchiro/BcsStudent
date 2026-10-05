@@ -8,7 +8,6 @@
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "yarn fetch:videos && cross-env INIT_CWD=$PWD next build && yarn postbuild",
     "fetch:videos": "node ./scripts/fetch-video-metadata.mjs",
-    "test:ideas": "contentlayer2 build && node --test scripts/ideas.test.mjs",
     "postbuild": "node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
