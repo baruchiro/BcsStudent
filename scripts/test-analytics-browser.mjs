@@ -1,6 +1,7 @@
+/* global events, runner */
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { chromium } from '../../qa-tools/node_modules/playwright/index.mjs'
+import { chromium } from './analytics-qa/node_modules/playwright/index.mjs'
 import { createServer } from 'node:http'
 import { readFile } from 'node:fs/promises'
 const root = new URL('../', import.meta.url)
@@ -73,15 +74,34 @@ test('real browser: keyboard navigation, Hebrew tags, same-tab confirmation, vie
         await page.clock.runFor(100)
         await page.evaluate(() => window.dispatchEvent(new Event('scroll')))
       }
-      assert.equal(await page.evaluate(() => events.filter(e => e.event === 'active_engagement_milestone' && e.properties.milestone === 30).length), 1)
+      assert.equal(
+        await page.evaluate(
+          () =>
+            events.filter(
+              (e) => e.event === 'active_engagement_milestone' && e.properties.milestone === 30
+            ).length
+        ),
+        1
+      )
       await page.reload()
       await page.waitForFunction(() => window.runner)
       await page.clock.runFor(1000)
-      await page.evaluate(() => { document.querySelector('[data-measure-service]').style.transform = 'translateY(5000px)'; window.dispatchEvent(new Event('scroll')) })
+      await page.evaluate(() => {
+        document.querySelector('[data-measure-service]').style.transform = 'translateY(5000px)'
+        window.dispatchEvent(new Event('scroll'))
+      })
       await page.clock.runFor(50)
-      await page.evaluate(() => { document.querySelector('[data-measure-service]').style.transform = ''; window.dispatchEvent(new Event('scroll')) })
+      await page.evaluate(() => {
+        document.querySelector('[data-measure-service]').style.transform = ''
+        window.dispatchEvent(new Event('scroll'))
+      })
       await page.clock.runFor(1100)
-      assert.equal(await page.evaluate(() => events.filter(e => e.event === 'service_section_reached').length), 0)
+      assert.equal(
+        await page.evaluate(
+          () => events.filter((e) => e.event === 'service_section_reached').length
+        ),
+        0
+      )
       await page.clock.runFor(1500)
       await page.waitForFunction(
         () => events.some((e) => e.event === 'service_section_reached'),

@@ -101,11 +101,22 @@ export function startMeasurement(win, entries, sdk) {
       if (target.key !== 'unknown') return { kind: 'navigation', target, placement: place }
     }
     const resource = registry.resource(url.href)
-    if (resource) return { kind: 'resource', resource_type: resource.type, placement: place, target: resource, external: true }
+    if (resource)
+      return {
+        kind: 'resource',
+        resource_type: resource.type,
+        placement: place,
+        target: resource,
+        external: true,
+      }
     const declared = a.closest('[data-measure-resource]')?.getAttribute('data-measure-resource')
     if (['code', 'project', 'community', 'download', 'video'].includes(declared))
       return { kind: 'resource', resource_type: declared, placement: place }
-    if (place === 'article_body' && url.hostname === 'github.com' && url.pathname.split('/').filter(Boolean).length >= 2)
+    if (
+      place === 'article_body' &&
+      url.hostname === 'github.com' &&
+      url.pathname.split('/').filter(Boolean).length >= 2
+    )
       return { kind: 'resource', resource_type: 'code', placement: place }
     if (url.origin === win.location.origin && url.pathname.startsWith('/static/files/'))
       return { kind: 'resource', resource_type: 'download', placement: place }
@@ -163,7 +174,6 @@ export function startMeasurement(win, entries, sdk) {
     } else {
       navigation.pending = null
       if (item.kind === 'contact') emit('contact_intent', item)
-
     }
   }
   const visible = (el) => {

@@ -14,8 +14,16 @@ export default function Measurement() {
   // Only public canonical keys cross this boundary, never author/contact metadata.
   const entries = [
     ...blogs.map((item) => ({ path: '/' + item.path, type: 'article' })),
-    ...allProjects.map((item) => ({ path: '/' + item.path, type: 'project', destinations: item.href ? [item.href] : [] })),
-    ...allCommunities.map((item) => ({ path: '/' + item.path, type: 'community', destinations: Object.values(item.links || {}) })),
+    ...allProjects.map((item) => ({
+      path: '/' + item.path,
+      type: 'project',
+      destinations: item.href ? [item.href] : [],
+    })),
+    ...allCommunities.map((item) => ({
+      path: '/' + item.path,
+      type: 'community',
+      destinations: Object.values(item.links || {}),
+    })),
     ...videos.map((item) => ({ path: '/' + item.path, type: 'video', destinations: [item.url] })),
     ...[...tags].map((tag) => ({ path: '/tags/' + tag, type: 'tag_results' })),
     ...['/blog', '/tags', '/projects', '/communities', '/videos'].map((path) => ({

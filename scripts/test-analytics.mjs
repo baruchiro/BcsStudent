@@ -65,10 +65,26 @@ test('SDK defaults and injected DOM/PII are stripped while numeric pageleave sur
   assert.equal(event.properties.$elements, undefined)
   assert.equal(event.properties.$set, undefined)
   assert.equal(event.properties.$referrer, undefined)
-  assert.equal(sanitizeEvent({event:'inquiry_received',properties:{}}, registry()), null)
-  const top = sanitizeEvent({event:'contact_intent', $set: {email:'private'}, properties:{channel:'email',placement:'header'}}, registry())
-  assert.equal(top.$set,undefined)
-  assert.equal(sanitizeEvent({event:'$pageview',properties:{$prev_pageview_id:'01a163cf-c065-79e7-86f0-30f6125c475d'}}, registry()).properties.$prev_pageview_id,'01a163cf-c065-79e7-86f0-30f6125c475d')
+  assert.equal(sanitizeEvent({ event: 'inquiry_received', properties: {} }, registry()), null)
+  const top = sanitizeEvent(
+    {
+      event: 'contact_intent',
+      $set: { email: 'private' },
+      properties: { channel: 'email', placement: 'header' },
+    },
+    registry()
+  )
+  assert.equal(top.$set, undefined)
+  assert.equal(
+    sanitizeEvent(
+      {
+        event: '$pageview',
+        properties: { $prev_pageview_id: '01a163cf-c065-79e7-86f0-30f6125c475d' },
+      },
+      registry()
+    ).properties.$prev_pageview_id,
+    '01a163cf-c065-79e7-86f0-30f6125c475d'
+  )
 })
 
 test('hidden, blur and sleep never backfill; resumed activity accumulates only eligible intervals', () => {
@@ -110,25 +126,55 @@ test('loader queues a single SDK even before async load/StrictMode remount', asy
   assert.equal(options.opt_out_capturing_by_default, undefined)
 })
 test('server outcomes atomically deduplicate and aggregate, with retry after failure', async () => {
- const { createOutcomeReceiver }=await import('../src/analytics/server/outcomes.mjs')
- const counters=[], processed=new Set(); let fail=true
- const receive=createOutcomeReceiver({verify:async proof=>proof,commitVerifiedOutcome:async (proof,value)=>{
-   if(processed.has(proof.id))return false
-   if(fail){fail=false;throw new Error('transaction failed')}
-   counters.push(value);processed.add(proof.id);return true
- }})
- assert.equal(await receive({accepted:false}),false)
- const proof={accepted:true,id:'technical-id',outcome:'inquiry_received',source:'inbox',email:'private'}
- await assert.rejects(receive(proof),/transaction failed/)
- assert.equal(await receive(proof),true)
- assert.equal(await receive(proof),false)
- assert.deepEqual(counters,[{outcome:'inquiry_received',source:'inbox'}])
- assert.equal(await receive({accepted:true,outcome:'click',source:'browser'}),false)
+  const { createOutcomeReceiver } = await import('../src/analytics/server/outcomes.mjs')
+  const counters = [],
+    processed = new Set()
+  let fail = true
+  const receive = createOutcomeReceiver({
+    verify: async (proof) => proof,
+    commitVerifiedOutcome: async (proof, value) => {
+      if (processed.has(proof.id)) return false
+      if (fail) {
+        fail = false
+        throw new Error('transaction failed')
+      }
+      counters.push(value)
+      processed.add(proof.id)
+      return true
+    },
+  })
+  assert.equal(await receive({ accepted: false }), false)
+  const proof = {
+    accepted: true,
+    id: 'technical-id',
+    outcome: 'inquiry_received',
+    source: 'inbox',
+    email: 'private',
+  }
+  await assert.rejects(receive(proof), /transaction failed/)
+  assert.equal(await receive(proof), true)
+  assert.equal(await receive(proof), false)
+  assert.deepEqual(counters, [{ outcome: 'inquiry_received', source: 'inbox' }])
+  assert.equal(await receive({ accepted: true, outcome: 'click', source: 'browser' }), false)
 })
 
-test('privacy boundary rejects canaries in SDK allowlisted and envelope fields',()=>{
- const clean=sanitizeEvent({event:'$pageview',uuid:'private@example.com',timestamp:'private@example.com',properties:{distinct_id:'private@example.com',$session_id:'private@example.com',$browser:'private@example.com',$os:'private@example.com',$lib:'private@example.com'}},registry())
- assert.equal(JSON.stringify(clean).includes('private@example.com'),false)
+test('privacy boundary rejects canaries in SDK allowlisted and envelope fields', () => {
+  const clean = sanitizeEvent(
+    {
+      event: '$pageview',
+      uuid: 'private@example.com',
+      timestamp: 'private@example.com',
+      properties: {
+        distinct_id: 'private@example.com',
+        $session_id: 'private@example.com',
+        $browser: 'private@example.com',
+        $os: 'private@example.com',
+        $lib: 'private@example.com',
+      },
+    },
+    registry()
+  )
+  assert.equal(JSON.stringify(clean).includes('private@example.com'), false)
 })
 
 test('Cal callbacks have stable cleanup and never register booking payload callbacks', async () => {

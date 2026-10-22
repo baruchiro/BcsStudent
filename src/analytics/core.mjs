@@ -5,9 +5,11 @@ export function createRegistry(entries) {
   const map = new Map([['/', { key: 'home', type: 'home', path: '/' }]])
   for (const entry of entries) map.set(entry.path, { ...entry, key: entry.path.slice(1) })
   const resources = new Map()
-  for (const entry of entries) for (const url of entry.destinations || []) {
-    if (['project', 'community', 'video'].includes(entry.type)) resources.set(url, map.get(entry.path))
-  }
+  for (const entry of entries)
+    for (const url of entry.destinations || []) {
+      if (['project', 'community', 'video'].includes(entry.type))
+        resources.set(url, map.get(entry.path))
+    }
   return {
     resource: (url) => resources.get(url),
     keys: new Set(['unknown', ...[...map.values()].map((p) => p.key)]),
@@ -97,13 +99,32 @@ export function sanitizeEvent(event, registry) {
   const out = { schema_version: 1 }
   for (const [key, value] of Object.entries(input)) {
     if (sdkStrings.has(key) && typeof value === 'string') {
-      const valid = ['distinct_id', '$session_id', '$window_id', '$pageview_id', '$prev_pageview_id'].includes(key)
+      const valid = [
+        'distinct_id',
+        '$session_id',
+        '$window_id',
+        '$pageview_id',
+        '$prev_pageview_id',
+      ].includes(key)
         ? /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value)
-        : key === '$lib' ? value === 'web'
-        : ['$lib_version', '$browser_version'].includes(key) ? /^\d+(\.\d+){0,3}$/.test(value)
-        : key === '$device_type' ? ['Desktop', 'Mobile', 'Tablet'].includes(value)
-        : key === '$os' ? ['Windows', 'Mac OS X', 'Linux', 'Android', 'iOS', 'Chrome OS'].includes(value)
-        : ['Chrome', 'Firefox', 'Safari', 'Microsoft Edge', 'Mobile Safari', 'Chrome iOS', 'Samsung Internet', 'Opera'].includes(value)
+        : key === '$lib'
+          ? value === 'web'
+          : ['$lib_version', '$browser_version'].includes(key)
+            ? /^\d+(\.\d+){0,3}$/.test(value)
+            : key === '$device_type'
+              ? ['Desktop', 'Mobile', 'Tablet'].includes(value)
+              : key === '$os'
+                ? ['Windows', 'Mac OS X', 'Linux', 'Android', 'iOS', 'Chrome OS'].includes(value)
+                : [
+                    'Chrome',
+                    'Firefox',
+                    'Safari',
+                    'Microsoft Edge',
+                    'Mobile Safari',
+                    'Chrome iOS',
+                    'Samsung Internet',
+                    'Opera',
+                  ].includes(value)
       if (valid) out[key] = value
     }
     if (sdkNumbers.has(key) && typeof value === 'number' && Number.isFinite(value) && value >= 0)
@@ -144,9 +165,19 @@ export function sanitizeEvent(event, registry) {
   // IP geolocation disabled at init; no person properties or DOM chain allowed.
   out.$process_person_profile = false
   const clean = { event: event.event, properties: out }
-  if (typeof event.uuid === 'string' && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(event.uuid)) clean.uuid = event.uuid
-  if (event.timestamp instanceof Date && Number.isFinite(event.timestamp.getTime())) clean.timestamp = event.timestamp
-  else if (typeof event.timestamp === 'string' && /^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/.test(event.timestamp) && Number.isFinite(Date.parse(event.timestamp))) clean.timestamp = event.timestamp
+  if (
+    typeof event.uuid === 'string' &&
+    /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(event.uuid)
+  )
+    clean.uuid = event.uuid
+  if (event.timestamp instanceof Date && Number.isFinite(event.timestamp.getTime()))
+    clean.timestamp = event.timestamp
+  else if (
+    typeof event.timestamp === 'string' &&
+    /^\d{4}-\d{2}-\d{2}T[\d:.]+Z$/.test(event.timestamp) &&
+    Number.isFinite(Date.parse(event.timestamp))
+  )
+    clean.timestamp = event.timestamp
   return clean
 }
 
