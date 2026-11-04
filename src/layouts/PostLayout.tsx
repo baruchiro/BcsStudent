@@ -144,7 +144,10 @@ export default function PostLayout({
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">
+              <div
+                data-measure-placement="article_body"
+                className="prose max-w-none pb-8 pt-10 dark:prose-invert"
+              >
                 {series && <SeriesBox series={series} />}
                 <IdeaProperties post={content} />
                 {children}
@@ -156,7 +159,13 @@ export default function PostLayout({
                       דיון בטוויטר
                     </Link>
                     {` • `}
-                    <Link href={editUrl(filePath)}>צפייה ב-GitHub</Link>
+                    <Link
+                      data-measure-resource="code"
+                      data-measure-placement="article_resources"
+                      href={editUrl(filePath)}
+                    >
+                      צפייה ב-GitHub
+                    </Link>
                   </div>
                   <iframe
                     src="https://github.com/sponsors/baruchiro/button"
@@ -184,7 +193,7 @@ export default function PostLayout({
                   </div>
                 )}
                 {tags && (
-                  <div className="py-4 xl:py-8">
+                  <div data-measure-placement="article_tags" className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                       תגיות
                     </h2>
@@ -246,7 +255,9 @@ export default function PostLayout({
                           {prev.inSeries ? 'החלק הקודם' : 'המאמר הקודם'}
                         </h2>
                         <div className="link-primary">
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
+                          <Link data-measure-placement="article_prev" href={`/${prev.path}`}>
+                            {prev.title}
+                          </Link>
                         </div>
                       </div>
                     )}
@@ -256,7 +267,9 @@ export default function PostLayout({
                           {next.inSeries ? 'החלק הבא' : 'המאמר הבא'}
                         </h2>
                         <div className="link-primary">
-                          <Link href={`/${next.path}`}>{next.title}</Link>
+                          <Link data-measure-placement="article_next" href={`/${next.path}`}>
+                            {next.title}
+                          </Link>
                         </div>
                       </div>
                     )}
