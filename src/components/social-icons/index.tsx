@@ -39,7 +39,6 @@ type SocialIconProps = {
   href: string | undefined
   size?: number
   tooltip?: string
-  label?: string
 }
 
 const getSizeClasses = (size: number): string => {
@@ -54,7 +53,7 @@ const getSizeClasses = (size: number): string => {
   return sizeMap[size] || 'h-8 w-8'
 }
 
-const SocialIcon = ({ kind, href, size = 8, tooltip, label }: SocialIconProps) => {
+const SocialIcon = ({ kind, href, size = 8, tooltip }: SocialIconProps) => {
   const SocialSvg = components[kind]
   if (!SocialSvg) {
     console.warn(`SocialIcon: ${kind} not found`)
@@ -76,7 +75,7 @@ const SocialIcon = ({ kind, href, size = 8, tooltip, label }: SocialIconProps) =
         className="relative cursor-default text-sm text-gray-500 transition hover:text-gray-600"
         title={displayTooltip}
       >
-        <span className="sr-only">{label || kind}</span>
+        <span className="sr-only">{kind}</span>
         {iconElement}
       </span>
     )
@@ -90,7 +89,7 @@ const SocialIcon = ({ kind, href, size = 8, tooltip, label }: SocialIconProps) =
       href={href}
       title={displayTooltip}
     >
-      <span className="sr-only">{label || kind}</span>
+      <span className="sr-only">{kind}</span>
       {iconElement}
     </a>
   )
