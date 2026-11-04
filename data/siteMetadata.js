@@ -18,6 +18,7 @@ const siteMetadata = {
   facebook: 'https://www.facebook.com/BcsStudentBlog',
   linkedin: 'https://www.linkedin.com/in/baruchiro',
   telegram: 'https://t.me/BcsStudent',
+  whatsapp: 'https://whatsapp.com/channel/0029VbEMF5XE50UdcmQI681f',
   bluesky: 'https://bsky.app/profile/baruchiro.com',
   instagram: 'https://www.instagram.com/baruchiro/',
   threads: 'https://www.threads.com/@baruchiro',
