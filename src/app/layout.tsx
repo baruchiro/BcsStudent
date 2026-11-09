@@ -11,7 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import { Metadata } from 'next'
 import { genSocialMetadata } from './seo'
 import { Space_Grotesk } from 'next/font/google'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
+import Measurement from '@/components/Measurement'
 import { ThemeProviders } from './theme-providers'
 
 // n8n chat
@@ -73,7 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="overflow-x-hidden bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <N8nChatClient />
         <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          <Measurement />
           <SectionContainer>
             <div className="flex h-screen flex-col justify-between font-sans">
               <SearchProvider>
