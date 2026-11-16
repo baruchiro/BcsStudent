@@ -14,9 +14,6 @@ import { Space_Grotesk } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { ThemeProviders } from './theme-providers'
 
-// n8n chat
-import '@n8n/chat/style.css'
-
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
