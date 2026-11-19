@@ -6,5 +6,4 @@ links:
   whatsapp: ''
 tags:
   - ai
-  - integrations
 ---
