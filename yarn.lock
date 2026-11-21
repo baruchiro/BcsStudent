@@ -3339,6 +3339,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@posthog/browser-common@npm:^0.9.5":
+  version: 0.9.12
+  resolution: "@posthog/browser-common@npm:0.9.12"
+  dependencies:
+    "@posthog/core": ^1.60.1
+    "@posthog/types": ^1.416.1
+    preact: ^10.29.3
+  checksum: e117a5c442eae62d4dfa400d2863aa97c944da48bf0303efd83aeec9d0da2c4ed54ef38bf67b6eb24f767f3785d0d0d469145b2a3315fc4b9dedc6abe67e6d5c
+  languageName: node
+  linkType: hard
+
+"@posthog/core@npm:^1.59.1, @posthog/core@npm:^1.60.1":
+  version: 1.69.1
+  resolution: "@posthog/core@npm:1.69.1"
+  dependencies:
+    "@posthog/types": ^1.425.1
+  checksum: 20edb21ef54bc82a147d6c6be622cefb21a44597f9a99259e216b101b521b1302b27382b1959f7f5650861d64c4105a81bb59e890d7765ef489adf27a8415cf8
+  languageName: node
+  linkType: hard
+
+"@posthog/types@npm:^1.416.0, @posthog/types@npm:^1.416.1, @posthog/types@npm:^1.425.1":
+  version: 1.425.1
+  resolution: "@posthog/types@npm:1.425.1"
+  checksum: 471d0ff5f9fef919ce24b0881191d928df83425c39d03ef8f5976980f5b3574be93b9891ec5eb24263a4bfb5f8352c684192f59ca43a3c9c26bd41c40a0aed77
+  languageName: node
+  linkType: hard
+
 "@protobufjs/aspromise@npm:^1.1.1, @protobufjs/aspromise@npm:^1.1.2":
   version: 1.1.2
   resolution: "@protobufjs/aspromise@npm:1.1.2"
@@ -3829,7 +3856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/trusted-types@npm:^2.0.2":
+"@types/trusted-types@npm:^2.0.2, @types/trusted-types@npm:^2.0.7":
   version: 2.0.7
   resolution: "@types/trusted-types@npm:2.0.7"
   checksum: 8e4202766a65877efcf5d5a41b7dd458480b36195e580a3b1085ad21e948bc417d55d6f8af1fd2a7ad008015d4117d5fdfe432731157da3c68678487174e4ba3
@@ -4403,8 +4430,10 @@ __metadata:
     next: 15.5.24
     next-contentlayer2: 0.5.8
     next-themes: ^0.2.1
+    playwright: 1.64.1
     pliny: 0.4.0
     postcss: ^8.5.23
+    posthog-js: 1.438.12
     prettier: ^3.0.0
     prettier-plugin-tailwindcss: ^0.5.11
     react: 18.2.0
@@ -5385,6 +5414,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:^3.49.0":
+  version: 3.51.0
+  resolution: "core-js@npm:3.51.0"
+  checksum: b90b7241f09b6f011b798c1b9dd5d9b6d2b3a9e70f1e2772f02ae8864ca5efcb32ec877f822b3e5aba07b551043774a91897c6c33782a769bb694a467c3bdfca
+  languageName: node
+  linkType: hard
+
 "core-util-is@npm:^1.0.3, core-util-is@npm:~1.0.0":
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
@@ -5763,6 +5799,18 @@ __metadata:
   dependencies:
     domelementtype: ^2.3.0
   checksum: 0f58f4a6af63e6f3a4320aa446d28b5790a009018707bce2859dcb1d21144c7876482b5188395a188dfa974238c019e0a1e610d2fc269a12b2c192ea2b0b131c
+  languageName: node
+  linkType: hard
+
+"dompurify@npm:^3.4.13":
+  version: 3.4.18
+  resolution: "dompurify@npm:3.4.18"
+  dependencies:
+    "@types/trusted-types": ^2.0.7
+  dependenciesMeta:
+    "@types/trusted-types":
+      optional: true
+  checksum: 8dadf1ca0fe81967c1c1997922fd4cb63d987d6568b34a067158cade0ac31eed13c4afc6752f930894a5e2a56b5bddbb348616bf93d285df71b9232284e56ec1
   languageName: node
   linkType: hard
 
@@ -6881,6 +6929,13 @@ __metadata:
   dependencies:
     node-fetch: ~2.6.1
   checksum: 7fd497dd5f7db890e80193de5bc1cd0115a62400272cd9a992849288e66886fcdb0724ea1ed161be7b8db2daeafda8c58d0259acdda42d6561155dbcdbb0720a
+  languageName: node
+  linkType: hard
+
+"fflate@npm:^0.4.8":
+  version: 0.4.9
+  resolution: "fflate@npm:0.4.9"
+  checksum: b2381e71ddcdc46c20982b15ac7b416edb290a188bb6ce4295ffdfd836ee283670f1306d55401e41b0a6a4c9badd41f1a60016393ae768dd8c52925ed646a55d
   languageName: node
   linkType: hard
 
@@ -10438,6 +10493,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.64.1":
+  version: 1.64.1
+  resolution: "playwright-core@npm:1.64.1"
+  bin:
+    playwright-core: cli.js
+  checksum: 614007bcdeaad5c6ff46465b623a81e0dbcae060f04022ba37e325d10c2eb618a9b70c44da2eb7b0857c80f83fca6db73c53f0600dcdf1d922c7942af1e0b701
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.64.1":
+  version: 1.64.1
+  resolution: "playwright@npm:1.64.1"
+  dependencies:
+    playwright-core: 1.64.1
+  bin:
+    playwright: cli.js
+  checksum: 74861fdf4087b6d4c33dce1779c977390591d4e76bb590a904018b3823d35b20737b3b8f8bddf8bf32969953b1e9a37f72ab3e33b4b1cebed4b1bcc4a5e62738
+  languageName: node
+  linkType: hard
+
 "pliny@npm:0.4.0":
   version: 0.4.0
   resolution: "pliny@npm:0.4.0"
@@ -10580,6 +10655,44 @@ __metadata:
     picocolors: ^1.1.1
     source-map-js: ^1.2.1
   checksum: 02fe0aac9de34914104566b3fe3a29903dc7bae4a3fffffdca1331dc51e14aa62c48e8373fc4d107ef99f8f5cae98199d9a89fbcbf43371693b22a397ff5cc34
+  languageName: node
+  linkType: hard
+
+"posthog-js@npm:1.438.12":
+  version: 1.438.12
+  resolution: "posthog-js@npm:1.438.12"
+  dependencies:
+    "@posthog/browser-common": ^0.9.5
+    "@posthog/core": ^1.59.1
+    "@posthog/types": ^1.416.0
+    core-js: ^3.49.0
+    dompurify: ^3.4.13
+    fflate: ^0.4.8
+    preact: ^10.29.3
+    query-selector-shadow-dom: ^1.0.1
+    web-vitals: ^6.2.1
+    web-vitals-soft-navs: "npm:web-vitals@6.2.1"
+  peerDependencies:
+    "@types/react": ">=16.8.0"
+    react: ">=16.8.0"
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    react:
+      optional: true
+  checksum: 4493f8146c72846f14a02defc2f5e83d7c5b20c39febe77c2d4528af9d959e5883429e1b61890567c6dc0d6add40c5833c9ec474f1bacaebad817384d9afddbe
+  languageName: node
+  linkType: hard
+
+"preact@npm:^10.29.3":
+  version: 10.29.8
+  resolution: "preact@npm:10.29.8"
+  peerDependencies:
+    preact-render-to-string: ">=5"
+  peerDependenciesMeta:
+    preact-render-to-string:
+      optional: true
+  checksum: 5a4774e8bce4ef5ebef5a3ef2358b47be6cd8b9b30132b1543d359efc90f8005a13506a75bfac6e9a044a614fa2a9def5f32fefd2c068f05221cf737283f1397
   languageName: node
   linkType: hard
 
@@ -10749,6 +10862,13 @@ __metadata:
     es-define-property: ^1.0.1
     side-channel: ^1.1.1
   checksum: fb97665d1b481fadbcb17cc056f1af95ae93328195bf9536a56142137f4d9cc16fe2a1dab9cd17186c9fa69a7e6fa64a3766f71ffaa7c248ec5555f34d21047b
+  languageName: node
+  linkType: hard
+
+"query-selector-shadow-dom@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "query-selector-shadow-dom@npm:1.0.1"
+  checksum: 8ab1cdd5e1927b583503b590165d66770fb91c87ac28b50a43596b755db3792c0e506250f46d0af97f0064a5cc12a1de449fd5c2cfcadf18b0880a4d8aecebbd
   languageName: node
   linkType: hard
 
@@ -13190,6 +13310,20 @@ __metadata:
   version: 2.0.1
   resolution: "web-namespaces@npm:2.0.1"
   checksum: b6d9f02f1a43d0ef0848a812d89c83801d5bbad57d8bb61f02eb6d7eb794c3736f6cc2e1191664bb26136594c8218ac609f4069722c6f56d9fc2d808fa9271c6
+  languageName: node
+  linkType: hard
+
+"web-vitals-soft-navs@npm:web-vitals@6.2.1":
+  version: 6.2.1
+  resolution: "web-vitals@npm:6.2.1"
+  checksum: ed46f8525d46ba2c241be59a7ee4f694d09c3ed06c93c13d87ab86306d1e5c28ea0bf9667d7e1350f17b63a4ba0660923b8b288bdc67a942664d43bb6afd2218
+  languageName: node
+  linkType: hard
+
+"web-vitals@npm:^6.2.1":
+  version: 6.2.3
+  resolution: "web-vitals@npm:6.2.3"
+  checksum: 0a5f061927a40ddc89e6865a05502084e1d321e75c880bf4a8358e35e462755bd236b135cd82d7392989a24ae707f6e513a797dcb890563c29c71d069ab00e18
   languageName: node
   linkType: hard
 

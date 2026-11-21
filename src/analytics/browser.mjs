@@ -203,7 +203,8 @@ export function startMeasurement(win, entries, sdk) {
     const milestones = clock.tick(time, eligible())
     if (view.type === 'home')
       for (const milestone of milestones) emit('active_engagement_milestone', { milestone })
-    const marker = doc.querySelector('[data-measure-service]')
+    // Observe the existing public heading anchor; content remains free of analytics markup.
+    const marker = doc.getElementById('אוטומציה-של-תהליכים-עסקיים')
     if (marker !== observedMarker) {
       markerObserver.disconnect()
       observedMarker = marker
@@ -251,7 +252,8 @@ export function startMeasurement(win, entries, sdk) {
       }
       clock.interact(time)
     }
-    const marker = doc.querySelector('[data-measure-service]')
+    // Observe the existing public heading anchor; content remains free of analytics markup.
+    const marker = doc.getElementById('אוטומציה-של-תהליכים-עסקיים')
     if (!eligible() || !marker || !visible(marker)) serviceStart = null
   }
   const pause = () => {

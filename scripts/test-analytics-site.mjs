@@ -1,7 +1,7 @@
 /* global testEvents, posthog, LoaderTest, rawEventNames, sent, __siteMeasurement */
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { chromium } from './analytics-qa/node_modules/playwright/index.mjs'
+import { chromium } from 'playwright'
 import { createServer } from 'node:http'
 import { readFile, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
@@ -103,7 +103,7 @@ test('built website: real mobile/desktop surfaces, Hebrew selection, SPA arrival
       )
       await page.goto(base + '/')
       await page.waitForFunction(() => window.__siteMeasurement)
-      const marker = page.locator('[data-measure-service]')
+      const marker = page.locator('[id="אוטומציה-של-תהליכים-עסקיים"]')
       await marker.scrollIntoViewIfNeeded()
       await page.waitForFunction(
         () => testEvents.some((e) => e.event === 'service_section_reached'),
@@ -131,9 +131,7 @@ test('built website: real mobile/desktop surfaces, Hebrew selection, SPA arrival
 })
 
 test('production initializer and real SDK own built-site SPA measurement', async () => {
-  const sdk = await readFile(
-    new URL('./analytics-qa/node_modules/posthog-js/dist/array.js', import.meta.url)
-  )
+  const sdk = await readFile(require.resolve('posthog-js/dist/array.js'))
   const browser = await chromium.launch({ args: ['--no-sandbox'] })
   try {
     const context = await browser.newContext()
@@ -203,9 +201,7 @@ test('actual PostHog SDK: privacy guard, route pageview IDs and depth, no extern
   }).listen(0, '127.0.0.1')
   await new Promise((resolve) => server.once('listening', resolve))
   const local = `http://127.0.0.1:${server.address().port}`
-  const sdk = await readFile(
-    new URL('./analytics-qa/node_modules/posthog-js/dist/array.js', import.meta.url)
-  )
+  const sdk = await readFile(require.resolve('posthog-js/dist/array.js'))
   const browser = await chromium.launch({ args: ['--no-sandbox'] })
   let blocked = 0
   try {

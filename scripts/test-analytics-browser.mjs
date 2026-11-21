@@ -1,11 +1,11 @@
 /* global events, runner */
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { chromium } from './analytics-qa/node_modules/playwright/index.mjs'
+import { chromium } from 'playwright'
 import { createServer } from 'node:http'
 import { readFile } from 'node:fs/promises'
 const root = new URL('../', import.meta.url)
-const fixture = `<!doctype html><html><meta charset="utf-8"><body><header><a href="/">Home</a></header><main><div data-measure-placement="article_tags"><a href="/tags/שבת">Tag</a></div><div data-measure-placement="article_next"><a id="next" href="/blog/b">Next</a></div><div data-measure-service style="height:30px">Services</div><a href="mailto:test@example.invalid">Email</a></main><script type="module">
+const fixture = `<!doctype html><html><meta charset="utf-8"><body><header><a href="/">Home</a></header><main><div data-measure-placement="article_tags"><a href="/tags/שבת">Tag</a></div><div data-measure-placement="article_next"><a id="next" href="/blog/b">Next</a></div><h2 id="אוטומציה-של-תהליכים-עסקיים" style="height:30px">Services</h2><a href="mailto:test@example.invalid">Email</a></main><script type="module">
 import { startMeasurement } from '/src/analytics/browser.mjs';
 window.events=[]; window.sdk={capture:(event,properties)=>events.push({event,properties}),get_session_id:()=> 'test-session',has_opted_out_capturing:()=>false};
 window.runner=startMeasurement(window,[{path:'/blog/a',type:'article'},{path:'/blog/b',type:'article'},{path:'/tags/שבת',type:'tag_results'}],window.sdk);
@@ -87,12 +87,12 @@ test('real browser: keyboard navigation, Hebrew tags, same-tab confirmation, vie
       await page.waitForFunction(() => window.runner)
       await page.clock.runFor(1000)
       await page.evaluate(() => {
-        document.querySelector('[data-measure-service]').style.transform = 'translateY(5000px)'
+        document.getElementById('אוטומציה-של-תהליכים-עסקיים').style.transform = 'translateY(5000px)'
         window.dispatchEvent(new Event('scroll'))
       })
       await page.clock.runFor(50)
       await page.evaluate(() => {
-        document.querySelector('[data-measure-service]').style.transform = ''
+        document.getElementById('אוטומציה-של-תהליכים-עסקיים').style.transform = ''
         window.dispatchEvent(new Event('scroll'))
       })
       await page.clock.runFor(1100)
