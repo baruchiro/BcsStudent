@@ -14,9 +14,6 @@ import { Space_Grotesk } from 'next/font/google'
 import Measurement from '@/components/Measurement'
 import { ThemeProviders } from './theme-providers'
 
-// n8n chat
-import '@n8n/chat/style.css'
-
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
