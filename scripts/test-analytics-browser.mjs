@@ -5,12 +5,12 @@ import { chromium } from 'playwright'
 import { createServer } from 'node:http'
 import { readFile } from 'node:fs/promises'
 const root = new URL('../', import.meta.url)
-const fixture = `<!doctype html><html><meta charset="utf-8"><body><header><a href="/">Home</a></header><main><div data-measure-placement="article_tags"><a href="/tags/שבת">Tag</a></div><div data-measure-placement="article_next"><a id="next" href="/blog/b">Next</a></div><h2 id="אוטומציה-של-תהליכים-עסקיים" style="height:30px">Services</h2><a href="mailto:test@example.invalid">Email</a></main><script type="module">
+const fixture = `<!doctype html><html><meta charset="utf-8"><body><header><a href="/">Home</a><a id="header-wa" href="https://wa.me/972500000000">WhatsApp</a></header><main><div data-measure-placement="article_tags"><a href="/tags/שבת">Tag</a></div><div data-measure-placement="article_next"><a id="next" href="/blog/b">Next</a></div><h2 id="אוטומציה-של-תהליכים-עסקיים" style="height:30px">Services</h2><a id="share-wa" href="https://wa.me/?text=share">Share</a><a href="mailto:test@example.invalid">Email</a></main><script type="module">
 import { startMeasurement } from '/src/analytics/browser.mjs';
 window.events=[]; window.sdk={capture:(event,properties)=>events.push({event,properties}),get_session_id:()=> 'test-session',has_opted_out_capturing:()=>false};
 window.runner=startMeasurement(window,[{path:'/blog/a',type:'article'},{path:'/blog/b',type:'article'},{path:'/tags/שבת',type:'tag_results'}],window.sdk);
 window.runner.route(location.pathname);
-document.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{if(a.pathname.startsWith('/blog/')||a.pathname.startsWith('/tags/')){e.preventDefault();history.pushState({},'',a.pathname);runner.route(a.pathname)}}));
+document.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{if(a.hostname==='wa.me')e.preventDefault();if(a.pathname.startsWith('/blog/')||a.pathname.startsWith('/tags/')){e.preventDefault();history.pushState({},'',a.pathname);runner.route(a.pathname)}}));
 </script></body></html>`
 
 test('real browser: keyboard navigation, Hebrew tags, same-tab confirmation, view dedupe and service visibility', async () => {
@@ -58,6 +58,20 @@ test('real browser: keyboard navigation, Hebrew tags, same-tab confirmation, vie
       assert.equal(
         await page.evaluate(() => events.filter((e) => e.event === '$pageview').length),
         2
+      )
+      await page.locator('#share-wa').click()
+      assert.equal(
+        await page.evaluate(() => events.filter((e) => e.event === 'contact_intent').length),
+        0
+      )
+      await page.locator('#header-wa').click()
+      assert.deepEqual(
+        await page.evaluate(() =>
+          events
+            .filter((e) => e.event === 'contact_intent')
+            .map((e) => [e.properties.channel, e.properties.placement])
+        ),
+        [['whatsapp', 'header']]
       )
       await page.locator('a[href="/tags/שבת"]').click()
       assert.equal(

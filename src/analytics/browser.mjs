@@ -93,7 +93,8 @@ export function startMeasurement(win, entries, sdk) {
           : ['wa.me', 'api.whatsapp.com'].includes(url.hostname)
             ? 'whatsapp'
             : null
-    if (channel) return { kind: 'contact', channel, placement: place }
+    if (channel)
+      return place === 'article_body' ? null : { kind: 'contact', channel, placement: place }
     if (url.origin === win.location.origin) {
       const target = registry.page(url.pathname)
       if (target.type === 'tag_results')
