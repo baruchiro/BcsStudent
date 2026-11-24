@@ -2,6 +2,7 @@
 
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { useEffect } from 'react'
+import posthog from 'posthog-js'
 import { wireBooking } from '@/analytics/booking.mjs'
 
 type CalBookerProps = {
@@ -19,15 +20,9 @@ export default function CalBooker({ eventSlug, username, view = 'month_view' }: 
     ;(async function () {
       const cal = await getCalApi({ namespace: 'consulting' })
       if (cancelled) return
-      cleanup = wireBooking(cal, (event: string, properties: Record<string, string>) => {
-        ;(
-          window as Window & {
-            __siteMeasurement?: {
-              emit: (event: string, properties: Record<string, string>) => void
-            }
-          }
-        ).__siteMeasurement?.emit(event, properties)
-      })
+      cleanup = wireBooking(cal, (event: string, properties: Record<string, string>) =>
+        posthog.capture(event, properties)
+      )
       cal('ui', {
         hideEventTypeDetails: false,
         layout: view,
