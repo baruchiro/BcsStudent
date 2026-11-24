@@ -159,13 +159,7 @@ export default function PostLayout({
                       דיון בטוויטר
                     </Link>
                     {` • `}
-                    <Link
-                      data-measure-resource="code"
-                      data-measure-placement="article_resources"
-                      href={editUrl(filePath)}
-                    >
-                      צפייה ב-GitHub
-                    </Link>
+                    <Link href={editUrl(filePath)}>צפייה ב-GitHub</Link>
                   </div>
                   <iframe
                     src="https://github.com/sponsors/baruchiro/button"
@@ -193,7 +187,7 @@ export default function PostLayout({
                   </div>
                 )}
                 {tags && (
-                  <div data-measure-placement="article_tags" className="py-4 xl:py-8">
+                  <div className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                       תגיות
                     </h2>
@@ -255,9 +249,7 @@ export default function PostLayout({
                           {prev.inSeries ? 'החלק הקודם' : 'המאמר הקודם'}
                         </h2>
                         <div className="link-primary">
-                          <Link data-measure-placement="article_prev" href={`/${prev.path}`}>
-                            {prev.title}
-                          </Link>
+                          <Link href={`/${prev.path}`}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
@@ -267,9 +259,7 @@ export default function PostLayout({
                           {next.inSeries ? 'החלק הבא' : 'המאמר הבא'}
                         </h2>
                         <div className="link-primary">
-                          <Link data-measure-placement="article_next" href={`/${next.path}`}>
-                            {next.title}
-                          </Link>
+                          <Link href={`/${next.path}`}>{next.title}</Link>
                         </div>
                       </div>
                     )}
