@@ -5415,7 +5415,6 @@ __metadata:
     next: 15.5.28
     next-contentlayer2: 0.5.8
     next-themes: ^0.2.1
-    playwright: 1.64.1
     pliny: 0.4.0
     postcss: ^8.5.23
     posthog-js: 1.438.12
@@ -12129,26 +12128,6 @@ __metadata:
   version: 4.0.7
   resolution: "pirates@npm:4.0.7"
   checksum: 3dcbaff13c8b5bc158416feb6dc9e49e3c6be5fddc1ea078a05a73ef6b85d79324bbb1ef59b954cdeff000dbf000c1d39f32dc69310c7b78fbada5171b583e40
-  languageName: node
-  linkType: hard
-
-"playwright-core@npm:1.64.1":
-  version: 1.64.1
-  resolution: "playwright-core@npm:1.64.1"
-  bin:
-    playwright-core: cli.js
-  checksum: 614007bcdeaad5c6ff46465b623a81e0dbcae060f04022ba37e325d10c2eb618a9b70c44da2eb7b0857c80f83fca6db73c53f0600dcdf1d922c7942af1e0b701
-  languageName: node
-  linkType: hard
-
-"playwright@npm:1.64.1":
-  version: 1.64.1
-  resolution: "playwright@npm:1.64.1"
-  dependencies:
-    playwright-core: 1.64.1
-  bin:
-    playwright: cli.js
-  checksum: 74861fdf4087b6d4c33dce1779c977390591d4e76bb590a904018b3823d35b20737b3b8f8bddf8bf32969953b1e9a37f72ab3e33b4b1cebed4b1bcc4a5e62738
   languageName: node
   linkType: hard
 
