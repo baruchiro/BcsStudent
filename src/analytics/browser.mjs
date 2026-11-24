@@ -13,7 +13,6 @@ export function startMeasurement(win, entries, sdk) {
     lastPath,
     suspended = false
   let seen = new Set(),
-    surfaces = new Set(),
     serviceStart = null,
     serviceSeen = false
   const doc = win.document
@@ -56,7 +55,6 @@ export function startMeasurement(win, entries, sdk) {
     lastPath = path
     view = { ...registry.page(path), id: win.crypto.randomUUID() }
     clock = new ActiveClock(now())
-    surfaces = new Set()
     serviceSeen = false
     serviceStart = null
     sdk.capture('$pageview', {
@@ -220,23 +218,6 @@ export function startMeasurement(win, entries, sdk) {
         serviceSeen = true
       }
     } else serviceStart = null
-    if (eligible())
-      for (const a of doc.querySelectorAll('a[href]')) {
-        if (!visible(a)) continue
-        const item = classify(a)
-        if (!item) continue
-        const props = {
-          placement: item.placement,
-          ...(item.tag_key ? { tag_key: item.tag_key } : {}),
-          ...(item.target ? { target_key: item.target.key } : {}),
-          ...(item.resource_type ? { resource_type: item.resource_type } : {}),
-        }
-        const key = JSON.stringify(props)
-        if (!surfaces.has(key)) {
-          emit('surface_exposed', props)
-          surfaces.add(key)
-        }
-      }
   }
   let lastSample = now()
   const timer = win.setInterval(() => {

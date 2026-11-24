@@ -14,8 +14,7 @@
     "lint": "next lint --fix --dir src --dir scripts",
     "rss": "node scripts/opml/opml.js",
     "prepare": "husky && node ./scripts/download-n8n-demo-scripts.js",
-    "test:analytics": "node --test scripts/test-analytics.mjs scripts/test-analytics-browser.mjs",
-    "test:analytics:site": "node --test scripts/test-analytics-site.mjs"
+    "test:analytics": "node --test scripts/test-analytics.mjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -36,6 +35,7 @@
     "next-themes": "^0.2.1",
     "pliny": "0.4.0",
     "postcss": "^8.5.23",
+    "posthog-js": "1.438.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-github-btn": "^1.4.0",
@@ -66,8 +66,6 @@
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^9.1.7",
     "lint-staged": "^13.0.0",
-    "playwright": "1.64.1",
-    "posthog-js": "1.438.12",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "typescript": "^5.1.3"

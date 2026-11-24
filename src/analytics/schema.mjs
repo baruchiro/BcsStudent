@@ -14,7 +14,6 @@ export const placements = [
 ]
 export const eventFields = {
   measurement_view: ['collection_state'],
-  surface_exposed: ['placement', 'tag_key', 'resource_type', 'target_key'],
   tag_selected: ['placement', 'tag_key'],
   navigation_selected: ['placement', 'target_key', 'target_type', 'navigation_context'],
   navigation_confirmed: ['placement', 'source_key', 'target_key', 'transition'],

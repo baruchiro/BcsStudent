@@ -10,37 +10,24 @@ Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://verce
 
 [![Deployed on Vercel](https://vercel.com/button)](https://baruchiro.com/)
 
-## מדדי התנהגות ובדיקות רגרסיה
+## מדדי התנהגות ובדיקות
 
-המימוש שבאתר נמצא ב־`src/analytics` וב־`Measurement`: הוא שולח אירועי צפייה,
-כוונת יצירת קשר, בחירת תגיות ומשאבים, ניווט מאומת וזמן פעילות מוערך דרך
-טעינת PostHog הקיימת. אין SDK נוסף בזמן ריצה, replay או איסוף תוכן טפסים.
-לחיצה אינה פנייה שהתקבלה או הזמנה שאושרה; אלה דורשות אינטגרציית שרת מאומתת
-שאינה מחוברת במימוש הזה.
+המימוש ב־`src/analytics` וב־`Measurement` שולח אירועי צפייה, כוונת יצירת קשר,
+בחירת תגיות ומשאבים, ניווט מאומת וזמן פעילות מוערך, דרך ערכת ה־SDK הרשמית של
+PostHog. מסנן פרטיות (`before_send`) מעביר רק שדות שמוגדרים בסכמה: בלי replay,
+בלי איסוף תוכן טפסים ובלי זיהוי משתמשים. לחיצה אינה פנייה שהתקבלה, ואין ממשק
+שרת למדידת פניות.
 
-הבדיקות הן כלי פיתוח בלבד, לא קוד שנשלח לדפדפן הגולש. תלויות Playwright
-ו־PostHog לבדיקה נמצאות ב־devDependencies בשורש; אין פרויקט QA נפרד.
-תהליך `Analytics regression` מריץ אותן באירועי שינוי קוד ותוכן בבקשת שינוי
-ובענף הראשי. כלי אימות מקור חד־פעמיים הוסרו; בדיקות הרגרסיה נשארות כדי
-לתפוס שבר עתידי בפרטיות, בניווט ובאתחול ה־SDK.
-
-הרצה מקומית עם Node בגרסה 22 ומעלה:
+בדיקות היחידה בודקות את מסנן הפרטיות, אימות הניווט ושעון הפעילות:
 
 ```sh
 node .yarn/releases/yarn-3.6.1.cjs install --immutable --mode=skip-build
-node .yarn/releases/yarn-3.6.1.cjs playwright install chromium
 node .yarn/releases/yarn-3.6.1.cjs test:analytics
-NEXT_PUBLIC_POSTHOG_KEY=public-local-test-key NEXT_TELEMETRY_DISABLED=1 INIT_CWD=$PWD node node_modules/next/dist/bin/next build
-node node_modules/next/dist/bin/next start --hostname 127.0.0.1 -p 4318
-# במסוף נוסף
-ANALYTICS_TEST_URL=http://127.0.0.1:4318 node .yarn/releases/yarn-3.6.1.cjs test:analytics:site
 ```
 
-הבדיקות משתמשות במפתח דמה, מיירטות בקשות חיצוניות ומגישות SDK מקומי מקובע.
-אין להשתמש במפתח אמיתי או בכתובת production/preview לבדיקות.
 מדידת חשיפת השירותים מתבססת על העוגן הציבורי של כותרת השירותים הקיימת,
 ללא סימון מעקב ב־MDX וללא קריאת טקסט מה־DOM. שינוי הכותרת דורש עדכון
-העוגן ב־`browser.mjs`; בדיקת האתר הבנוי תתריע אם הוא חסר.
+העוגן ב־`browser.mjs`.
 
 ## Communities Collection
 

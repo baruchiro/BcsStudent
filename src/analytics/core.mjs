@@ -205,3 +205,29 @@ export class ActiveClock {
     this.activity = now
   }
 }
+
+// Official posthog-js init options carrying the privacy guardrails: no session
+// replay, no person profiles, no IP, masked text/attributes, canonical URLs only.
+export function privacyOptions(win, registry) {
+  return {
+    api_host: 'https://app.posthog.com', // preserve existing pliny endpoint
+    capture_pageview: false, // route owner emits once, including initial view
+    capture_pageleave: true,
+    capture_performance: true,
+    disable_session_recording: true,
+    enable_recording_console_log: false,
+    person_profiles: 'never',
+    save_campaign_params: false,
+    save_referrer: false,
+    advanced_disable_feature_flags: true,
+    disable_surveys: true,
+    disable_product_tours: true,
+    get_current_url: () => 'https://www.baruchiro.com' + registry.page(win.location.pathname).path,
+    ip: false,
+    mask_all_text: true,
+    mask_all_element_attributes: true,
+    // Preserve the existing consent opt-out storage/default; never call opt-in.
+    // No identify, alias, person properties or custom visitor IDs.
+    before_send: (event) => sanitizeEvent(event, registry),
+  }
+}

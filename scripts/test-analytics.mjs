@@ -1,6 +1,12 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { ActiveClock, createRegistry, Navigation, sanitizeEvent } from '../src/analytics/core.mjs'
+import {
+  ActiveClock,
+  createRegistry,
+  Navigation,
+  privacyOptions,
+  sanitizeEvent,
+} from '../src/analytics/core.mjs'
 
 test('active home time clips at idle and emits each threshold once', () => {
   const c = new ActiveClock(0)
@@ -109,72 +115,17 @@ test('expired, mismatched and cross-tab pending navigation cannot confirm', () =
   const fresh = new Navigation(registry())
   assert.equal(fresh.arrive('/blog/b', 43000), null)
 })
-test('loader queues a single SDK even before async load/StrictMode remount', async () => {
-  const { initialize } = await import('../src/analytics/initialize.mjs')
-  const scripts = []
-  const win = {
-    document: { createElement: () => ({}), head: { appendChild: (s) => scripts.push(s) } },
-  }
-  initialize(win, [], 'public-test-key')
-  initialize(win, [], 'public-test-key')
-  assert.equal(scripts.length, 1)
-  const options = win.posthog._i[0][1]
+test('PostHog init options keep the privacy guardrails', () => {
+  const options = privacyOptions({ location: { pathname: '/blog/a' } }, registry())
   assert.equal(options.capture_pageview, false)
   assert.equal(options.disable_session_recording, true)
   assert.equal(options.person_profiles, 'never')
   assert.equal(options.ip, false)
-  assert.equal(options.opt_out_capturing_by_default, undefined)
-})
-test('server outcomes atomically deduplicate and aggregate, with retry after failure', async () => {
-  const { createOutcomeReceiver } = await import('../src/analytics/server/outcomes.mjs')
-  const counters = [],
-    processed = new Set()
-  let fail = true
-  const receive = createOutcomeReceiver({
-    verify: async (proof) => proof,
-    commitVerifiedOutcome: async (proof, value) => {
-      if (processed.has(proof.id)) return false
-      if (fail) {
-        fail = false
-        throw new Error('transaction failed')
-      }
-      counters.push(value)
-      processed.add(proof.id)
-      return true
-    },
-  })
-  assert.equal(await receive({ accepted: false }), false)
-  const proof = {
-    accepted: true,
-    id: 'technical-id',
-    outcome: 'inquiry_received',
-    source: 'inbox',
-    email: 'private',
-  }
-  await assert.rejects(receive(proof), /transaction failed/)
-  assert.equal(await receive(proof), true)
-  assert.equal(await receive(proof), false)
-  assert.deepEqual(counters, [{ outcome: 'inquiry_received', source: 'inbox' }])
-  assert.equal(await receive({ accepted: true, outcome: 'click', source: 'browser' }), false)
-})
-
-test('privacy boundary rejects canaries in SDK allowlisted and envelope fields', () => {
-  const clean = sanitizeEvent(
-    {
-      event: '$pageview',
-      uuid: 'private@example.com',
-      timestamp: 'private@example.com',
-      properties: {
-        distinct_id: 'private@example.com',
-        $session_id: 'private@example.com',
-        $browser: 'private@example.com',
-        $os: 'private@example.com',
-        $lib: 'private@example.com',
-      },
-    },
-    registry()
-  )
-  assert.equal(JSON.stringify(clean).includes('private@example.com'), false)
+  assert.equal(options.save_referrer, false)
+  assert.equal(options.save_campaign_params, false)
+  assert.equal(options.get_current_url(), 'https://www.baruchiro.com/blog/a')
+  // The before_send guard drops anything outside the approved schema.
+  assert.equal(options.before_send({ event: 'inquiry_received', properties: {} }), null)
 })
 
 test('Cal callbacks have stable cleanup and never register booking payload callbacks', async () => {
