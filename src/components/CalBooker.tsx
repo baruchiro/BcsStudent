@@ -2,6 +2,8 @@
 
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { useEffect } from 'react'
+import posthog from 'posthog-js'
+import { wireBooking } from '@/analytics/booking.mjs'
 
 type CalBookerProps = {
   eventSlug: string
@@ -13,13 +15,25 @@ export default function CalBooker({ eventSlug, username, view = 'month_view' }: 
   const calLink = `${username}/${eventSlug}`
 
   useEffect(() => {
+    let cancelled = false
+    let cleanup: (() => void) | undefined
     ;(async function () {
       const cal = await getCalApi({ namespace: 'consulting' })
+      if (cancelled) return
+      cleanup = wireBooking(cal, (event: string, properties: Record<string, string>) =>
+        posthog.capture(event, properties)
+      )
       cal('ui', {
         hideEventTypeDetails: false,
         layout: view,
       })
-    })()
+    })().catch(() => {
+      console.warn('Booking widget initialization failed; booking measurement is unavailable.')
+    })
+    return () => {
+      cancelled = true
+      cleanup?.()
+    }
   }, [view])
 
   return (

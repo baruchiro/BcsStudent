@@ -13,7 +13,8 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir src --dir scripts",
     "rss": "node scripts/opml/opml.js",
-    "prepare": "husky && node ./scripts/download-n8n-demo-scripts.js"
+    "prepare": "husky && node ./scripts/download-n8n-demo-scripts.js",
+    "test:analytics": "node --test scripts/test-analytics.mjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -34,6 +35,7 @@
     "next-themes": "^0.2.1",
     "pliny": "0.4.0",
     "postcss": "^8.5.23",
+    "posthog-js": "1.438.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-github-btn": "^1.4.0",

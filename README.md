@@ -10,6 +10,26 @@ Built with [Next.js](https://nextjs.org/) and deployed on [Vercel](https://verce
 
 [![Deployed on Vercel](https://vercel.com/button)](https://baruchiro.com/)
 
+## מדדי התנהגות ובדיקות
+
+המימוש ב־`src/analytics` וב־`Measurement` שולח אירועי צפייה, כוונת יצירת קשר,
+בחירת תגיות ומשאבים, ניווט מאומת וזמן פעילות מוערך, דרך ערכת ה־SDK הרשמית של
+PostHog. מסנן פרטיות (`before_send`) מעביר רק שדות שמוגדרים בסכמה: בלי replay,
+בלי איסוף תוכן טפסים ובלי זיהוי משתמשים. לחיצה אינה פנייה שהתקבלה, ואין ממשק
+שרת למדידת פניות. מקור ההגעה נשלח בצפיות בלבד: אתר מפנה (כתובת ללא פרמטרים)
+ופרמטרי `utm_*` בערכים בטוחים; בלי מזהי לחיצה כמו `gclid`.
+
+בדיקות היחידה בודקות את מסנן הפרטיות, אימות הניווט ושעון הפעילות:
+
+```sh
+node .yarn/releases/yarn-3.6.1.cjs install --immutable --mode=skip-build
+node .yarn/releases/yarn-3.6.1.cjs test:analytics
+```
+
+מדידת חשיפת השירותים מתבססת על העוגן הציבורי של כותרת השירותים הקיימת,
+ללא סימון מעקב ב־MDX וללא קריאת טקסט מה־DOM. שינוי הכותרת דורש עדכון
+העוגן ב־`browser.mjs`.
+
 ## Communities Collection
 
 To add a new community:

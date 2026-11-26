@@ -144,7 +144,10 @@ export default function PostLayout({
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">
+              <div
+                data-measure-placement="article_body"
+                className="prose max-w-none pb-8 pt-10 dark:prose-invert"
+              >
                 {series && <SeriesBox series={series} />}
                 <IdeaProperties post={content} />
                 {children}
