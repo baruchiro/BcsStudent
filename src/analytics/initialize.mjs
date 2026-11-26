@@ -2,11 +2,11 @@ import posthog from 'posthog-js'
 import { contactChannel, privacyOptions } from './core.mjs'
 
 let started = false
-export function initialize(win, apiKey) {
+export function initialize(win, apiKey, siteUrl) {
   if (started || !apiKey) return
   started = true
   posthog.init(apiKey, {
-    ...privacyOptions(win),
+    ...privacyOptions(win, siteUrl),
     loaded: () => {
       win.document.addEventListener('click', (event) => {
         const anchor = event.target?.closest?.('a[href]')

@@ -1,4 +1,3 @@
-const SITE = 'https://www.baruchiro.com'
 const events = {
   contact_intent: { channel: ['email', 'phone', 'whatsapp'] },
   booking_widget_ready: { placement: ['home_booking'] },
@@ -19,9 +18,9 @@ const sdkNumbers = [
 ]
 
 // Path only: no query string, no hash.
-const canonical = (value) => {
+const canonical = (value, siteUrl) => {
   try {
-    return SITE + new URL(value, SITE).pathname
+    return siteUrl + new URL(value, siteUrl).pathname
   } catch {
     return undefined
   }
@@ -43,7 +42,7 @@ const referringDomain = (value) =>
 
 // Privacy guard run by posthog-js before any event is sent. Everything not
 // listed here is dropped.
-export function sanitizeEvent(event) {
+export function sanitizeEvent(event, siteUrl) {
   if (!event) return null
   const input = event.properties || {}
   const out = { $process_person_profile: false }
@@ -52,11 +51,11 @@ export function sanitizeEvent(event) {
     for (const key of sdkNumbers)
       if (Number.isFinite(input[key]) && input[key] >= 0) out[key] = input[key]
     for (const key of ['$current_url', '$prev_pageview_url']) {
-      const url = canonical(input[key])
+      const url = canonical(input[key], siteUrl)
       if (url && typeof input[key] === 'string') out[key] = url
     }
     if (typeof input.$pathname === 'string')
-      out.$pathname = canonical(input.$pathname)?.slice(SITE.length)
+      out.$pathname = canonical(input.$pathname, siteUrl)?.slice(siteUrl.length)
     if (event.event === '$pageview') {
       const referrer = referrerUrl(input.$referrer)
       if (referrer) out.$referrer = referrer
@@ -83,7 +82,7 @@ export function sanitizeEvent(event) {
 // Official posthog-js options: pageviews on route change, pageleave (time on
 // page and scroll depth), referrer and UTM on pageviews, no autocapture,
 // replay, person profiles or IP.
-export function privacyOptions(win) {
+export function privacyOptions(win, siteUrl) {
   return {
     api_host: 'https://app.posthog.com',
     capture_pageview: 'history_change',
@@ -100,8 +99,8 @@ export function privacyOptions(win) {
     advanced_disable_feature_flags: true,
     disable_surveys: true,
     ip: false,
-    get_current_url: () => canonical(win.location.pathname),
-    before_send: sanitizeEvent,
+    get_current_url: () => canonical(win.location.pathname, siteUrl),
+    before_send: (event) => sanitizeEvent(event, siteUrl),
   }
 }
 

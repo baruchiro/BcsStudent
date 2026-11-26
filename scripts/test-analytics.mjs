@@ -1,6 +1,14 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { contactChannel, privacyOptions, sanitizeEvent } from '../src/analytics/core.mjs'
+import {
+  contactChannel,
+  privacyOptions,
+  sanitizeEvent as sanitize,
+} from '../src/analytics/core.mjs'
+import siteMetadata from '../data/siteMetadata.js'
+
+const { siteUrl } = siteMetadata
+const sanitizeEvent = (event) => sanitize(event, siteUrl)
 
 const id = '01a163cf-c065-79e7-86f0-30f6125c475d'
 
@@ -8,7 +16,7 @@ test('pageleave keeps time and scroll depth, strips URLs query/hash, PII and DOM
   const event = sanitizeEvent({
     event: '$pageleave',
     properties: {
-      $current_url: 'https://www.baruchiro.com/blog/a?email=private#secret',
+      $current_url: `${siteUrl}/blog/a?email=private#secret`,
       $pathname: '/blog/a?email=private',
       $prev_pageview_duration: 12,
       $prev_pageview_max_scroll_percentage: 0.75,
@@ -21,7 +29,7 @@ test('pageleave keeps time and scroll depth, strips URLs query/hash, PII and DOM
     },
   })
   const p = event.properties
-  assert.equal(p.$current_url, 'https://www.baruchiro.com/blog/a')
+  assert.equal(p.$current_url, `${siteUrl}/blog/a`)
   assert.equal(p.$pathname, '/blog/a')
   assert.equal(p.$prev_pageview_duration, 12)
   assert.equal(p.$prev_pageview_max_scroll_percentage, 0.75)
@@ -117,7 +125,7 @@ test('only approved events pass; unknown events and values are dropped', () => {
 })
 
 test('PostHog init options use the SDK features and keep the privacy guardrails', () => {
-  const options = privacyOptions({ location: { pathname: '/blog/a' } })
+  const options = privacyOptions({ location: { pathname: '/blog/a' } }, siteUrl)
   assert.equal(options.capture_pageview, 'history_change')
   assert.equal(options.capture_pageleave, true)
   assert.equal(options.autocapture, false)
@@ -127,7 +135,9 @@ test('PostHog init options use the SDK features and keep the privacy guardrails'
   assert.equal(options.save_referrer, true)
   assert.equal(options.save_campaign_params, true)
   assert.equal(options.mask_personal_data_properties, true)
-  assert.equal(options.get_current_url(), 'https://www.baruchiro.com/blog/a')
+  assert.equal(options.get_current_url(), `${siteUrl}/blog/a`)
+  const other = privacyOptions({ location: { pathname: '/blog/a' } }, 'https://other.example')
+  assert.equal(other.get_current_url(), 'https://other.example/blog/a')
   assert.equal(options.before_send({ event: 'inquiry_received', properties: {} }), null)
 })
 
